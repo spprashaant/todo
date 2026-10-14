@@ -1,0 +1,11 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A"
+  },
+  "gaps": {
+    "desktop": "The loser marks repetition only with a ~8px repeat glyph perched on the top-right edge of the 30px dashed calendar circle in the Due date field, and never states the rule: '26 Aug' is all the text there is, so you cannot tell whether it repeats daily, weekly or monthly without opening a picker. The winner puts a ~14px repeat icon plus the plain-text rule 'Every Monday' (~13px, secondary grey) right beside the bold 'Mon, Aug 26' on the same baseline. Fix: add a readable rule label (e.g. 'Every Monday') next to the date in the field, with the repeat icon at full icon size inline rather than as an overlapping badge."
+  },
+  "why": "Only the winner states the repeat rule in text next to the date; the loser hides it behind a tiny badge on the calendar icon with no rule shown.",
+  "at": "2026-09-26T20:49:57.209Z"
+}

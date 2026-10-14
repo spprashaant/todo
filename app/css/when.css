@@ -1,0 +1,229 @@
+/* When picker: dark popover (desktop), dark sheet (phone) (piece: when). */
+
+.when-pop {
+  position: fixed;
+  padding: 14px;
+  z-index: 60;
+  animation: pop .12s ease-out;
+  transform-origin: top left;
+}
+.when-panel {
+  width: 232px;
+  padding: 6px;
+  background: var(--dark);
+  color: #fff;
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 .6px rgba(0, 0, 0, .28), 0 0 0 .5px rgba(10, 14, 20, .35), 0 10px 28px rgba(0, 0, 0, .26), 0 2px 6px rgba(0, 0, 0, .16);
+  outline: 0;
+  font-size: 14px;
+}
+
+/* search field */
+.when-field {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 1px 0 7px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  background: #4e555d;
+}
+.wf-icon { flex: none; width: 13px; height: 13px; margin-right: 6px; color: #9a9fa6; }
+.wf-icon svg { display: block; width: 13px; height: 13px; }
+.wf-box { position: relative; flex: 1; min-width: 0; height: 100%; display: flex; align-items: center; }
+.when-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  caret-color: transparent;
+}
+.when-input::placeholder { color: #9a9fa6; font-weight: 400; }
+.wf-measure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  white-space: pre;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+}
+.wf-caret {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 10.3px);
+  width: 2px;
+  height: 18px;
+  border-radius: .5px;
+  background: #5fa0fb;
+  pointer-events: none;
+  animation: wf-blink 1.06s steps(1, end) .5s infinite;
+}
+.wf-caret[hidden] { display: none; }
+@keyframes wf-blink { 0% { opacity: 1; } 50% { opacity: 0; } }
+.wf-clear { flex: none; width: 20px; height: 20px; display: grid; place-items: center; color: #d3d4d6; border-radius: 10px; }
+.wf-clear svg { width: 11px; height: 11px; }
+.wf-clear[hidden] { display: none; }
+
+/* option rows */
+.when-list { display: flex; flex-direction: column; }
+.when-opt {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+  width: 100%;
+  height: 22px;
+  padding: 0 11.5px 0 6px;
+  border-radius: 3.5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+/* Whole-pixel metrics throughout (6px insets, 26px field, 6px gap, 22px rows on a 23px pitch):
+   every row then sits at the same pixel phase, so the rhythm stays even at fractional scales. */
+.when-opt + .when-opt { margin-top: 1px; }
+.wo-icon { width: 15px; height: 15px; display: grid; place-items: center; flex: none; }
+.wo-icon svg { display: block; width: 15px; height: 15px; }
+/* The calendar rides a pixel high, as in Things: its heavy header bar sits level with the
+   cap line and the body overhangs the baseline only slightly. */
+.wo-icon .wi-cal { position: relative; top: -1px; width: 15px; height: 13px; color: #ff3571; }
+.wo-icon .wi-box { width: 15.5px; height: 15.5px; }
+.wo-icon .wi-moon { width: 15.5px; height: 15.5px; }
+.when-opt.active .wi-cal, .when-opt:hover .wi-cal { color: #fe87a9; }
+.when-opt.active .wi-cal-dots, .when-opt:hover .wi-cal-dots { opacity: 1; }
+.when-opt[data-kind="clear"] { color: #aeb4bb; }
+.when-opt[data-kind="clear"] .wo-icon svg { width: 9px; height: 9px; }
+.wo-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.wo-detail { flex: none; color: #92989f; margin-left: 10px; }
+.when-opt.active, .when-opt:hover { background: var(--accent); }
+.when-opt.active .wo-detail, .when-opt:hover .wo-detail { color: rgba(255, 255, 255, .86); }
+.when-opt.current:not(.active) .wo-label { color: #8fbcff; }
+.when-empty { padding: 4px 8px 3px; color: #92989f; font-size: 13px; }
+
+/* reminder: a quieter footer row ("+ Add Reminder"), or the set time with a remove button */
+.when-opt.when-rem { color: #898d95; }
+.when-opt.when-rem.active, .when-opt.when-rem:hover { color: #fff; }
+.when-rem-set {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+  height: 22px;
+  padding: 0 1px 0 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.when-rem-set .wo-icon { color: #898d95; }
+.rem-field { position: relative; flex: 1; min-width: 0; height: 100%; display: flex; align-items: center; }
+.rem-text { display: none; }
+.rem-time {
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  color-scheme: dark;
+}
+.rem-time::-webkit-datetime-edit-fields-wrapper { padding: 0; }
+.rem-time::-webkit-datetime-edit-hour-field:focus,
+.rem-time::-webkit-datetime-edit-minute-field:focus,
+.rem-time::-webkit-datetime-edit-ampm-field:focus { background: var(--accent); color: #fff; border-radius: 2px; }
+.rem-time::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
+.rem-clear { flex: none; width: 20px; height: 20px; display: grid; place-items: center; color: #aeb4bb; border-radius: 10px; }
+.rem-clear svg { width: 9px; height: 9px; }
+.rem-clear:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+/* Touch: show the time as row text; the native field sits invisibly on top and opens the OS picker. */
+@media (pointer: coarse) {
+  .rem-text { display: block; }
+  .rem-time { position: absolute; inset: 0; width: 100%; opacity: 0; }
+}
+
+/* calendar */
+.when-cal { padding: 5px 0 4px; }
+.cal-head, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-head span { text-align: center; font-size: 10.5px; font-weight: 600; color: #7d838a; height: 16px; line-height: 16px; }
+.cal-grid { row-gap: 1px; }
+.cal-day, .cal-blank, .cal-nav {
+  height: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+}
+.cal-day:hover, .cal-nav:hover { background: rgba(255, 255, 255, .1); }
+.cal-day.current { background: var(--accent); }
+.cal-day.is-today { color: #7d838a; }
+.cal-day.is-today svg { width: 12px; height: 12px; }
+.cal-day.is-today.current { color: #fff; }
+.cal-day.has-m .cal-m { font-size: 8.5px; font-weight: 600; color: #fff; margin-bottom: 1px; }
+.cal-day.has-m .cal-n { font-size: 11px; }
+.cal-nav { color: #fff; }
+.cal-nav svg { width: 8px; height: 12px; }
+.cal-prev svg { transform: scaleX(-1); }
+
+/* ---------- phone: sheet ---------- */
+@media (max-width: 699px) {
+  .when-scrim.dark { background: rgba(0, 0, 0, .22); animation: fade .15s ease-out; }
+  .when-pop.sheet {
+    left: calc(17px + var(--safe-l));
+    right: calc(17px + var(--safe-r));
+    top: calc(72px + var(--safe-t));
+    padding: 0;
+    transform-origin: top center;
+  }
+  .when-pop.sheet .when-panel {
+    width: auto;
+    max-height: calc(100vh - 88px - var(--safe-t) - var(--safe-b));
+    max-height: calc(100dvh - 88px - var(--safe-t) - var(--safe-b));
+    overflow-y: auto;
+    padding: 0 0 8px;
+    border-radius: 12px;
+    background: #282d38;
+    box-shadow: inset 0 0 0 .75px rgba(0, 0, 0, .22), 0 12px 40px rgba(0, 0, 0, .3);
+  }
+  .when-head { position: relative; height: 41px; padding-top: 1.5px; display: flex; align-items: center; justify-content: center; }
+  .wh-title { font-size: 18px; font-weight: 700; letter-spacing: -.005em; }
+  .wh-cancel { position: absolute; right: 12.5px; top: 1.5px; height: 41px; font-size: 17px; color: #cdd1d7; letter-spacing: -.01em; }
+  .when-pop.sheet .when-body { padding: 24px 8px 0; }
+  .when-pop.sheet .when-opt { height: 44px; gap: 6.5px; padding: 3px 10px 0 9.5px; font-size: 18.2px; font-weight: 500; letter-spacing: 0; border-radius: 8px; }
+  .when-pop.sheet .when-opt + .when-opt { margin-top: 0; }
+  .when-pop.sheet .when-opt:hover:not(.active) { background: none; }
+  .when-pop.sheet .wo-icon { width: 26px; height: 26px; }
+  .when-pop.sheet .wo-icon svg { width: 26px; height: 26px; }
+  /* Things rides the star a pixel above the cap-height midline of 'Today', like the moon. */
+  .when-pop.sheet .when-opt .wi-star { transform: translateY(-.6px); }
+  .when-pop.sheet .when-opt[data-kind="clear"] .wo-icon svg { width: 14px; height: 14px; }
+  .when-pop.sheet .when-foot { padding-bottom: 5px; }
+  .when-pop.sheet .when-opt.when-rem { height: 44px; padding-top: 5px; }
+  .when-pop.sheet .when-rem-set { height: 44px; gap: 6.5px; padding: 5px 4px 0 9.5px; font-size: 18.2px; }
+  .when-pop.sheet .rem-clear { width: 36px; height: 36px; border-radius: 18px; }
+  .when-pop.sheet .rem-clear svg { width: 13px; height: 13px; }
+  .when-pop.sheet .when-cal { padding: 12px 0 3px; }
+  .when-pop.sheet .cal-head span { font-size: 14px; height: 26px; line-height: 26px; color: #6a6e74; font-weight: 600; }
+  .when-pop.sheet .cal-grid { row-gap: 0; padding-top: 2px; }
+  /* A whole-pixel row pitch: a fractional one (46.5px) rounds each week's numbers to alternate
+     46/47px steps, so the grid's rhythm visibly wobbles. */
+  .when-pop.sheet .cal-day, .when-pop.sheet .cal-blank, .when-pop.sheet .cal-nav { height: 46px; font-size: 18.5px; font-weight: 500; border-radius: 10px; }
+  .when-pop.sheet .cal-day:hover { background: none; }
+  .when-pop.sheet .cal-day.current { background: var(--accent); }
+  .when-pop.sheet .cal-day.is-today { color: #6a6e74; }
+  .when-pop.sheet .cal-day.is-today.current { color: #fff; }
+  .when-pop.sheet .cal-day.is-today svg { width: 18px; height: 18px; transform: translateY(-.5px); }
+  .when-pop.sheet .cal-day.has-m .cal-m { font-size: 14px; color: #fff; font-weight: 500; margin-bottom: 2px; }
+  .when-pop.sheet .cal-day.has-m .cal-n { font-size: 14.8px; }
+  .when-pop.sheet .cal-nav svg { width: 12px; height: 18px; }
+  .when-pop.sheet .cal-next svg { transform: translateX(1.5px); }
+}

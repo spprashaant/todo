@@ -1,0 +1,11 @@
+Generated with the built-in image_gen tool.
+
+Use case: logo-brand
+Asset type: a finished square YouTube channel profile picture for "The Coderlog", a software development teaching channel covering React, useEffect, NestJS, TypeScript and backend development.
+Primary request: Create an exceptionally well-designed, distinctive, simple developer brand avatar, ready to upload, using the channel's charcoal and cyan visual identity.
+Scene/backdrop: solid near-black charcoal (#101419) filling the entire square, opaque background.
+Subject: ONE large centered custom geometric C monogram, constructed as a thick cyan terminal-like enclosure, with an ivory terminal prompt chevron and short amber underscore cursor inside it. The C should read clearly as the letter C, open on the right, with precision-cut angular corners and confident thick strokes. The prompt should read visually as >_ and be clean and subordinate to the C. Design all three elements as one cohesive, beautifully balanced emblem.
+Style/medium: premium contemporary flat graphic identity, crisp vector-like edges, optically balanced custom geometry, confident editorial tech aesthetic, mostly flat color.
+Composition/framing: square 1:1, front-facing emblem only. The complete symbol fills approximately 65% of the canvas width and height, centered with generous charcoal breathing room, fully contained in the central circular safe area. Must read clearly at 32 pixels as well as large size.
+Color palette: rich bright cyan (#49D6E8) for the C, warm ivory (#F3F5F2) for the chevron, tiny amber (#F5AF47) underscore cursor. High contrast.
+Constraints: deliver the actual profile image, not a mockup, not a sheet of logo options. One emblem only. No channel-name text, no tagline, no border ring, no outer circular badge, no decorative particles, no technology brand logos, no gradients in the background, no glow, no circuitry, no laptop, no mascot, no watermark. The result should look like a carefully crafted enduring brand mark, with excellent spacing and clear silhouette.

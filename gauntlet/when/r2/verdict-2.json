@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser draws the right-hand date column (Thu, Jun 8 / Fri, Aug 18) in a dimmer grey, about rgb(137,141,152) on the rgb(43,50,60) popover, roughly 3.9:1, so the resolved dates recede too far. The winner uses about rgb(150,157,167), close to native secondaryLabel (~55% white), roughly 4.7:1. Layout, 37-38px row pitch, 11px highlight inset and ~20px right inset are otherwise identical.",
+    "phone": "The loser ends the sheet at Someday with no '+ Add Reminder' row. The sheet lacks the reminder affordance, and the Someday row sits only ~26px above the bottom edge, so the sheet stops abruptly. The winner adds a quiet grey (about rgb(135,139,150)) '+ Add Reminder' row ~59px below Someday. Its plus glyph sits in the 25-52px icon column, its label lines up with the ~67px text column, and it leaves a ~32px bottom inset."
+  },
+  "why": "The pairs are near pixel-identical. Desktop was decided by secondary date-text contrast, and phone by the loser's missing Add Reminder row and its cramped bottom.",
+  "at": "2026-09-26T04:26:56.562Z"
+}

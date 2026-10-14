@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "In the loser the text caret in the search field sits about 3px too far left and lands on the right bowl of the typed 'o' (caret at x~69-71 over a glyph ending at x~71), so the query reads as 'tc'. The winner draws the 2px blue caret 1-2px clear of the last glyph (x~73). The loser's 'Build a Treehouse' ring is also a paler dashed outline (~#A9AAAE) where the winner uses the same solid ~#8A8B90 ring as the other rows.",
+    "phone": "The loser's empty-state hint ('Quickly switch lists, find to-dos, search for tags...') is a washed-out grey (~#AEAEB0 on the #F9F9FB sheet, about 2.2:1 contrast, ~18% less ink). The winner uses ~#9C9C9E (about 2.8:1). The loser's Cancel (~#505052 vs ~#3F3F41) and 'Quick Find' placeholder (~#8B8F96 vs ~#818388) are paler too, so the only guidance on the empty panel nearly fades out."
+  },
+  "why": "Layouts are pixel-identical. On desktop the loser's caret collides with the typed text. On phone the loser's paler hint, placeholder and Cancel text have weaker contrast.",
+  "at": "2026-09-26T05:38:04.799Z"
+}

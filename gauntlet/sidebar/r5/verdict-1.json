@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser adds a redundant grey 'Todos' section header (~12-13px, ~#9b9ba0) about 30px above Inbox. It repeats the app name, labels only the first group, and is lighter than the bold dark area headers (Family/Work) below it, which inverts the hierarchy and pushes the whole list down 30px. The winner opens directly on Inbox with no label. Remove the header, or use the same style for every group.",
+    "phone": "The loser's lists home has no create control in view. The winner floats a ~52px blue (#5796FF) circular + button with a white glyph, inset ~17px from the bottom-right edge. The loser shows nothing, so you cannot see how to add a list or to-do from this screen. The loser also leaves a grey (#E1E5E8) highlight on the Today row, which on a phone home makes Today look active when nothing is open."
+  },
+  "why": "Both pairs are close to pixel-identical. The winners drop needless chrome (redundant Todos header on desktop, stale Today highlight on phone) and keep the primary add affordance on phone.",
+  "at": "2026-09-26T20:45:28.288Z"
+}

@@ -1,0 +1,610 @@
+{
+  "pieces": [
+    {
+      "id": "today",
+      "title": "Today list — rows",
+      "judge": "The to-do rows of the Today list: checkbox, title, project subtitle, deadline flag, notes/checklist glyphs, the This Evening section heading, spacing and rhythm.",
+      "owns": [
+        "app/css/rows.css",
+        "app/js/rows.js"
+      ],
+      "refs": {
+        "desktop": "bar/2-today-mac.png",
+        "phone": "bar/2-today-iphone.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/today-desktop.png",
+          "seed": "gauntlet/seeds/today-desktop.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/today",
+          "viewport": {
+            "width": 900,
+            "height": 720
+          },
+          "dsf": 2,
+          "actions": [],
+          "capture": {
+            "selector": "[data-shot=list-body]"
+          },
+          "settle": 800,
+          "note": "Source bar/2-today-mac.png, crop x100 y520 w800 h878: window interior below the calendar-events block (cut, a web app has none) down to the window's bottom edge; title bar and 'Today' header excluded, so capture is list-body. Scale: traffic lights 40px apart (20pt) = 2.0 px/pt; row cap height 19.7px = 9.85pt = SF 14pt body, so dsf 2. Things' window is only 400pt wide (no sidebar); ours is 900 CSS wide with the sidebar, so our list-body is wider. Seed: 6 today rows + 3 This Evening in ref order; 'Finish expense report' has deadline today (flag 'today'); notes on nutrition/party, checklist on party; subtitles are project or area names."
+        },
+        "phone": {
+          "ref": "bar/crops/today-phone.png",
+          "seed": "gauntlet/seeds/today-phone.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/today",
+          "viewport": {
+            "width": 375,
+            "height": 646
+          },
+          "dsf": 1.3333333333,
+          "actions": [],
+          "capture": {
+            "selector": "[data-shot=list-body]"
+          },
+          "settle": 800,
+          "note": "Source bar/2-today-iphone.png, crop x0 y330 w500 h558: below the calendar-events block to the screen bottom (includes the floating + button, app UI). 500x888 ref = 375x666pt at 4/3; list-row cap height 16px = 12pt = SF 17pt body. iOS status bar (20pt = 27px) cropped off, so viewport 375x646 CSS at dsf 4/3. Seed: 4 today rows + 3 This Evening in ref order, deadline today on 'Finish expense report'."
+        }
+      }
+    },
+    {
+      "id": "project",
+      "title": "Project view",
+      "judge": "A project page: progress-pie icon + title + more button, project notes, the filter pills, blue section headings with rule and more button, rows with tags, date badges and today-star.",
+      "owns": [
+        "app/css/project.css",
+        "app/js/project.js"
+      ],
+      "refs": {
+        "desktop": "bar/11-slimmode-mac.jpg",
+        "phone": "bar/6-magicplus-1.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/project-desktop.png",
+          "seed": "gauntlet/seeds/project-desktop.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/project/p_pres/active",
+          "viewport": {
+            "width": 900,
+            "height": 640
+          },
+          "dsf": 1.775,
+          "actions": [],
+          "capture": {
+            "selector": "[data-shot=content]"
+          },
+          "settle": 800,
+          "note": "Source bar/11-slimmode-mac.jpg content pane, crop x531 y130 w913 h1084 (below the window's copy button, inside the rounded corners; sidebar and mouse pointer excluded). Scale: traffic lights 35.5px apart = 1.775 px/pt; row cap 16.8px ~ 9.5pt, and 'Print handouts for attendees' = 188pt wide as in every other Mac ref, so SF 14pt body at dsf 1.775. Things window is 727x640pt, so viewport height 640. Route uses /active: the seed has 7 completed to-dos so the pie reads ~44% like the ref; Things has already logged them, and our app would otherwise list them dimmed under All. Consequence: our selected pill is 'Active', where Things' is 'All' (tag pills are replaced by All/Active/Completed by contract). now = Thu May 18 so 'Print handouts' when = May 25 renders as 'May 25', as in the ref."
+        },
+        "phone": {
+          "ref": "bar/crops/project-phone.png",
+          "seed": "gauntlet/seeds/project-phone.json",
+          "now": "2017-05-10T09:41:00-04:00",
+          "route": "#/project/p_rome/active",
+          "viewport": {
+            "width": 375,
+            "height": 646
+          },
+          "dsf": 1.3333333333,
+          "actions": [],
+          "capture": {
+            "selector": "[data-shot=content]"
+          },
+          "settle": 800,
+          "note": "Source bar/6-magicplus-1.png, crop x0 y27 w500 h861: whole screen below the status bar, including the nav bar and floating + button. 500x888 ref = 375x666pt at 4/3; list-row cap height 16px = 12pt = SF 17pt body. iOS status bar (20pt = 27px) cropped off, so viewport 375x646 CSS at dsf 4/3. Headings in ref order: Things to buy, Planning, Things to do; Errand tag + notes on the two 'buy' rows; star (when today) on 'Borrow Sarah's travel guide'. /active hides the 3 completed to-dos that give the ~27% pie. Things iPhone shows no pills here; ours will show All/Active/Completed."
+        }
+      }
+    },
+    {
+      "id": "sidebar",
+      "title": "Sidebar / lists home",
+      "judge": "Navigation: Inbox, Today (with badge counts), Upcoming, Anytime, Someday, Logbook, areas and their projects with progress pies, selection state, New List footer. On phone this is the lists home screen.",
+      "owns": [
+        "app/css/sidebar.css",
+        "app/js/sidebar.js"
+      ],
+      "refs": {
+        "desktop": "bar/whatsnew-collage.png",
+        "phone": "bar/whatsnew-collage.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/sidebar-desktop.png",
+          "seed": "gauntlet/seeds/sidebar-desktop.json",
+          "now": "2022-10-04T09:41:00-04:00",
+          "route": "#/project/p_pres",
+          "viewport": {
+            "width": 900,
+            "height": 730
+          },
+          "dsf": 1.5,
+          "actions": [],
+          "capture": {
+            "selector": "[data-shot=sidebar]"
+          },
+          "settle": 800,
+          "note": "Ref swapped from 11-slimmode-mac.jpg (JPEG, mouse pointer over the sidebar, lists Trash, which we don't have) to the Mac window in bar/whatsnew-collage.png: crop x724 y145 w313 h1035, the sidebar below the traffic lights down to the New List footer. Scale: traffic lights 30px apart = 1.5 px/pt; sidebar cap 15px = 10pt = SF 14pt, so dsf 1.5. Window is 730pt tall. Seed: Inbox 2; Today 8 with 1 deadline-today (badges 1 and 8); areas Family/Work/Hobbies with the 9 projects in ref order, completed to-dos sized so the pies read Rome 25%, Car 45%, Party 37%, Presentation 45%, James 40%, Conference 20%, T-Shirts 37%, Italian 60%, Marathon 17%. Prepare Presentation selected via route."
+        },
+        "phone": {
+          "ref": "bar/crops/sidebar-phone.png",
+          "seed": "gauntlet/seeds/sidebar-phone.json",
+          "now": "2022-10-04T09:41:00-04:00",
+          "route": "#/lists",
+          "viewport": {
+            "width": 360,
+            "height": 576
+          },
+          "dsf": 1.1,
+          "actions": [],
+          "capture": {
+            "selector": "[data-shot=sidebar]"
+          },
+          "settle": 800,
+          "note": "bar/ has no iPhone lists screen, so this uses the iPad sidebar in bar/whatsnew-collage.png: crop x163 y1352 w363 h633, from below the iPad status bar to above the cut-off Work row. Scale: row cap 13.2px vs 12pt cap for SF 17pt = 1.1 px/pt, so dsf 1.1. The iPad sidebar is 330pt wide; the viewport is 360 wide (smallest common Android width) x 576, which is the ref's full height. Same seed as sidebar-desktop. In Things, Today is selected (iPad); our #/lists has no selection."
+        }
+      }
+    },
+    {
+      "id": "detail",
+      "title": "Open to-do (detail card)",
+      "judge": "A to-do opened for editing: the lifted card, title field, notes, checklist items, the when/tags/deadline action icons, and how it sits in the list.",
+      "owns": [
+        "app/css/detail.css",
+        "app/js/detail.js"
+      ],
+      "refs": {
+        "desktop": "bar/5-checklists-mac-2.png",
+        "phone": "bar/5-checklists-iphone.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/detail-desktop.png",
+          "seed": "gauntlet/seeds/detail-desktop.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/project/p_pres/active",
+          "viewport": {
+            "width": 900,
+            "height": 760
+          },
+          "dsf": 1.65,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Update slide layouts\")"
+            },
+            {
+              "eval": "(() => { const card = document.querySelector('[data-shot=detail]'); if (!card) return; const txt = e => ((e.value ?? e.textContent) || '').trim(); const fields = () => [...card.querySelectorAll('input:not([type=checkbox]), textarea, [contenteditable]:not([contenteditable=false])')]; let f = fields().find(e => txt(e) === 'Animate th'); if (!f) { const el = [...card.querySelectorAll('*')].find(e => e.children.length === 0 && txt(e) === 'Animate th'); if (el) el.click(); f = fields().find(e => txt(e) === 'Animate th'); } if (f) { f.focus(); if (typeof f.setSelectionRange === 'function') f.setSelectionRange(f.value.length, f.value.length); } })()"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=list-body]"
+          },
+          "settle": 1000,
+          "note": "Source bar/5-checklists-mac-2.png, crop x94 y430 w812 h792: the list below the filter pills to the window bottom (heading, row, open card, two rows), so the comparison shows how the card sits in the list. Scale: traffic lights 33px apart = 1.65 px/pt; row cap 16.3px = 9.9pt = SF 14pt, so dsf 1.65. Seed holds only the 'Slides and notes' rows in view. The card has the ref's notes (including its typo) and 4 checklist items, the last titled 'Animate th'. The eval focuses that item with the caret at the end, which is the ref's mid-typing state; it is a no-op if no field is found. /active hides the completed to-dos behind the pie."
+        },
+        "phone": {
+          "ref": "bar/crops/detail-phone.png",
+          "seed": "gauntlet/seeds/detail-phone.json",
+          "now": "2017-05-10T09:41:00-04:00",
+          "route": "#/project/p_sales/active",
+          "viewport": {
+            "width": 375,
+            "height": 646
+          },
+          "dsf": 1.3333333333,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Update slide layouts\")"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=detail]",
+            "pad": 12
+          },
+          "settle": 800,
+          "note": "Source bar/5-checklists-iphone.png, crop x0 y261 w500 h461: the full-width card (y277-705) plus 16px (12pt) of the dimmed surround, matching pad 12. Excluded are the dimmed header above and the Move/trash toolbar that overlaps the rows below. 500x888 ref = 375x666pt at 4/3; list-row cap height 16px = 12pt = SF 17pt body. iOS status bar (20pt = 27px) cropped off, so viewport 375x646 CSS at dsf 4/3. Project 'Sales Presentation' as in the ref; card: notes + 3 checklist items; no when, tags or deadline, so all three action icons show."
+        }
+      }
+    },
+    {
+      "id": "when",
+      "title": "When picker",
+      "judge": "Scheduling a to-do: the When popover/sheet — Today, This Evening, calendar grid, Someday, natural-language date suggestions.",
+      "owns": [
+        "app/css/when.css",
+        "app/js/when.js"
+      ],
+      "refs": {
+        "desktop": "bar/8-jumpstart-mac.png",
+        "phone": "bar/8-jumpstart-iphone.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/when-desktop.png",
+          "seed": "gauntlet/seeds/when-desktop.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/project/p_pres/active",
+          "viewport": {
+            "width": 900,
+            "height": 720
+          },
+          "dsf": 1.65,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Revise introduction\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            },
+            {
+              "type": [
+                "[data-shot=when] input:visible",
+                "in 3"
+              ]
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=when]"
+          },
+          "settle": 800,
+          "note": "Source bar/8-jumpstart-mac.png, crop x175 y495 w385 h186: the dark When popover exactly (its bounding box), typed 'in 3'. Scale: traffic lights 33px apart = 1.65 px/pt (same window as 5-checklists), so dsf 1.65. now = Thu 2017-05-18, which makes the ref's suggestions come out right: in 3 days = Sun, in 3 weeks = Thu, Jun 8, in 3 months = Fri, Aug 18. The to-do being scheduled is 'Revise introduction' (first row under Slides and notes, as in the ref)."
+        },
+        "phone": {
+          "ref": "bar/crops/when-phone.png",
+          "seed": "gauntlet/seeds/when-phone.json",
+          "now": "2017-05-10T09:41:00-04:00",
+          "route": "#/project/p_rome/active",
+          "viewport": {
+            "width": 375,
+            "height": 646
+          },
+          "dsf": 1.3333333333,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Extra camera battery\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=when]"
+          },
+          "settle": 800,
+          "note": "Source bar/8-jumpstart-iphone.png, crop x24 y124 w457 h642: the 'When?' sheet exactly (dim backdrop, nav bar and keyboard-free list excluded). 500x888 ref = 375x666pt at 4/3; list-row cap height 16px = 12pt = SF 17pt body. iOS status bar (20pt = 27px) cropped off, so viewport 375x646 CSS at dsf 4/3. now = Wed 2017-05-10: the ref's grid puts the today-star on Wed, then Thu 11 to Fri Jun 2. The to-do ('Extra camera battery', Vacation in Rome, as behind the sheet in the ref) has no when, so nothing is checked. 'Add Reminder' has no equivalent in our data model."
+        }
+      }
+    },
+    {
+      "id": "quickfind",
+      "title": "Quick Find",
+      "judge": "The search/jump panel: field, placeholder and hint, results for lists and to-dos, keyboard selection.",
+      "owns": [
+        "app/css/quickfind.css",
+        "app/js/quickfind.js"
+      ],
+      "refs": {
+        "desktop": "bar/7-quickfind-mac.png",
+        "phone": "bar/7-quickfind-iphone-a.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/quickfind-desktop.png",
+          "seed": "gauntlet/seeds/quickfind-desktop.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/project/p_pres/active",
+          "viewport": {
+            "width": 900,
+            "height": 640
+          },
+          "dsf": 1.65,
+          "actions": [
+            {
+              "click": "[data-action=quickfind]:visible"
+            },
+            {
+              "type": [
+                "[data-shot=quickfind] input:visible",
+                "to"
+              ]
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=quickfind]"
+          },
+          "settle": 800,
+          "note": "Source bar/7-quickfind-mac.png, crop x257 y95 w490 h502: the Quick Find panel just inside its 1px border (so no list text shows at the corners), typed 'to'. Scale: traffic lights 33px apart = 1.65 px/pt, so dsf 1.65. Seed has every list Things shows (Today with badges 1/8; Throw Party for Eve, Vacation in Rome, Attend Conference, Run a Marathon, Build a Treehouse, Prepare Presentation, which is current so it gets the check). Exactly 3 to-dos contain 'to' as a substring, in Things' order: Share photo album, Email everyone for photos, Arrive early to test IT's setup. Things matches fuzzily (t...o); substring matching finds only Today among the lists. Build a Treehouse is a Someday project in Things (dashed pie), which our model cannot express."
+        },
+        "phone": {
+          "ref": "bar/crops/quickfind-phone.png",
+          "seed": "gauntlet/seeds/quickfind-phone.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/project/p_pres/active",
+          "viewport": {
+            "width": 375,
+            "height": 646
+          },
+          "dsf": 1.3333333333,
+          "actions": [
+            {
+              "click": "[data-action=quickfind]:visible"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=quickfind]"
+          },
+          "settle": 800,
+          "note": "Source bar/7-quickfind-iphone-a.png, crop x24 y59 w453 h305: the empty Quick Find panel (field with placeholder and caret, Cancel, hint text). The status bar, dimmed list and on-screen keyboard are excluded. 500x888 ref = 375x666pt at 4/3; list-row cap height 16px = 12pt = SF 17pt body. iOS status bar (20pt = 27px) cropped off, so viewport 375x646 CSS at dsf 4/3. Opened from the Prepare Presentation project, as in the ref's background."
+        }
+      }
+    },
+    {
+      "id": "composer",
+      "title": "New to-do (composer)",
+      "judge": "Creating a new to-do: the new-to-do entry as it opens and is typed into, the add affordance (toolbar + on desktop, floating + button on phone).",
+      "owns": [
+        "app/css/composer.css",
+        "app/js/composer.js"
+      ],
+      "refs": {
+        "desktop": "bar/1-design-hotels-3-mac-2.mp4",
+        "phone": "bar/6-magicplus-1.mp4"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/composer-desktop.png",
+          "seed": "gauntlet/seeds/composer-desktop.json",
+          "now": "2017-05-18T09:41:00-04:00",
+          "route": "#/",
+          "viewport": {
+            "width": 900,
+            "height": 640
+          },
+          "dsf": 2,
+          "actions": [
+            {
+              "click": "[data-action=new-todo]:visible"
+            },
+            {
+              "type": [
+                "[data-shot=composer] input:visible:not([type=checkbox]), input[data-shot=composer], [data-shot=composer] textarea:visible",
+                "Book hotels"
+              ]
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=composer]",
+            "pad": 16
+          },
+          "settle": 800,
+          "note": "Frame bar/frames/composer-mac-t2.80.png (t=2.80s of bar/1-design-hotels-3-mac-2.mp4): new to-do card with 'Book hotels' just typed, caret, empty Notes placeholder, when/tags/checklist/deadline icons. Crop x30 y56 w900 h331 = card (x62-897, y88-354) + 32px = pad 16 CSS at 2x. Scale: no window chrome in the video; title cap 19.6px equals 2-today-mac's at 2.0, so dsf 2 (card is 418pt wide). Created in the Inbox, so no when chip. Things' video shows the card alone on a grey backdrop; our pad shows whatever is around our composer."
+        },
+        "phone": {
+          "ref": "bar/crops/composer-phone.png",
+          "seed": "gauntlet/seeds/composer-phone.json",
+          "now": "2017-05-10T09:41:00-04:00",
+          "route": "#/project/p_rome/active",
+          "viewport": {
+            "width": 375,
+            "height": 646
+          },
+          "dsf": 1.3333333333,
+          "actions": [
+            {
+              "click": "[data-action=new-todo]:visible"
+            },
+            {
+              "type": [
+                "[data-shot=composer] input:visible:not([type=checkbox]), input[data-shot=composer], [data-shot=composer] textarea:visible",
+                "Buy suitcase"
+              ]
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=composer]",
+            "pad": 12
+          },
+          "settle": 800,
+          "note": "Frame bar/frames/composer-iphone-t5.10.png (t=5.10s of bar/6-magicplus-1.mp4): the full-width new to-do card in Vacation in Rome with 'Buy suitcase' typed, caret, Notes placeholder and 4 icons. Crop x0 y336 w499 h240 = card (y352-559) + 16px = pad 12 CSS at 4/3. The last pixel column is dropped because it is an encoder black line. Keyboard, dimmed list and keyboard-dismiss button excluded. 500x888 ref = 375x666pt at 4/3; list-row cap height 16px = 12pt = SF 17pt body. iOS status bar (20pt = 27px) cropped off, so viewport 375x646 CSS at dsf 4/3. Things' composer title is ~20pt here (cap 18.7px). The floating + is hidden while the composer is open, as in Things."
+        }
+      }
+    },
+    {
+      "id": "repeat-picker",
+      "bar": "Asana",
+      "title": "Repeat controls",
+      "judge": "Setting how a to-do repeats, inside the date picker: the Repeats row and its current kind, the fields for that kind (the interval after completion, weekday toggles, monthly nth weekday or day), the list of repeat kinds, and the controls that turn repeating on and off. Judge craft and how clearly each state says what will happen.",
+      "owns": [
+        "app/js/repeat.js",
+        "app/css/repeat.css",
+        "the repeat parts of app/js/when.js and app/css/when.css"
+      ],
+      "refs": {
+        "after": "bar/asana/community/asana-community-2022-periodically-days-after-completion.jpeg",
+        "weekly": "bar/asana/asana-video-2023-weekly-panel.png",
+        "monthly": "bar/asana/asana-video-2023-monthly-on-the-last-friday.png",
+        "kinds": "bar/asana/asana-repeat-menu.png",
+        "phone": "bar/asana/community/asana-mobile-repeat-ios-community-2024.png"
+      },
+      "shots": {
+        "after": {
+          "ref": "bar/crops/repeat-after-desktop.png",
+          "seed": "gauntlet/seeds/repeat-after-desktop.json",
+          "now": "2022-10-16T09:41:00-04:00",
+          "route": "#/project/p_home",
+          "viewport": {
+            "width": 900,
+            "height": 800
+          },
+          "dsf": 2,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Water the plants\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=repeat]"
+          },
+          "settle": 800,
+          "note": "Source: forum.asana.com user screenshot (2022, same layout as Asana's 2023 official frames), 2x retina: date picker 576px = 288pt. Crop x12 y640 w552 h305: the Repeats section below the calendar ('Repeats Periodically' / 'Days after completion 7') and the picker footer (time icon, active repeat icon, Clear all). Seed: 'Water the plants' repeats 7 days after completion, due Mon Oct 17 2022; today Sun Oct 16."
+        },
+        "weekly": {
+          "ref": "bar/crops/repeat-weekly-desktop.png",
+          "seed": "gauntlet/seeds/repeat-weekly-desktop.json",
+          "now": "2023-09-11T09:41:00-04:00",
+          "route": "#/project/p_meet",
+          "viewport": {
+            "width": 900,
+            "height": 800
+          },
+          "dsf": 1.5,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Complete section for Operations Sync\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=repeat]"
+          },
+          "settle": 800,
+          "note": "Source: official 'What's New in Asana, September 2023' video frame (1080p); the date picker is 437px for a ~288pt picker, so ~1.5 px/pt. Crop x1070 y705 w435 h270: 'Repeats Weekly', 'On these days' S-S with F checked, footer (a mouse cursor sits under 'Weekly'). Seed: repeats every week on Friday, due Fri Sep 29 2023; today Mon Sep 11."
+        },
+        "monthly": {
+          "ref": "bar/crops/repeat-monthly-desktop.png",
+          "seed": "gauntlet/seeds/repeat-monthly-desktop.json",
+          "now": "2023-09-11T09:41:00-04:00",
+          "route": "#/project/p_meet",
+          "viewport": {
+            "width": 900,
+            "height": 800
+          },
+          "dsf": 1.5,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Complete section for Operations Sync\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=repeat]"
+          },
+          "settle": 800,
+          "note": "Source: same official video, ~1.5 px/pt. Crop x1070 y718 w435 h250: 'Repeats Monthly', 'On the [Last] [Friday]' selected, 'On day [Last]' unselected, footer with Clear all (a mouse cursor sits by 'On day'). Seed: repeats monthly on the last Friday, due Fri Sep 29 2023."
+        },
+        "kinds": {
+          "ref": "bar/crops/repeat-menu-desktop.png",
+          "seed": "gauntlet/seeds/repeat-weekly-desktop.json",
+          "now": "2023-09-11T09:41:00-04:00",
+          "route": "#/project/p_meet",
+          "viewport": {
+            "width": 900,
+            "height": 800
+          },
+          "dsf": 1.5,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Complete section for Operations Sync\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            },
+            {
+              "click": "[data-shot=repeat] [data-action=repeat-type]"
+            }
+          ],
+          "capture": {
+            "selectors": [
+              "[data-shot=repeat]",
+              "[data-shot=repeat-kinds]"
+            ],
+            "pad": 4
+          },
+          "settle": 800,
+          "note": "Source: same official video, ~1.5 px/pt. Crop x1072 y712 w588 h322: the Repeats section with its kind list open (Daily, Weekly checked, Monthly, Yearly, then 'Periodically' cut off by the frame; Asana's list continues with Custom). A hand cursor sits on the Weekly button. Capture: the union of our repeat section and the open list of kinds."
+        },
+        "phone": {
+          "ref": "bar/crops/repeat-after-phone.png",
+          "seed": "gauntlet/seeds/repeat-after-phone.json",
+          "now": "2024-03-28T21:46:00-04:00",
+          "route": "#/today",
+          "viewport": {
+            "width": 320,
+            "height": 548
+          },
+          "dsf": 2,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Water the plants\")"
+            },
+            {
+              "click": "[data-shot=detail] [data-action=when]"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=repeat]"
+          },
+          "settle": 800,
+          "note": "Source: forum.asana.com user screenshot of Asana for iOS (2024, dark), iPhone SE 320x568pt at 2x. Crop x0 y985 w640 h120: the repeat row of the date sheet ('R...' truncated, '4 days after completion') under a divider. No official Asana mobile image exists. Seed: 'Water the plants' repeats 4 days after completion, due today (Thu Mar 28 2024)."
+        }
+      }
+    },
+    {
+      "id": "repeat-marker",
+      "bar": "Asana",
+      "title": "A repeating to-do, opened",
+      "judge": "How an open to-do shows that it repeats: the title, the date with its repeat marker and rule, the other fields around them, and how quickly you can tell when it is due and how it repeats.",
+      "owns": [
+        "the repeat marker parts of app/js/detail.js, app/css/detail.css, app/js/rows.js and app/css/rows.css"
+      ],
+      "refs": {
+        "desktop": "bar/asana/asana-guide-2020-detail-repeat-badge.png"
+      },
+      "shots": {
+        "desktop": {
+          "ref": "bar/crops/repeat-marker-desktop.png",
+          "seed": "gauntlet/seeds/repeat-marker-desktop.json",
+          "now": "2019-08-19T09:41:00-04:00",
+          "route": "#/project/p_cs",
+          "viewport": {
+            "width": 900,
+            "height": 760
+          },
+          "dsf": 1,
+          "actions": [
+            {
+              "dblclick": ".todo-list li label:has-text(\"Press release on acquisition\")"
+            }
+          ],
+          "capture": {
+            "selector": "[data-shot=detail]",
+            "pad": 12
+          },
+          "settle": 800,
+          "note": "Source: official asana.com/guide image (2020 UI), 1x. Crop x722 y160 w568 h210: the task detail header: title 'Press release on acquisition', Assignee, 'Due date' field '26 Aug' with the small repeat glyph above its calendar icon (a hand cursor on it), Projects. The best official image of Asana's repeat marker; the 2023 one (asana-row-repeat-icon.png) is only 600px wide. Seed: repeats every week on Monday, due Mon Aug 26 2019; today Mon Aug 19."
+        }
+      }
+    },
+    {
+      "id": "recur-engine",
+      "bar": "Asana",
+      "kind": "behaviour",
+      "title": "Repeat engine",
+      "judge": "Completing, unticking, deleting and clearing repeating to-dos through every path in the real UI never duplicates or loses an occurrence, and follows gauntlet/CONTRACT.md 'Repeating to-dos'. Judged by node tools/recur-check.mjs plus adversarial testers.",
+      "owns": [
+        "app/js/store.js (the repeat parts)",
+        "app/js/recur.js"
+      ],
+      "shots": {}
+    }
+  ]
+}

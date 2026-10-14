@@ -1,0 +1,7 @@
+{
+  "critic": 1,
+  "broken": false,
+  "gap": "discarded on verification: reproduces (3/3), but it is the contract's own store.allCompleted rule (an open occurrence counts with the completed one whose nextId it is) plus the click-flips-that-state and reopen-several rules, applied uniformly: the same seed and ticks in a project, a list the contract names, give the identical result, which is the contract's stated intent that a second click doesn't complete the next occurrence; completed past-dated to-dos staying in Today is the contract's 'completed to-dos stay in place' rule, also for plain to-dos; the reopen outcomes (Mar 14 taken back, Mar 10-12 one-offs, Mar 13 the single open repeating head) are exactly the contract's untick rules, so nothing is duplicated in the contract's sense; a second click restores 4 done plus Mar 15; no page errors; Asana has no Complete All and documents nothing about uncompleting",
+  "why": "claim did not hold up",
+  "at": "2026-09-26T14:18:10.337Z"
+}

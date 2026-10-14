@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's project title 'Prepare Presentation' (~30px) is set in a medium/semibold weight (~500-600), so it barely outweighs the 17px bold blue section headings and the page lacks a clear anchor. The winner sets the same-size title in true bold (~700, near-black #1c1c1e), giving an unmistakable title > section > row hierarchy.",
+    "phone": "The loser drops the filter pill row entirely: between the notes (ends ~y205) and 'Things to buy' (~y297) there is just an empty ~85px band, so you cannot see or change which items are shown. The winner puts 'All / Active / Completed' there (~y253, 15px semibold grey labels, selected item in a ~86x30px grey capsule) and also sets the title in semibold rather than the loser's lighter medium weight."
+  },
+  "why": "Desktop: bold title gives clearer hierarchy with otherwise near-identical rows; phone: winner shows the required filter pills and a stronger title while the loser omits the filter state entirely.",
+  "at": "2026-09-26T20:45:28.398Z"
+}

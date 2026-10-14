@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser pushes its secondary text too bright. The date column (Thu, Jun 8 / Fri, Aug 18) peaks around #AFAFB5 and the clear X is near-white (~#EAEEF7), so both compete with the white labels and the typed query. The X also sits ~11px right of the date column's right edge. The winner keeps dates at a native ~55%-white grey (~#9FA0A8) and the X at a muted ~#DADEE7, with the X only ~8px off the date column, so the labels clearly lead.",
+    "phone": "The loser's weekday header row (Sun-Sat) is drawn in a very dim grey (~#5B5F6A peak on the #282C37 sheet, about 2.1:1), so the column headers nearly vanish. The grey today-star in the Wed column (~#5F646A) and Cancel are also a notch dimmer. The winner lifts the weekday labels to ~#676B76 (about 2.6:1, ~17% more ink) and the star to ~#6C6F79. Fix: set the weekday labels to ~35-40% white (~#70747F)."
+  },
+  "why": "Layout, spacing and rhythm match to within 1-2px at both sizes. The deciding factor was the tuning of secondary greys: on desktop the quieter, native-weight date grey and muted clear X win, and on phone the more legible weekday header row wins.",
+  "at": "2026-09-26T05:37:20.060Z"
+}

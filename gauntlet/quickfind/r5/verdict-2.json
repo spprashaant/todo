@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "In the loser, the search field's text caret is drawn on top of the last typed glyph: the caret (x~68-72) cuts into the right side of the 'o', so the query 'to' reads as 'tc'. The winner puts the caret about 2px after the glyph ('o' ends at x~70, caret at x~72-76). The loser also draws one project ring ('Build a Treehouse') with a dashed outline that breaks the solid-ring rhythm of the column, and its row text is slightly lighter (~#333 vs ~#2C2C2C).",
+    "phone": "The loser's empty-state hint ('Quickly switch lists, find to-dos, search for tags...') is too faint, at about #A4A4A4 on the #F9F9FB sheet (~2.4:1 contrast). The winner renders it at about #939393 (~3:1), with fuller strokes. The loser's placeholder (~#8D8D8D vs ~#818181) and Cancel (~#4C4C4C vs ~#3B3B3B) are washed out the same way, and its caret butts right into the 'Q' of the placeholder where the winner leaves ~1px of clearance."
+  },
+  "why": "Near-identical layouts, so it came down to detail polish: the caret colliding with text on desktop, and a washed-out hint and placeholder with low contrast on phone.",
+  "at": "2026-09-26T06:24:30.390Z"
+}

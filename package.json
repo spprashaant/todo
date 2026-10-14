@@ -1,0 +1,16 @@
+{
+  "name": "todo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "suite": "bash tools/suite.sh",
+    "shoot": "node tools/shoot.mjs",
+    "deploy": "wrangler pages deploy app --project-name todos --branch main --commit-dirty=true",
+    "preview": "wrangler dev"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "wrangler": "^4.141.0"
+  }
+}

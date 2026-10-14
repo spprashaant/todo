@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The When calendar glyph in the loser's action row (bottom-right of the card, ~26x23px) is squat, and its header band is fused to the top edge as a heavy ~3px bar with the dot grid cramped beneath it. Its strokes are also fainter (~#A6-#B4 against the winner's ~#9D). The winner draws a 27x26px rounded box with one hairline header rule set clearly below the top edge and an evenly spaced 3x3 dot grid, so its when/tags/deadline row reads crisper. Everything else (layout, spacing, type) matches within a pixel or two.",
+    "phone": "The loser's calendar glyph in the action row (bottom-right, ~27x25px) draws the header as a dense double-line band pressed against the top edge, with the dots crowded up under it. The winner uses a single clean hairline rule with clear space above it and an evenly spaced 3x3 grid. The loser also sets notes and checklist text near-black (~#1B-#28), which flattens the hierarchy against the #000 title. The winner holds them at ~#2B-#39. Card, radii, spacing and circles are otherwise identical."
+  },
+  "why": "Near-identical pairs; decided on the finish of the calendar glyph (a clean separated header rule versus a fused heavy band) and slightly better title/body tonal hierarchy.",
+  "at": "2026-09-26T20:49:00.762Z"
+}

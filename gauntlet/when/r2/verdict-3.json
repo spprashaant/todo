@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's calendar glyph in each suggestion row (x 20-44) is a squat ~25x21px slab: a flat pink header band with no binder-ring notches over a dot grid, so it reads as a generic box. The winner draws a near-square ~24x23px calendar with two ring notches in the header, which matches the native Calendar glyph. The loser's secondary dates (Thu, Jun 8 / Fri, Aug 18) are also dimmer, ~#949AA3 against the winner's ~#A7AEB8, and its clear-x is ~#DADEE7 against ~#F1F5FE. Redraw the glyph at ~24x23 with ring notches and lift the trailing date grey about 10%.",
+    "phone": "The loser's sheet ends right after the Someday row: the bottom edge is ~25px below the Someday text and there is no Add Reminder footer, so there is no way to set a time and the sheet feels cut short. The winner adds a '+ Add Reminder' row one ~60px pitch below Someday. The plus sits in the icon column at x~40 and the ~#989CA7 grey label lines up with the other labels at x~67, with ~32px of padding before the sheet edge. Add that footer row at the same pitch and alignment."
+  },
+  "why": "Desktop: nearly pixel-identical, and the winner's properly proportioned ring-notched calendar glyph and brighter secondary text decide it. Phone: also nearly identical, and the winner's aligned Add Reminder footer completes the sheet.",
+  "at": "2026-09-26T04:26:13.762Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Near-identical, but the loser's composer card is about 2px taller, with about 38px of padding under the bottom-right icon row (calendar, tag, checklist, flag) against about 36px of right inset, so the corner inset is uneven. The winner keeps the bottom and right insets matched at about 36-37px. Its icon strokes are also a hair lighter (about #ABABAB vs #A8A8A8).",
+    "phone": "The loser's bottom-right toolbar icons (calendar, tag, checklist, flag, about 24px) have lighter strokes, about #B3B3B3 against the winner's about #AAAAAA, so the add-detail affordances look washed out on the white card. Darken them to about #AAA, as the winner does."
+  },
+  "why": "The pairs are almost pixel-identical in type, spacing, checkbox and caret. The winner has slightly firmer toolbar-icon contrast and, on desktop, a more even inset around the icon row.",
+  "at": "2026-09-26T05:38:52.817Z"
+}

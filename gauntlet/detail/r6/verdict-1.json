@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Text inside the lifted card is washed out. In the loser the title is about #161616, where the winner's is about #0A0A0A. The loser's notes and checklist text is about #313131 with roughly 6% less ink per glyph, against about #222222 in the winner. Its checklist circles are a greyer blue, about #2E466B against about #284279. The result is that the open card's body reads lighter than the list rows outside it (about #151515). Fix: set the card title to near-black, notes and checklist text to about #222, and circle strokes to the saturated blue, as the winner does.",
+    "phone": "Notes and checklist text are too grey and thin. In the loser the notes are about #242424 and the checklist items about #2B2B2B, with roughly 8% less ink per line. The winner uses about #151515 for notes and #1C1C1C for checklist items. In the loser the 17pt body and checklist rows fade against the near-black #010101 title and read weak on white. Fix: darken notes and checklist items to about #1C1C1C at the same regular weight, as the winner does. Secondary issue: the loser's calendar icon is missing the winner's solid header band."
+  },
+  "why": "Layouts, spacing, card shadow and icons match to within a pixel. The pick came down to how dark the in-card text is: desktop A and phone B have the crisper, higher-contrast title, notes and checklist.",
+  "at": "2026-09-26T06:24:39.081Z"
+}

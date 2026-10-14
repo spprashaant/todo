@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' draws its three bullets as muddy, near-filled ~6px dots with heavy strokes, so it reads as a generic bulleted-list icon; the winner draws crisp hollow ~6px rings (1px stroke, clear centre) beside ~12px rules, which read as unchecked checklist items. Redraw the bullets as 1px-stroke open rings.",
+    "phone": "The 64px blue add FAB sits right on the last row ('Buy party decorations', ~y 480-544), with its bottom level with the row's subtitle, crowding the row and covering the right-hand slot where a deadline flag would go. The winner leaves ~95px of clear space between the last row and the FAB. Add a ~90px bottom content inset so the last row always clears the FAB."
+  },
+  "why": "Row systems are pixel-for-pixel alike (same 76px pitch, checkbox, type, flag, heading); desktop is decided by the cleaner open-ring checklist glyph, phone by the FAB colliding with the last row.",
+  "at": "2026-09-26T20:45:47.510Z"
+}

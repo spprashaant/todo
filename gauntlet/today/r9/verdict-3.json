@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' (about x 468-485, y 806-827 in the loser) draws its three bullets as filled grey dots about 6px wide on a 7-8px pitch, so they smear into one vertical blob and the glyph reads as a generic list, not a checklist. The winner draws them as hollow rings about 5px wide with a 1px stroke, clear centres and about 2px between rings, next to 9px dashes. Fix: stroke the circles instead of filling them, and leave at least 2px of white between rings.",
+    "phone": "The 64px blue + FAB (about x 417-483, y 476-543 in the loser) sits on the last 'Buy party decorations' row with no clearance. It covers the trailing third of that row, where a deadline flag or glyphs would go, and it crowds the 'Run a Marathon' subtitle above. The winner leaves about 95px of clear space between the last row (ending near y 543) and the FAB (starting near y 640). Fix: add a bottom content inset of at least FAB height plus 16px (about 80px), so the last row always scrolls clear of the button."
+  },
+  "why": "Rows, type, colours and metrics match to within 1px in both pairs. Desktop goes to the crisper hollow-ring checklist glyph; phone goes to the layout where the FAB does not sit on the last row.",
+  "at": "2026-09-26T20:47:53.002Z"
+}

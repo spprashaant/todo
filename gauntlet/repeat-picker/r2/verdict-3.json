@@ -1,0 +1,19 @@
+{
+  "critic": 3,
+  "pick": {
+    "after": "A",
+    "weekly": "A",
+    "monthly": "A",
+    "kinds": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "after": "The loser never says what will happen: it shows only a vague 'Periodically' kind and a bare '7 v' dropdown under 'Days after completion', with no next-date line, and repeating is switched off only by an unlabeled ~70px lavender icon tile in the footer. The winner uses an 'Every [7] days' stepper field, an Ends row, a grey ~13px 'Done today? Next: Sun, Oct 23' preview, and a labelled 'x Stop Repeating' row.",
+    "weekly": "The loser's weekday picker is seven bare ~16px web-form checkboxes with ambiguous single-letter labels (S M T W T F S, two Ts and two Ss) and no next-occurrence line. The winner uses ~30px-tall rounded day chips labelled Sun-Sat, with the selected day filled solid blue (#4A90F0) and white text, plus 'Next: Fri, Oct 6' beneath.",
+    "monthly": "The loser's dimmed 'On day' option shows 'Last' as its value, which duplicates the nth-weekday choice and does not say which day of the month it means, and there is no next-date preview. The winner shows a concrete greyed '29th' for the inactive option and 'Next: Fri, Oct 27' in ~13px grey under an Ends row.",
+    "kinds": "The loser's kind menu lists bare names (Daily/Weekly/Monthly/Yearly/Periodically) in tall ~55px rows with nothing to say what each would do, and it pops over and hides the weekday row. The winner lists the kinds inline with right-aligned grey previews ('Every day', 'Fridays', 'The 29th', 'Sep 29', 'Every 2 weeks', '1 week'), marks the current kind with a blue check and blue label, and separates After Completion with a hairline.",
+    "phone": "The loser truncates the row label to 'R...' next to '4 days after completion', so on phone you cannot tell what the row is and there are no controls to edit it or turn it off. The winner lays out a full-width ~17px 'Repeat / After Completion' row, an 'Every [4] days' field, 'Ends Never', a next-date preview and a 'x Stop Repeating' row."
+  },
+  "why": "A spells out every state as a plain-language rule with a next-date preview and an explicit Stop Repeating control. B relies on vague labels ('Periodically'), web-style checkboxes, unlabeled footer icon toggles and a truncated phone row, but its inline kind list with per-kind previews beats A's.",
+  "at": "2026-09-26T20:49:48.316Z"
+}

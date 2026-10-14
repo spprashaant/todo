@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The text caret in the title field is cut short and runs into the text. In the loser it spans only ~26px (y75-101), starting ~2px above the ascenders, and its left edge overlaps the final 's' of 'Book hotels' by ~1px. The winner draws a full line-height caret (~31px, from ~7px above the ascender tops to ~5px below the baseline) with a clean ~2px gap after the last glyph, like a native NSTextView insertion point.",
+    "phone": "The caret in the title field is shorter than the capital letters. In the loser it is only ~19px tall (y50-69), so its top sits ~2px below the cap height of the 'B' in 'Buy suitcase', and it overlaps the trailing 'e'. The winner's caret is ~24px (y45-69), rising ~3px above the caps like the native iOS insertion point, and sits flush against the glyph without overlapping it. (Minor: the loser's checkbox stroke is also paler, ~#BEBEBE against ~#B1B1B1.)"
+  },
+  "why": "The two are pixel-identical in type, spacing, icons, card and shadow; the deciding detail is the caret: the winner's is full line-height and clear of the text, while the loser's is stubby and collides with the last letter.",
+  "at": "2026-09-26T06:08:44.511Z"
+}

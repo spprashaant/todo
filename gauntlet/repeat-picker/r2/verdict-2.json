@@ -1,0 +1,19 @@
+{
+  "critic": 2,
+  "pick": {
+    "after": "A",
+    "weekly": "A",
+    "monthly": "A",
+    "kinds": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "after": "The loser never says when the to-do comes back: it shows only 'Repeats: Periodically' plus a bare '7 v' dropdown under 'Days after completion', with no next date and no end setting. The winner adds a secondary line, about 13px grey text with a white date ('Done today? Next: Sun, Oct 23'), right under an 'Ends: Never' row. The loser's 'Periodically' is also vaguer than the winner's 'After Completion'.",
+    "weekly": "The loser's weekday row is seven bare ~16px square checkboxes over one-letter labels (S M T W T F S), so the two S's and two T's can't be told apart. It also has no Ends row and no next-date preview. The winner uses a filled segmented row of three-letter chips (Sun...Sat) with the chosen day as a solid blue ~#4a90f0 chip, then 'Ends: Never' and 'Next: Fri, Oct 6'.",
+    "monthly": "In the loser, the second option reads 'On day  Last v', which makes no sense: a day-of-month field showing 'Last' instead of a date. There is also no Ends row and no next-date line, so it is unclear what the setting will do. The winner's inactive option shows a real value ('On day 29th', dimmed to ~40% grey) and ends with 'Next: Fri, Oct 27'.",
+    "kinds": "The loser's kind list is a generic floating menu of bare names (Daily, Weekly, Monthly, Yearly, and 'Periodically' cut off at the bottom). It sits over the panel's right edge and says nothing about what each option would do. The winner lists the kinds inside the panel, each with a right-aligned ~14px grey preview ('Every day', 'Fridays', 'The 29th', 'Sep 29', 'Every 2 weeks'). A hairline divider sets 'After Completion  1 week' apart from the calendar kinds.",
+    "phone": "The loser cuts the row label 'Repeat' down to 'R...' because the value '4 days after completion' (~20px grey) takes the whole row. The result is a broken, unreadable label next to the icon. The winner gives the label its own left column ('Repeat', ~24px white) and puts the value in a right-aligned 'After Completion v' control, with Every, Ends and Next on their own rows below."
+  },
+  "why": "Across states, the winner says what will happen: every state has Ends and Next-date rows, and the inline kinds list previews each kind. The loser relies on bare dropdowns, one-letter checkboxes, a nonsense 'On day Last' option and a truncated 'R...' label.",
+  "at": "2026-09-26T20:49:30.597Z"
+}

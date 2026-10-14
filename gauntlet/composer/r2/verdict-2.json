@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser sets the white composer card on a near-white #FAFAFA page, only about 5 levels darker than the card, so the card's top and side edges almost disappear and the card is held up only by its bottom shadow. The winner uses a cool #F2F3F7 page, about 12 levels below white, so the same soft shadow outlines the whole card as a clearly raised sheet.",
+    "phone": "The four 22-26px icons in the loser's bottom-right toolbar do not match in weight. The checklist icon has oversized circles (about 5px) and longer, heavier bars. The calendar's date grid is faded to pale grey dashes under a thin header rule. So the four icons do not read as one family. The winner gives the calendar a clear header band and a crisp 3x3 dot grid, and draws a lighter checklist with circles of about 4px, matching the stroke weight of the tag and flag."
+  },
+  "why": "Near-identical layouts; the winner's desktop card has stronger figure-ground against a tinted page, and its phone toolbar icons are more consistent in weight (the loser also crowds the title about 2px closer to the checkbox).",
+  "at": "2026-09-26T04:28:42.873Z"
+}

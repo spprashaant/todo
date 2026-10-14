@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Right-aligned secondary dates (Thu, Jun 8 / Fri, Aug 18) are rendered too dim in the loser: roughly #888888 peak on the ~#2A303A popover, about 3.7:1 contrast, and the clear-field X is dimmer too. The winner draws the same 15px dates at roughly #969696 (about 4.4:1). That keeps them clearly secondary to the white row labels and still readable at a glance. Raise the trailing-date grey about 10 levels.",
+    "phone": "The Sun-Sat weekday header row is too faint in the loser: roughly #606060 peak on the ~#2C2E3A sheet, about 2.2:1, so the grid's column labels nearly vanish. The dimmed today-star in the Wed cell and the 'Add Reminder' row are equally washed out. The winner draws the same 13px headers at roughly #6D6D6D (about 2.7:1) and lifts the grid star and Add Reminder by the same ~12 levels. Brighten the tertiary text tier about 12 levels."
+  },
+  "why": "Layouts, type sizes, spacing and grid are pixel-identical in both pairs. The only real difference is the brightness of the dim tertiary/secondary text tier, so each size goes to the version whose low-emphasis text stays legible.",
+  "at": "2026-09-26T06:24:27.530Z"
+}

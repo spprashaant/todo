@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "This Evening heading misaligned with the row column: the hairline divider starts about 5px left of the checkbox's left edge and the moon hangs about 1px past it, so the section header's left edge doesn't line up with the rows. The winner sets the moon flush with the ~23px checkbox's left edge and starts the rule only about 3px out. Rows, type and spacing are otherwise pixel-identical.",
+    "phone": "Project subtitles (Vacation in Rome, Work, Family...) are a paler grey, about #AAAAAA against the winner's about #A1A1A1, so the small secondary line drops to roughly 2.3:1 contrast and fades against the near-black titles. The winner's darker grey keeps it legible. Also, the checklist glyph sits about 2px lower than the note glyph beside it, where the winner top-aligns the two ~12px glyphs."
+  },
+  "why": "Near-identical rows; the winner has fewer small flaws: a better-aligned section header on desktop, and darker, more legible subtitles plus aligned trailing glyphs on phone.",
+  "at": "2026-09-26T04:25:03.792Z"
+}

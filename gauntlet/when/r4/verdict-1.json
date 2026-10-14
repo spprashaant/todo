@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The right-aligned resolved dates (Thu, Jun 8 / Fri, Aug 18) in the loser are a dim ~#878C97 on the ~#2B323C panel, about 3.8:1, so the one piece of information that confirms what each phrase means drops below AA. The winner uses ~#969DA7 (about 4.7:1) at the same size and weight, which keeps the dates secondary to the white labels but still easy to scan. Fix: raise the secondary date colour by about 15 L.",
+    "phone": "The Sun-Sat weekday header row in the loser is ~#61656F on the ~#282C37 sheet, about 2.4:1, so the column labels over the grid almost disappear. The winner draws the same ~13px labels at ~#6D717C (about 2.8:1), and they read as a quiet but visible header. Fix: lift the header grey by about 12 L. Contrast would still sit well below the white date numerals."
+  },
+  "why": "Layout, type and spacing are pixel-identical in both pairs, so the verdict comes down to secondary-text contrast: the desktop winner keeps its resolved dates AA-legible, and the phone winner keeps its weekday header visible.",
+  "at": "2026-09-26T05:12:12.165Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Near-identical layouts (same 263px card, 26px left inset, 37px bottom inset, same title/notes/icon positions within 1px). The only real difference is the insertion caret next to the title. The loser's caret is a duller, greyer blue (about rgb 98,133,193) and slightly thinner, so it looks muted beside the black 20px-cap title. Its toolbar glyphs also carry about 4% less ink. The winner draws a clearer accent-blue caret (about rgb 100,152,213), about 2px wide and running the full line height, and its calendar/tag/list/flag strokes are a touch firmer.",
+    "phone": "Near-identical layouts (checkbox, title, Notes and the four toolbar icons all within 1px of each other). The loser's empty checkbox at the left of the title is drawn fainter: about 8% less stroke ink, averaging a light grey around #DADADA. Next to the 25px black title, this weakens the one tappable affordance on the row. The loser also leaves a 16px gap from box to title, where the winner uses 15px. The winner draws the ~20pt rounded box with a slightly firmer grey stroke and keeps it 15px from the title."
+  },
+  "why": "Pairs are essentially the same design within 1px; decided on tiny colour/weight differences: clearer accent caret on desktop, firmer checkbox stroke on phone.",
+  "at": "2026-09-26T05:53:54.034Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Project title is set semibold (~600) with loose default tracking at ~34px cap-to-descender, so it reads soft next to the blue section headings; the winner sets the same-size title bold (~700) with tighter tracking for a clear hierarchy step. The loser's section headings are also a duller slate blue (~#2F5A94) where the winner uses a cleaner ~#2064C8.",
+    "phone": "The filter pills row is missing entirely: between the notes and the first 'Things to buy' heading there is ~80px of dead white space. The winner puts the All/Active/Completed row there (~15px semibold grey labels, selected item in a ~30px-tall grey capsule with white text) ~20px below the notes, with the first heading ~50px below that."
+  },
+  "why": "Rows, headings and rhythm are near-identical at both sizes; desktop is decided by the winner's bolder, tighter title and more saturated heading blue, phone by the loser omitting the required filter pills and leaving a hole.",
+  "at": "2026-09-26T04:24:00.672Z"
+}

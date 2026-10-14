@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The accessory icon row at bottom right is unevenly spaced and inset. The gaps between the loser's icon centres run 64.5, 62.5 and 66.5px (the checklist glyph sits about 1px left, the flag about 1px right), and it leaves about 38px below the icons against a 36px right inset. The winner spaces the four glyphs at an even ~64px and matches its bottom and right insets at about 36-37px, so the cluster sits square in the card corner.",
+    "phone": "The secondary ink is too heavy. The loser draws the Notes placeholder and all four toolbar glyphs (calendar, tag, checklist, flag) at about #ABABAB, roughly 10 levels darker than the winner's #B5B5B5. They compete with the typed title and outweigh the pale checkbox. The winner keeps the placeholder and toolbar icons lighter, so Buy suitcase reads as the single focal point and the checkbox stays visible (about #C2C2C2 stroke)."
+  },
+  "why": "The pairs are nearly pixel-identical, so the call comes down to 1-2px spacing evenness on desktop and lighter, better-ranked secondary grey on phone.",
+  "at": "2026-09-26T05:38:27.888Z"
+}

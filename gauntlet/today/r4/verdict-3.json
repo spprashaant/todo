@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The This Evening divider hangs off the icon column. In the loser the 1px rule (~#EBEBEB) starts at x~93, 5px left of the moon and checkbox edge at x~98. The winner starts it at x~77, within 3px of the column at x~80, so the heading, rule and checkboxes read as one left edge. The loser's titles and bold heading are also tracked about 0.5-1.7% looser (This Evening is 175px wide vs 172px). Pull the rule's left end in to the checkbox edge and tighten the tracking.",
+    "phone": "The project subtitles are too pale. On all seven rows the loser draws the second line at about #ABABAD, with roughly 6% less ink than the winner's #A4A4A5 at the same ~12px size and position. The subtitle washes out to about 2.3:1 on white and the title/subtitle pair loses its anchor. Darken the subtitle grey to about #A0A0A4. The loser's checklist glyph (x~325, y~505) also renders unevenly: the first bullet line is broken and the bullet weights are mixed, where the winner draws three even rings with 7px rules."
+  },
+  "why": "Near-identical at both sizes, so it came down to a few pixels. The winner's section rule aligns more tightly with the checkbox column, its tracking is tighter, and its phone subtitle grey and checklist glyph are firmer and more even.",
+  "at": "2026-09-26T04:24:21.629Z"
+}

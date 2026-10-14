@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "In the search field the loser draws the 2px blue text caret on top of the right half of the 'o' in the typed query, so 'to' reads as 'td'. The winner puts the caret about 2px after the last glyph's advance width, with clear space between them. Place the caret at the end of the text run instead of at the glyph's ink box.",
+    "phone": "The loser's type is about one grey step too light everywhere. The two-line empty-state hint is about #9C9C9E on the #F9F9FB sheet (about 2.2:1), the 'Quick Find' placeholder is about #85858A and 'Cancel' is a greyed #383838. The winner uses about #8D8D8F for the hint (about 3:1), about #79797E for the placeholder (close to iOS secondaryLabel over the #E3E3E8 field) and a near-black Cancel (about #242426), so the empty state reads clearly instead of looking washed out."
+  },
+  "why": "The two are nearly pixel-identical. On desktop the loser's caret collides with the query text. On phone the loser's hint, placeholder and Cancel are about 15 grey levels lighter than native and look washed out.",
+  "at": "2026-09-26T04:26:53.528Z"
+}

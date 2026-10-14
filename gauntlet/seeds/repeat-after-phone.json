@@ -1,0 +1,49 @@
+{
+ "things-todos": [
+  {
+   "id": "t_1",
+   "title": "Water the plants",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "today",
+   "deadline": null,
+   "tags": [],
+   "project": null,
+   "area": "a_home",
+   "heading": null,
+   "createdAt": "2024-03-20T09:00:00.000Z",
+   "repeat": {
+    "mode": "completion",
+    "every": 4,
+    "unit": "day"
+   }
+  },
+  {
+   "id": "t_2",
+   "title": "Call the plumber",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "today",
+   "deadline": null,
+   "tags": [],
+   "project": null,
+   "area": "a_home",
+   "heading": null,
+   "createdAt": "2024-03-21T09:00:00.000Z"
+  }
+ ],
+ "things-lists": {
+  "areas": [
+   {
+    "id": "a_home",
+    "title": "Home"
+   }
+  ],
+  "projects": [],
+  "tags": []
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "critic": 1,
+  "broken": false,
+  "gap": "discarded on verification: reproduces (project/heading '...' menu Complete All run twice completes the open next occurrences it spawned), but the contract rule quoted is about the Complete All checkbox (reads as checked / un-checking it / toolbar, phone list menu, box); the project and heading menu items are one-way commands the contract never names, they complete only visibly open rows (footer '2 items left', not '1'), each completion follows every engine rule (one next occurrence, correct dates, ends respected, nothing duplicated or lost, reversible by unticking), and the contract's own toolbar Complete All completes a spawned next occurrence the same way whenever the list does not read all-completed (after heading-menu Complete All with Physio open it marks Fri 03-13 done on Tue and spawns 03-17). Asana documents nothing on bulk completion, no page errors",
+  "why": "claim did not hold up",
+  "at": "2026-09-26T11:53:47.434Z"
+}

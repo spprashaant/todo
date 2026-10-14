@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Someday icon (row 4, ~18px box at x30) is a washed olive/yellow-green (~#BBC884) with lid and body in the same flat tone, so it reads as a third green beside the teal Anytime and green Logbook and the box shape goes mushy; the winner uses a warm tan/khaki (~#C1B18A body, lighter lid band, cream handle slot) that stays distinct in the colour sequence.",
+    "phone": "Today row carries a stuck grey selection slab (~#E1E5E8, ~46px tall, inset ~9px, full width) on an iPhone lists home, where rows only flash on tap; it reads as a ported iPad sidebar, and it outweighs the red badge and dulls the hierarchy. The winner leaves Today as a plain row on the #F4F5F7 ground and puts emphasis in a floating blue ~50px add button instead."
+  },
+  "why": "Near-identical layouts; desktop decided by the loser's off-hue olive Someday icon, phone by the loser's non-native persistent selection highlight (plus its missing add affordance).",
+  "at": "2026-09-26T04:24:58.794Z"
+}

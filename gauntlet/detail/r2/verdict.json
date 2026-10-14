@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's lifted card stretches to about 920px, so the notes run at a ~770px measure (~95 characters). The paragraph breaks into one long line plus an orphaned two-word 'version soon.', and the checklist hairlines run ~840px, leaving the when/tags/deadline icons marooned far from the content. The winner's card is ~716px wide, so the notes wrap into two balanced ~585px lines. Fix: cap the card's text measure at ~600-650px (~70 characters).",
+    "phone": "The loser's small strokes sit on half pixels. The title checkbox's 1px border smears across 3 columns (#CFCFCF/#C0C0C0/#E8E8E8) where the winner has a crisp 1px #BBBBBB line with one light antialias pixel. The checklist drag-handle bars render as fuzzy 2px #D8D8D8 smudges where the winner has sharp 1px #D5D5D5 hairlines. Snap these strokes to the device pixel grid."
+  },
+  "why": "The layouts match pixel for pixel. On desktop the winner keeps a readable measure with no orphan line in the notes. On phone the winner's checkbox, drag handles and hairlines render pixel-crisp, while the loser's are soft and smeared.",
+  "at": "2026-09-26T04:07:45.710Z"
+}

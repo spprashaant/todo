@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The right-aligned resolved dates (Thu, Jun 8 / Fri, Aug 18, ~15px) are drawn in a dimmer grey (~#8b909b, about 4.0:1 on the #2b323c panel), which falls below 4.5:1 and makes the answer to the query look disabled. The winner uses ~#979ea8 (about 4.8:1), so the dates stay clearly secondary to the white labels but still read. Lift the secondary text about 12 levels.",
+    "phone": "The This Evening moon glyph (~24x25px) sits about 3px low: its centre is at y~180 against the text's cap-height midline at ~177, so its bottom hangs below the baseline. The winner centres a ~22x25px moon on the midline, the same way the star centres on Today. Nudge it up 3px or centre it on cap height."
+  },
+  "why": "Near-identical pairs, so small details decide: desktop on the legibility of the secondary date column, phone on the moon icon's vertical alignment with its label.",
+  "at": "2026-09-26T04:39:18.397Z"
+}

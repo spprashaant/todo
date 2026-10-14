@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The deadline flag glyph left of 'today' in the Finish expense report row is under-drawn: its pole is a faint, short ~1px pink stroke that runs into the pennant with no clean gap and stops only ~4px below it, so the 20px flag reads as a smudged block. The winner draws a solid 2px pole in the same #D94D72-ish pink, a clean 1px gap to the pennant, and a pole that runs ~7px below the pennant, so the flag reads as a flag. Row geometry is otherwise identical: 76px pitch, 24px checkbox, 20px checkbox-to-title gap.",
+    "phone": "The 66px blue FAB (x417-483, y476-541) sits right on the trailing end of the last row, Buy party decorations, and clips the bottom of the Read article row above it. Because there is no bottom content inset, the final row's trailing zone, where a deadline flag would go, is covered. The winner leaves about 95px of clear space under the last row so the FAB floats in empty space. Fix: add a bottom inset of FAB height plus about 16px (~82px) so the last row always clears the button. The rows themselves match: 58-59px pitch, 20px checkbox, 13px glyphs."
+  },
+  "why": "Rows are pixel-for-pixel equivalent in rhythm and alignment, so the decision rests on small details: a crisper deadline flag on desktop, and on phone a FAB that clears the last row instead of covering it (plus slightly stronger grey on the project subtitle).",
+  "at": "2026-09-26T06:17:08.808Z"
+}

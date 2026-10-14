@@ -1,0 +1,240 @@
+{
+  "piece": "detail",
+  "state": "won",
+  "round": 7,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Card retuned to Things' measurements (tight shadow, 4px radius, spacing), Things-style when/tag/deadline glyphs, 10px hairline checklist rings with a bordered focus well, 2px blue insertion point, phone card full-bleed and clear of the action bar, no keyboard on touch open",
+      "pairedAt": "2026-09-26T03:45:55.942Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: The 'May 25' date chip in the list below the card is badly set. In the loser, the chip text sits high in its 26px pill (4px above the digits, 8px below), so its baseline is about 4px above the baseline of 'Print handouts for attendees' next to it. The winner centres the text in the pill (6px above, 6px below) and keeps its baseline within 1px of the row title. Fix it by vertically centring the chip label on cap height and aligning the chip's text baseline to the row title's baseline.",
+      "why": "Both pairs are near-identical in layout, spacing, icons and shadow, so the decision came down to finish: on desktop the winner keeps the list's date chip centred and on the row baseline, and on phone the winner renders the checkbox and text crisply on the pixel grid.",
+      "judgedAt": "2026-09-26T03:49:01.684Z"
+    },
+    {
+      "round": 2,
+      "note": "Date chip: 16px pill with its label centred on cap height and baseline-aligned to the row title (darker label, tighter gap); card title tracking matched; phone double-tap no longer selects a title word; phone checkbox on whole device pixels",
+      "pairedAt": "2026-09-26T04:05:00.410Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: The loser's lifted card stretches to about 920px, so the notes run at a ~770px measure (~95 characters). The paragraph breaks into one long line plus an orphaned two-word 'version soon.', and the checklist hairlines run ~840px, leaving the when/tags/deadline icons marooned far from the content. The winner's card is ~716px wide, so the notes wrap into two balanced ~585px lines. Fix: cap the card's text measure at ~600-650px (~70 characters).",
+      "why": "The layouts match pixel for pixel. On desktop the winner keeps a readable measure with no orphan line in the notes. On phone the winner's checkbox, drag handles and hairlines render pixel-crisp, while the loser's are soft and smeared.",
+      "judgedAt": "2026-09-26T04:07:45.710Z"
+    },
+    {
+      "round": 3,
+      "note": "Desktop card width capped at 31em (Things' 434pt card), so notes and checklist keep Things' ~632px measure and the icons sit under the content; notes get a 5px trailing inset so the paragraph wraps into two balanced lines like Things; notes refit on window resize",
+      "pairedAt": "2026-09-26T04:16:08.880Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": false,
+        "phone": false
+      },
+      "gap": "desktop: The lifted card doesn't match the list column. Its left edge overhangs the header rule by about 19px, but its right edge stops about 183px short of where the rule and the ... menu end (card ends at x~760, rule runs to x~943). So the card looks narrower than the list it belongs to and sits lopsided under the header. The winner's card overhangs the column by about 20px on both sides, so it lines up with the header rule and the ... menu.  ·  phone: The completion checkbox next to the title is a thin ~1px hairline in a pale grey (#BBBBBE, 23x23px). Beside the large ~22pt title it fades out, and the most important control on the card reads as disabled. The winner draws the same box with a firmer ~1.5-2px stroke and a slight inner shade, and its when/tag/flag icons are a bit heavier too, so the controls hold their own against the text.",
+      "why": "Desktop: the loser's card does not fill the list column and sits lopsided under the header; phone: nearly identical, but the loser's faint hairline checkbox weakens the main tap target.",
+      "judgedAt": "2026-09-26T04:18:29.569Z"
+    },
+    {
+      "round": 4,
+      "note": "Desktop card now spans the list column with a symmetric ~14px overhang (aligned under the heading rule and ... button), notes keep a ~65-character measure; phone title checkbox is a firm 1.5px inset ring with a heavier lower edge and shade, action icons drawn at 1.2-unit stroke and set level with iOS",
+      "pairedAt": "2026-09-26T04:31:22.879Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, spacing, card shadow, hairlines and icons match to the pixel; the winner's card text is darker and crisper, while the loser's notes and checklist fade toward grey."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, spacing, radii and icons are pixel-identical in both pairs; the only consistent drawn difference is that the loser renders notes and checklist text in a lighter grey, so the winner's body copy reads crisper and more confident."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts with the same spacing, radii and shadow. The winner's darker body text and cleaner, higher-contrast date pill give crisper, more finished detail at every size."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layout, spacing, card shadow, hairlines and icons match to the pixel; the winner's card text is darker and crisper, while the loser's notes and checklist fade toward grey.  /  Layout, spacing, radii and icons are pixel-identical in both pairs; the only consistent drawn difference is that the loser renders notes and checklist text in a lighter grey, so the winner's body copy reads crisper and more confident.  /  Near-identical layouts with the same spacing, radii and shadow. The winner's darker body text and cleaner, higher-contrast date pill give crisper, more finished detail at every size.",
+      "judgedAt": "2026-09-26T04:35:55.070Z"
+    },
+    {
+      "round": 5,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:28.132Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": true,
+          "why": "Layout, type size and spacing are almost the same in both pairs, so the deciding factors were small craft points: on desktop the notes share one right edge with the rest of the card, and on phone the text and checkbox have crisper contrast."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Geometry, spacing and shadows are pixel-identical in both pairs, so the choice came down to text contrast and accent colour: each winner draws the card's title, notes and checklist darker and crisper."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Both pairs are pixel-identical in layout, spacing, icons, separators and shadow. The deciding factor is the tone of the body text inside the open card: the winner keeps notes and checklist items solid and legible, and the loser greys them toward a disabled look."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layout, type size and spacing are almost the same in both pairs, so the deciding factors were small craft points: on desktop the notes share one right edge with the rest of the card, and on phone the text and checkbox have crisper contrast.  /  Geometry, spacing and shadows are pixel-identical in both pairs, so the choice came down to text contrast and accent colour: each winner draws the card's title, notes and checklist darker and crisper.  /  Both pairs are pixel-identical in layout, spacing, icons, separators and shadow. The deciding factor is the tone of the body text inside the open card: the winner keeps notes and checklist items solid and legible, and the loser greys them toward a disabled look.",
+      "judgedAt": "2026-09-26T05:37:06.631Z"
+    },
+    {
+      "round": 6,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.719Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Layouts, spacing, card shadow and icons match to within a pixel. The pick came down to how dark the in-card text is: desktop A and phone B have the crisper, higher-contrast title, notes and checklist."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Geometry, spacing, icons and shadows are pixel-identical in both pairs. The winner's notes share the checklist's column on desktop, and its body text has firmer contrast on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Both pairs are near-identical in layout, spacing, radii, shadows and icons; the deciding factor each time is the crisper, higher-contrast body ink and icon tone inside the open card."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layouts, spacing, card shadow and icons match to within a pixel. The pick came down to how dark the in-card text is: desktop A and phone B have the crisper, higher-contrast title, notes and checklist.  /  Geometry, spacing, icons and shadows are pixel-identical in both pairs. The winner's notes share the checklist's column on desktop, and its body text has firmer contrast on phone.  /  Both pairs are near-identical in layout, spacing, radii, shadows and icons; the deciding factor each time is the crisper, higher-contrast body ink and icon tone inside the open card.",
+      "judgedAt": "2026-09-26T06:25:16.941Z"
+    },
+    {
+      "round": 7,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:44.390Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Both pairs are near-identical clones. The deciding factor is small execution: text and icon contrast inside the card on desktop, and even checklist row pitch and circle centring on phone."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, spacing, radii and icons are pixel-identical within 1-2px in both pairs; the deciding factor is text contrast, and in each pair the winner renders the card's title and body darker and crisper."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": false,
+          "why": "Near-identical pairs; decided on the finish of the calendar glyph (a clean separated header rule versus a fused heavy band) and slightly better title/body tonal hierarchy."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Both pairs are near-identical clones. The deciding factor is small execution: text and icon contrast inside the card on desktop, and even checklist row pitch and circle centring on phone.  /  Layout, spacing, radii and icons are pixel-identical within 1-2px in both pairs; the deciding factor is text contrast, and in each pair the winner renders the card's title and body darker and crisper.  /  Near-identical pairs; decided on the finish of the calendar glyph (a clean separated header rule versus a fused heavy band) and slightly better title/body tonal hierarchy.",
+      "judgedAt": "2026-09-26T20:49:00.763Z"
+    }
+  ],
+  "working": "Align lifted card with list column on desktop; firmer checkbox and action icons on phone",
+  "updatedAt": "2026-09-26T20:49:00.763Z"
+}

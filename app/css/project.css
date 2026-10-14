@@ -1,0 +1,129 @@
+/* List header for every view + project headings (piece: project). */
+
+.list-header { padding-top: 51px; padding-bottom: 8px; }
+.lh-row { display: flex; align-items: center; min-height: 30px; }
+.lh-icon { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-right: 8px; margin-left: -1px; }
+.lh-icon svg { width: 22px; height: 22px; }
+.lh-inbox .lh-icon svg, .lh-upcoming .lh-icon svg, .lh-someday .lh-icon svg, .lh-logbook .lh-icon svg, .lh-anytime .lh-icon svg { width: 20px; height: 20px; }
+.lh-today .lh-icon { width: 24px; height: 24px; margin-left: -2px; margin-right: 7px; }
+.lh-today .lh-icon svg { width: 24px; height: 24px; }
+.lh-area .lh-icon { color: var(--grey-3); }
+.lh-title {
+  min-width: 0;
+  font-size: 23.6px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: -.012em;
+  color: #1c1d20;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: 0;
+  border-radius: 4px;
+}
+.lh-title[contenteditable]:focus { white-space: normal; box-shadow: 0 0 0 3px rgba(93, 156, 245, .18); }
+.lh-more {
+  flex: none;
+  margin-left: 6.5px;
+  width: 24px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 5px;
+  color: #8a909a;
+}
+.lh-more svg { width: 20px; height: 6px; }
+.lh-more:hover { background: #f0f1f3; }
+
+.lh-notes {
+  margin-top: 11px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #202225;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  outline: 0;
+  border-radius: 4px;
+  max-width: 600px;
+}
+.lh-notes:focus { box-shadow: 0 0 0 3px rgba(93, 156, 245, .18); }
+
+/* Filter pills (All / Active / Completed stand in for Things' tag pills) */
+.filters { display: flex; align-items: center; gap: 4px; margin: 22px 0 0 -1px; padding: 0; list-style: none; }
+.lh-notes + .filters { margin-top: 38px; }
+.filters .pill {
+  display: inline-flex; align-items: center;
+  height: 18px;
+  padding: 0 9px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #80858b;
+  letter-spacing: -.005em;
+  transition: background-color .12s, color .12s;
+}
+.filters .pill:hover { color: #5f646a; }
+.filters .pill.selected { background: #b4b6ba; color: #fff; }
+
+/* Project headings: blue title, rule, blue "…" */
+.g-heading { margin-top: 35.4px !important; }
+/* a heading straight under the pills (no loose to-dos above it) sits a little higher */
+.group.empty.g-plain + .g-heading { margin-top: 32.4px !important; }
+.group-head.gh-heading { margin: 0 -3px; padding: 0 3px 4.3px; border-bottom: 1px solid #e3e4e7; }
+.gh-heading .gh-title {
+  flex: 1; min-width: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--blue);
+  outline: 0;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gh-heading .gh-title:focus { box-shadow: 0 0 0 3px rgba(93, 156, 245, .18); }
+.gh-more {
+  flex: none;
+  width: 24px; height: 18px;
+  margin-right: -2px;
+  display: grid; place-items: center;
+  border-radius: 4px;
+  color: var(--blue-2);
+}
+.gh-more svg { width: 18.5px; height: 5.5px; }
+.gh-more:hover { background: #eef3fb; }
+.g-heading.empty .todo-list { min-height: 8px; }
+
+/* Area view: its projects */
+#area-projects { padding-top: 14px; }
+.area-projects { list-style: none; margin: 0 0 10px; padding: 0; }
+.ap-row { display: flex; align-items: center; gap: 9px; height: 28px; margin: 0 -8px; padding: 0 8px; border-radius: 6px; color: var(--ink); }
+.ap-row:hover { background: #f4f5f7; }
+.ap-pie { width: 12px; display: grid; place-items: center; color: var(--grey-3); }
+.ap-pie svg { width: 14px; height: 14px; }
+.ap-title { font-size: 14px; }
+#area-projects + .main .groups { padding-top: 22px; }
+
+/* ---------- phone ---------- */
+@media (max-width: 699px) {
+  .list-header { padding-top: 26px; padding-bottom: 6px; }
+  .lh-row { min-height: 36px; }
+  .lh-icon { width: 25px; height: 25px; margin-right: 9px; margin-left: 0; }
+  .lh-icon svg, .lh-inbox .lh-icon svg, .lh-upcoming .lh-icon svg, .lh-someday .lh-icon svg, .lh-logbook .lh-icon svg, .lh-anytime .lh-icon svg { width: 24px; height: 24px; }
+  .lh-today .lh-icon, .lh-today .lh-icon svg { width: 26px; height: 26px; }
+  .lh-title { font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -.008em; color: #222327; }
+  .lh-more { margin-left: 11px; width: 34px; height: 28px; color: #979da7; }
+  .lh-more svg { width: 28px; height: 8.4px; }
+  .lh-notes { margin-top: 10.5px; font-size: 17px; line-height: 20.5px; color: #2a2c2f; letter-spacing: -.01em; }
+  .filters { margin-top: 18px; gap: 6px; }
+  .lh-notes + .filters { margin-top: 20px; }
+  .filters .pill { height: 24px; font-size: 15px; padding: 0 10px; border-radius: 12px; }
+  .g-heading { margin-top: 34px !important; }
+  .group.empty.g-plain + .g-heading { margin-top: 9px !important; }
+  .group-head.gh-heading { margin: 0; padding: 0 0 9px; border-bottom: 1.5px solid #ebecee; }
+  .gh-heading .gh-title { font-size: 18px; line-height: 22px; color: #0f5cc3; }
+  .gh-more { width: 28px; height: 22px; margin-right: -3px; color: #3e78c8; }
+  .gh-more svg { width: 22px; height: 6.6px; }
+  .ap-row { height: 44px; }
+  .ap-title { font-size: 17px; }
+  .ap-pie, .ap-pie svg { width: 18px; height: 18px; }
+}

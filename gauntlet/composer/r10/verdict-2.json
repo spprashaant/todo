@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The text caret collides with the last glyph of the title: in the loser the 2px blue caret sits directly on the right edge of the final 's' of 'Book hotels' (0px clearance, x~253), so the letter looks clipped while typing; the winner places the caret ~1-2px clear of the glyph (x~256) so the title reads cleanly.",
+    "phone": "The completion checkbox outline in the loser is too faint: its ~24px rounded square is stroked at roughly #BEBEBE-#CBCBCB (darkest ~190/255), so beside the black 'Buy suitcase' title it reads washed-out and almost disabled; the winner strokes the same box at ~#B1B1B1 (darkest ~177), giving it a crisp, clearly tappable edge. (The loser's caret also overlaps the final 'e'.)"
+  },
+  "why": "Pairs are nearly pixel-identical; decided on sub-pixel polish: caret-to-glyph clearance on desktop, and checkbox stroke contrast on phone.",
+  "at": "2026-09-26T20:50:11.914Z"
+}

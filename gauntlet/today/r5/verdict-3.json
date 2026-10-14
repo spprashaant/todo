@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser stretches each row across a ~1066px-wide column, so the red flag+'today' deadline is pinned at the far right edge (x~1040-1135), about 635px of empty space away from the end of 'Finish expense report'. The eye cannot tie the deadline to its task. The winner caps the list at ~635px (divider ~93-726), so the flag sits ~200px after the title and reads as part of the row. Cap the list content width at ~640px, or bring the flag in next to the title.",
+    "phone": "The loser draws its text a notch paler. Project subtitles come out at ~#A1A1A2 against the winner's ~#9A9A9B (about 2.6:1 vs 2.8:1 on white), and titles at ~#0E0E0E vs ~#0A0A0A, so the second line of each row fades out, most visibly in the This Evening rows (~#A7A7A7). Geometry is otherwise identical: 22px checkboxes at x=25, 59px row pitch, same divider. Darken the subtitle grey to ~#999 and the titles to near-black to match the winner."
+  },
+  "why": "Near pixel-identical rows. Desktop goes to the tighter column that keeps the deadline flag next to its task. Phone goes to consistently stronger title and subtitle contrast.",
+  "at": "2026-09-26T05:33:54.435Z"
+}

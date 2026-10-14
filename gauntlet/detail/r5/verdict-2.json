@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Card body text is washed out: in the loser, the notes are about #323232 and the checklist items about #393939, lighter than the list rows outside the card (#141414), and the title is only #171717. The open card reads as the least legible thing on screen. The winner draws the notes and checklist at about #262626/#2b2b2b and the title near #0a0a0a, so the edited to-do is the highest-contrast element. Darken body text to at least #2a2a2a and the title to near-black.",
+    "phone": "Body text and checklist accents are greyed down: in the loser, the notes are about #272727, the checklist items about #313131 and the checklist circles a dull navy (#0C4098). In the winner they are about #181818 and #212121, with a brighter accent blue (#224AB6). The loser's card looks faded even though its geometry is identical (same 60px rows, 53px text inset, 32px icon padding). Raise body text to about #1c1c1e and use the brighter accent blue for the circles."
+  },
+  "why": "Geometry, spacing and shadows are pixel-identical in both pairs, so the choice came down to text contrast and accent colour: each winner draws the card's title, notes and checklist darker and crisper.",
+  "at": "2026-09-26T05:36:54.195Z"
+}

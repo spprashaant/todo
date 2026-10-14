@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The layout is pixel-identical (37px highlight row, 38px row pitch, 32px right inset). The only real difference is contrast. In the loser the computed dates in the trailing column ('Thu, Jun 8', 'Fri, Aug 18') are a dimmer grey, peaking around #8D8D8D on the ~#33343C panel, and the clear X in the search field is ~#E0E0E0. The winner uses ~#9C9C9C for the dates and ~#F0F0F0 for the X. Raise the date grey about 15 levels so the answer each suggestion resolves to reads at a glance.",
+    "phone": "The loser's footer has only a grey '+ Add Reminder' on the left (~22pt, x 29-223, y ~598) and leaves the right half empty. Repeat is not reachable from the When sheet. The winner right-aligns a matching '⟲ Repeat' (repeat icon plus label, same ~#949494 grey and same baseline, ending ~26px from the right edge). That balances the footer and puts recurrence one tap away. The loser also uses dimmer greys: weekday headers ~#666 vs ~#737373 and the today-star cell ~#676767 vs ~#747474."
+  },
+  "why": "Both pairs have near-identical geometry, so each call came down to legibility of the secondary text. On phone it also came down to the winner's extra Repeat control, which balances the footer.",
+  "at": "2026-09-26T20:48:09.242Z"
+}

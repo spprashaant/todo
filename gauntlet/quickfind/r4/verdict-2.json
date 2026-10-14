@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The text caret in the search field is drawn on top of the last typed glyph: the query 'to' ends at x~68 and the 2-3px blue caret sits at x~68-71, clipping the 'o' so the field reads 'tc'. The winner leaves a ~3px gap after the glyph (text ends x~70, caret at x~73-75), so the query stays legible. Advance the caret insertion point past the glyph's advance width.",
+    "phone": "The empty-state text is washed out. The two-line hint under the field renders at ~#ACACAE on the #F9F9FB sheet (about 2:1 contrast, close to disappearing), the 'Quick Find' placeholder and magnifier are ~10 levels lighter, and 'Cancel' drops to a greyish ~#4F4F51. The winner uses a secondary-label grey of ~#9A9A9C for the hint (close to iOS #8E8E93), a darker placeholder, and a near-black ~#3F3F41 Cancel, so the hint reads as intentional guidance and Cancel reads as a real button."
+  },
+  "why": "Near-identical layouts and rhythm (38px row pitch in both). Desktop comes down to the loser's caret overprinting the typed 'o'. Phone comes down to the loser's faded hint, placeholder and Cancel contrast.",
+  "at": "2026-09-26T05:37:00.906Z"
+}

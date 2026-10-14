@@ -1,0 +1,22 @@
+Generated with the built-in image_gen tool. Final image exported at 2560x1440 using macOS sips.
+
+INITIAL DESIGN PROMPT
+Use case: logo-brand
+Asset type: final YouTube channel banner, full canvas EXACTLY 2560 pixels wide by 1440 pixels high, 16:9, ready to upload.
+Primary request: Create a beautiful, polished, restrained banner matching the attached profile icon for the software teaching channel "The Coderlog".
+Input images: Image 1 is the approved brand reference. Preserve its distinctive angular cyan C emblem, ivory terminal chevron, amber underscore cursor, charcoal background, proportions, and overall character. Reproduce the actual emblem faithfully, scaled down for a banner.
+Scene/backdrop: near-black charcoal #101419 across the entire 16:9 canvas, exceptionally subtle tonal texture like the reference. At the far left and right edges only, restrained large tone-on-tone angular fragments echo the C's diagonal cuts, extremely low contrast and purely decorative. Calm, spacious, premium developer identity.
+Composition/framing: This is a YouTube banner, so the essential content MUST be small and concentrated in a shallow horizontal strip at the exact center of the whole canvas. Use the center 1544-by-423-pixel safe area, with additional margins: ALL logo and lettering must fit within x=650 through x=1910 and y=565 through y=875 of the 2560-by-1440 canvas. Everything above and below is background only. Do not make the artwork into a conventional full-height poster. Within this compact central strip, place the faithful cyan C >_ emblem on the left, approximately 230 pixels tall. To its right, place a crisp typographic title and smaller topic line, forming one balanced horizontally centered brand lockup. No boxes around the logo.
+Text (verbatim): first line "THE CODERLOG"; second line "React • TypeScript • Backend"
+Typography: title on ONE line, clean bold contemporary sans serif with excellent kerning, warm ivory #F3F5F2, approximately 90 pixels high at 2560 canvas width. Topic line approximately 35 pixels high in soft cyan, restrained letter spacing, tiny amber separators. Align the two text lines left with each other. The title is the hierarchy leader; logo and text are balanced.
+Color palette: matching bright cyan #49D6E8, warm ivory #F3F5F2, tiny amber #F5AF47 accents, charcoal #101419.
+Style/medium: crisp professional graphic design, premium editorial tech brand, nearly flat colors, sharp clean edges, subtle background depth, no 3D objects.
+Constraints: output ONE finished 2560x1440 landscape banner, no preview frame, no device mockup, no guides, no crop lines, no safe-area labels, no external border, no collage or options sheet. Exact spelling, no other copy, no invented slogan, no upload schedule, no URL. Do not redesign the reference logo. No neon glow, no busy code wall, no circuit board, no laptops, no stock technology logos, no watermarks. Generous empty space is intentional for YouTube crop safety.
+
+CANVAS CORRECTION PROMPT
+Use case: compositing
+Edit target: the attached completed banner.
+Make ONE precise correction: convert the canvas to a standard widescreen 16:9 rectangle, exactly 2560x1440 pixels, by adding much more matching empty charcoal background ABOVE and BELOW the existing composition. Preserve the existing graphic design, logo, colors, lettering, text, typography, and left/right decorative angular shapes. The composition must not be stretched. It must not remain a panoramic 2.5:1 strip.
+The desired image is a 16:9 TV-sized canvas, substantially taller than the source. Central logo and lettering stay compact at the exact canvas center. Scale the existing horizontal composition proportionally to 2560 pixels wide and center it vertically in the 1440-pixel-tall output, extending charcoal texture seamlessly into the top and bottom empty space. The main logo and both text lines must stay fully inside the central 1544x423 pixels; the logo and lettering should occupy at most 1200x300 pixels. Preserve exact text "THE CODERLOG" and "React • TypeScript • Backend". Preserve the recognizable cyan angular C with white > and amber underscore, without changes.
+Render a finished STANDARD 16:9 landscape image at 2560x1440 resolution, not an ultrawide image, not a crop guide or mockup. Add background area vertically, keep the approved design intact. Opaque background, no additional words, no guides or borders.
+

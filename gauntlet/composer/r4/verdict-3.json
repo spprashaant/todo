@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Toolbar calendar icon (bottom-right, ~33x28px at x~608): the header rule under the top edge floats with 1-2px gaps before the left and right frame strokes, and the icon row reads a shade lighter (darkest stroke ~#A5A5A5 vs ~#989898). The winner runs the header rule stroke-to-stroke into the frame, so the glyph reads as one closed, crisp calendar. Join the rule to the frame and darken the strokes ~10 levels.",
+    "phone": "The toolbar icons (bottom-right row, ~22-27px) are drawn too faint. The darkest stroke is ~#AFAFAF against ~#A2A2A2 in the winner. The calendar's 3x3 date grid is tiny ~2x1px dashes at ~#C0C0C0 that nearly disappear, under a 1px header rule that does not meet the left stroke. The winner uses bolder 2x2px dots at ~#A5A5A5 under a solid 2px header band. Darken the icon strokes to ~#A2A2A2 and draw the grid as 2x2 dots."
+  },
+  "why": "Near-identical composers (same layout, type, card, shadow, caret); decided on icon finish: the desktop winner's calendar glyph is closed and a touch crisper, and the phone winner's toolbar icons have more contrast and a readable calendar grid.",
+  "at": "2026-09-26T04:50:13.723Z"
+}

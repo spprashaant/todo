@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' is drawn with three solid ~5px filled dots, so it reads as a generic bulleted list and looks heavier than the note glyph beside it. The winner draws those markers as ~5px hollow rings with a ~1px stroke, which echoes the row checkboxes and matches the note glyph's weight. Also, the loser's This Evening divider starts ~5px left of the checkbox/moon column, where the winner's starts ~3px left.",
+    "phone": "The 64px blue FAB sits right on the last row: its top edge (~y478) is level with the bottom of 'Read article about nutrition', and it covers the trailing third of the 'Buy party decorations' row, so the list has no bottom inset. The winner leaves ~95px of clear space between the last row and the FAB. Fix: add a bottom content inset of about FAB height + 16px (~80px) so the last row can scroll clear."
+  },
+  "why": "Rows are pixel-identical in rhythm (76px desktop / 59px phone pitch), checkbox size (24px), colours and heading. The winner has the cleaner details: a checklist glyph that reads as a checklist on desktop, and a FAB that does not collide with rows on phone.",
+  "at": "2026-09-26T06:21:51.516Z"
+}

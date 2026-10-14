@@ -1,0 +1,10 @@
+Edited with the built-in image_gen tool. Final image exported at 2560x1440 using macOS sips.
+
+Use case: precise-object-edit
+Asset type: revised YouTube channel banner, standard 16:9 full canvas at 2560x1440 pixels.
+Edit target: the supplied approved charcoal, cyan, ivory, and amber banner.
+Primary request: Remove the entire technology-specific subtitle "React • TypeScript • Backend", including its amber separator dots. Fill that area seamlessly with the surrounding charcoal texture. Do not replace it with any slogan, topic list, or new text. The only lettering in the finished banner must be "THE CODERLOG".
+Keep the existing cyan angular C logo with ivory terminal chevron and amber underscore unchanged. Keep the ivory "THE CODERLOG" title's spelling, font, weight, and horizontal scale unchanged. Move the title down slightly so its vertical center aligns with the logo's vertical center now that there is no subtitle. Keep the complete logo/title lockup centered across the canvas.
+Invariants: preserve the background texture, the low-contrast angular decorative shapes at the left and right edges, palette, composition, generous empty space, logo geometry, and polished style. No added objects or copy. The central logo and title must fit completely inside the central 1544x423-pixel safe area at 2560x1440, with generous extra margins.
+Output: ONE finished standard 16:9 image, exactly 2560x1440 pixels if possible. Do not turn it into a panoramic strip. Opaque background, no guides, no mockup, no border, no watermark.
+

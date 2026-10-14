@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' is muddy in the loser. Its three bullets are about 5px near-solid dots stacked roughly 1px apart, so they merge into one grey column, and the dashes beside them are heavier than the bullets. The winner draws three separate 5px hollow rings with 1px strokes about 2px apart, plus lighter 8px dashes, in an 18x18 box, so it reads clearly as a checklist.",
+    "phone": "The loser's project subtitles ('Vacation in Rome', 'Work', ...) are too pale: about #A6A6A7 on white, roughly 2.4:1 contrast. The winner uses about #9E9E9F, roughly 2.7:1, at the same size and position. The loser's secondary line washes out, and its 'This Evening' heading and moon are also slightly lighter. Darken the subtitle grey by about 8 levels."
+  },
+  "why": "Layout, spacing and rhythm are pixel-identical in both pairs, so the small-detail finish decides it: on desktop the winner's checklist glyph is crisp while the loser's is smudged; on phone the winner's subtitle grey is more legible.",
+  "at": "2026-09-26T06:17:11.776Z"
+}

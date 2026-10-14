@@ -1,0 +1,174 @@
+# Handoff: Todos app vs Things gauntlet
+
+Updated 2026-09-27. Project root is `/Users/pr/Desktop/dev/Todo`. It is a git repo. `vendor/` (the TodoMVC clone for the suite) is git-ignored: on a fresh clone, run `bash tools/setup-suite.sh` once before `tools/suite.sh`.
+
+## Active first (added 2026-10-08)
+
+Every list now opens under **Active**, and the pills read Active, All, Completed. Under All, open to-dos come first in each section and finished ones sink to its bottom.
+
+- `router.listHref(view, id)` is the hash that opens a list (its `/active` route; the Logbook stays All). The sidebar, Quick Find's list results, an area's project list and the list headings in Anytime and Someday use it. The installed app's `start_url` is `./#/active`.
+- The bare routes (`#/`, `#/today`, …) still mean All, because the TodoMVC spec visits `#/` and expects All selected with finished to-dos visible. A plain browser visit to the root URL therefore still lands on Inbox under All.
+- The sort lives at the end of `buildModel()` in `app/js/view.js`. Rows are cached by id and moved, not rebuilt, so a ticked row slides down without losing its card or focus.
+- `tools/patch-spec.sh` now re-aliases the persistence test's rows by text after reload (the official spec's aliases pointed at specific to-dos), since by index the finished one is no longer first.
+
+## Cloud sync with Supabase (added 2026-09-27)
+
+To-dos now sync across devices through Supabase. It's for the owner only for now.
+
+- **The project** is "Todo" (ref `smkrwmwylgakjmluulma`, region ap-south-1) in the owner's free-tier org. The Supabase connector is connected in Claude, so tables, SQL and advisors can be reached from a session.
+- **How it works:** the browser copy in localStorage stays the app's store, because the TodoMVC suite reads it and the app works offline from it. Once signed in, each to-do, area, project and tag is also one row of `public.items`, and changes flow both ways. Realtime announces changes, so another device updates within a second or two.
+  - A conflict goes to the later edit.
+  - Moving an item re-sends only that item.
+  - Deletions are rows marked deleted.
+  - The rules are in `gauntlet/CONTRACT.md` under "Cloud sync".
+- **Sign-in:** email and password, from Settings (sliders) → Sync… on desktop, or the list menu (⌄) → Sync… on phone. There is no sign-up in the app, because the account is created in the Supabase dashboard. Signed out, the app behaves exactly as before and loads nothing.
+- **Code:**
+  - `app/js/sync.js`: the engine.
+  - `app/js/account.js` and `app/css/account.css`: the panel.
+  - `app/js/config.js`: the URL and publishable key. The key is public by design, and row level security protects the data.
+  - `app/vendor/supabase.mjs`: supabase-js 2.117.2 as an ES module.
+  - `store.replaceData()`: the store's one new entry point.
+  - `supabase/migrations/`: the schema as applied.
+- **Checks:** `node tools/sync-check.mjs` must print `SYNC GREEN`. It runs 18 scenarios, with two devices against an in-memory stand-in for the table that follows the same rules. It never touches the real project. Real sign-in wasn't tested by Claude, because that needs the owner's password.
+- **Moving to a deployed copy:** localStorage is per address. A copy deployed to HTTPS (needed for the Android install) starts empty, and signing in there pulls everything down.
+- **Free tier:** Supabase pauses a free project after about a week without use. The app keeps working offline, and sync shows an error until the project is restored from the dashboard.
+- **Not done yet:** sign-up and password reset in the app, and a sync indicator outside the panel.
+
+## Repeating to-dos (added 2026-09-27, judged against Asana)
+
+The app now has repeating to-dos, modelled on Asana's recurring tasks and drawn in the Things look. The key option is **After Completion**. For example, "Clean room, every 1 day after completion" creates the next to-do only when you tick the current one off, dated from the day you finished, so nothing piles up. It also offers:
+
+- Daily, Weekly (weekday toggles), Monthly (day N, or the nth or last weekday), Yearly, and Custom (every N days, weeks, months or years).
+- An end condition: never, after N times, or on a date.
+- Stop Repeating.
+- A "Next: …" preview.
+
+**Where it lives:**
+- The controls are a Repeats section inside the When picker, reached from the "↻ Repeat" footer entry.
+- A repeating to-do shows "↻ Every Monday" (or its own rule) on its card and a marker on its row.
+
+**Code:**
+- `app/js/recur.js`: the date math and wording.
+- `app/js/repeat.js` and `app/css/repeat.css`: the controls.
+- `app/js/store.js`: the engine. It covers every completion path: row and card checkbox, Cmd/Ctrl+K, Complete All, the phone menu, delete and Clear completed.
+
+**The rules** are in `gauntlet/CONTRACT.md` under "Repeating to-dos".
+- Unticking takes the new occurrence back if it's still unedited.
+- A series never has two open repeating occurrences.
+- A schedule finished late skips the missed dates.
+
+**How it was judged:** three pieces, all won.
+- **`repeat-picker`**: 5 shots (after completion, weekly, monthly, the kinds list, phone) against Asana's date picker. Won round 1 at 3/3 on every shot, and 3/3 on every shot again in the final re-judge.
+- **`repeat-marker`**: the open card against Asana's task detail. Won 3/3 twice.
+- **`recur-engine`**: judged by `node tools/recur-check.mjs`, which must print `RECUR GREEN`. It drives the real UI through 38 scenarios, 25 of them regressions for breaks the testers confirmed. On top of that, each round 3 adversarial testers attack it, and every break they claim is re-checked by a separate verifier. It won in round 11, after confirmed breaks per round went 3, 2, 2, 1, 2, 1, 3, 3, 2, 1, 0. Many of the breaks were older app bugs the feature exposed, for example:
+  - Complete All doing the opposite when a row was selected.
+  - A stale When picker in a second tab overwriting changes.
+  - The open card closing when its row moved in Upcoming.
+
+**The Asana bar** is in `bar/asana/`, with `NOTES.md` giving sources, labels and documented behaviour.
+- It is from the official Help Center, the "What's New in Asana, September 2023" video and a staff forum post.
+- Asana has no official image of its after-completion panel or of its mobile repeat UI. Those two crops are real Asana screenshots posted by users on forum.asana.com, marked unofficial.
+- The crops are `bar/crops/repeat-*.png`.
+
+**Harness changes:**
+- A piece's `shots` can be named states (`after`, `weekly`, …), not just `desktop` and `phone`. `"device": "phone"` marks a touch shot.
+- `capture.selectors` shoots the union of several elements.
+- `"bar": "Asana"` labels the comparison.
+- `pair.mjs`, `verdict.mjs`, `shoot.mjs`, `img.py` and the progress page follow these changes.
+- `tools/recur-verdict.mjs` records engine testers' verdicts.
+- `tools/recur-workflow.js` is the Workflow script. It runs:
+  - visual pieces as a builder, then 3 blind critics;
+  - the engine as a builder, then 3 testers, each confirmed break verified and then turned into a regression scenario.
+
+  Its args are `{rounds, scratch?, pieces:[{id,title,judge,owns,shots|kind:'behaviour',round,gap?,key?,history?,pendingBreaks?}]}`.
+
+**Decisions to revisit:**
+- Late schedules skip missed dates. Asana instead computes the next date from the old one.
+- Reopening an old occurrence after the series has moved on brings it back as a one-off.
+- Reminders on repeating to-dos still fire no notifications (known gap 1).
+
+## Goal and status
+
+The goal was a todo app that runs in the browser on Mac and Windows and installs on Android as a PWA. It is judged two ways:
+
+1. **Blind design comparison.** Our screenshots are compared against real Things screenshots in a builder/critic loop until the critics pick ours.
+2. **TodoMVC.** The official TodoMVC Cypress suite must pass.
+
+Status: **done and converged.** On 2026-09-27, after the repeating to-dos feature landed, a final pass re-judged the finished build blind without changing it, and every piece won again:
+
+| Piece | Desktop votes for ours | Phone votes for ours |
+|---|---|---|
+| today | 3/3 | 3/3 |
+| project | 3/3 | 3/3 |
+| sidebar | 2/3 | 3/3 |
+| detail | 3/3 | 2/3 |
+| when | 3/3 | 3/3 |
+| quickfind | 3/3 | 3/3 |
+| composer | 3/3 | 3/3 |
+
+The recurrence pieces (vs Asana) are in the section above.
+
+The suite is green (see the caveat below), `node tools/recur-check.mjs` passes 38/38, and `node tools/smoke.mjs` passes 13/13.
+
+## Run it
+
+- **App server:** `node tools/serve.mjs` serves the app at http://localhost:5173/app/ and the live progress page at http://localhost:5173/progress/. In the desktop app, `preview_start` with the name `todo` from `.claude/launch.json` does the same.
+- **Test suite:** `bash tools/suite.sh <who>` starts TodoMVC's own test server on :8000 when needed. It runs `vendor/todomvc` with `examples/todo` symlinked to `../../../app`, and prints `SUITE GREEN` or `SUITE RED`.
+- **Smoke test:** `node tools/smoke.mjs` checks the app's functional flows, the PWA, offline use and Chrome's installability check. It needs the app server running.
+- **Sync check:** `node tools/sync-check.mjs` prints `SYNC GREEN` or `SYNC RED` (see "Cloud sync" above).
+- **Android install:** it needs HTTPS, so deploy `app/` to a static host. Localhost only works on the same device.
+
+## TodoMVC caveat
+
+100% on the unmodified spec is impossible for any app that persists to localStorage. Under Cypress 15.14.2, two harness bugs fail 3 tests and skip 2:
+- `spy.reset` no longer exists.
+- The persistence test reuses an element alias across `cy.reload()`.
+
+TodoMVC's own `knockoutjs` example fails identically. That was verified in this session.
+
+`tools/patch-spec.sh` generates `vendor/todomvc/cypress/e2e-patched/spec.cy.js`, which fixes only those two lines. `suite.sh` runs both specs. Green means the official spec has no failures beyond those 3 and the patched spec passes 29/29. The current result is official 24/29 and patched 29/29.
+
+## App (`app/`, about 4.8k lines)
+
+Plain HTML, CSS and ES modules, with no build step and no network dependencies. `gauntlet/CONTRACT.md` is the source of truth for:
+- file layout and per-piece ownership (`app/css/<piece>.css`, `app/js/<piece>.js`), plus the shared files (`store.js`, `router.js`, `view.js`, `icons.js`, `base.css`, `index.html`)
+- the TodoMVC DOM contract
+- the data model (`localStorage["things-todos"]` array, `["things-lists"]` object)
+- the routes (`#/` Inbox, `#/today`, `#/upcoming`, `#/anytime`, `#/someday`, `#/logbook`, `#/project/<id>`, `#/area/<id>`, `#/lists` phone home, each with an optional `/active` or `/completed` suffix)
+- the `data-shot` screenshot hooks and PWA requirements
+
+Features: sidebar and phone lists home, Today with This Evening, projects with headings, tags, date badges and progress pies, the open to-do card (notes, checklist, when, tags, deadline), the When picker (calendar, natural-language "in 3", Someday, Add Reminder), Quick Find (`/` or Cmd/Ctrl+F), a composer card (toolbar + on desktop, floating + on phone), the Logbook, and a network-first service worker with offline shell.
+
+## Gauntlet harness
+
+- **References:** `bar/` holds the real Things screenshots and mp4s from culturedcode.com. `bar/crops/<piece>-<size>.png` are the cleaned comparison crops, and `bar/frames/` holds video frames used by the composer piece.
+- **`gauntlet/pieces.json`** lists the 7 pieces. Each has a `shots.desktop` and `shots.phone` recipe: ref crop, seed, frozen `now`, route, viewport and dsf, actions, and capture selector.
+- **`gauntlet/seeds/<piece>-<size>.json`** holds localStorage seeds that reproduce each Things crop's content.
+- **Tools:**
+  - `tools/shoot.mjs <piece> [--compare]` takes Playwright screenshots of ours. `--compare` also writes a labelled ours|Things image to `gauntlet/<piece>/compare-*.png`.
+  - `tools/pair.mjs <piece> <round>` writes the blind A/B pair to `gauntlet/<piece>/r<N>/`. Both images go through `img.py equalize` (downscale to about 1.25x, JPEG q75, upscale back) so image crispness can't decide the pick. The answer key goes to `gauntlet/.keys/`, and the script prints `PAIR_KEY`.
+  - `tools/verdict.mjs <piece> <round> --critic i --of 3 ...` records a critic's pick and computes the majority from the hidden key.
+  - `tools/status.mjs` writes per-piece `status.json` and the `events.jsonl` feed that the progress page reads.
+- **`tools/gauntlet-workflow.js`** is the Workflow script. For each piece, one builder agent works on it, then a panel of 3 fresh critics judges it. Each critic is given a different lens. A size is won only with at least 2 of 3 votes for ours, and the piece is won only with both sizes won and the suite green.
+  - Args are `{rounds, pieces:[{id,title,judge,owns,round,gap?,key?,history?}]}`.
+  - Passing `key` (from a `pair.mjs` you ran first) makes that round judge-first, with no builder.
+  - Pass a piece's `title`, `judge` and `owns` from pieces.json.
+- **Next round numbers:** today 10, project 6, sidebar 6, detail 8, when 8, quickfind 7, composer 11, repeat-picker 3, repeat-marker 3, recur-engine 12.
+
+## Rules that matter
+
+- Never edit `bar/`, `gauntlet/pieces.json`, seeds, `tools/` or `vendor/` from a builder. Fix the app instead.
+- No test or critic hacks: no screen-reader-only h1, no Cypress detection, and no styling that applies only during screenshots.
+- Several builders run concurrently, so edits to shared files must be small and re-read first.
+- Critics may open only their four A/B images, never the keys, `bar/` or the app.
+- The loop exits only on winning or on the user stopping it, never after a fixed round count.
+
+## Known gaps and possible next steps
+
+1. **Reminders** are stored (`reminder` field) but fire no notifications.
+2. **No calendar events.** Things' calendar block is cropped out of the references.
+3. **Missing Someday-project state.** Things' dashed Someday-project pie can't be expressed in our data model.
+4. **The "Todos" h1** is a small label at the top of the desktop sidebar, because the TodoMVC spec needs it visible at 890px.
+5. **Phone sidebar reference** is the iPad sidebar, because `bar/` has no iPhone lists screen.
+6. **Desktop captures are wider** than Things' narrow marketing windows.
+7. **Unjudged views:** Upcoming, Anytime, Someday, Logbook, empty states, dark mode and motion are built but have no pieces in the gauntlet. Adding a piece means a crop in `bar/crops`, a seed, and a recipe in pieces.json, then running the workflow.

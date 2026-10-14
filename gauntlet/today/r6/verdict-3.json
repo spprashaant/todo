@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The This Evening moon in the loser sits about 2px low and is squatter (about 23x22px, centre about 2px below the cap-height centre of the label). Its left edge is also 1px off the checkbox column. The winner draws a 23x24px moon centred on the caps and flush with the checkbox left edge. The loser's section rule also bleeds into a second, shorter pixel row, where the winner draws one crisp 2px #EBEBEB line.",
+    "phone": "In the loser's 'Buy party decorations' row, the checklist glyph starts about 2px lower and is about 2px shorter (about 15px) than the notes glyph beside it, so the pair does not share a top line and the glyph ends up about 2px below the title's ascender line. The winner draws both glyphs at the same height (about 16px), top-aligned to the ascenders. The loser's section hairline also smears across two pixel rows, where the winner draws one crisp 1px light-grey (#EDEDED) line."
+  },
+  "why": "The two are almost pixel-identical, so the tie-break is optical alignment of small glyphs. The winner centres the moon on the heading caps, sets its notes and checklist glyphs on one line and draws a clean hairline; the loser drifts 1-2px on each.",
+  "at": "2026-09-26T05:52:46.038Z"
+}

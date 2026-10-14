@@ -1,0 +1,11 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's repeat marker is a ~10px grey glyph perched on the top rim of the ~30px circled calendar icon, poking through the date field's 1px border, and the repeat rule is never stated: the field reads only '26 Aug' with no weekday, so you cannot tell how it repeats without opening something. The winner puts a ~14px repeat icon inline on the same baseline right after the date, followed by the rule in plain grey 14px text ('Every Monday'), with the weekday in the date ('Mon, Aug 26'). Fix: move the icon off the calendar badge into the row beside '26 Aug' and print the rule text next to it."
+  },
+  "why": "The winner states date, weekday and rule in one aligned line; the loser hides the rule and jams a tiny repeat badge into the calendar icon's border.",
+  "at": "2026-09-26T09:00:08.475Z"
+}

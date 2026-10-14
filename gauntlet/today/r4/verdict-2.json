@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The deadline flag is pinned to the far right of a row stretched to ~1060px, about 640px from the end of 'Finish expense report', so the flag no longer reads as belonging to its task and the eye has to cross a big empty gap. The winner keeps the row to about 630px, so the flag sits about 200px from the title. Cap the list's content width at about 640-700px so trailing metadata stays close to the title.",
+    "phone": "The project subtitles ('Vacation in Rome', 'Work', 'Run a Marathon') are drawn in a lighter grey (darkest stroke about #9A9A9A-#A0A0A0, versus about #8A8A8A-#909090 in the winner), so the second line fades and each two-line row reads less clearly. The note and checklist glyphs after 'Buy party decorations' are also crammed 8px apart, versus 11px in the winner. Darken the subtitle to about #8E8E93 and widen the gap between glyphs to about 10-11px."
+  },
+  "why": "The two are near pixel-identical in rhythm and alignment. Desktop is decided by the flag's distance from its title in the stretched row; phone by the loser's fainter subtitles and cramped trailing glyphs.",
+  "at": "2026-09-26T04:23:32.625Z"
+}

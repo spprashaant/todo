@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The open composer barely separates from the page. The loser sets a #FFFFFF card on a near-white #FAFAFA backdrop, about 2% luminance apart, so the lift depends on a faint shadow whose edge is about #E0E0E0. Its caret is also tall at about 37px, rising about 12px above the cap height. The winner puts the same card on a cool #F2F3F7 grey with a firmer shadow edge of about #D4D4D8, so the editor clearly reads as a raised sheet. Its caret is about 33px. Fix: darken the backdrop to about #F2F2F5 and trim the caret to the font's ascender-to-descender height.",
+    "phone": "The four add-detail icons at the bottom right of the card look washed out. The loser draws them at about #B0B0B0 (L~175), roughly 2.1:1 on white, and fills the calendar glyph with faint dashes. The winner uses about #A2A2A2 (L~163), roughly 2.6:1, with a crisp 3x3 dot grid in the calendar, so the affordances read clearly while staying secondary. Fix: darken the icon strokes by about 12 levels and use solid 2px dots for the calendar grid."
+  },
+  "why": "Layouts and typography are almost pixel-identical. The winner gives the composer clearer figure-ground on desktop and more legible detail icons on phone. The loser's paler treatment makes the editor and its affordances read weaker.",
+  "at": "2026-09-26T04:28:06.007Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "In the loser the blue text caret in the search field (x~68-72) is drawn on top of the last typed glyph, clipping the 'o' so the query reads 'tc'; the winner leaves a ~2px gap after the glyph (caret at x~72-76) so the typed 'to' stays fully legible. Advance the caret to the glyph's advance width plus 1-2px.",
+    "phone": "The loser's empty-state hint ('Quickly switch lists, find to-dos, search for tags...') is washed out at roughly #9D9D9D on the #F9F9FB sheet (about 2.5:1), and its placeholder (~#868686) and Cancel (~#505050) are also a step paler; the winner draws the hint at ~#8E8E8E (about 3.1:1), the placeholder at ~#7A7A7A and Cancel near #3C3C3C, so the panel's only guidance reads at a glance. Darken the hint to iOS secondaryLabel (~#8A8A8E)."
+  },
+  "why": "Layouts are pixel-identical in both pairs; desktop is decided by the loser's caret overprinting the typed query, phone by the loser's fainter hint, placeholder and Cancel tones.",
+  "at": "2026-09-26T20:49:35.824Z"
+}

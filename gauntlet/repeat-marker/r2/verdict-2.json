@@ -1,0 +1,11 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A"
+  },
+  "gaps": {
+    "desktop": "The loser never states the repeat rule: the only repeat cue is a ~8px grey loop glyph perched on the top-right rim of the ~24px calendar circle in the Due date field, crowded against the '26 Aug' text, and there is no weekday, so you cannot tell how it repeats without opening something. The winner puts the rule inline on the date row as its own labelled chip, a ~14px loop icon followed by 'Every Monday' in ~13px mid-grey, spaced about 24px after a bold 'Mon, Aug 26'. Fix: add the rule as readable text (e.g. 'Every Monday') beside or under the date at body size, and include the weekday in the date."
+  },
+  "why": "The winner shows date and rule as one readable line (Mon, Aug 26 + loop icon + Every Monday); the loser hides the repeat behind a tiny badge with no rule text.",
+  "at": "2026-09-26T20:49:58.173Z"
+}

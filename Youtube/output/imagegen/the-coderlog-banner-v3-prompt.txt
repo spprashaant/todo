@@ -1,0 +1,11 @@
+Edited with the built-in image_gen tool. Final image exported at 2560x1440 using macOS sips.
+
+Use case: text-localization
+Asset type: finished YouTube channel banner, standard 16:9 canvas.
+Edit target: the supplied approved charcoal, cyan, ivory, and amber banner.
+Primary request: Replace ONLY the technology-specific subtitle "React • TypeScript • Backend" and its amber separator dots with the broader teaching tagline "Understand code. Build better." Render this replacement verbatim, with the exact spelling, capitalization, spaces, and punctuation. No specific technologies anywhere.
+Text (verbatim): "Understand code. Build better."
+Typography: render the new tagline in the same cyan color, clean sans-serif style, approximate size, baseline, and left alignment as the original subtitle. Fit it neatly below "THE CODERLOG", within the existing text block's width. Do not add amber separator dots or change the punctuation; the amber underscore in the logo remains.
+Invariants: preserve the existing cyan angular C logo containing the ivory terminal chevron and amber underscore exactly. Preserve "THE CODERLOG" title, font, spelling, color, size, and position. Preserve the charcoal textured background, low-contrast angular shapes at the left and right edges, spacious composition, and palette. Change only the subtitle region; no additional graphics or text.
+Composition: all logo and text stay completely within the central 1544x423-pixel safe area of a 2560x1440 canvas, with generous extra margins. Standard 16:9 full canvas, NOT a panoramic strip. Output one polished upload-ready banner, exactly 2560x1440 pixels if possible. Opaque background, no crop guides, no mockups, no borders, no watermark.
+

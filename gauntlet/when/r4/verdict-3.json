@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The right-aligned resolved dates ('Thu, Jun 8', 'Fri, Aug 18') in the unselected suggestion rows are too dim in the loser: about #858994 on the #2D313D panel, roughly 3.7:1. The winner draws the same 13-14px column at about #9299A3, roughly 4.4:1. That value is the whole point of a natural-language suggestion, so lift the secondary label about 12-15 levels to match the winner.",
+    "phone": "The weekday header row (Sun-Sat, about 11px) and the dimmed today-star in the Wed cell are too faint in the loser: about #5D616C on the #282C37 sheet, roughly 2.3:1, so the column labels almost disappear. The winner draws both at about #6A6E79 (roughly 2.7:1), so the grid stays scannable while the labels still sit behind the white date numerals. Raise that tertiary grey by about 13 levels."
+  },
+  "why": "The pairs are nearly pixel-identical, so each size came down to the contrast of the secondary text: the NL date column on desktop, and the weekday headers and today-star on phone.",
+  "at": "2026-09-26T05:11:32.631Z"
+}

@@ -1,0 +1,19 @@
+{
+  "critic": 2,
+  "pick": {
+    "after": "B",
+    "weekly": "A",
+    "monthly": "A",
+    "kinds": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "after": "The loser labels the kind a vague 'Periodically' and shows a bare '7' dropdown under 'Days after completion', with nothing saying when the next copy appears. The winner names it 'After Completion', gives 'Every [7] days' with a filled number field about 56x30px, and adds a secondary 13px line 'Done today? Next: Sun, Oct 23'.",
+    "weekly": "The loser uses seven loose 16px checkboxes spaced about 60px apart, with ambiguous single-letter labels (S/T/T/S) under them, and gives no outcome. The winner uses a joined row of about 44px pill toggles with three-letter labels (Sun...Sat), fills the selected one solid blue, and adds a 'Next: Fri, Oct 6' line.",
+    "monthly": "The loser never says what will happen: there is no Ends row and no next-date line, and the disabled option reads 'On day Last', which is nonsense. The winner shows 'On day 29th' dimmed, plus 'Ends Never' and a grey 13px 'Next: Fri, Oct 27' line under the options.",
+    "kinds": "The loser's kind list is a plain native pop-up of bare words (Daily/Weekly/Monthly...) in 20px type that spills past the panel edge and is clipped at 'Periodically'. The winner lists each kind inline inside the panel with a right-aligned grey preview of what it would do ('Every day', 'Fridays', 'The 29th', 'Sep 29', '1 week') and a divider setting After Completion apart.",
+    "phone": "On phone width, the loser collapses to one row whose label is truncated to 'R...' next to '4 days after completion', leaving no editable fields and no off control. The winner stacks full rows (Repeat / Every [4] days / Ends Never / 'Done today? Next: Mon, Apr 1') at about 17px, with a full-width 'Stop Repeating' at the bottom."
+  },
+  "why": "The winners always spell out the result (a next-date preview, clear per-kind summaries, unambiguous day labels). The losers leave the user guessing, with vague labels, single-letter checkboxes and a truncated phone row.",
+  "at": "2026-09-26T09:24:11.843Z"
+}

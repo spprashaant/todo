@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's text caret is too short and collides with the text. It is about 27px tall (y75-101), rises only about 2px above the ascenders, and its left edge overlaps the final 's' by 1-2px. The winner draws a full line-height caret about 32px tall (y70-101), rising about 7px above the ascenders, with a clean 1-2px gap after the 's'. Fix: make the caret span the font's line height and place it after the glyph's advance width.",
+    "phone": "The loser's caret is stunted. It is about 20px tall (y50-69), starts about 2px below the cap top of 'B' and stops above the descender of 'y', so it reads shorter than the text it edits. The winner's caret is about 25px tall (y45-69) and rises about 3px above cap height, like a native iOS caret. Fix: size the caret from ascender to descender, not to the x-height/cap box. (The loser's checkbox stroke is also slightly paler, gray about 190 vs 177.)"
+  },
+  "why": "Layouts, type, icons and spacing are pixel-identical at both sizes; the only design difference is caret geometry. The desktop winner's caret has native line height and clears the glyph; the phone winner's caret rises properly above cap height.",
+  "at": "2026-09-26T06:26:19.684Z"
+}

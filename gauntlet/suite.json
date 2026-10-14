@@ -1,0 +1,27 @@
+{
+  "green": true,
+  "official": {
+    "total": 29,
+    "passing": 24,
+    "failing": 3,
+    "skipped": 2,
+    "failedTests": [
+      "\"before each\" hook for \"should allow me to mark all items as completed\"",
+      "should allow me to add todo items",
+      "should persist its data"
+    ]
+  },
+  "patched": {
+    "total": 29,
+    "passing": 29,
+    "failing": 0,
+    "skipped": 0,
+    "failedTests": []
+  },
+  "unexpectedOfficialFailures": [],
+  "passing": 29,
+  "failing": 0,
+  "total": 29,
+  "by": "claude",
+  "at": "2026-10-08T12:45:41"
+}

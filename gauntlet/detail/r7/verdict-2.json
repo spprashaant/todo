@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Text inside the open card renders lighter than in the winner: the ~17px title and the notes/checklist strokes average about #666/#767676 against about #5E/#6E in the winner. As a result the opened title is no darker than the closed rows around it ('Revise introduction'), and the calendar/tag/flag icons at the bottom right are fainter (darkest stroke ~#9F vs ~#91). Set the title and body to near-black (~#1C1C1E) and the icons to ~#8E8E93, as the winner does, so the lifted card is the strongest thing in the list.",
+    "phone": "Notes and checklist text in the card render greyer than the winner's: dark stroke cores average about #3F vs #35, and all antialiased pixels about #6E vs #5C. The 17px body text looks washed out beside the black 20px 'Update slide layouts' title. Use the near-black primary label colour (~#1C1C1E) for notes and checklist items, as the winner does, and let the 20pt/17pt size step carry the hierarchy."
+  },
+  "why": "Layout, spacing, radii and icons are pixel-identical within 1-2px in both pairs; the deciding factor is text contrast, and in each pair the winner renders the card's title and body darker and crisper.",
+  "at": "2026-09-26T20:48:35.325Z"
+}

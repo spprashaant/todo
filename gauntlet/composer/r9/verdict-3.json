@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The text caret collides with the last glyph. In the loser the blue insertion bar starts at x~253, which overlaps the right edge of the final 's' in 'Book hotels' (the glyph ends at x~254). The bar is also clipped to ~26px (y 75-101). The winner leaves a clean 1-2px gap after the glyph and runs the caret the full line height, ~31px (y 70-101), as a native macOS text view does. Move the caret 2-3px right of the glyph advance and size it to the line box.",
+    "phone": "The caret is stubby. In the loser it is only ~19px tall (y 50-69), while the title line runs from the ascender top at y48 to the descender at y71. Its top sits ~2px below the cap height of 'Buy suitcase', so it reads as a short tick rather than an iOS insertion point. The winner runs it ~24px (y 45-69), rising ~3px above the ascenders the way a native UITextView caret does. Size the caret to the font's ascender-to-descender line box, not the x-height."
+  },
+  "why": "Every other element is pixel-identical, down to icons, type, card and shadow, so the verdict rests on the insertion caret: on desktop the winner's caret is native height and has clean spacing; on phone the winner's caret spans the full line instead of a stubby tick.",
+  "at": "2026-09-26T06:26:09.934Z"
+}

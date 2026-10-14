@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The blue section headings ('Slides and notes', 'Preparation') and their more-dots are a washed-out slate (core about #3A5881, darkest about #174F8D). That reads greyed-out and does not match the progress-pie's #2761B5. The winner draws them in a saturated accent blue (core about #2F5898, darkest about #0044AB) that matches the icon. The loser's title is also a notch lighter: semibold with about 5px stems against bold with about 6px stems at the same 36px cap height.",
+    "phone": "The filter-pill row is missing entirely. Between the project notes (ending at y about 208) and the 'Things to buy' heading (y about 297) there is an empty gap of about 88px. The winner puts a pill row there: a selected grey pill about 30px tall (#B6B6BA fill, white semibold label) about 25px below the notes and about 50px above the first heading. That keeps the pill feature and tightens the header rhythm."
+  },
+  "why": "The content rows are nearly identical at both sizes. On desktop the winner wins on a heading blue that matches the icon and a bolder title. On phone the winner wins because it actually has the filter pills, where the loser leaves an 88px hole.",
+  "at": "2026-09-26T06:21:57.553Z"
+}

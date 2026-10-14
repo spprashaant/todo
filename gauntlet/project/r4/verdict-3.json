@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's blue section headings ('Slides and notes', 'Preparation') and their more-dots are a dull slate blue (about #3a5f95, reads grey-blue next to black body text), and the title is semibold. The winner uses a saturated blue (about #1f63c8) for headings and dots, and a bold title about 20% heavier, so the hierarchy reads straight away. Fix: move the heading colour to the vivid accent blue and set the title to bold.",
+    "phone": "The loser has no filter pill row at all. Between the notes (ending at y~205) and the first 'Things to buy' heading (y~298) there is about 90px of dead white space. The winner puts an All / Active / Completed pill row at y~253 (selected pill about 28px tall, grey #b5b5b8 fill, white semibold text) and brings the heading up to y~330, which keeps the rhythm tight. Fix: render the filter pills under the notes and close the gap."
+  },
+  "why": "Phone: the loser drops the filter pills and leaves a hole. Desktop: the winner's saturated heading blue and bold title give clearer hierarchy on otherwise identical rows.",
+  "at": "2026-09-26T06:21:03.090Z"
+}

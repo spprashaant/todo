@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's text caret after 'Book hotels' is a duller, greyer blue (core ~rgb 110,140,195), only ~34px tall, and butts straight into the final 's' with no clearance. The winner draws a cleaner accent-blue caret (core ~rgb 105,155,212), ~36px tall from above the cap line to below the baseline, with ~1px of air after the glyph. Fix: draw the insertion point in the full system accent blue, at line height, offset 1px from the last glyph. Everything else (card, 26px checkbox, 36px title row, Notes placeholder, icon row) is pixel-identical.",
+    "phone": "The loser's bottom tool row (calendar, tag, checklist, flag) sits only ~22px above the card's bottom edge while the checkbox sits ~31px below the top edge, and its glyphs are ~1px larger (24px vs 23px tall) and darker (peak ~#A1A1A1 vs ~#AFAFAF). So the row looks heavier and pushed against the bottom edge. The winner leaves ~24px under 23px glyphs in a lighter tertiary grey, which gives more even top and bottom padding. Fix: add ~2px of padding under the icon row and draw the glyphs 1px smaller in the lighter grey."
+  },
+  "why": "The pairs are near-identical and the call is marginal. Desktop turns on the caret: the winner's is crisper and accent-blue with glyph clearance. Phone turns on the vertical balance of the card: the loser's heavier icon row crowds the bottom edge.",
+  "at": "2026-09-26T05:39:55.988Z"
+}

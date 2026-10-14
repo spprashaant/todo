@@ -1,0 +1,60 @@
+{
+ "things-todos": [
+  {
+   "id": "t_1",
+   "title": "Complete section for Operations Sync",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "2023-09-29",
+   "deadline": null,
+   "tags": [],
+   "project": "p_meet",
+   "area": null,
+   "heading": null,
+   "createdAt": "2023-09-01T09:00:00.000Z",
+   "repeat": {
+    "mode": "schedule",
+    "every": 1,
+    "unit": "week",
+    "weekdays": [
+     5
+    ]
+   }
+  },
+  {
+   "id": "t_2",
+   "title": "Prepare agenda for design review",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": null,
+   "deadline": null,
+   "tags": [],
+   "project": "p_meet",
+   "area": null,
+   "heading": null,
+   "createdAt": "2023-09-02T09:00:00.000Z"
+  }
+ ],
+ "things-lists": {
+  "areas": [
+   {
+    "id": "a_work",
+    "title": "Work"
+   }
+  ],
+  "projects": [
+   {
+    "id": "p_meet",
+    "title": "Meetings",
+    "area": "a_work",
+    "notes": "",
+    "headings": []
+   }
+  ],
+  "tags": []
+ }
+}

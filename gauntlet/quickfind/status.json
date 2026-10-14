@@ -1,0 +1,219 @@
+{
+  "piece": "quickfind",
+  "state": "won",
+  "round": 6,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Rebuilt Quick Find to Things' measured geometry: 297pt panel with hairline frame, 26pt field, Things magnifier/X, thick blue caret, 22pt rows on 23pt pitch, 14pt pies, badge/count/check sizing, olive active star; phone field/Cancel/hint aligned",
+      "pairedAt": "2026-09-26T03:38:23.559Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": false
+      },
+      "gap": "phone: The loser's empty-state greys are washed out. The hint 'Quickly switch lists, find to-dos...' is at about #A8A8AA on #F9F9FB (~2.3:1), the 'Quick Find' placeholder at about #8F949A, and 'Cancel' at about #4F5051. The winner uses about #A0A0A1 for the hint (~2.6:1), #86888A for the placeholder and #434445 for Cancel, which gives firmer, more legible type at the same sizes.",
+      "why": "The two are near-identical clones. Desktop is decided by the loser's caret covering the typed query (it reads 'tc'). Phone is decided by the winner's slightly firmer text contrast and crisper caret.",
+      "judgedAt": "2026-09-26T03:39:53.311Z"
+    },
+    {
+      "round": 2,
+      "note": "Phone greys firmed (hint #9A9A9D, placeholder #838589, Cancel #3E3F41, glass #85888E); caret drawn square-ended via left so it lands crisp on the pixel grid and sits 1px after the typed glyph; desktop panel 297px on whole-pixel coordinates so no hairline leaks into the edge",
+      "pairedAt": "2026-09-26T03:52:48.637Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Near-identical builds; desktop decided by the loser's caret overlapping the typed 'o' (query reads 'tc'), phone by the winner's crisper, better-balanced field and hint typography.",
+      "judgedAt": "2026-09-26T03:54:37.645Z"
+    },
+    {
+      "round": 3,
+      "note": "re-judge current build under the equalized pipeline + 3-critic panel",
+      "pairedAt": "2026-09-26T04:20:09.997Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "The pairs are otherwise nearly pixel-identical in layout, type sizes, highlight and icons. Desktop turns on the loser's caret overlapping the last typed glyph. Phone turns on the loser's washed-out hint and Cancel contrast."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, rhythm (38px rows) and colours are pixel-identical. Desktop comes down to the caret overlapping the typed query plus one inconsistent dashed project icon. Phone comes down to the loser's too-light hint and Cancel text."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "The two are nearly pixel-identical. On desktop the loser's caret collides with the query text. On phone the loser's hint, placeholder and Cancel are about 15 grey levels lighter than native and look washed out."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The pairs are otherwise nearly pixel-identical in layout, type sizes, highlight and icons. Desktop turns on the loser's caret overlapping the last typed glyph. Phone turns on the loser's washed-out hint and Cancel contrast.  /  Layout, rhythm (38px rows) and colours are pixel-identical. Desktop comes down to the caret overlapping the typed query plus one inconsistent dashed project icon. Phone comes down to the loser's too-light hint and Cancel text.  /  The two are nearly pixel-identical. On desktop the loser's caret collides with the query text. On phone the loser's hint, placeholder and Cancel are about 15 grey levels lighter than native and look washed out.",
+      "judgedAt": "2026-09-26T04:26:53.529Z"
+    },
+    {
+      "round": 4,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:27.953Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Geometry is identical in both pairs. Desktop is decided by the loser's caret overlapping the query glyph, plus an off-system dashed list icon. Phone is decided by the loser's too-faint hint and placeholder greys."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts and rhythm (38px row pitch in both). Desktop comes down to the loser's caret overprinting the typed 'o'. Phone comes down to the loser's faded hint, placeholder and Cancel contrast."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Layouts are pixel-identical. On desktop the loser's caret collides with the typed text. On phone the loser's paler hint, placeholder and Cancel text have weaker contrast."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Geometry is identical in both pairs. Desktop is decided by the loser's caret overlapping the query glyph, plus an off-system dashed list icon. Phone is decided by the loser's too-faint hint and placeholder greys.  /  Near-identical layouts and rhythm (38px row pitch in both). Desktop comes down to the loser's caret overprinting the typed 'o'. Phone comes down to the loser's faded hint, placeholder and Cancel contrast.  /  Layouts are pixel-identical. On desktop the loser's caret collides with the typed text. On phone the loser's paler hint, placeholder and Cancel text have weaker contrast.",
+      "judgedAt": "2026-09-26T05:38:04.800Z"
+    },
+    {
+      "round": 5,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.592Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, sizes and rows are near-identical in both pairs. On desktop, the loser's caret overlaps the typed text. On phone, the loser's Cancel and hint are too pale to read as a control and as secondary text."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts, so it came down to detail polish: the caret colliding with text on desktop, and a washed-out hint and placeholder with low contrast on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop: the caret collides with the typed text and makes the query read 'tc', a visible defect in the primary field; the rows are otherwise pixel-identical. Phone: the layouts are identical, and the hint and Cancel in the winner are legible where the loser's are washed out."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layout, sizes and rows are near-identical in both pairs. On desktop, the loser's caret overlaps the typed text. On phone, the loser's Cancel and hint are too pale to read as a control and as secondary text.  /  Near-identical layouts, so it came down to detail polish: the caret colliding with text on desktop, and a washed-out hint and placeholder with low contrast on phone.  /  Desktop: the caret collides with the typed text and makes the query read 'tc', a visible defect in the primary field; the rows are otherwise pixel-identical. Phone: the layouts are identical, and the hint and Cancel in the winner are legible where the loser's are washed out.",
+      "judgedAt": "2026-09-26T06:26:38.896Z"
+    },
+    {
+      "round": 6,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:51.878Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Nearly identical pairs. Desktop is decided by the winner's clean caret, where the loser's caret collides with the query text. Phone is decided by the winner's more legible hint and placeholder contrast."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Layouts are pixel-identical in both pairs; desktop is decided by the loser's caret overprinting the typed query, phone by the loser's fainter hint, placeholder and Cancel tones."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts; desktop decided by the loser's caret overlapping the typed glyph plus an odd dashed icon, phone by the winner's more legible hint and Cancel text contrast."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Nearly identical pairs. Desktop is decided by the winner's clean caret, where the loser's caret collides with the query text. Phone is decided by the winner's more legible hint and placeholder contrast.  /  Layouts are pixel-identical in both pairs; desktop is decided by the loser's caret overprinting the typed query, phone by the loser's fainter hint, placeholder and Cancel tones.  /  Near-identical layouts; desktop decided by the loser's caret overlapping the typed glyph plus an odd dashed icon, phone by the winner's more legible hint and Cancel text contrast.",
+      "judgedAt": "2026-09-26T20:49:35.825Z"
+    }
+  ],
+  "working": "phone empty-state greys: firmer hint, placeholder and Cancel colours",
+  "updatedAt": "2026-09-26T20:49:35.825Z"
+}

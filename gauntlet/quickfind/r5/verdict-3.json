@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "In the search field the blue text caret is drawn on top of the last typed glyph: its 2px bar sits at about x=69-70, over the right bowl of the 'o' (ink ends at x=68), so the query reads 'tc'. The winner puts the caret 2-3px clear of the glyph (text ends at x=70, caret at about x=73-74). Advance the caret by the full advance width of the last character plus 1-2px.",
+    "phone": "The empty-state hint ('Quickly switch lists, find to-dos, search for tags...', centred at about y=157-201) is washed out: its darkest ink is about #ADADAF on the #F9F9FB sheet, roughly 2:1 contrast, and Cancel is a greyish #505052. The winner uses about #9B9B9D for the hint, close to iOS secondaryLabel, and about #3F3F41 for Cancel. Darken the hint to secondaryLabel (rgba(60,60,67,0.6)) and set Cancel at full label weight."
+  },
+  "why": "Desktop: the caret collides with the typed text and makes the query read 'tc', a visible defect in the primary field; the rows are otherwise pixel-identical. Phone: the layouts are identical, and the hint and Cancel in the winner are legible where the loser's are washed out.",
+  "at": "2026-09-26T06:26:38.896Z"
+}

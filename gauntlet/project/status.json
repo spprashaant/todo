@@ -1,0 +1,198 @@
+{
+  "piece": "project",
+  "state": "won",
+  "round": 5,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Matched Things header/heading metrics: header top, title size/weight, bigger more-dots, pill padding, notes leading, 14px/18px blue headings with correct rule gap and section spacing, tighter pie gap",
+      "pairedAt": "2026-09-26T03:37:20.091Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Near-identical rows and headings. Desktop comes down to the loser's lighter, weaker title and the flatter hierarchy that follows. Phone comes down to the loser dropping the filter-pill row altogether.",
+      "judgedAt": "2026-09-26T03:40:06.874Z"
+    },
+    {
+      "round": 2,
+      "note": "re-judge current build under the equalized pipeline + 3-critic panel",
+      "pairedAt": "2026-09-26T04:20:10.076Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop: the winner's bolder title and more saturated heading and pie blues give a crisper hierarchy with nearly identical rows. Phone: the loser drops the filter pills, a required element, and leaves an empty gap in their place."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "The core rows, headings and pie match closely in both pairs, so the deciding factor is structural: the desktop loser adds non-native text-label toolbar chrome, and the phone loser drops the filter pills."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Rows, headings and rhythm are near-identical at both sizes; desktop is decided by the winner's bolder, tighter title and more saturated heading blue, phone by the loser omitting the required filter pills and leaving a hole."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Desktop: the winner's bolder title and more saturated heading and pie blues give a crisper hierarchy with nearly identical rows. Phone: the loser drops the filter pills, a required element, and leaves an empty gap in their place.  /  The core rows, headings and pie match closely in both pairs, so the deciding factor is structural: the desktop loser adds non-native text-label toolbar chrome, and the phone loser drops the filter pills.  /  Rows, headings and rhythm are near-identical at both sizes; desktop is decided by the winner's bolder, tighter title and more saturated heading blue, phone by the loser omitting the required filter pills and leaving a hole.",
+      "judgedAt": "2026-09-26T04:24:00.673Z"
+    },
+    {
+      "round": 3,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:28.047Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "The layouts are almost the same. The winner's bold title and clearer blue give a stronger hierarchy on both sizes, and on phone the loser also leaves out the filter pills."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop is near-identical in layout, so the winner's bolder title and truer blue headings decide it; on phone the loser leaves out the required filter pills and leaves a dead gap in their place."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop is close. The winner's saturated blue and bolder title give a crisper, more native hierarchy. On phone, the loser simply drops the filter pills, which are a key element of the component."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The layouts are almost the same. The winner's bold title and clearer blue give a stronger hierarchy on both sizes, and on phone the loser also leaves out the filter pills.  /  Desktop is near-identical in layout, so the winner's bolder title and truer blue headings decide it; on phone the loser leaves out the required filter pills and leaves a dead gap in their place.  /  Desktop is close. The winner's saturated blue and bolder title give a crisper, more native hierarchy. On phone, the loser simply drops the filter pills, which are a key element of the component.",
+      "judgedAt": "2026-09-26T05:33:16.188Z"
+    },
+    {
+      "round": 4,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.593Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Both are nearly identical in layout and colour; the winner's bold title gives a stronger hierarchy, and on phone the loser omits the filter pills entirely."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "The content rows are nearly identical at both sizes. On desktop the winner wins on a heading blue that matches the icon and a bolder title. On phone the winner wins because it actually has the filter pills, where the loser leaves an 88px hole."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Phone: the loser drops the filter pills and leaves a hole. Desktop: the winner's saturated heading blue and bold title give clearer hierarchy on otherwise identical rows."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Both are nearly identical in layout and colour; the winner's bold title gives a stronger hierarchy, and on phone the loser omits the filter pills entirely.  /  The content rows are nearly identical at both sizes. On desktop the winner wins on a heading blue that matches the icon and a bolder title. On phone the winner wins because it actually has the filter pills, where the loser leaves an 88px hole.  /  Phone: the loser drops the filter pills and leaves a hole. Desktop: the winner's saturated heading blue and bold title give clearer hierarchy on otherwise identical rows.",
+      "judgedAt": "2026-09-26T06:21:57.554Z"
+    },
+    {
+      "round": 5,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:37.183Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop: bold title gives clearer hierarchy with otherwise near-identical rows; phone: winner shows the required filter pills and a stronger title while the loser omits the filter state entirely."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Phone: the loser omits the required filter pills. Desktop is nearly identical, and the winner's bold title and firmer pill labels give a clearer hierarchy."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop: nearly identical, but the winner's bold title gives clearer hierarchy. Phone: the loser leaves out the filter pills entirely."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Desktop: bold title gives clearer hierarchy with otherwise near-identical rows; phone: winner shows the required filter pills and a stronger title while the loser omits the filter state entirely.  /  Phone: the loser omits the required filter pills. Desktop is nearly identical, and the winner's bold title and firmer pill labels give a clearer hierarchy.  /  Desktop: nearly identical, but the winner's bold title gives clearer hierarchy. Phone: the loser leaves out the filter pills entirely.",
+      "judgedAt": "2026-09-26T20:45:59.145Z"
+    }
+  ],
+  "working": "Compare project view against Things refs and close biggest visual gaps",
+  "updatedAt": "2026-09-26T20:45:59.145Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The text caret runs into the last letter. In the loser the 2px blue caret sits at about x=253-257, right on the right edge of the final 's' (about x=254), so the caret and the glyph merge. The winner leaves a clear gap of about 2px (caret at about x=256-260), so the insertion point reads cleanly after the word. Add about 1-2px of caret offset after the last glyph.",
+    "phone": "The unchecked checkbox ring is weaker. In the loser the rounded-square outline straddles two pixel rows and columns (about #C8C8C8/#C2C2C2 pairs), so it reads fainter (about #C3C3C3 core) than the toolbar glyphs (about #B9B9B9). The winner snaps the ring to a single crisp pixel line (about #B9B9B9), the same grey and weight as the calendar, tag, list and flag icons. Snap the checkbox frame to whole pixels and match the icon grey."
+  },
+  "why": "The two are nearly identical in layout, type, icons and shadow. The winner's details are tighter: on desktop the caret clears the final glyph, and on phone the checkbox ring is crisp and matches the icon grey.",
+  "at": "2026-09-26T06:10:06.120Z"
+}

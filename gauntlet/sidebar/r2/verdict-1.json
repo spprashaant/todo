@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's Someday icon is a lime/olive box (~#BBC87F). It sits between the teal Anytime stack and the green Logbook book, so three icons in a row read as one green family and the colour coding breaks down. The winner uses a warm tan/khaki box (~#C9B070) that stands clearly apart from its neighbours. Its Logbook green is also brighter and cleaner.",
+    "phone": "The loser leaves a grey selection slab (~#E4E5E9, ~46px tall, 8px side insets, ~8px radius) on the Today row of the iPhone lists home. It reads like a stuck tap or an iPad split-view leftover, and it competes with the red badge. The loser also shows no create control in view. The winner leaves root rows unhighlighted and puts a 52px blue floating + button bottom-right as the screen's one primary action."
+  },
+  "why": "The layouts are nearly identical; desktop is decided by the Someday icon colour, phone by the stuck Today highlight and the missing add control.",
+  "at": "2026-09-26T04:22:49.741Z"
+}

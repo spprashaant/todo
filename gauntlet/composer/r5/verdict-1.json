@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The typed title 'Book hotels' is set a hair too light and tight: about 148px wide with visibly thinner strokes, so it pulls away less from the #BEBEBE 'Notes' placeholder 34px below. The winner draws the same line slightly heavier and darker (about 150px, roughly 3% more ink), which gives the primary text a firmer lead. Every other measurement matches within 1px: the 23px checkbox, the 104px text inset, the four 190-grey toolbar icons at 37px from the right and bottom edges, and the shadow.",
+    "phone": "The composer's toolbar icons (calendar, tag, checklist, flag at x 282-474, y 177-200) are washed out. Their darkest stroke is about #AFAFAF and the average is about #C3, so the only add-detail affordances read as disabled against the #FDFDFD card. The winner draws the same 24px icons with a darker stroke (core about #A1A1A1, average about #BD), so they stay clearly tappable. The loser also lightens 'Notes' to about #C3, which compounds the problem."
+  },
+  "why": "Both builds match in geometry. Desktop comes down to a slightly firmer title weight. On phone, the winner keeps the toolbar icons at usable contrast, while the loser fades them toward a disabled grey.",
+  "at": "2026-09-26T05:28:49.805Z"
+}

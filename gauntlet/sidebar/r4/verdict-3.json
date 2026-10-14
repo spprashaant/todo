@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Smart-list icon finish, Someday especially: the loser draws the Someday box in a washed-out olive green (~#B8C488, flat lid and body). It reads as a faded cousin of the Anytime teal and Logbook green directly around it. Its Inbox tray also has sloped, funnel-like sides. The winner uses a warm khaki box (~#C0B068) with a lighter lid band, a hue no other icon uses, and a crisp squared T-slot tray on Inbox.",
+    "phone": "A persistent grey selection slab on Today: a ~46px-tall rounded fill (~#E1E5E8) spanning x=9 to 353. It runs about 9px past the 18px content edge on both sides, so it is wider than the Quick Find field and the dividers, and on a root list it looks like a stuck tap state. The winner shows no selection on the lists home, keeps every row on the 18-20px column, and uses that corner for a 52px blue (#5796FF) add button, which the loser lacks entirely."
+  },
+  "why": "Same layout and type; the winner's icons are more finished (distinct tan Someday, clean Inbox tray), and on phone it avoids the misaligned stuck highlight while providing an add affordance.",
+  "at": "2026-09-26T06:22:38.010Z"
+}

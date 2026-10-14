@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's Someday box icon is a washed-out pale sage (~#BAC688) that barely separates from the #F5F6F8 sidebar and reads as a third green next to the teal Anytime stack and green Logbook, so the smart-list icon column loses its colour coding; its Inbox and Logbook glyphs also have mushy, slightly skewed edges. The winner fills the ~18px Someday box with a deeper khaki tan (~#C4AE70) and a crisp light lid slot, which keeps every icon a distinct hue.",
+    "phone": "The loser has no visible create affordance on the lists home. The winner floats a ~50px blue (#4A90E2-ish) circular + button with a white cross about 16px from the bottom-right edge, so adding is one tap away. The loser also leaves a stuck grey highlight (~44px, #E0E2E6) across the Today row, which on a phone home screen reads as a frozen tap rather than an intentional state."
+  },
+  "why": "Near-identical layouts, so it came down to icon colour finish on desktop (a muddy sage Someday box against a clear tan one) and, on phone, the missing floating add button plus a stuck Today highlight.",
+  "at": "2026-09-26T20:46:52.025Z"
+}

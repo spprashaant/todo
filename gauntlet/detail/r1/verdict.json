@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The 'May 25' date chip in the list below the card is badly set. In the loser, the chip text sits high in its 26px pill (4px above the digits, 8px below), so its baseline is about 4px above the baseline of 'Print handouts for attendees' next to it. The winner centres the text in the pill (6px above, 6px below) and keeps its baseline within 1px of the row title. Fix it by vertically centring the chip label on cap height and aligning the chip's text baseline to the row title's baseline.",
+    "phone": "The loser's card content is not snapped to the pixel grid. The 1px grey checkbox stroke spreads across 2-3px (greys of about #CFCFCF, #C0C0C0 and #E8E8E8), so the box looks fuzzy and heavy. The title, notes and checklist text also render softer and lighter, with about 10% less dark ink. The winner draws a crisp 1px stroke of about #BBBBBB and sharper near-black text. Fix it by snapping the card and row origins to whole pixels, or by offsetting hairline strokes by 0.5px."
+  },
+  "why": "Both pairs are near-identical in layout, spacing, icons and shadow, so the decision came down to finish: on desktop the winner keeps the list's date chip centred and on the row baseline, and on phone the winner renders the checkbox and text crisply on the pixel grid.",
+  "at": "2026-09-26T03:49:01.683Z"
+}

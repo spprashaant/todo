@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The text caret is placed on top of the last glyph: in the loser the ~3px blue caret (x~253-257) overlaps the final 's' of 'Book hotels' (which ends at x~254), so the caret cuts into the letter. The winner leaves ~2px of clear space between the glyph and the caret. Offset the caret by the glyph advance plus about 1-2px so it never touches the text.",
+    "phone": "The empty completion checkbox beside the title is too faint: in the loser its ~24px rounded-square ring is drawn at about #C5C5C5 on white (~1.6:1), so the main affordance of the row almost disappears. The winner draws the same ring at about #B5-#B9 (~2:1), so it reads as a real control. Darken the loser's checkbox stroke by 10-15 levels to match the toolbar icon grey (~#A8-#B0)."
+  },
+  "why": "Near-identical composers; decided on finish details: caret collision with text on desktop, checkbox stroke contrast on phone.",
+  "at": "2026-09-26T20:50:38.156Z"
+}

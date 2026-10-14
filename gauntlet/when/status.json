@@ -1,0 +1,282 @@
+{
+  "piece": "when",
+  "state": "won",
+  "round": 7,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Rebuilt When picker to Things' measured metrics: 232pt popover, 22pt rows, own dark-surface icons (outlined calendar, paler moon, textured box, white chevron), Mac-style 2px blue caret; phone sheet header/rows/grid respaced, proportional digits, 17pt margins",
+      "pairedAt": "2026-09-26T03:36:11.657Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The layouts match almost pixel for pixel (same insets, row rhythm, colours and icons), so rendering quality decides it: the winner's anti-aliasing is clean, while the loser shows ringing halos and softness on every glyph and icon.",
+      "judgedAt": "2026-09-26T03:38:29.983Z"
+    },
+    {
+      "round": 2,
+      "note": "re-judge current build under the equalized pipeline + 3-critic panel",
+      "pairedAt": "2026-09-26T04:20:10.280Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": false,
+          "why": "The desktop images are near-identical, and B wins on crisper, more saturated calendar glyphs. On phone, A wins because its sheet is complete, with a correctly muted Add Reminder row on the shared row pitch, which B lacks."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": false,
+          "why": "The pairs are near pixel-identical. Desktop was decided by secondary date-text contrast, and phone by the loser's missing Add Reminder row and its cramped bottom."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": false,
+          "why": "Desktop: nearly pixel-identical, and the winner's properly proportioned ring-notched calendar glyph and brighter secondary text decide it. Phone: also nearly identical, and the winner's aligned Add Reminder footer completes the sheet."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": false
+      },
+      "gap": "phone: The loser's sheet stops at Someday. It has no 'Add Reminder' row, so there is no way to attach a time from the When sheet, and it closes with only ~27px of padding under Someday. The winner adds a muted secondary row below Someday: a thin ~23px plus at x≈29 and the label in ~#9296A1 grey, on the same ~59px pitch as Today, This Evening and Someday, then ~36px of bottom padding. That finishes the list with a clear quieter tier.  /  The loser ends the sheet at Someday with no '+ Add Reminder' row. The sheet lacks the reminder affordance, and the Someday row sits only ~26px above the bottom edge, so the sheet stops abruptly. The winner adds a quiet grey (about rgb(135,139,150)) '+ Add Reminder' row ~59px below Someday. Its plus glyph sits in the 25-52px icon column, its label lines up with the ~67px text column, and it leaves a ~32px bottom inset.  /  The loser's sheet ends right after the Someday row: the bottom edge is ~25px below the Someday text and there is no Add Reminder footer, so there is no way to set a time and the sheet feels cut short. The winner adds a '+ Add Reminder' row one ~60px pitch below Someday. The plus sits in the icon column at x~40 and the ~#989CA7 grey label lines up with the other labels at x~67, with ~32px of padding before the sheet edge. Add that footer row at the same pitch and alignment.",
+      "why": "The desktop images are near-identical, and B wins on crisper, more saturated calendar glyphs. On phone, A wins because its sheet is complete, with a correctly muted Add Reminder row on the shared row pitch, which B lacks.  /  The pairs are near pixel-identical. Desktop was decided by secondary date-text contrast, and phone by the loser's missing Add Reminder row and its cramped bottom.  /  Desktop: nearly pixel-identical, and the winner's properly proportioned ring-notched calendar glyph and brighter secondary text decide it. Phone: also nearly identical, and the winner's aligned Add Reminder footer completes the sheet.",
+      "judgedAt": "2026-09-26T04:26:56.563Z"
+    },
+    {
+      "round": 3,
+      "note": "Real '+ Add Reminder' row (muted plus + grey label on the 44pt row pitch, Things' bottom inset) that sets a stored reminder time on the to-do, shown in the When chip; header, Today/Evening and grid nudged onto Things' measured offsets",
+      "pairedAt": "2026-09-26T04:36:02.741Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": false,
+          "why": "Almost identical designs. The winner comes out ahead on optical alignment: its row icons are centred on the text and its row spacing is even, while the loser's icons, pill label and grid rows are each off by about 2px."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": false,
+          "why": "The two are nearly identical. In both sizes the winner has exact optical centring and an even row rhythm: the text is centred in the selection pill, the moon is centred on the cap height, and the grid pitch is a constant 62px. The loser has 2-3px offsets and 61/63px jitter."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": false,
+          "why": "Near-identical pairs, so small details decide: desktop on the legibility of the secondary date column, phone on the moon icon's vertical alignment with its label."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": false,
+        "phone": false
+      },
+      "gap": "desktop: Row contents sit low in the loser. The pink calendar glyphs hang about 2-3px below their labels: the icon top is flush with the cap line and its bottom falls about 6px under the baseline. The 'in 3 days' label also sits low in the 35px blue selection pill, with about 12px above the caps and about 7px below the baseline. The winner centres both: its about 23px icons overhang the text evenly (about 4px above, about 3px below), and its label has about 10/9px inside the pill. It also uses the same 11px gap between the field and the list as its side margins, where the loser uses 9px. Fix: nudge the icons up about 2px and centre the label in the highlight.  /  The selected 'in 3 days' label sits low inside its blue pill. The loser's highlight spans about y61-97 with the cap top at 74 and the baseline at 89, which leaves about 12px above the text and 7px below. Its first-row text also breaks the 38px row rhythm by 1px. The winner's pill spans about y63-99 around the same 16px cap block, leaving 9.5px above and below, and its 10px gap below the search field matches the 38px row pitch. Move the loser's pill down 2px, or centre it on the row's line box. Also stop fading the calendar icon to a washed-out lavender on the selected row: keep the pink header bar solid, as the winner does.  ·  phone: The 'This Evening' moon hangs low in the loser. Its 28px glyph ends about 6px below the text baseline but starts only about 3px above the cap line, so it looks dropped against the label. The winner centres the moon on the cap height (about 4px over, about 3px under), matching how the star sits next to 'Today'. The loser's calendar rows are also spaced unevenly (61/63/61px), where the winner keeps a steady 62px rhythm. Fix: raise the moon about 2-3px and snap the grid rows to one pitch.  /  The 'This Evening' moon hangs about 3px low. In the loser it spans about y166-193 against a cap block of y168-186, with 2px above the cap top and 7px below the baseline, so it sags under the text. The winner's moon spans y163-190, with about 5px above and 4px below, centred on the cap height like the star next to 'Today'. The loser's calendar grid also steps 61/63/61px between rows where the winner holds an even 62/62/62, and the stacked 'Jun 1' sits 1.5px low in its row. Nudge the moon up 3px and snap the grid rows to one integer pitch.  /  The This Evening moon glyph (~24x25px) sits about 3px low: its centre is at y~180 against the text's cap-height midline at ~177, so its bottom hangs below the baseline. The winner centres a ~22x25px moon on the midline, the same way the star centres on Today. Nudge it up 3px or centre it on cap height.",
+      "why": "Almost identical designs. The winner comes out ahead on optical alignment: its row icons are centred on the text and its row spacing is even, while the loser's icons, pill label and grid rows are each off by about 2px.  /  The two are nearly identical. In both sizes the winner has exact optical centring and an even row rhythm: the text is centred in the selection pill, the moon is centred on the cap height, and the grid pitch is a constant 62px. The loser has 2-3px offsets and 61/63px jitter.  /  Near-identical pairs, so small details decide: desktop on the legibility of the secondary date column, phone on the moon icon's vertical alignment with its label.",
+      "judgedAt": "2026-09-26T04:39:41.899Z"
+    },
+    {
+      "round": 4,
+      "note": "Desktop: whole-pixel popover metrics (pixel-snapped position, 26px field, 6px gap, 22px rows on 23px pitch) so the label centres in the pill and rows hold 38px; 13px-tall calendar glyph lifted to overhang the caps as Things does, solid pink on the selected row; larger lens/X. Phone: moon refit to Things' crescent and centred on cap height, star nudged up, grid on an integer 46px pitch (no 61/63 wobble), Jun 1 centred, labels 1px left, sheet edge ring",
+      "pairedAt": "2026-09-26T05:09:34.657Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, type and spacing are pixel-identical in both pairs, so the verdict comes down to secondary-text contrast: the desktop winner keeps its resolved dates AA-legible, and the phone winner keeps its weekday header visible."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Geometry, spacing and icons are pixel-identical in both pairs. The decider is secondary-text contrast: the winner keeps muted labels readable (dates on desktop, weekday headers on phone), while the loser dims them to or below accessible contrast."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "The pairs are nearly pixel-identical, so each size came down to the contrast of the secondary text: the NL date column on desktop, and the weekday headers and today-star on phone."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layout, type and spacing are pixel-identical in both pairs, so the verdict comes down to secondary-text contrast: the desktop winner keeps its resolved dates AA-legible, and the phone winner keeps its weekday header visible.  /  Geometry, spacing and icons are pixel-identical in both pairs. The decider is secondary-text contrast: the winner keeps muted labels readable (dates on desktop, weekday headers on phone), while the loser dims them to or below accessible contrast.  /  The pairs are nearly pixel-identical, so each size came down to the contrast of the secondary text: the NL date column on desktop, and the weekday headers and today-star on phone.",
+      "judgedAt": "2026-09-26T05:12:19.617Z"
+    },
+    {
+      "round": 5,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:28.244Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Both pairs are the same layout, type scale and spacing to within 1-2px. The only consistent design difference is the secondary and tertiary grey token, which the winner sets lighter, so dates, weekday headers and the today-star are legible instead of washing out."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Layout, spacing and rhythm match to within 1-2px at both sizes. The deciding factor was the tuning of secondary greys: on desktop the quieter, native-weight date grey and muted clear X win, and on phone the more legible weekday header row wins."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, icons and type metrics are identical to within 1px. The winner's secondary text (resolved dates, weekday headers, Cancel) is consistently about 12-15 levels brighter, which is more legible and closer to native secondary-label grey. That outweighs the loser's slightly crisper selected-row calendar glyph."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Both pairs are the same layout, type scale and spacing to within 1-2px. The only consistent design difference is the secondary and tertiary grey token, which the winner sets lighter, so dates, weekday headers and the today-star are legible instead of washing out.  /  Layout, spacing and rhythm match to within 1-2px at both sizes. The deciding factor was the tuning of secondary greys: on desktop the quieter, native-weight date grey and muted clear X win, and on phone the more legible weekday header row wins.  /  Layout, icons and type metrics are identical to within 1px. The winner's secondary text (resolved dates, weekday headers, Cancel) is consistently about 12-15 levels brighter, which is more legible and closer to native secondary-label grey. That outweighs the loser's slightly crisper selected-row calendar glyph.",
+      "judgedAt": "2026-09-26T05:37:20.061Z"
+    },
+    {
+      "round": 6,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.827Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Layouts, type sizes, spacing and grid are pixel-identical in both pairs. The only real difference is the brightness of the dim tertiary/secondary text tier, so each size goes to the version whose low-emphasis text stays legible."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "The layouts match to within 1px, so secondary-text contrast decided it: the desktop loser mutes the resolved dates, and the phone loser mutes the weekday headers and today marker."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "The layouts are pixel-identical, so the deciding factor was legibility of the secondary grey text: resolved dates on desktop and weekday labels plus the today marker on phone."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layouts, type sizes, spacing and grid are pixel-identical in both pairs. The only real difference is the brightness of the dim tertiary/secondary text tier, so each size goes to the version whose low-emphasis text stays legible.  /  The layouts match to within 1px, so secondary-text contrast decided it: the desktop loser mutes the resolved dates, and the phone loser mutes the weekday headers and today marker.  /  The layouts are pixel-identical, so the deciding factor was legibility of the secondary grey text: resolved dates on desktop and weekday labels plus the today marker on phone.",
+      "judgedAt": "2026-09-26T06:25:08.965Z"
+    },
+    {
+      "round": 7,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:48.305Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Both pairs have near-identical geometry, so each call came down to legibility of the secondary text. On phone it also came down to the winner's extra Repeat control, which balances the footer."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "The layouts are pixel-identical. Desktop comes down to the contrast of the secondary date text. Phone comes down to the missing Repeat control and the lopsided footer."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop is a near-tie, decided by the winner's brighter secondary date labels. On phone, the loser is missing the Repeat footer control and has dimmer weekday headers."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Both pairs have near-identical geometry, so each call came down to legibility of the secondary text. On phone it also came down to the winner's extra Repeat control, which balances the footer.  /  The layouts are pixel-identical. Desktop comes down to the contrast of the secondary date text. Phone comes down to the missing Repeat control and the lopsided footer.  /  Desktop is a near-tie, decided by the winner's brighter secondary date labels. On phone, the loser is missing the Repeat footer control and has dimmer weekday headers.",
+      "judgedAt": "2026-09-26T20:48:43.905Z"
+    }
+  ],
+  "working": "Center desktop icons and selected label in pill, raise phone moon, even 62px phone grid rows",
+  "updatedAt": "2026-09-26T20:48:43.905Z"
+}

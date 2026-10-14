@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's Someday icon is an olive-lime box (~#BCC88D). That puts three green-family icons in a row: Anytime teal (#5AA091), Someday and Logbook green (#5CB181), so Someday stops reading as its own list. The winner uses a khaki/tan archive box (~#CBBF87) that stands clearly apart from Logbook. Secondary: the loser's New List footer sits low in its bar, 16px below the divider but only about 5px above the bottom edge. The winner centres it, with about 17px above and 15px below.",
+    "phone": "The loser keeps a grey selection pill (~#E4E5E9, 47px tall, radius about 10px) on the Today row of the phone lists home. iOS root lists do not hold a selection, so it reads like an iPad sidebar squeezed onto a phone. The pill's 9px side insets also run wider than the 18px search field and the 22px dividers, which breaks the content column. The winner leaves every row flat on the background. It also keeps Someday a tan box, where the loser's olive (~#BCC88D) blends into the teal Anytime and green Logbook icons."
+  },
+  "why": "The pairs are nearly identical in type and metrics. The deciding factor is icon colour discipline (Someday tan vs olive) plus, on phone, a non-native persistent selection pill on the lists home.",
+  "at": "2026-09-26T05:33:33.657Z"
+}

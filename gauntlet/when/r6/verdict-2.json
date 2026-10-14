@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The resolved-date column on the right (\"Thu, Jun 8\", \"Fri, Aug 18\") is a flat, dim grey, about #949AA3 at stroke peak, which is roughly 4.4:1 on the #2B323C popover. The parsed date is exactly what the user scans to confirm the suggestion. The winner sets it as a cool secondary label, about #A2A9B3 (roughly 60% white, about 5.5:1), so it clearly sits below the white labels but stays easy to read. Raise the loser's date text roughly 12-15 levels of lightness and give it the same slight blue tint.",
+    "phone": "The weekday header row (Sun-Sat at y~230, ~14px) and the grey today-star in the Wed slot are too dim, about #5A5E69 on the #2C303A sheet, roughly 2.0:1, so the column labels nearly vanish. The winner lifts both to about #666A75 (roughly 2.4:1), which keeps them clearly secondary to the white day numbers but makes them readable. Brighten the headers and the today-star by about 12 levels. The loser's Cancel and Add Reminder text are about 6 levels dimmer than the winner's too."
+  },
+  "why": "The layouts match to within 1px, so secondary-text contrast decided it: the desktop loser mutes the resolved dates, and the phone loser mutes the weekday headers and today marker.",
+  "at": "2026-09-26T06:24:27.572Z"
+}

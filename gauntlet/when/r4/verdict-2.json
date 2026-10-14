@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Secondary text is too dim. The right-aligned dates ('Thu, Jun 8', 'Fri, Aug 18') are about #90959F on the #2B323C popover, roughly 4.4:1 and right at the AA floor. 'Sun' on the blue selection and the clear-field X are also duller. The winner draws the dates about one step brighter, near #A0A7B1 (about 5:1, close to the native ~55%-white secondary label), so the date column reads cleanly and stays below the white primary labels.",
+    "phone": "The weekday header row (Sun to Sat) and the grey today-star placeholder are too dim, about #686C77 on the #282C37 sheet (roughly 2.5:1), so the column headers nearly disappear. The winner lifts them to about #75798A (about 3:1) and also brightens Cancel (about #D9DDE8 vs #CFD3DD) and 'Add Reminder' (about #989CA7 vs #9195A0). All of these still sit clearly below the white date numerals."
+  },
+  "why": "Geometry, spacing and icons are pixel-identical in both pairs. The decider is secondary-text contrast: the winner keeps muted labels readable (dates on desktop, weekday headers on phone), while the loser dims them to or below accessible contrast.",
+  "at": "2026-09-26T05:12:19.616Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's text caret is drawn on top of the last typed character. The 2px blue caret sits at x=69-70, right over the right stroke of the 'o', so the query reads 'tc'. The winner puts the caret after the glyph's advance width, at x=73-75, leaving a 2-3px gap so 'to' stays whole.",
+    "phone": "The loser's empty-state hint ('Quickly switch lists, find to-dos, search for tags...') is too pale. Its darkest ink is about #9C9C9E and it carries about 22% less ink on the #F9F9FB sheet (about 2.7:1), and Cancel is a weaker #383838. The winner uses a secondary-label grey of about #8D8D8F (about 3.2:1) and a near-black #242426 for Cancel, so the hint and the dismiss action read clearly."
+  },
+  "why": "The pairs are otherwise nearly pixel-identical in layout, type sizes, highlight and icons. Desktop turns on the loser's caret overlapping the last typed glyph. Phone turns on the loser's washed-out hint and Cancel contrast.",
+  "at": "2026-09-26T04:26:09.302Z"
+}

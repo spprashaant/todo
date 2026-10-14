@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The trailing date column in the suggestion rows ('Thu, Jun 8', 'Fri, Aug 18') and the clear X in the search field are rendered in a grey that is too dark. In the loser the date text core is about #94989F (about 4.5:1 on the #2C303B panel) and the X is about #DADEE7. The winner lifts the dates to about #A2A9B3 (about 5.5:1), so the right-hand column reads cleanly as secondary text rather than fading out. Layout, metrics and type are otherwise pixel-identical, so this tone is the whole gap.",
+    "phone": "The weekday header row (Sun to Sat) and the dimmed today-star in the calendar grid are too faint. In the loser the header glyphs top out at about #6B6F7A on the #282C37 sheet, about 2.8:1, which is below legible contrast for 13-14px semibold labels. The winner uses about #7C808B (about 3.5:1) and a matching lighter star (about #7A7C89 vs #696D76), so the column labels stay subdued but can still be read. Every other size, position and spacing matches to within 1-2px."
+  },
+  "why": "Both pairs are the same layout, type scale and spacing to within 1-2px. The only consistent design difference is the secondary and tertiary grey token, which the winner sets lighter, so dates, weekday headers and the today-star are legible instead of washing out.",
+  "at": "2026-09-26T05:35:50.273Z"
+}

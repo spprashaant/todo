@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' (about 14x20px, grey ~#A0A0A0) is drawn with muddy, filled-looking bullets that run into their dash lines, so at a glance it reads as a grey smudge. The winner draws three crisp ~4px hollow rings with a 1px stroke, a clear ~2px gap before each line, and a shorter last line, so it reads as a checklist. Titles in the loser are also tracked about 0.5% looser (+2px over a 358px line).",
+    "phone": "The project subtitles (13px, under each title) are a step too pale. Their core grey is about #AAAAAA on white (~2.3:1), and the titles sit around #121212. The winner uses about #A2A2A2 for subtitles (~2.6:1) and ~#0D0D0D for titles, with a slightly heavier 'This Evening' heading. The loser's second line and section header lose a little legibility and hierarchy. Darken the subtitle grey by about 8 levels to match."
+  },
+  "why": "Near-identical clones. The winner has fewer micro-flaws: crisp hollow-ring checklist bullets and tighter tracking on desktop, and more legible subtitle/heading contrast on phone.",
+  "at": "2026-09-26T06:22:01.406Z"
+}

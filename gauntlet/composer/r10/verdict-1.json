@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The text caret collides with the title: the ~2px blue caret sits at x≈253-256 and lands on the final 's' of 'Book hotels', which ends at x≈254, so cursor and glyph merge into one smudge. The winner draws the same caret ~2px clear of the last glyph (x≈257-260), so the insertion point reads cleanly. Add the missing ~2px of caret offset or trailing advance.",
+    "phone": "The caret is jammed into the final 'e' of 'Buy suitcase': the blue bar starts at x≈200, directly on the 'e' bowl, with no white column between them, and its checkbox ring is also a shade fainter (~#C8C8C8 vs ~#BABABA). The winner's caret sits ~1px further right with a visible sliver of white before it. Offset the caret ~1-2px from the last glyph."
+  },
+  "why": "Near pixel-identical composers (same card, 4 grey toolbar glyphs, placeholder and padding); the decider is caret placement against the last typed glyph, which is clean in the desktop winner and marginally cleaner in the phone winner.",
+  "at": "2026-09-26T20:50:13.719Z"
+}

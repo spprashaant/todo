@@ -1,0 +1,283 @@
+/* Repeat controls: the Repeats section of the When picker and its menus (piece: repeat-picker).
+   It lives inside the dark When popover (desktop) and sheet (phone), so it speaks that popover's
+   language: 14px medium type, a 15px icon column, 22px rows, accent-blue highlights. */
+
+/* ---------- footer: the Repeat button that turns it on ---------- */
+.when-foot.has-rep { flex-direction: row; align-items: center; gap: 4px; }
+.when-foot.has-rep > .when-rem, .when-foot.has-rep > .when-rem-set { flex: 1 1 auto; min-width: 0; width: auto; }
+.when-opt.when-rep { flex: none; width: auto; gap: 5px; padding: 0 9px 0 7px; color: #898d95; margin-top: 0; }
+.when-opt.when-rep .wo-icon, .when-opt.when-rep .wo-icon svg { width: 14px; height: 14px; }
+.when-opt.when-rep.active, .when-opt.when-rep:hover { color: #fff; }
+
+/* ---------- the calendar above previews the coming occurrences ---------- */
+.cal-day.rp-next:not(.current) { box-shadow: inset 0 0 0 1.25px rgba(111, 166, 246, .62); }
+/* with the Repeats section the popover is taller: on a short window it scrolls instead of running off
+   (the popover's 14px padding each side and a 4px margin to the window's edges, as when.js places it) */
+.when-pop:not(.sheet) .when-panel:has(.rp) { max-height: calc(100vh - 36px); overflow-y: auto; overscroll-behavior: contain; }
+
+/* ---------- the section ---------- */
+.rp {
+  position: relative;
+  /* full panel width, so the section carries its own 6px margins wherever it's seen */
+  margin: 7px -6px -6px;
+  padding: 8px 6px 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+.rp:empty { display: none; }
+/* a hairline above, set just outside the section so it separates without framing it */
+.rp::before {
+  content: "";
+  position: absolute;
+  left: 6px; right: 6px; top: -3.5px;
+  height: 1px;
+  background: rgba(255, 255, 255, .1);
+}
+.rp-glyph { display: block; }
+.rp-ico { flex: none; width: 15px; height: 15px; display: grid; place-items: center; color: #898d95; }
+.rp-ico svg { width: 15px; height: 15px; }
+
+.rp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 1px 0 27.5px;
+  white-space: nowrap;
+}
+.rp-row + .rp-row, .rp-fields > * + * { margin-top: 2px; }
+.rp-head { gap: 6.5px; padding-left: 6px; }
+.rp-fields { margin-top: 2px; }
+.rp-label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.rp-ctl { flex: none; display: flex; align-items: center; gap: 3px; }
+.rp-word { color: #a9afb6; padding: 0 4px 0 2px; }
+
+/* a pop-up value: text and a chevron, lit on hover like the popover's rows */
+.rp-pop {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 5px 0 6px;
+  border-radius: 4px;
+  color: #b3b8bf;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.rp-chev { width: 8.5px; height: 5.5px; color: #858b92; margin-top: 1px; }
+.rp-pop:hover, .rp-pop[aria-expanded="true"] { background: rgba(255, 255, 255, .1); color: #fff; }
+.rp-pop:hover .rp-chev, .rp-pop[aria-expanded="true"] .rp-chev { color: #d0d4d9; }
+.rp-kind { color: #fff; margin-right: -2px; }
+.rp-kind[aria-expanded="true"] .rp-chev { transform: rotate(180deg); }
+.rp-pop.dim { color: #6d737a; }
+.rp-pop.dim .rp-chev { color: #5d636a; }
+
+/* a number: the search field's well, small */
+.rp-num {
+  width: 30px;
+  height: 20px;
+  border-radius: 4px;
+  background: #4e555d;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  caret-color: #5fa0fb;
+}
+.rp-num:focus { box-shadow: 0 0 0 2px rgba(93, 156, 245, .75); }
+/* a date: text in the same well; the native picker sits invisibly beneath it */
+.rp-datewrap { position: relative; display: inline-flex; }
+.rp-well {
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 4px;
+  background: #4e555d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.rp-well:hover { background: #59616a; }
+.rp-date { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; color-scheme: dark; }
+
+/* weekly: seven day toggles on the calendar's own columns */
+.rp-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; padding: 4px 0; }
+.rp-day {
+  height: 27px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .065);
+  color: #b9bec4;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-align: center;
+}
+.rp-day:hover { background: rgba(255, 255, 255, .13); color: #fff; }
+.rp-day.on { background: var(--accent); color: #fff; }
+
+/* monthly: two radios in the icon column */
+.rp-mrow { padding-left: 6px; }
+.rp-radio { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 7.5px; height: 100%; text-align: left; }
+.rp-dot {
+  flex: none;
+  position: relative;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.3px #7d838a;
+}
+.rp-radio.on .rp-dot { background: var(--accent); box-shadow: none; }
+.rp-radio.on .rp-dot::after { content: ""; position: absolute; inset: 4.5px; border-radius: 50%; background: #fff; }
+.rp-radio:not(.on) .rp-label { color: #a9afb6; }
+.rp-radio:hover:not(.on) .rp-dot { box-shadow: inset 0 0 0 1.3px #b3b8bf; }
+
+/* what happens next, in words */
+.rp-note {
+  margin: 6px 0 1px;
+  padding: 0 4px 0 27.5px;
+  font-size: 12.5px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #8d939a;
+}
+.rp-note b { font-weight: 500; color: #bfc4ca; }
+
+/* the list of kinds, in place of the fields: the popover's own rows, each saying what it would do */
+.rp-kinds { display: flex; flex-direction: column; margin-top: 1px; }
+.rp-kopt {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+  width: 100%;
+  height: 22px;
+  padding: 0 7px 0 6px;
+  border-radius: 3.5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+.rp-kopt + .rp-kopt { margin-top: 1px; }
+.rp-kopt .rp-ico { color: #8fbcff; }
+.rp-kopt .rp-check { width: 11px; height: 9px; }
+.rp-klabel { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.rp-kdetail { flex: none; margin-left: 10px; color: #92989f; }
+.rp-kopt.current .rp-klabel { color: #8fbcff; }
+.rp-kopt:hover, .rp-kopt:focus-visible { background: var(--accent); outline: 0; }
+.rp-kopt:hover .rp-klabel, .rp-kopt:focus-visible .rp-klabel, .rp-kopt:hover .rp-ico, .rp-kopt:focus-visible .rp-ico { color: #fff; }
+.rp-kopt:hover .rp-kdetail, .rp-kopt:focus-visible .rp-kdetail { color: rgba(255, 255, 255, .86); }
+.rp-ksep { height: 1px; margin: 3px 7px 3px 27.5px; background: rgba(255, 255, 255, .1); }
+
+/* off: the popover's own "Clear" row */
+.rp-off {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+  width: 100%;
+  height: 22px;
+  margin-top: 6px;
+  padding: 0 11.5px 0 6px;
+  border-radius: 3.5px;
+  color: #aeb4bb;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+.rp-off .rp-ico { color: inherit; }
+/* the way out sits apart from the rule, under a hairline */
+.rp-off { position: relative; margin-top: 12px; }
+.rp-off::before { content: ""; position: absolute; left: 0; right: 0; top: -6.5px; height: 1px; background: rgba(255, 255, 255, .1); pointer-events: none; }
+.rp-off .rp-ico svg { width: 9px; height: 9px; }
+.rp-off:hover, .rp-off:focus-visible { background: var(--accent); color: #fff; outline: 0; }
+
+/* ---------- menus (kinds, units, weeks, weekdays, days, ends) ---------- */
+.rp-menu-scrim { position: fixed; inset: 0; z-index: 70; }
+.rp-menu {
+  position: fixed;
+  z-index: 71;
+  min-width: 112px;
+  padding: 5px;
+  background: #333a44;
+  border-radius: 7px;
+  box-shadow: 0 0 0 .5px rgba(0, 0, 0, .55), inset 0 0 0 .5px rgba(255, 255, 255, .12), 0 12px 30px rgba(0, 0, 0, .32), 0 2px 7px rgba(0, 0, 0, .2);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  animation: pop .1s ease-out;
+}
+.rp-mi {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 22px;
+  padding: 0 16px 0 3px;
+  border-radius: 3.5px;
+  text-align: left;
+  white-space: nowrap;
+}
+.rp-mi + .rp-mi { margin-top: 1px; }
+.rp-mi:focus-visible { outline: 0; }
+.rp-mck { flex: none; width: 19px; display: grid; place-items: center; }
+.rp-check { width: 11px; height: 9px; }
+.rp-mi.active { background: var(--accent); }
+.rp-msep { height: 1px; margin: 4px 7px; background: rgba(255, 255, 255, .11); }
+.rp-menu.grid { display: grid; grid-template-columns: repeat(var(--cols, 7), 27px); gap: 2px; min-width: 0; }
+.rp-menu.grid .rp-mi { justify-content: center; height: 24px; padding: 0; margin: 0; font-size: 12.5px; border-radius: 5px; }
+.rp-menu.grid .rp-mi.wide { grid-column: span 2; }
+.rp-menu.grid .rp-mi.checked { box-shadow: inset 0 0 0 1.3px var(--accent); }
+.rp-menu.grid .rp-mi.active { background: var(--accent); box-shadow: none; }
+
+/* ---------- phone: the sheet's larger rows ---------- */
+@media (max-width: 699px) {
+  .when-pop.sheet .when-foot.has-rep { gap: 0; }
+  .when-pop.sheet .when-opt.when-rep { height: 44px; gap: 6.5px; padding: 5px 10px 0 9.5px; font-size: 18.2px; }
+  .when-pop.sheet .when-opt.when-rep .wo-icon { width: 22px; height: 22px; }
+  .when-pop.sheet .when-opt.when-rep .wo-icon svg { width: 20px; height: 20px; }
+
+  .when-pop.sheet .rp { margin: 17px -8px -8px; padding: 2px 8px 8px; font-size: 18.2px; }
+  .when-pop.sheet .rp::before { top: -9px; left: 17.5px; right: 12px; }
+  .when-pop.sheet .rp-kopt { height: 44px; gap: 6.5px; padding: 3px 10px 0 9.5px; font-size: 18.2px; border-radius: 8px; }
+  .when-pop.sheet .rp-kopt + .rp-kopt { margin-top: 0; }
+  .when-pop.sheet .rp-kopt .rp-check { width: 15px; height: 12px; }
+  .when-pop.sheet .rp-kdetail { font-size: 17px; }
+  .when-pop.sheet .rp-kopt:hover:not(:focus-visible) { background: none; }
+  .when-pop.sheet .rp-kopt:hover:not(:focus-visible) .rp-kdetail { color: #92989f; }
+  .when-pop.sheet .rp-kopt.current:hover:not(:focus-visible) .rp-klabel, .when-pop.sheet .rp-kopt:hover:not(:focus-visible) .rp-ico { color: #8fbcff; }
+  .when-pop.sheet .rp-ksep { margin: 4px 12px 4px 42px; }
+  .when-pop.sheet .rp-row { height: 44px; padding-left: 42px; padding-right: 4px; gap: 8px; }
+  .when-pop.sheet .rp-row + .rp-row, .when-pop.sheet .rp-fields > * + * { margin-top: 0; }
+  .when-pop.sheet .rp-fields { margin-top: 0; }
+  .when-pop.sheet .rp-head { padding-left: 9.5px; gap: 6.5px; }
+  .when-pop.sheet .rp-ico { width: 26px; height: 26px; }
+  .when-pop.sheet .rp-ico svg { width: 22px; height: 22px; }
+  .when-pop.sheet .rp-pop { height: 34px; padding: 0 6px 0 8px; gap: 6px; border-radius: 8px; font-size: 16.5px; }
+  .when-pop.sheet .rp-kind { padding: 0 2px 0 6px; margin-right: 0; }
+  .when-pop.sheet .rp-pop:hover:not([aria-expanded="true"]) { background: none; color: #b3b8bf; }
+  .when-pop.sheet .rp-kind:hover:not([aria-expanded="true"]) { color: #fff; }
+  .when-pop.sheet .rp-chev { width: 11px; height: 7px; }
+  .when-pop.sheet .rp-num { width: 44px; height: 34px; border-radius: 8px; font-size: 17px; }
+  .when-pop.sheet .rp-well { height: 34px; padding: 0 10px; border-radius: 8px; font-size: 16.5px; }
+  .when-pop.sheet .rp-word { font-size: 16.5px; }
+  .when-pop.sheet .rp-days { gap: 4px; padding: 4px 4px 6px 9.5px; }
+  .when-pop.sheet .rp-day { height: 38px; border-radius: 10px; font-size: 14.5px; }
+  .when-pop.sheet .rp-mrow { padding-left: 9.5px; }
+  .when-pop.sheet .rp-radio { gap: 11.5px; }
+  .when-pop.sheet .rp-dot { width: 21px; height: 21px; margin-left: 2.5px; }
+  .when-pop.sheet .rp-radio.on .rp-dot::after { inset: 6.5px; }
+  .when-pop.sheet .rp-note { margin: 2px 0 4px; padding-left: 42px; font-size: 15px; line-height: 20px; }
+  .when-pop.sheet .rp-off { height: 44px; margin-top: 15px; gap: 6.5px; padding: 3px 10px 0 9.5px; font-size: 18.2px; border-radius: 8px; }
+  .when-pop.sheet .rp-off::before { top: -8px; left: 9.5px; right: 4px; }
+  .when-pop.sheet .rp-off .rp-ico svg { width: 14px; height: 14px; }
+  .when-pop.sheet .rp-off:hover:not(:focus-visible) { background: none; color: #aeb4bb; }
+
+  .rp-menu.phone { min-width: 190px; padding: 6px; border-radius: 12px; font-size: 17px; }
+  .rp-menu.phone .rp-mi { height: 40px; padding-right: 20px; border-radius: 8px; }
+  .rp-menu.phone .rp-mck { width: 28px; }
+  .rp-menu.phone .rp-check { width: 13px; height: 11px; }
+  .rp-menu.phone.grid { grid-template-columns: repeat(var(--cols, 7), 36px); gap: 3px; min-width: 0; }
+  .rp-menu.phone.grid .rp-mi { height: 36px; font-size: 16px; border-radius: 8px; }
+}

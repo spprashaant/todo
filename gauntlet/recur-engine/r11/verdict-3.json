@@ -1,0 +1,7 @@
+{
+  "critic": 3,
+  "broken": false,
+  "gap": "discarded on verification: reproduces as described, but it is the contract's own rule: schedule mode takes its phase from the occurrence's date, 'or the completion day when when isn't a date', and Weekly/Monthly with no weekdays/monthly (and Yearly) use that date's weekday/day. when:'today' is Things' floating Today, not a YYYY-MM-DD date, so its date is whichever day it is ticked, and the picker and row honestly show today's derived value. No input is lost: the person picked only the kind, and the day can be pinned in the picker (On day > 1 stores monthly.day:1; ticked on Mar 3 it gives 2026-04-01; weekday toggles store weekdays). Moving to This Evening or the Inbox is a person's edit to a non-date when, which the same rule covers. Asana has no floating Today, and NOTES item 6 says early or late completion of calendar rules is undocumented. The r2 critic-2 verifier discarded the same claim for the same reason.",
+  "why": "claim did not hold up",
+  "at": "2026-09-26T20:29:22.973Z"
+}

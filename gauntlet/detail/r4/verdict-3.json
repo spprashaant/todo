@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The 'May 25' date pill in the list below the card has a heavy, muddy grey fill (~#e0e0e2) with washed-out grey text (~#6b6c6e), so it reads as a dirty low-contrast smudge. The winner uses a lighter, slightly cool fill (~#e9e9ee) with darker ~#525358 text in the same ~22px-tall pill. Its checklist text is also a touch lighter (~#393939 at the core against ~#292929).",
+    "phone": "The notes and checklist text inside the card is a lighter grey: about 10-15% less ink, with stroke cores around #2c2c2c/#5b5b5b against the winner's ~#1c1c1c/#474747. At the same 17-18pt size, the four body lines look faded against the white card. The winner sets notes and checklist items in near-black, and its calendar glyph has a solid header band instead of a hairline, so it reads more firmly in the 3-icon footer."
+  },
+  "why": "Near-identical layouts with the same spacing, radii and shadow. The winner's darker body text and cleaner, higher-contrast date pill give crisper, more finished detail at every size.",
+  "at": "2026-09-26T04:33:42.367Z"
+}

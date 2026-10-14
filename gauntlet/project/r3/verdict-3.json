@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's section headings ('Slides and notes', 'Preparation') and the progress-pie ring are a washed-out greyish steel blue (about #3A6090, much less saturated), and the title is a lighter semibold (roughly 15% less ink), so the page's hierarchy looks faded. The winner uses one saturated system blue (about #1F60C8) for the pie and headings, and a true bold ~36px title.",
+    "phone": "The loser leaves out the filter-pill row: there is about 90px of empty space between the notes and the 'Things to buy' heading. The winner puts an 'All / Active / Completed' row about 35px under the notes: ~15px semibold grey labels, with the selected one in a ~32px-tall grey (#B0B0B0) capsule with white text."
+  },
+  "why": "Desktop is close. The winner's saturated blue and bolder title give a crisper, more native hierarchy. On phone, the loser simply drops the filter pills, which are a key element of the component.",
+  "at": "2026-09-26T05:33:05.939Z"
+}

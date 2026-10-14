@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Text caret collides with the last glyph: in the loser the 2px blue caret after 'Book hotels' starts right on the right edge of the final 's' (glyph ends x251, caret x252-257, no clear column between them), so the caret reads as fused into the letter. The winner leaves a ~1-2px clear white column between the 's' (ends x254) and the caret (x256-260). Add ~1.5px of caret offset or trailing inset so the insertion point sits clear of the glyph.",
+    "phone": "Text caret collides with the last glyph: in the loser the ~2px blue caret after 'Buy suitcase' overlaps the right edge of the final 'e' (glyph ends x198, caret begins x199 with no lighter column), and at ~34px tall it overshoots cap height and baseline by ~8px each. The winner separates 'e' and caret by a faint clear column and keeps the caret ~32px, overshooting ~7px. Offset the caret ~1-2px from the glyph. Secondary: the loser's checkbox stroke (~#C1C1C1) is fainter than the toolbar icons (~#ADADAD); the winner's (~#B6B6B6) matches them more closely."
+  },
+  "why": "The two are near pixel-identical in layout, type, icons and spacing. The deciding detail is caret placement: the loser's caret fuses into the final letter on each size (B on desktop, A on phone). On phone the winner's checkbox stroke also matches the icon grey more closely.",
+  "at": "2026-09-26T06:27:14.114Z"
+}

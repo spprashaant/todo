@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The toolbar icon cluster (calendar/tag/checklist/flag) is not set evenly in the bottom-right corner: the loser leaves ~38px of card below the icons but only ~36px to their right, and the card is ~3px taller for no reason. The winner uses matching ~36px bottom and ~37px right insets, so the icon row sits in a square, deliberate corner and the card reads tighter.",
+    "phone": "The text caret in the title field is oversized and rides high: the loser's caret is ~34px tall, starting ~10px above the cap line of 'Buy suitcase' but ending only ~5px below the baseline (~1.8x cap height, top-heavy). The winner draws a ~30px caret centred on the line, ~5px above the cap line and ~5px below the baseline (~1.5x cap height), matching the native iOS insertion point."
+  },
+  "why": "The pairs are near pixel-identical in type, checkbox, icons and shadow, so the verdict rests on small spacing and caret flaws: the desktop winner has even icon-corner insets, and the phone winner has a native, vertically centred caret.",
+  "at": "2026-09-26T05:52:05.507Z"
+}

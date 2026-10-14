@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The This Evening hairline in the loser starts about 5px left of the checkbox/moon column (rule at x~93, checkbox edge at x~98), so it overhangs the content edge; the winner starts it within about 3px of that column (x~77 vs 80), which keeps the section rule tied to the rows. The loser's titles also set about 0.5% wider (looser tracking) and gain nothing from it. Otherwise the rows match pixel for pixel.",
+    "phone": "The loser's add button is a flat ~66px #5C9CF4 disc with effectively no elevation shadow (background is back to ~243 within 2px), pinned 16px from the right edge inside the band of the last 'Buy party decorations' row, so it reads as stuck onto the list; the winner draws a ~63px disc with a soft ~10px downward shadow, ~19px inset, floating clear of the rows. The loser's project subtitles are also a touch lighter (#A6A6A7 vs #9E9E9F)."
+  },
+  "why": "Rows are near-identical at both sizes; desktop goes to the tighter section-rule alignment, phone to the properly elevated add button that stays clear of the last row.",
+  "at": "2026-09-26T06:17:34.544Z"
+}

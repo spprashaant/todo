@@ -1,0 +1,259 @@
+/* To-do rows and list groups (piece: today / rows). */
+
+.groups { padding-top: 13px; }
+.todo-list { margin: 0; padding: 0; list-style: none; }
+.todo-list > li { position: relative; }
+
+/* ---------- a row ---------- */
+.todo-list .view {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  margin: 0 -8px;
+  padding: 0 8px;
+  border-radius: 6px;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+.todo-list li.has-sub .view { min-height: 38px; padding-top: 1px; }
+.todo-list li.selected .view { background: var(--sel); }
+
+.toggle, .card-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 9px 0 0;
+  border: 1px solid var(--grey-4);
+  border-radius: 3px;
+  background: #fff;
+  cursor: default;
+  position: relative;
+  transition: background-color .12s, border-color .12s;
+}
+.toggle:hover, .card-toggle:hover { border-color: #a9adb3; }
+.toggle:checked, .card-toggle:checked {
+  background: var(--check) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.7 6.3l2.2 2.2 4.4-4.9' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+  border-color: var(--check);
+}
+.toggle:focus-visible, .card-toggle:focus-visible { outline: 2px solid rgba(93, 156, 245, .5); outline-offset: 1px; }
+
+.row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.row-line { display: flex; align-items: center; min-width: 0; }
+.todo-list label {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: .1px;
+  color: var(--ink);
+  cursor: default;
+}
+.todo-list li.completed label { color: var(--done); }
+.todo-list li.completed .row-sub { color: #b4b7bb; }
+
+.row-pre, .row-post { display: flex; align-items: center; flex: none; }
+.row-pre:empty, .row-post:empty { display: none; }
+.row-post { margin-left: 6px; gap: 4.5px; }
+.row-date {
+  display: inline-flex; align-items: center;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 5px;
+  margin-right: 6px;
+  margin-bottom: -1px; /* baseline-aligned, it hangs 1px below the title's line box; don't grow the row */
+  border-radius: 4px;
+  background: var(--fill);
+  color: #4d5054;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+/* As in Things, the date pill's label is centred on its cap height and shares the title's baseline. */
+.row-line:has(> .row-pre > .row-date) > :is(.row-pre, label) { align-self: baseline; }
+.row-glyph { display: grid; place-items: center; margin-right: 4px; }
+.row-star svg { width: 13px; height: 13px; }
+.row-moon svg { width: 12px; height: 12px; }
+.row-icon { color: #b3b6ba; display: grid; place-items: center; }
+.row-icon svg { overflow: visible; }
+.row-icon .g-ios { display: none; }
+.row-icon-notes svg { width: 8px; height: 11px; }
+.row-icon-cl svg { width: 9px; height: 11px; }
+.row-icon-repeat svg { width: 14px; height: 12px; }
+.row-tag {
+  display: inline-flex; align-items: center;
+  height: 15px;
+  padding: 0 6px;
+  margin-left: 3px;
+  border: 1px solid #cbcdd0;
+  border-radius: 8px;
+  color: #a4a7ab;
+  font-size: 11px;
+  line-height: 13px;
+  white-space: nowrap;
+}
+.row-icon-tag { display: none; }
+.row-sub {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--grey);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.row-sub:empty { display: none; }
+
+.row-deadline { flex: none; margin-left: 12px; position: relative; }
+.row-deadline:empty { display: none; }
+.dl { display: flex; align-items: center; gap: 4.5px; font-size: 12px; font-weight: 500; color: var(--grey-2); white-space: nowrap; }
+.dl svg { width: 11px; height: 11px; opacity: .8; position: relative; overflow: visible; }
+/* the date sits a touch high against the flag, as in Things */
+.dl > span { position: relative; top: -.5px; }
+.flag-ios { display: none; }
+.dl.due { color: var(--red); }
+
+.destroy {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  width: 18px; height: 18px;
+  margin-top: -9px;
+  display: grid; place-items: center;
+  border-radius: 9px;
+  color: #b3b6ba;
+  opacity: 0;
+  transition: opacity .12s;
+}
+.destroy svg { width: 8px; height: 8px; }
+.todo-list .view:hover .destroy { opacity: 1; }
+.destroy:hover { color: var(--ink-2); background: rgba(0, 0, 0, .06); }
+
+/* the card is hidden until the row is being edited (see detail.css) */
+.todo-list li .card { display: none; }
+.todo-list li.editing > .view { display: none; }
+
+/* ---------- Today's measure ----------
+   Today is a short list read at a glance, and each row ends in its deadline. Stretched to the full
+   600px column the deadline lands a hand's width from its title, so on desktop Today keeps the
+   compact measure of Things' own window (rows ~312pt wide between its side margins). The column keeps
+   the left edge the other lists use, so the title doesn't shift between lists; only the right edge
+   comes in. */
+@media (min-width: 700px) {
+  .app[data-view="today"] .column {
+    max-width: calc(312px + var(--col-pad-l) + var(--col-pad-r));
+    margin-left: max(0px, (100% - var(--col-max)) / 2);
+  }
+}
+
+/* ---------- groups ---------- */
+.group.empty.g-plain { display: none; }
+.group + .group { margin-top: 36px; }
+.group-head-slot:empty { display: none; }
+.group-head {
+  display: flex;
+  align-items: center;
+  margin: 0 -4px;
+  padding: 0 4px 6px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-3);
+}
+.group-head + * { }
+.group .group-head-slot:not(:empty) + .todo-list { padding-top: 8px; }
+
+/* This Evening */
+.g-evening { margin-top: 47px !important; }
+.gh-evening { margin: 0 -4px 0 -2px; padding: 0 4px 7px 2px; border-bottom-color: #e9eaed; }
+.gh-evening .gh-moon { width: 12px; margin-right: 9px; display: grid; place-items: center; }
+.gh-evening .gh-moon svg { width: 14px; height: 14px; position: relative; left: -.5px; top: -.5px; }
+.g-evening .group-head-slot:not(:empty) + .todo-list { padding-top: 7px; }
+.moon-ios { display: none; }
+.gh-evening .gh-title { font-size: 14px; line-height: 17px; font-weight: 700; letter-spacing: .14px; }
+
+/* Upcoming day header: big number, weekday, rule above */
+.gh-date { align-items: stretch; border-bottom: 0; padding-bottom: 0; }
+.gh-num { font-size: 27px; line-height: 30px; font-weight: 700; color: var(--ink-3); letter-spacing: -.01em; padding-right: 7px; }
+.gh-day {
+  flex: 1;
+  display: flex; align-items: flex-end;
+  border-top: 1px solid var(--line);
+  padding-bottom: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #83878c;
+}
+.g-date + .g-date, .g-month { margin-top: 44px !important; }
+
+/* month / logbook day */
+.gh-month .gh-title { font-size: 15px; line-height: 18px; font-weight: 700; }
+
+/* Anytime / Someday list groups */
+.gh-list { gap: 9px; text-decoration: none; }
+.gh-list .gh-icon { color: var(--grey-3); display: grid; place-items: center; width: 12px; }
+.gh-list .gh-icon svg { width: 15px; height: 15px; }
+.gh-list .gh-title { font-size: 14px; line-height: 17px; font-weight: 700; }
+.gh-list:hover .gh-title { color: var(--blue); }
+
+/* ---------- phone ---------- */
+@media (max-width: 699px) {
+  .groups { padding-top: 21.75px; }
+  .todo-list .view { min-height: 44px; margin: 0 -10px; padding: 0 10px; border-radius: 8px; }
+  .todo-list li.has-sub .view { min-height: 44px; padding-top: 0; }
+  .toggle, .card-toggle { width: 16.5px; height: 16.5px; border-width: 1.5px; border-radius: 4.5px; margin-right: 11px; border-color: #bdc0c4; }
+  /* Row checkbox: the ring is an inset shadow, not a border. Browsers floor fractional border widths
+     to whole pixels (1.5px becomes 1px at 4/3 scale) and snap the box edges unevenly, which leaves one
+     side crisp and the other blurred. A shadow ring keeps the same weight on all four sides. */
+  .todo-list .toggle {
+    width: 16px; height: 16px;
+    margin-right: 8.75px;
+    top: .75px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 1.65px var(--grey-4);
+    transition: background-color .12s, box-shadow .12s;
+  }
+  .todo-list .toggle:hover { box-shadow: inset 0 0 0 1.65px #a9adb3; }
+  .todo-list .toggle:checked { box-shadow: inset 0 0 0 1.65px var(--check); }
+  .todo-list label { font-size: 17.8px; line-height: 21px; letter-spacing: .16px; color: #020304; }
+  .row-sub { font-size: 14px; line-height: 16px; color: #999ca1; margin-top: -.75px; }
+  .row-date { height: 21px; font-size: 15px; padding: 0 6px; margin-right: 8px; }
+  .row-star svg { width: 16px; height: 16px; }
+  .row-moon svg { width: 15px; height: 15px; }
+  /* iOS hangs its row glyphs a pixel below the title's line-box centre */
+  .row-post { margin-left: 8px; gap: 5.8px; position: relative; top: 1.1px; }
+  .row-icon { color: #a5a9ad; }
+  .row-icon .g-mac { display: none; }
+  .row-icon .g-ios { display: block; }
+  .row-icon-notes svg { width: 9.1px; height: 12px; }
+  .row-icon-cl svg { width: 10.3px; height: 12px; }
+  .row-icon-repeat svg { width: 15px; height: 12.86px; }
+  .row-tag { display: none; }
+  .row-icon-tag { display: grid; }
+  .row-icon-tag svg { width: 13px; height: 13px; }
+  .row-deadline { top: 2px; margin-right: -.75px; }
+  .dl { font-size: 14px; gap: 5.5px; letter-spacing: -.15px; }
+  .dl svg { width: 12px; height: 12px; opacity: 1; top: -2px; }
+  .dl > span { top: -.75px; }
+  .flag-mac { display: none; }
+  .flag-ios { display: inline; }
+  .destroy { display: none; }
+  .group + .group { margin-top: 34px; }
+  .g-evening { margin-top: 42.25px !important; }
+  .group-head { padding-bottom: 8px; border-bottom-width: 1.5px; border-color: #ebecee; margin: 0; padding-left: 0; padding-right: 0; }
+  .gh-evening { margin-right: -5px; padding-right: 5px; border-bottom-width: .75px; border-color: #eaebee; }
+  .gh-evening .gh-moon { width: 16.5px; margin-right: 8.5px; }
+  .gh-evening .gh-moon svg { width: 17px; height: 17px; left: .5px; top: 0; }
+  .gh-evening .gh-title { font-size: 18px; line-height: 23px; letter-spacing: .07px; color: #1d2225; }
+  .moon-mac { display: none; }
+  .moon-ios { display: inline; }
+  .gh-num { font-size: 36px; line-height: 38px; }
+  .gh-day { font-size: 20px; color: #9a9da2; padding-bottom: 3px; }
+  .gh-month .gh-title, .gh-list .gh-title { font-size: 19px; line-height: 23px; }
+  .gh-list .gh-icon, .gh-list .gh-icon svg { width: 18px; height: 18px; }
+  .group .group-head-slot:not(:empty) + .todo-list { padding-top: 10px; }
+  .g-evening .group-head-slot:not(:empty) + .todo-list { padding-top: 8.75px; }
+}

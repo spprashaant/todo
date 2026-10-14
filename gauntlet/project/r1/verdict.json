@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The project title is set too light: 'Prepare Presentation' fills the same ~397x37px box as the winner's but reads as semibold (~600, about 11% less ink), so it barely outranks the bold 20px blue section headings and the page loses its anchor. The winner sets it bold (~700) in near-black #1C1D20 with tighter tracking, so the title clearly outranks everything below it.",
+    "phone": "The filter pills are missing entirely. Between the notes (ending y~207) and 'Things to buy' (y~288) the loser leaves about 80px of empty white instead. The winner puts an 'All / Active / Completed' row there: the selected state is an ~86x31px fully rounded #B4B6BA pill with white semibold text, the others are grey semibold labels, sitting ~31px below the notes and ~53px above the first heading."
+  },
+  "why": "Near-identical rows and headings. Desktop comes down to the loser's lighter, weaker title and the flatter hierarchy that follows. Phone comes down to the loser dropping the filter-pill row altogether.",
+  "at": "2026-09-26T03:40:06.873Z"
+}

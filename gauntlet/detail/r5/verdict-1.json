@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser caps the notes paragraph at a narrower measure than the rest of the card. Its notes wrap after 'send and' around x=775 while the checklist rules, the active field and the action icons run to about x=935. That leaves roughly 160px of dead white to the right of the notes, and the right edges inside the card don't line up. The winner lets the notes use the full content width, so the notes, the 1px checklist dividers, the grey (#F4F4F4) editing row and the icon row all end on one right edge about 25px inside the card.",
+    "phone": "The loser's detail is slightly washed out. Its notes and checklist text sit at about #272727 with a thinner, lighter title checkbox stroke (about #BFBFBF) and fainter action icons (about #B1B1B1), so the card's main control and body copy lose definition. The winner draws the body text at about #181818, the checkbox with a slightly heavier stroke of about 1.5px at #BBB, and the icons at about #ADADAD. It reads crisper, while spacing and layout stay the same."
+  },
+  "why": "Layout, type size and spacing are almost the same in both pairs, so the deciding factors were small craft points: on desktop the notes share one right edge with the rest of the card, and on phone the text and checkbox have crisper contrast.",
+  "at": "2026-09-26T05:35:32.474Z"
+}

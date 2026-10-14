@@ -1,0 +1,408 @@
+{
+  "piece": "composer",
+  "state": "won",
+  "round": 10,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Card rebuilt to Things' measured metrics (4px radius, Things shadow, spacing, checkbox, title tracking), new Things-accurate action icons, 2px blue insertion bar, grey backdrop on phone, 48px FAB",
+      "pairedAt": "2026-09-26T03:37:35.784Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Desktop cards are nearly pixel-identical, so the neutral canvas and crisp edge win it. On phone the winner's crisp checkbox, text and corner beat the loser's soft, upscaled-looking rendering.",
+      "judgedAt": "2026-09-26T03:40:14.634Z"
+    },
+    {
+      "round": 2,
+      "note": "re-judge current build under the equalized pipeline + 3-critic panel",
+      "pairedAt": "2026-09-26T04:20:10.302Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": true,
+          "why": "Layouts and typography are almost pixel-identical. The winner gives the composer clearer figure-ground on desktop and more legible detail icons on phone. The loser's paler treatment makes the editor and its affordances read weaker."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Near-identical layouts; the winner's desktop card has stronger figure-ground against a tinted page, and its phone toolbar icons are more consistent in weight (the loser also crowds the title about 2px closer to the checkbox)."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Otherwise the two are nearly identical at both sizes. The call comes down to how cleanly the calendar glyph is drawn in the accessory row: an attached header rule, an even date grid and icon weight that matches its neighbours."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: The open composer barely separates from the page. The loser sets a #FFFFFF card on a near-white #FAFAFA backdrop, about 2% luminance apart, so the lift depends on a faint shadow whose edge is about #E0E0E0. Its caret is also tall at about 37px, rising about 12px above the cap height. The winner puts the same card on a cool #F2F3F7 grey with a firmer shadow edge of about #D4D4D8, so the editor clearly reads as a raised sheet. Its caret is about 33px. Fix: darken the backdrop to about #F2F2F5 and trim the caret to the font's ascender-to-descender height.  /  The loser sets the white composer card on a near-white #FAFAFA page, only about 5 levels darker than the card, so the card's top and side edges almost disappear and the card is held up only by its bottom shadow. The winner uses a cool #F2F3F7 page, about 12 levels below white, so the same soft shadow outlines the whole card as a clearly raised sheet.",
+      "why": "Layouts and typography are almost pixel-identical. The winner gives the composer clearer figure-ground on desktop and more legible detail icons on phone. The loser's paler treatment makes the editor and its affordances read weaker.  /  Near-identical layouts; the winner's desktop card has stronger figure-ground against a tinted page, and its phone toolbar icons are more consistent in weight (the loser also crowds the title about 2px closer to the checkbox).  /  Otherwise the two are nearly identical at both sizes. The call comes down to how cleanly the calendar glyph is drawn in the accessory row: an attached header rule, an even date grid and icon weight that matches its neighbours.",
+      "judgedAt": "2026-09-26T04:28:42.875Z"
+    },
+    {
+      "round": 3,
+      "note": "Desktop: while composing, the content pane and toolbar recede to cool grey #f2f3f7 so the white card reads as a raised sheet on all edges (toolbar hover shades adjusted); caret centred on the text line to sit exactly where Things' does",
+      "pairedAt": "2026-09-26T04:34:45.564Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": false,
+          "why": "Near-identical renders: desktop decided by the winner's tighter card width keeping actions close to the title; phone by the winner's stronger checkbox stroke preserving hierarchy over the toolbar icons."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "The pairs are almost the same; spacing decided it. On desktop the winner's bottom inset matches its right inset more closely and its shadow is lighter. On phone the winner gives the title more room from the checkbox, lines it up with Notes, and draws the toolbar icons darker (about #A2A2A2 against #B0B0B0) so they read better."
+        },
+        {
+          "critic": 3,
+          "desktop": false,
+          "phone": true,
+          "why": "Near-identical composers; the winner's toolbar glyphs are better finished (even checklist bullets and dashes on desktop, a crisp dot-grid calendar on phone), while the loser's icons have faint, inconsistent strokes."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: Type, checkbox, icons, padding and shadow are pixel-identical, so the difference is the layout: the loser's composer card stretches to ~1110 px wide, which leaves the 4-icon action cluster (calendar/tag/checklist/flag, ~28 px icons at 64 px pitch) about 630 px right of the end of the 20 px title. The row reads as two disconnected islands. The winner caps the card at ~835 px, so the icons sit ~350 px from the title and the card reads as one compact unit. Cap the composer's max-width at ~840 px.  /  Checklist glyph (3rd toolbar icon, ~24x29px, bottom-right of card): the loser draws ~5px bullets with the bottom one squashed almost square, and short hairline dashes that land at ~#C8-#D0, visibly fainter than its own bullets and the neighbouring icons. The winner uses round, even ~6-7px bullets and crisp 1px dashes in the same ~#A8 grey as the rest of the set.",
+      "why": "Near-identical renders: desktop decided by the winner's tighter card width keeping actions close to the title; phone by the winner's stronger checkbox stroke preserving hierarchy over the toolbar icons.  /  The pairs are almost the same; spacing decided it. On desktop the winner's bottom inset matches its right inset more closely and its shadow is lighter. On phone the winner gives the title more room from the checkbox, lines it up with Notes, and draws the toolbar icons darker (about #A2A2A2 against #B0B0B0) so they read better.  /  Near-identical composers; the winner's toolbar glyphs are better finished (even checklist bullets and dashes on desktop, a crisp dot-grid calendar on phone), while the loser's icons have faint, inconsistent strokes.",
+      "judgedAt": "2026-09-26T04:38:06.728Z"
+    },
+    {
+      "round": 4,
+      "note": "Desktop composer card capped at 418px (Things' card width) so the action icons sit with the title; checklist glyph redrawn on the pixel grid with round even bullets and crisp 1px rules (plus an iOS-proportioned variant on phone); phone checkbox ring thickened to 1.5px",
+      "pairedAt": "2026-09-26T04:46:57.460Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": true,
+          "why": "Near-identical layouts; the winner is ahead on elevation (softer, deeper card shadow on desktop) and has a crisper, more consistent attribute-icon row on phone."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Layout, type, spacing and card treatment are pixel-identical in both pairs; the winner's toolbar glyphs are drawn more cleanly (thin calendar header, distinct date dots, bullets with breathing room, deeper flag notch)."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical composers (same layout, type, card, shadow, caret); decided on icon finish: the desktop winner's calendar glyph is closed and a touch crisper, and the phone winner's toolbar icons have more contrast and a readable calendar grid."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: Card elevation: the loser's shadow is short and hard, a dark rim (~#C4C2C8) about 3px under the card that is mostly gone within ~20px (~#E6E7EB at 15px below), so the open to-do looks pasted onto the #F2F3F7 background. The winner uses a softer, deeper drop (peak ~#C6C6C6, easing over ~35px, still ~#E1E1E1 at 15px below) that reads as a lifted editing card. Soften the loser's shadow to about y 4px / blur 24-30px / ~12% black.  /  In the bottom-right toolbar (icons at ~x610-830, y230-258) the loser's calendar glyph has a heavy double-stroke header band (top edge plus a full-width divider ~2px below) and its checklist bullets run straight into their dashes with ~1px air, so the cluster reads dark and cramped; the winner draws a single thin inset header rule and leaves ~2-3px between each 6px bullet and its dash.",
+      "why": "Near-identical layouts; the winner is ahead on elevation (softer, deeper card shadow on desktop) and has a crisper, more consistent attribute-icon row on phone.  /  Layout, type, spacing and card treatment are pixel-identical in both pairs; the winner's toolbar glyphs are drawn more cleanly (thin calendar header, distinct date dots, bullets with breathing room, deeper flag notch).  /  Near-identical composers (same layout, type, card, shadow, caret); decided on icon finish: the desktop winner's calendar glyph is closed and a touch crisper, and the phone winner's toolbar icons have more contrast and a readable calendar grid.",
+      "judgedAt": "2026-09-26T04:50:13.724Z"
+    },
+    {
+      "round": 5,
+      "note": "Matched Things' card shadow (0 4px 14px .26 + half-px light edge), inset calendar header rule and slimmer day marks, larger tag, icons realigned to Things' positions; phone calendar variant",
+      "pairedAt": "2026-09-26T05:25:58.307Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Both builds match in geometry. Desktop comes down to a slightly firmer title weight. On phone, the winner keeps the toolbar icons at usable contrast, while the loser fades them toward a disabled grey."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical builds (geometry within 1-2px); decided on the contrast of the secondary affordances: the winner in each size keeps the toolbar icons and Notes placeholder a few levels darker and more legible without competing with the black title."
+        },
+        {
+          "critic": 3,
+          "desktop": false,
+          "phone": true,
+          "why": "The pairs are almost identical in layout, type and spacing. The winner is ahead on small finish: its checkbox has an even pixel-snapped 1px stroke on both sizes, and its phone composer icons and placeholder are firmer and easier to read instead of washed out."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Both builds match in geometry. Desktop comes down to a slightly firmer title weight. On phone, the winner keeps the toolbar icons at usable contrast, while the loser fades them toward a disabled grey.  /  Near-identical builds (geometry within 1-2px); decided on the contrast of the secondary affordances: the winner in each size keeps the toolbar icons and Notes placeholder a few levels darker and more legible without competing with the black title.  /  The pairs are almost identical in layout, type and spacing. The winner is ahead on small finish: its checkbox has an even pixel-snapped 1px stroke on both sizes, and its phone composer icons and placeholder are firmer and easier to read instead of washed out.",
+      "judgedAt": "2026-09-26T05:29:03.917Z"
+    },
+    {
+      "round": 6,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:28.230Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": false,
+          "why": "The pairs are nearly pixel-identical, so the call comes down to 1-2px spacing evenness on desktop and lighter, better-ranked secondary grey on phone."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": false,
+          "why": "The pairs are near-identical and the call is marginal. Desktop turns on the caret: the winner's is crisper and accent-blue with glyph clearance. Phone turns on the vertical balance of the card: the loser's heavier icon row crowds the bottom edge."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "The pairs are almost pixel-identical in type, spacing, checkbox and caret. The winner has slightly firmer toolbar-icon contrast and, on desktop, a more even inset around the icon row."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": false
+      },
+      "gap": "phone: The secondary ink is too heavy. The loser draws the Notes placeholder and all four toolbar glyphs (calendar, tag, checklist, flag) at about #ABABAB, roughly 10 levels darker than the winner's #B5B5B5. They compete with the typed title and outweigh the pale checkbox. The winner keeps the placeholder and toolbar icons lighter, so Buy suitcase reads as the single focal point and the checkbox stays visible (about #C2C2C2 stroke).  /  The loser's bottom tool row (calendar, tag, checklist, flag) sits only ~22px above the card's bottom edge while the checkbox sits ~31px below the top edge, and its glyphs are ~1px larger (24px vs 23px tall) and darker (peak ~#A1A1A1 vs ~#AFAFAF). So the row looks heavier and pushed against the bottom edge. The winner leaves ~24px under 23px glyphs in a lighter tertiary grey, which gives more even top and bottom padding. Fix: add ~2px of padding under the icon row and draw the glyphs 1px smaller in the lighter grey.",
+      "why": "The pairs are nearly pixel-identical, so the call comes down to 1-2px spacing evenness on desktop and lighter, better-ranked secondary grey on phone.  /  The pairs are near-identical and the call is marginal. Desktop turns on the caret: the winner's is crisper and accent-blue with glyph clearance. Phone turns on the vertical balance of the card: the loser's heavier icon row crowds the bottom edge.  /  The pairs are almost pixel-identical in type, spacing, checkbox and caret. The winner has slightly firmer toolbar-icon contrast and, on desktop, a more even inset around the icon row.",
+      "judgedAt": "2026-09-26T05:39:55.989Z"
+    },
+    {
+      "round": 7,
+      "note": "Phone: tool glyphs lightened to tertiary #b4b4b6 and Notes placeholder to #b6b6b8 (matched to Things' ink after the shared pipeline), checkbox ring a shade firmer, 1px more card below the tool row, calendar frame weight matched, and a two-layer shadow fitted to Things' longer bottom drop",
+      "pairedAt": "2026-09-26T05:49:37.846Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": false,
+          "why": "The pairs are near pixel-identical in type, checkbox, icons and shadow, so the verdict rests on small spacing and caret flaws: the desktop winner has even icon-corner insets, and the phone winner has a native, vertically centred caret."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": false,
+          "why": "Pairs are essentially the same design within 1px; decided on tiny colour/weight differences: clearer accent caret on desktop, firmer checkbox stroke on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": false,
+          "why": "The pairs are near pixel-identical in layout, type, iconography and card finish; the decision rests on the caret, where each winner keeps the caret clear of the last glyph and cleanly sized, and each loser fuses it into the letter."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": false
+      },
+      "gap": "phone: The text caret in the title field is oversized and rides high: the loser's caret is ~34px tall, starting ~10px above the cap line of 'Buy suitcase' but ending only ~5px below the baseline (~1.8x cap height, top-heavy). The winner draws a ~30px caret centred on the line, ~5px above the cap line and ~5px below the baseline (~1.5x cap height), matching the native iOS insertion point.  /  Near-identical layouts (checkbox, title, Notes and the four toolbar icons all within 1px of each other). The loser's empty checkbox at the left of the title is drawn fainter: about 8% less stroke ink, averaging a light grey around #DADADA. Next to the 25px black title, this weakens the one tappable affordance on the row. The loser also leaves a 16px gap from box to title, where the winner uses 15px. The winner draws the ~20pt rounded box with a slightly firmer grey stroke and keeps it 15px from the title.  /  Text caret collides with the title and sits high: the loser's 2px blue caret at x~199-201 lands on the right stroke of the final 'e' and is ~35px tall, starting ~10px above cap height, so it looks off-centre against the 20px caps. The winner puts the caret 1px clear of the glyph (x~200-202), ~33px tall and centred on the text line. Give the caret a 1px gap after the last glyph and trim it to ~33px, centred on the cap/x-height band. Checkbox, icon row (~#ADADAD, 24px glyphs, 23px bottom inset) and Notes placeholder match to within 1px.",
+      "why": "The pairs are near pixel-identical in type, checkbox, icons and shadow, so the verdict rests on small spacing and caret flaws: the desktop winner has even icon-corner insets, and the phone winner has a native, vertically centred caret.  /  Pairs are essentially the same design within 1px; decided on tiny colour/weight differences: clearer accent caret on desktop, firmer checkbox stroke on phone.  /  The pairs are near pixel-identical in layout, type, iconography and card finish; the decision rests on the caret, where each winner keeps the caret clear of the last glyph and cleanly sized, and each loser fuses it into the letter.",
+      "judgedAt": "2026-09-26T05:53:54.035Z"
+    },
+    {
+      "round": 8,
+      "note": "phone caret trimmed to 31px and centred on the cap band with a clear gap after the last glyph; checkbox ring now a full-weight 1.5px inset stroke, 15px from title; title/notes/icons aligned to Things within 1px",
+      "pairedAt": "2026-09-26T06:06:54.776Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "The two are pixel-identical in type, spacing, icons, card and shadow; the deciding detail is the caret: the winner's is full line-height and clear of the text, while the loser's is stubby and collides with the last letter."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": false,
+          "why": "Pairs are near-identical in type, padding, shadow and radius; desktop decided by caret clearance after the last glyph, phone by more even spacing of the bottom toolbar icons."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "The two are nearly identical in layout, type, icons and shadow. The winner's details are tighter: on desktop the caret clears the final glyph, and on phone the checkbox ring is crisp and matches the icon grey."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The two are pixel-identical in type, spacing, icons, card and shadow; the deciding detail is the caret: the winner's is full line-height and clear of the text, while the loser's is stubby and collides with the last letter.  /  Pairs are near-identical in type, padding, shadow and radius; desktop decided by caret clearance after the last glyph, phone by more even spacing of the bottom toolbar icons.  /  The two are nearly identical in layout, type, icons and shadow. The winner's details are tighter: on desktop the caret clears the final glyph, and on phone the checkbox ring is crisp and matches the icon grey.",
+      "judgedAt": "2026-09-26T06:10:06.121Z"
+    },
+    {
+      "round": 9,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.884Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Layouts, type, icons and spacing are pixel-identical at both sizes; the only design difference is caret geometry. The desktop winner's caret has native line height and clears the glyph; the phone winner's caret rises properly above cap height."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "The two are near pixel-identical in layout, type, icons and spacing. The deciding detail is caret placement: the loser's caret fuses into the final letter on each size (B on desktop, A on phone). On phone the winner's checkbox stroke also matches the icon grey more closely."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Every other element is pixel-identical, down to icons, type, card and shadow, so the verdict rests on the insertion caret: on desktop the winner's caret is native height and has clean spacing; on phone the winner's caret spans the full line instead of a stubby tick."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layouts, type, icons and spacing are pixel-identical at both sizes; the only design difference is caret geometry. The desktop winner's caret has native line height and clears the glyph; the phone winner's caret rises properly above cap height.  /  The two are near pixel-identical in layout, type, icons and spacing. The deciding detail is caret placement: the loser's caret fuses into the final letter on each size (B on desktop, A on phone). On phone the winner's checkbox stroke also matches the icon grey more closely.  /  Every other element is pixel-identical, down to icons, type, card and shadow, so the verdict rests on the insertion caret: on desktop the winner's caret is native height and has clean spacing; on phone the winner's caret spans the full line instead of a stubby tick.",
+      "judgedAt": "2026-09-26T06:27:14.115Z"
+    },
+    {
+      "round": 10,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:55.849Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Near pixel-identical composers (same card, 4 grey toolbar glyphs, placeholder and padding); the decider is caret placement against the last typed glyph, which is clean in the desktop winner and marginally cleaner in the phone winner."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Pairs are nearly pixel-identical; decided on sub-pixel polish: caret-to-glyph clearance on desktop, and checkbox stroke contrast on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical composers; decided on finish details: caret collision with text on desktop, checkbox stroke contrast on phone."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Near pixel-identical composers (same card, 4 grey toolbar glyphs, placeholder and padding); the decider is caret placement against the last typed glyph, which is clean in the desktop winner and marginally cleaner in the phone winner.  /  Pairs are nearly pixel-identical; decided on sub-pixel polish: caret-to-glyph clearance on desktop, and checkbox stroke contrast on phone.  /  Near-identical composers; decided on finish details: caret collision with text on desktop, checkbox stroke contrast on phone.",
+      "judgedAt": "2026-09-26T20:50:38.157Z"
+    }
+  ],
+  "working": "phone caret: trim to ~30-33px centred on line, 1px gap after glyph; firmer checkbox stroke, 15px box-title gap",
+  "updatedAt": "2026-09-26T20:50:38.157Z"
+}

@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "In the search field the loser draws its blue text caret (about 3px wide, x~68-71) on top of the last typed glyph, so it covers the right bowl of the 'o' and the query reads 'tc' instead of 'to'. The winner puts a crisp 2-3px caret about 1px after the glyph's right edge (x~71-73), so the typed text stays fully legible.",
+    "phone": "The loser's empty-state greys are washed out. The hint 'Quickly switch lists, find to-dos...' is at about #A8A8AA on #F9F9FB (~2.3:1), the 'Quick Find' placeholder at about #8F949A, and 'Cancel' at about #4F5051. The winner uses about #A0A0A1 for the hint (~2.6:1), #86888A for the placeholder and #434445 for Cancel, which gives firmer, more legible type at the same sizes."
+  },
+  "why": "The two are near-identical clones. Desktop is decided by the loser's caret covering the typed query (it reads 'tc'). Phone is decided by the winner's slightly firmer text contrast and crisper caret.",
+  "at": "2026-09-26T03:39:53.311Z"
+}

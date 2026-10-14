@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The two popovers are almost identical. The clearest measurable gap is the right-aligned secondary date column ('Thu, Jun 8', 'Fri, Aug 18'). The loser draws it in a dimmer grey that peaks around #9A9A9E on the #2D313C popover. The winner lifts it to about #AAAAAE, so the resolved dates read without squinting. Raise the loser's secondary label colour by about 16 levels to match.",
+    "phone": "The loser's footer has no Repeat control. Its bottom row shows only '+ Add Reminder' on the left, which leaves the right half of the sheet empty and the footer lopsided. It also drops a scheduling option. The winner balances that row with a grey repeat-arrows icon and a 'Repeat' label (about 22px text, #9EA2AD) right-aligned at the same baseline as Add Reminder. Restore it. Secondary issue: the loser's Sun-Sat weekday header is dimmer (#6B6F7A against the winner's #7C808B)."
+  },
+  "why": "Desktop is a near-tie, decided by the winner's brighter secondary date labels. On phone, the loser is missing the Repeat footer control and has dimmer weekday headers.",
+  "at": "2026-09-26T20:48:43.904Z"
+}

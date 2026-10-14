@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Text caret collides with the typed query: in the loser the 2px blue caret starts at x~68, exactly where the 'o' ends, so the query 'to' reads as 'tc'. The winner leaves a ~2-3px gap (glyph ends x~70, caret at x~73). The loser's list text is also pure #000 where the winner uses a softer native ~#212121 label color. Fix: add ~2px caret inset after the last glyph and use the system label color.",
+    "phone": "Field typography is unbalanced and washed out: the loser's placeholder is lighter and smaller (cap height ~15px vs 16px, darkest stem ~#888 vs ~#858585) and its hint copy is fainter (~#A0A0A4 vs ~#9B9B9F on #F9F9FB). Its magnifier glyph is drawn heavier than the placeholder it labels, so the icon outweighs the text. The winner keeps glyph stroke and text weight matched and the hint a notch darker. Fix: thin the glyph to ~1.5px, set the placeholder to 17pt, and darken the hint to ~#9B9B9F."
+  },
+  "why": "Near-identical builds; desktop decided by the loser's caret overlapping the typed 'o' (query reads 'tc'), phone by the winner's crisper, better-balanced field and hint typography.",
+  "at": "2026-09-26T03:54:37.645Z"
+}

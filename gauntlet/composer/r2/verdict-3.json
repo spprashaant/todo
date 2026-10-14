@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Calendar icon at the left of the bottom-right accessory row (about x 608-641, y 232-260) is drawn with a header rule that floats inset about 3px from both side strokes, a lumpy 3x3 date grid, and a lighter stroke (about #A1A1A1). The winner runs the header rule edge to edge into the frame, spaces its 3x3 date ticks evenly and strokes the whole row a little darker (about #979797), so the four glyphs read as one set.",
+    "phone": "Calendar glyph at the left of the accessory row (about x 282-309, y 177-201) has a doubled, muddy header rule and faint, uneven date ticks (the middle row almost disappears) at about #ADADAD, so it looks weaker than the tag, list and flag beside it. The winner draws one crisp header rule and a solid, even 3x3 grid of about 2px dots at about #A1A1A1, matching the stroke weight of the other three icons."
+  },
+  "why": "Otherwise the two are nearly identical at both sizes. The call comes down to how cleanly the calendar glyph is drawn in the accessory row: an attached header rule, an even date grid and icon weight that matches its neighbours.",
+  "at": "2026-09-26T04:28:25.698Z"
+}

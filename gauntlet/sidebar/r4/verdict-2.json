@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The Someday icon in the loser is a washed olive-sage (about #BCC78C). Next to the teal Anytime and green Logbook icons, that makes three greens in a six-item stack, so Someday reads muddy and blurs into its neighbours. The winner uses a warm tan box (about #CBBE86) that stays distinct. The loser's footer sliders icon is also drawn near-black (#434446), louder than the New List label, where the winner uses a secondary grey (#7A7B7D).",
+    "phone": "The loser keeps a grey selection pill (#E1E5E8, about 46px tall) stuck on the Today row of the phone lists home. That is a desktop pattern and not native at an iOS navigation root. The pill is also inset only about 8px from the screen edges, while the Quick Find field sits at 16px and the dividers at about 20px, so it breaks the left and right column lines. The winner leaves every row on the plain #F4F5F7 background and keeps all content inside the 16-20px margins."
+  },
+  "why": "The layouts, type and rhythm are nearly identical, so it came down to details. The winner's icon palette is more distinct (tan Someday), its footer icon uses a quieter grey, and on phone it has no stuck, misaligned selection pill on the root lists screen.",
+  "at": "2026-09-26T06:21:41.422Z"
+}

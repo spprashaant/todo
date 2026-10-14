@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Checklist glyph after 'Buy party decorations': the loser draws its three bullets inconsistently, with two hollow ~5px rings and a solid filled third. Its dashes are uneven ~1px strokes, darker at the start and fading toward the middle, and its note glyph's dog-ear is a filled blob. It reads as noise next to the 17px title. The winner draws three matching bullets with even ~8px x 1.5px bars (~#B8B8B8) and a note glyph with an outlined fold. Fix: make all three bullets identical and the bars uniform in weight.",
+    "phone": "Checklist glyph after 'Buy party decorations' (~x305-340): the loser uses two hollow ~4px rings and a denser third, with 1px hairline dashes. At phone size these turn into grey smudges and the three bullets don't match. The winner uses three matching solid ~4px dots (~#B4B4B4) with even 2px bars. Fix: fill all three bullets the same way and thicken the dashes to 2px."
+  },
+  "why": "Row geometry, type, colours, checkbox, flag and This Evening header match to within 1px. The only real difference is the attachment glyph: the winner's checklist bullets are uniform and its bars even, while the loser's bullets are inconsistent and its dashes uneven.",
+  "at": "2026-09-26T05:52:35.383Z"
+}

@@ -1,0 +1,7 @@
+{
+  "critic": 2,
+  "broken": false,
+  "gap": "discarded on verification: reproduces, but the identical state and outcome occur in an area and a project right after a row tick (Complete All reads checked with '1 item left', one click reopens the chain and takes back the open occurrence). That is CONTRACT line 139's store.allCompleted rule (an open nextId counts with its completed parent, un-checking takes it back) plus line 136's reopen-several rule, applied uniformly. Today is not exempted, no occurrence is duplicated, the taken-back occurrence was unedited, there are no page errors, and Asana has no Complete All and does not document uncompleting",
+  "why": "claim did not hold up",
+  "at": "2026-09-26T10:49:42.062Z"
+}

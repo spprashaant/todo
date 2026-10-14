@@ -1,0 +1,179 @@
+/* New to-do composer + the add affordances (piece: composer). */
+
+.composer { position: relative; margin-top: 2px; }
+.composer.unavailable { display: none; }
+.composer .card-head { position: relative; display: flex; align-items: center; }
+.composer-body { position: relative; padding-left: 21px; }
+
+/* ---------- at rest: a quiet "New To-Do" line where the next to-do will go ---------- */
+.composer.rest .composer-card { display: flex; flex-direction: column; }
+.composer.rest .card-head { height: 28px; }
+.composer.rest .composer-body { display: none; }
+/* Only the Inbox (the capture list) keeps the resting line. Other lists end cleanly after their last
+   row, like Things, and add through the toolbar +, Space or the floating + (added by today/rows). */
+.app:not([data-view="inbox"]) .composer.rest { display: none; }
+.composer-check {
+  flex: none;
+  width: 12px; height: 12px;
+  margin: 1.5px 9px 0 0;
+  border: 1px solid #c0c2c6;
+  border-radius: 3.5px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.composer.rest .composer-check { border-style: dashed; border-color: #d0d3d6; background: transparent; }
+.composer .new-todo {
+  flex: 1;
+  min-width: 0;
+  height: 22px;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--ink);
+  letter-spacing: .01em;
+  cursor: text;
+}
+.composer .new-todo::placeholder { color: #b9bcc1; opacity: 1; }
+.composer.rest .new-todo::placeholder { color: #c3c6ca; }
+.composer.rest:hover .new-todo::placeholder { color: #a9adb2; }
+
+/* ---------- open: a lifted card, Things' metrics ---------- */
+/* While you write, the list recedes onto a cool grey, so the white card reads as a raised sheet
+   on every edge rather than resting on its bottom shadow alone. */
+.content.dim.composing,
+.content.dim.composing .toolbar { background: #f2f3f7; }
+.content.dim.composing .toolbar .tool:hover { background: #e5e6eb; }
+.content.dim.composing .toolbar .tool:active { background: #dcdde3; }
+.content.dim.composing .toolbar .tool[disabled], .content.dim.composing .toolbar .tool.off { background: none; }
+.composer.open {
+  margin: 26px -15px 34px -14px;
+  /* A compact sheet, not a banner: capped near Things' 418pt card so the action icons stay within
+     reach of the title instead of drifting to the far edge of a wide window. */
+  max-width: 418px;
+  z-index: 1;
+}
+.composer.open .composer-card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px 15px 13px 14px;
+  box-shadow: 0 .5px 0 rgba(255, 255, 255, .5), 0 -.5px 0 rgba(255, 255, 255, .5), 0 4px 14px rgba(0, 0, 0, .26);
+  animation: composer-in .16s ease-out;
+}
+@keyframes composer-in { from { opacity: .4; transform: scale(.985); } to { opacity: 1; transform: none; } }
+.composer.open .card-head { min-height: 22px; }
+.composer-notes {
+  display: block;
+  width: 100%;
+  min-height: 18px;
+  margin-top: 7.5px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--ink-2);
+  letter-spacing: .005em;
+  overflow: hidden;
+}
+.composer-notes::placeholder { color: #ababab; opacity: 1; }
+.composer .cl-check { cursor: default; }
+.composer .cl-input { caret-color: #659de9; }
+
+/* bottom row: chips left, when / tags / checklist / deadline right */
+.composer.open .card-foot { display: flex; align-items: center; justify-content: space-between; min-height: 26px; margin-top: 30px; }
+.composer .card-actions { display: flex; align-items: center; gap: 6px; margin-left: auto; margin-right: -1.5px; }
+.composer .card-act {
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 5px;
+  color: #aaa;
+}
+.composer .card-act svg { width: 16px; height: 16px; }
+/* the flag sits half a point further out, where Things puts it */
+.composer .card-act[data-act="deadline"] svg { transform: translateX(.5px); }
+.composer .card-act:hover { color: #6b6f75; background: #f2f3f5; }
+
+/* the insertion point: a 2px blue bar like Things' (native caret hidden where it is drawn) */
+.composer .has-caret-bar { caret-color: transparent; }
+.caret-mirror {
+  position: absolute;
+  top: 0; left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-wrap: break-word;
+}
+.caret-probe { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
+.caret-bar {
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px;
+  background: #659de9;
+  pointer-events: none;
+  visibility: hidden;
+}
+.caret-bar.on { visibility: visible; animation: caret-blink 1.1s step-end .5s infinite; }
+@keyframes caret-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .caret-bar.on { animation: none; } }
+
+/* ---------- floating + (phone) ---------- */
+.fab {
+  display: none;
+}
+
+/* ---------- phone ---------- */
+@media (max-width: 699px) {
+  .composer.rest { display: none; }
+  .composer.open {
+    margin: 16px calc(-1 * var(--col-pad-r) - var(--safe-r)) 24px calc(-1 * var(--col-pad-l) - var(--safe-l));
+    max-width: none;
+    padding: 0;
+  }
+  .composer.open .composer-card {
+    border-radius: 4px;
+    padding: 16.75px calc(19px + var(--safe-r)) 12px calc(11px + var(--safe-l));
+    background: #fdfdfd;
+    /* a close ambient edge plus a longer drop below, so the sheet reads lifted toward the keyboard */
+    box-shadow: 0 0 13.5px rgba(0, 0, 0, .09), 0 6px 15px rgba(0, 0, 0, .11);
+  }
+  .composer.open .card-head { min-height: 30px; }
+  /* iOS insertion point: a shorter bar centred on the caps, hanging evenly above and below the text */
+  .composer { --caret-size: 1.16; --caret-center: caps; }
+  /* a 1.5px ring like iOS Things'. Borders snap down to whole device px (1.5px can land on 1), so the
+     whole ring is an inset shadow, which keeps its full weight on every edge. */
+  .composer-check { width: 18px; height: 18px; margin: 0 9.75px 0 -.5px; border: 0; border-radius: 4.5px; box-shadow: inset 0 0 0 1.5px #b5b5b7; }
+  .composer .new-todo { height: 30px; margin-top: -.5px; font-size: 20px; line-height: 30px; letter-spacing: .01em; color: #000; }
+  .composer-body { padding-left: 28.25px; }
+  .composer-notes { margin-top: 8px; font-size: 17px; line-height: 22px; letter-spacing: -.005em; }
+  .composer-notes::placeholder { color: #b6b6b8; }
+  .composer.open .card-foot { margin-top: 38px; min-height: 30px; }
+  .composer .card-actions { gap: 12px; margin-right: -6.25px; }
+  /* tertiary ink: lighter than the Notes placeholder, so the typed title stays the one focal point */
+  .composer .card-act { width: 30px; height: 30px; color: #b4b4b6; }
+  .composer .card-act svg { width: 20.25px; height: 20.25px; }
+  .composer .card-act[data-act="deadline"] svg { transform: none; }
+  /* iOS draws the calendar's frame a touch heavier than its day marks */
+  .composer .card-act[data-act="when"] svg > rect:first-child { stroke-width: 1.2; }
+
+  /* behind the card, the list recedes onto a faint grey */
+  .content.dim.composing, .content.dim.composing .topbar { background: #f6f6f9; transition: background-color .18s ease; }
+  .content.composing .todo-list > li .view,
+  .content.composing .list-header,
+  .content.composing #area-projects,
+  .content.composing .group-head,
+  .content.composing .footer { opacity: .3; transition: opacity .2s; }
+
+  .fab {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    right: calc(14px + var(--safe-r));
+    bottom: calc(14px + var(--safe-b));
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #5499f7;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 3px 10px rgba(30, 70, 140, .18);
+    z-index: 10;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .fab svg { width: 36px; height: 36px; }
+  .fab svg path { stroke-width: 1.35; stroke-linecap: butt; }
+  .fab:active { transform: scale(.94); }
+  .fab[hidden] { display: none; }
+}

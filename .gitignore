@@ -1,0 +1,35 @@
+# TodoMVC's own repository, cloned for the test suite (165 MB, with its own .git).
+# Recreate it with: bash tools/setup-suite.sh
+# (app/vendor/ is different: the app ships it, so it stays committed.)
+/vendor/
+
+# Dependencies (npm install)
+node_modules/
+
+# Test-run leftovers (tools/suite.sh)
+gauntlet/.suite-*.log
+gauntlet/.suite-lock.*
+gauntlet/.todomvc-server.log
+*.log
+
+# Personal Claude Code settings (launch.json and skills/ are shared and stay committed)
+.claude/settings.local.json
+
+# Secrets. The Supabase publishable key in app/js/config.js is public by design;
+# never commit a secret or service_role key.
+.env
+.env.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example

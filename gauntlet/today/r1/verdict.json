@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser ends the This Evening list with an extra, focused 'New To-Do' row: a dashed 24px placeholder checkbox and a 4px-wide, ~36px-tall #659DE9 caret at x~119 that nearly touches the placeholder text (about 1px gap) and runs about 10px taller than the 26px title line. It is heavy and not native, and it pulls the eye away from the real rows. The winner ends cleanly after 'Buy party decorations'. Fix: do not auto-open an editing row in the resting Today state, and if one is shown, use a 2px caret the height of the text line with about 2px of clearance.",
+    "phone": "The loser's checkboxes are drawn half a pixel off the grid. The left and top strokes blur into a pale 2px (~#D2D2D2), while the right and bottom are a crisp, darker 1px (~#BDBDBD), so all eight boxes look lopsided and bleed to 23px wide. The winner draws an even ~1.5px #BFC1C4 stroke on all four sides of a 21x21 box. Fix: snap the checkbox rect to whole or half pixels so every side renders the same weight. A secondary fix is to darken the subtitles from ~#A1A5AA to ~#96989B to match the winner's contrast."
+  },
+  "why": "The rows are almost pixel-identical in type, rhythm and glyphs. Desktop is decided by the loser's stray focused New To-Do row with its oversized caret. Phone is decided by the loser's off-grid, lopsided checkbox strokes repeated on every row.",
+  "at": "2026-09-26T03:38:18.649Z"
+}

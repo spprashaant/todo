@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Row contents sit low in the loser. The pink calendar glyphs hang about 2-3px below their labels: the icon top is flush with the cap line and its bottom falls about 6px under the baseline. The 'in 3 days' label also sits low in the 35px blue selection pill, with about 12px above the caps and about 7px below the baseline. The winner centres both: its about 23px icons overhang the text evenly (about 4px above, about 3px below), and its label has about 10/9px inside the pill. It also uses the same 11px gap between the field and the list as its side margins, where the loser uses 9px. Fix: nudge the icons up about 2px and centre the label in the highlight.",
+    "phone": "The 'This Evening' moon hangs low in the loser. Its 28px glyph ends about 6px below the text baseline but starts only about 3px above the cap line, so it looks dropped against the label. The winner centres the moon on the cap height (about 4px over, about 3px under), matching how the star sits next to 'Today'. The loser's calendar rows are also spaced unevenly (61/63/61px), where the winner keeps a steady 62px rhythm. Fix: raise the moon about 2-3px and snap the grid rows to one pitch."
+  },
+  "why": "Almost identical designs. The winner comes out ahead on optical alignment: its row icons are centred on the text and its row spacing is even, while the loser's icons, pill label and grid rows are each off by about 2px.",
+  "at": "2026-09-26T04:38:35.820Z"
+}

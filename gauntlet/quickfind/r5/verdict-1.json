@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The text caret in the loser's search field sits on top of the last typed glyph. The ~2px blue insertion bar cuts through the right bowl of the 'o' in the query 'to', so the only live text in the panel reads as 'td'. The winner puts the caret about 2px clear of the glyph's advance edge, so the query stays legible. The rows below are nearly pixel-identical, so this collision at the focal point decides it.",
+    "phone": "The loser's type is washed out. Cancel renders as mid grey (darkest pixel ~#38383A) and so reads as disabled rather than as a tappable control. The two-line hint is pale (~#9C9C9E at its darkest, about 2.4:1 on #FAFAFC). The winner sets Cancel near-black (~#242426), puts the hint a step darker (~#8D8D8F, about 3:1) with ~3px more leading, and darkens the placeholder slightly. That gives the empty state clearer label/secondary hierarchy."
+  },
+  "why": "Layout, sizes and rows are near-identical in both pairs. On desktop, the loser's caret overlaps the typed text. On phone, the loser's Cancel and hint are too pale to read as a control and as secondary text.",
+  "at": "2026-09-26T06:24:31.642Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Text caret is jammed into the last glyph: the loser's ~2px blue caret at x~253-257 overlaps the right edge of the final 's' by ~1px, so the caret and glyph fuse into a greyish-blue smear (~#7496CE) with the caret tail hanging ~5-6px below the baseline. The winner's caret sits right after the glyph advance with no overlap and stays a crisp saturated blue (~#6997D0), 2px wide. Offset the caret 1-2px right of the glyph edge and keep it pure accent blue. Everything else (24px checkbox, 21px cap height, grey icons ~#A5A5A5, card radius/shadow) is identical to within 1px.",
+    "phone": "Text caret collides with the title and sits high: the loser's 2px blue caret at x~199-201 lands on the right stroke of the final 'e' and is ~35px tall, starting ~10px above cap height, so it looks off-centre against the 20px caps. The winner puts the caret 1px clear of the glyph (x~200-202), ~33px tall and centred on the text line. Give the caret a 1px gap after the last glyph and trim it to ~33px, centred on the cap/x-height band. Checkbox, icon row (~#ADADAD, 24px glyphs, 23px bottom inset) and Notes placeholder match to within 1px."
+  },
+  "why": "The pairs are near pixel-identical in layout, type, iconography and card finish; the decision rests on the caret, where each winner keeps the caret clear of the last glyph and cleanly sized, and each loser fuses it into the letter.",
+  "at": "2026-09-26T05:52:41.078Z"
+}

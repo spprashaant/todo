@@ -1,0 +1,187 @@
+/* Quick Find (piece: quickfind). */
+
+/* Centred over the content pane, but on whole CSS pixels: a half-pixel offset would smear the
+   panel's hairline and edges across two device pixels. The pop is 297 + 2 + 28 = 327px wide. */
+.qf-pop {
+  position: fixed;
+  top: 34px;
+  left: calc(var(--sidebar-w) + (100vw - var(--sidebar-w) - 327px) / 2);
+  left: round(calc(var(--sidebar-w) + (100vw - var(--sidebar-w) - 327px) / 2), 1px);
+  padding: 14px;
+  z-index: 60;
+  animation: qf-in .14s ease-out;
+}
+@keyframes qf-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* The 1px hairline is the frame's own fill showing around the panel, so the panel's rounded
+   corners always sit on the border colour rather than on whatever list is behind. */
+.qf-frame {
+  padding: 1px;
+  border-radius: 7px;
+  background: #c4c5c8;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .15), 0 1px 4px rgba(0, 0, 0, .07);
+}
+.qf-panel {
+  width: 297px;
+  padding: 6px 0 5px; /* whole-pixel height, so the panel's bottom edge lands cleanly */
+  background: #f2f3f5;
+  border-radius: 6px;
+  color: #1d2125;
+  font-size: 14px;
+}
+
+/* ---------- search field ---------- */
+.qf-top { display: flex; align-items: center; gap: 10px; padding: 0 6px; }
+.qf-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 2.2px 0 5.5px;
+  border-radius: 4px;
+  background: #dddee1;
+}
+.qf-icon { flex: none; display: grid; place-items: center; width: 14px; height: 14px; margin: -.6px 5.2px 0 0; color: #8a8f95; }
+.qf-glass { width: 100%; height: 100%; display: block; }
+.qf-edit { position: relative; flex: 1; min-width: 0; display: flex; align-self: stretch; }
+.qf-input, .qf-mirror { font-size: 14px; letter-spacing: 0; }
+.qf-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 0 1px;
+  color: #1d2125;
+  caret-color: transparent;
+}
+.qf-input::placeholder { color: #8d9298; }
+.qf-input::-webkit-search-cancel-button, .qf-input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+.qf-mirror { position: absolute; left: 0; top: 0; visibility: hidden; white-space: pre; pointer-events: none; }
+.qf-caret {
+  position: absolute;
+  left: 0; /* starts at the insertion point, so it never covers the last typed glyph */
+  top: 2.5px;
+  width: 2px;
+  height: 18px;
+  background: #589af7; /* square ends: a rounded bar is drawn off the pixel grid and blurs */
+  pointer-events: none;
+}
+.qf-caret.blink { animation: qf-blink 1.06s steps(1, end) infinite; }
+@keyframes qf-blink { 50% { opacity: 0; } }
+.qf-clear { flex: none; width: 21px; height: 21px; margin-top: -1.6px; display: grid; place-items: center; border-radius: 10.5px; color: #555a60; }
+.qf-clear svg { width: 14px; height: 14px; }
+.qf-clear svg path { stroke-width: 1.6; }
+.qf-cancel { flex: none; font-size: 15px; color: #3e3f41; }
+
+/* ---------- results ---------- */
+.qf-body { padding-top: 6px; max-height: min(460px, calc(100vh - 140px)); overflow-y: auto; }
+.qf-body:empty { display: none; }
+.qf-hint { padding: 20px 26px 16px; text-align: center; color: #a4a7ab; font-size: 14px; line-height: 19px; }
+.qf-row {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 12px);
+  height: 22px;
+  margin: 0 6px;
+  padding: 1px 6px 0 5.5px;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 14px;
+  color: #1d2125;
+}
+.qf-row + .qf-row { margin-top: 1px; }
+.qf-row.active { background: #c1d6f5; }
+.qf-ic { width: 14px; height: 14px; margin-right: 7.5px; display: flex; align-items: center; justify-content: center; flex: none; color: #8c939f; }
+.qf-project .qf-ic svg, .qf-area .qf-ic svg, .qf-tag .qf-ic svg { margin-top: -1.3px; }
+.qf-ic svg { width: 14px; height: 14px; overflow: visible; }
+.qf-today .qf-ic svg { width: 17px; height: 17px; margin-top: -1.5px; }
+/* On the highlighted row Things tints the yellow star towards olive. */
+.qf-row.active.qf-today .qf-ic path:first-child { fill: #cdbd1a; stroke: #cdbd1a; }
+.qf-row.active.qf-today .qf-ic path + path { stroke: #a89a05; stroke-opacity: .6; }
+.qf-title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qf-list.qf-inbox .qf-title, .qf-list.qf-today .qf-title, .qf-list.qf-upcoming .qf-title, .qf-list.qf-anytime .qf-title,
+.qf-list.qf-someday .qf-title, .qf-list.qf-logbook .qf-title { font-weight: 600; }
+.qf-badge {
+  flex: none;
+  min-width: 20px;
+  height: 15px;
+  margin: -1px 5.5px 0 8px;
+  padding: 0 5.5px;
+  border-radius: 7.5px;
+  background: var(--badge);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  text-align: center;
+}
+.qf-row.active .qf-badge { background: #ef4177; }
+.qf-count { flex: none; min-width: 8px; color: rgba(80, 85, 95, .6); font-size: 14px; text-align: right; font-variant-numeric: tabular-nums; }
+.qf-count, .qf-check { margin-top: -1px; }
+.qf-badge + .qf-count { margin-left: 0; }
+.qf-title + .qf-count, .qf-title + .qf-check { margin-left: 8px; }
+.qf-check { flex: none; display: grid; place-items: center; margin-right: -.6px; color: #589af7; }
+.qf-check svg { width: 12.5px; height: 11.3px; }
+.qf-count + .qf-check { margin-left: 8px; }
+.qf-box {
+  width: 10px;
+  height: 10px;
+  margin-top: -1px;
+  border: 1px solid #8c939f;
+  border-radius: 2.5px;
+  box-shadow: 0 .6px 0 rgba(255, 255, 255, .75);
+}
+.qf-todo.done .qf-box { background: var(--check); border-color: var(--check); }
+.qf-todo.done .qf-title { color: #8f9398; }
+.qf-sub { flex: none; max-width: 40%; margin-left: 8px; color: #979ba0; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qf-more .qf-ic { color: #50555c; }
+.qf-more .qf-ic svg { width: 14px; height: 14px; margin-top: -1.6px; }
+.qf-more .qf-glass circle { stroke-width: 1.5; }
+.qf-more .qf-glass path { stroke-width: 1.65; }
+.qf-sep { height: 1px; margin: 4.5px 6px 5.5px; background: #dbdcdf; }
+
+/* ---------- phone: sheet from the top ---------- */
+@media (max-width: 699px) {
+  .qf-scrim.dark { background: rgba(0, 0, 0, .21); animation: fade .15s ease-out; }
+  .qf-pop.sheet {
+    left: calc(18px + var(--safe-l));
+    right: calc(18px + var(--safe-r));
+    top: calc(24px + var(--safe-t));
+    transform: none;
+    padding: 0;
+    animation: fade .15s ease-out;
+  }
+  .qf-pop.sheet .qf-frame { padding: 0; border-radius: 12px; background: none; box-shadow: 0 10px 36px rgba(0, 0, 0, .18); }
+  .qf-pop.sheet .qf-panel {
+    width: auto;
+    min-height: 228.75px;
+    padding: 7.75px 0 10px;
+    background: #f9f9fb;
+    border-radius: 12px;
+  }
+  .qf-pop.sheet .qf-top { padding: 0 16.5px 0 8px; gap: 14.8px; }
+  .qf-pop.sheet .qf-field { height: 32px; border-radius: 5.5px; background: #e1e3e7; padding-left: 9.6px; }
+  .qf-pop.sheet .qf-icon { width: 17px; height: 17px; margin: -1px 6px 0 0; color: #85888e; }
+  .qf-pop.sheet .qf-icon circle { stroke-width: 1.15; }
+  .qf-pop.sheet .qf-icon path { stroke-width: 1.25; }
+  .qf-pop.sheet .qf-input, .qf-pop.sheet .qf-mirror { font-size: 17px; letter-spacing: -.01em; }
+  .qf-pop.sheet .qf-input::placeholder { color: #838589; }
+  .qf-pop.sheet .qf-caret { top: 7.7px; width: 2px; height: 18px; left: -1px; background: #5f97dc; }
+  .qf-pop.sheet .qf-cancel { font-size: 17px; letter-spacing: -.01em; }
+  /* iOS clear control: a small filled grey disc with a white cross */
+  .qf-pop.sheet .qf-clear { width: 30px; height: 30px; margin: 0 -1px 0 0; border-radius: 15px; }
+  .qf-pop.sheet .qf-clear svg { width: 15px; height: 15px; padding: 4px; box-sizing: border-box; border-radius: 50%; background: #a1a2a7; color: #fff; }
+  .qf-pop.sheet .qf-clear svg path { stroke-width: 2.3; }
+  .qf-pop.sheet .qf-hint { padding: 65.5px 40px 40px; font-size: 16.5px; line-height: 20px; color: #9a9a9d; letter-spacing: -.01em; }
+  .qf-pop.sheet .qf-body { padding-top: 8px; max-height: calc(100vh - 160px); }
+  .qf-pop.sheet .qf-row { height: 42px; font-size: 17px; padding: 0 10px; border-radius: 8px; }
+  .qf-pop.sheet .qf-row + .qf-row { margin-top: 0; }
+  .qf-pop.sheet .qf-ic, .qf-pop.sheet .qf-ic svg { width: 20px; height: 20px; }
+  .qf-pop.sheet .qf-ic { margin-right: 12px; }
+  .qf-pop.sheet .qf-today .qf-ic svg { width: 23px; height: 23px; }
+  .qf-pop.sheet .qf-box { width: 14px; height: 14px; border-radius: 3.5px; }
+  .qf-pop.sheet .qf-badge { height: 18px; line-height: 18px; min-width: 24px; border-radius: 9px; font-size: 13px; }
+  .qf-pop.sheet .qf-sub { font-size: 14px; }
+  .qf-pop.sheet .qf-count { font-size: 16px; }
+  .qf-pop.sheet .qf-sep { margin: 6px 10px; }
+}

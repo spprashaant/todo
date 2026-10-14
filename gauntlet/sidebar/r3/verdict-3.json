@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Someday icon colour: the loser draws the Someday box as a flat, washed-out olive (~#B3BE83) with lid and body the same tone, so Anytime (teal), Someday and Logbook (green) read as three near-identical greens in adjacent rows. The winner uses a warm khaki/tan box (~#C6AE6E) with a darker lid band and a crisp slot, which separates it clearly. Recolour the 18px Someday glyph to tan and give the lid its own shade.",
+    "phone": "Stuck selection on the iPhone root list: the loser paints a ~345x46px grey pill (#E1E5E8, ~9px side insets) behind Today on the lists home screen, so it reads like a frozen tap state rather than native iOS navigation, where selection clears when you return to the root. The winner leaves the rows unhighlighted and puts the emphasis on content and the blue add button. The loser also repeats the muddy olive Someday icon (~#C0C58D) where the winner uses tan (~#C6B371). Clear the phone selection on appear and recolour Someday tan."
+  },
+  "why": "Near-identical layouts, so the icon finish decides it: the olive Someday box muddies the teal/green run in each loser, and the phone loser also adds a non-native persistent highlight on Today.",
+  "at": "2026-09-26T05:34:25.529Z"
+}

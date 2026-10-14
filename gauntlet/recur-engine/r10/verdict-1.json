@@ -1,0 +1,7 @@
+{
+  "critic": 1,
+  "broken": false,
+  "gap": "discarded on verification: reproduces, but it is not a repeat-engine break. The card checkbox is a real input and keeps focus after a click, so the next Backspace hits the app-wide Backspace/Delete-deletes-the-selected-to-do shortcut (view.js onKeydown). It deletes a non-repeating to-do the same way, and after a single tick too. The engine did everything right: the tick made one occurrence and the untick took it back and restored the rule. Deleting the open occurrence ending the series is the contract's own rule, and no delete in the app has undo. The Upcoming variant rests on critic 3's self-closing card, already reported.",
+  "why": "claim did not hold up",
+  "at": "2026-09-26T19:06:04.609Z"
+}

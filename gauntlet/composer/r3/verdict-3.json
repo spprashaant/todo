@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Checklist glyph (3rd toolbar icon, ~24x29px, bottom-right of card): the loser draws ~5px bullets with the bottom one squashed almost square, and short hairline dashes that land at ~#C8-#D0, visibly fainter than its own bullets and the neighbouring icons. The winner uses round, even ~6-7px bullets and crisp 1px dashes in the same ~#A8 grey as the rest of the set.",
+    "phone": "Calendar glyph (1st toolbar icon, ~28x25px): the loser fills the body with three rows of faint smeared dashes (~#C8) that read as text lines, not a date grid, and its whole icon row sits lighter (~#B8). The winner draws a crisp 3x3 grid of ~2px dots under a full-width header rule, with the icon row at ~#AE so the four glyphs read clearly against white."
+  },
+  "why": "Near-identical composers; the winner's toolbar glyphs are better finished (even checklist bullets and dashes on desktop, a crisp dot-grid calendar on phone), while the loser's icons have faint, inconsistent strokes.",
+  "at": "2026-09-26T04:37:11.479Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Rows are otherwise pixel-identical (24px checkbox, 20px checkbox-to-title gap, 76px row pitch, same greys), but the loser lets the list column run about 1066px wide, so the red 'today' deadline flag lands about 635px right of 'Finish expense report' and floats detached from its row. The winner holds the column to about 635px, putting the flag about 200px from the title so it reads as part of the row. Cap the list at a readable max-width of about 640px.",
+    "phone": "The loser's 66px blue + FAB sits on the last row's band (top edge about y478, about 25px above the 'Buy party decorations' title and about 80px right of its checklist glyph), so it crowds and visually competes with the row. The winner keeps the FAB in clear space about 95px below the last row, with about 26px bottom and 18px right insets. Also secondary: the loser's project subtitles are lighter (about #A2A2A4 vs #9C9C9C), which costs legibility."
+  },
+  "why": "Row craft is effectively identical at both sizes (same checkbox, type, spacing, glyphs, heading), so each call comes down to layout context: the winner keeps the deadline flag close to its title on desktop and keeps the FAB off the list rows on phone.",
+  "at": "2026-09-26T05:33:27.483Z"
+}

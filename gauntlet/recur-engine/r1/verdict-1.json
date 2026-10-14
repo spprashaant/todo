@@ -1,0 +1,7 @@
+{
+  "critic": 1,
+  "broken": true,
+  "gap": "Seed (clock 2026-03-10 09:00 NY): t1 'Clean room' {when:'today', repeat:{mode:'completion',every:1,unit:'day'}} plus t9 'Call mom' {when:'today'}. Steps: #/today, double-click the row to open its card, change the title field to 'Clean bedroom', click the card's checkbox (li.editing .card-toggle), press Escape. Expected: CONTRACT says completing creates a next occurrence with 'the same title, notes, tags...', and the card checkbox must behave like the row's; Asana copies the task's current fields into the new task. Actual (storage): t1 [done] 'Clean bedroom', next [open] 'Clean room' 2026-03-11, so the rename never reaches the series. store.complete() copies t.title before detail.close() commits input.edit, because focus stays on the card checkbox. The phone card bar More > Complete path gives the same result. On #/today/active it is worse: the completed row leaves the view, the card is torn down and close() finds no li, so 'Clean bedroom' is saved nowhere (both to-dos are 'Clean room'). Reproduced 2/2 from clean start on all 3 paths, and also with real-speed typing and a 150ms mouse press. No page errors.",
+  "why": "Completing from the open card spawns the next occurrence with the stale title and can discard the typed title entirely",
+  "at": "2026-09-26T09:04:48.624Z"
+}

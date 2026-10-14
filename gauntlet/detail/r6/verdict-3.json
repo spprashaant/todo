@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Inside the lifted card the loser's ink is a notch paler than the winner's. Title darkest is about #191919 vs #0C0C0C, notes and checklist text about #383838/#3E3E3E vs #2C2C2C/#303030, and the calendar/tag/flag action icons about #AEAEAE vs #A5A5A5. The open card reads slightly washed out next to the list rows. Darken the card body text to near #1C1C1C and the icons to about #A0A0A0.",
+    "phone": "The loser's notes and checklist text use a greyer ink (darkest about #282828 notes, #333333 checklist) than the winner's (about #181818 / #232323), with roughly 8% less glyph weight. Its checklist circles are also a duller blue, about rgb(33,69,124) vs rgb(32,70,135). The card body looks faintly washed out under a black title. Set notes and checklist items to the same near-black label colour and use the brighter system blue for the circles."
+  },
+  "why": "Both pairs are near-identical in layout, spacing, radii, shadows and icons; the deciding factor each time is the crisper, higher-contrast body ink and icon tone inside the open card.",
+  "at": "2026-09-26T06:25:16.940Z"
+}

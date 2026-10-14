@@ -1,0 +1,361 @@
+{
+  "piece": "recur-engine",
+  "state": "won",
+  "round": 11,
+  "rounds": [
+    {
+      "round": 1,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": false,
+          "why": "Completing from the open card spawns the next occurrence with the stale title and can discard the typed title entirely"
+        },
+        {
+          "critic": 2,
+          "behaviour": false,
+          "why": "Card checkbox completes with the stale title: a rename typed in the open card is lost from the next occurrence (contract: same title)."
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "Completing from the open card copies the pre-edit title into the next occurrence: the typed rename never reaches the series (contract: same title; Asana copies all fields)"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 19,
+        "total": 19
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 1: Seed (clock 2026-03-10 09:00 NY): t1 'Clean room' {when:'today', repeat:{mode:'completion',every:1,unit:'day'}} plus t9 'Call mom' {when:'today'}. Steps: #/today, double-click the row to open its card, change the title field to 'Clean bedroom', click the card's checkbox (li.editing .card-toggle), press Escape. Expected: CONTRACT says completing creates a next occurrence with 'the same title, notes, tags...', and the card checkbox must behave like the row's; Asana copies the task's current fields into the new task. Actual (storage): t1 [done] 'Clean bedroom', next [open] 'Clean room' 2026-03-11, so the rename never reaches the series. store.complete() copies t.title before detail.close() commits input.edit, because focus stays on the card checkbox. The phone card bar More > Complete path gives the same result. On #/today/active it is worse: the completed row leaves the view, the card is torn down and close() finds no li, so 'Clean bedroom' is saved nowhere (both to-dos are 'Clean room'). Reproduced 2/2 from clean start on all 3 paths, and also with real-speed typing and a 150ms mouse press. No page errors.  ·  critic 2: Seed: one to-do {id t1, title 'Pay rent', notes 'Transfer before noon', when '2026-03-10', project p_house, repeat {mode schedule, every 1, unit month}}; clock frozen Tue 2026-03-10 09:00 America/New_York; route #/project/p_house. Steps: double-click the row to open its card, click in the title, press End, type ' to landlord', tick the card's checkbox (.card-toggle), press Escape. Expected (CONTRACT, through every completion path including the card checkbox): the next occurrence is 'a new to-do with ... the same title' as the one completed, so both read 'Pay rent to landlord'. Actual (2/2 clean runs): right after the tick storage holds t1 'Pay rent' (completed) + next 'Pay rent' (when 2026-04-10); on closing the card the title is written to the completed one only, so the final storage is t1 'Pay rent to landlord' (completed, nextId -> next) and the next occurrence 'Pay rent' (open, 2026-04-10). After a reload the project shows '[x] Pay rent to landlord' and '[ ] Pay rent': the rename the user typed never reaches the series. complete() copies the stored to-do while the card's title edit is only committed on close. Controls: notes typed in the same open card DO carry over; renaming, closing the card, then ticking the row also carries. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r1-c2/repro-rename-then-tick-loses-title.mjs (control: control-notes-carry.mjs). Dates lens found no engine break: 200k-case fuzz of nextDate against a brute-force reference in 7 time zones (incl. midnight-DST zones), a 728-case UI matrix (every mode/unit, N, weekdays, nth/last weekday, month ends, Feb 29, US March/November DST days, Dec 31, ends after/on, when today/evening/someday/empty/past/future, with and without deadline and reminder) incl. reload and untick, month-end and leap-year chains finished early/on time/late, and picker 'Next:' note vs actual next date. An earlier picker break (typing an Ends-on date lost all but the first segment, stored 2026-06-04 for a typed date) was rewritten by the builder mid-attack and no longer reproduces.  ·  critic 3: Seed: one to-do t1 'Clean room', when 'today', repeat {mode:'completion',every:1,unit:'day'}; clock Tue 2026-03-10 09:00 America/New_York. Steps: open #/today, double-click the row to open its card, type ' and desk' at the end of the title, click the card's checkbox (li.editing .card-toggle), click empty space to close the card, reload. Expected (CONTRACT, Repeating to-dos): completing creates a next occurrence with 'the same title, notes, tags, project, area, heading, reminder time and repeat'. Asana NOTES.md behaviour 1 and 3: all information is duplicated into the new task, every field except comments. Actual (storage after reload, 2/2 clean runs, twice): t1 {title:'Clean room and desk', completed:true}, next {title:'Clean room', when:'2026-03-11', repeat kept}; Upcoming lists 'Clean room'. The card saves its title only on close, and the card checkbox completes (store.complete copies t) before that save, so the rename lands on the finished occurrence and the series goes on under the old name. Phone More > Complete does the same. In #/today/active the typed text is lost from both occurrences, because the completed row leaves the view and the card is torn down unsaved. No page errors. Repro: scratchpad/recur-r1-c3/repro-rename-then-card-checkbox.mjs",
+      "why": "Completing from the open card spawns the next occurrence with the stale title and can discard the typed title entirely  /  Card checkbox completes with the stale title: a rename typed in the open card is lost from the next occurrence (contract: same title).  /  Completing from the open card copies the pre-edit title into the next occurrence: the typed rename never reaches the series (contract: same title; Asana copies all fields)",
+      "judgedAt": "2026-09-26T09:28:04.312Z"
+    },
+    {
+      "round": 2,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": false,
+          "why": "Re-ticking an old occurrence of an ended series spawns a duplicate occurrence and exceeds ends.after, by row checkbox or by Cmd/Ctrl+K twice in the Logbook"
+        },
+        {
+          "critic": 2,
+          "behaviour": true,
+          "why": "claim did not hold up"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "Across two tabs, closing an untouched card writes its stale title over the rename typed in the other tab, and unticking then deletes the renamed occurrence as unedited: typed text and an occurrence are lost."
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 19,
+        "total": 19
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 1: Unticking and re-ticking an OLD occurrence after the series has ended forks it. SEED (the recur-check 'ends after 3' seed): clock 2026-03-10 09:00 America/New_York, things-todos=[{id:'t1',title:'Physio exercises',when:'2026-03-11',repeat:{mode:'completion',every:1,unit:'day',ends:{after:3}}}], route #/upcoming. STEPS: (1) click the open row's checkbox 3 times -> t1 (occ1), occ2, occ3 all completed, none open (correct). (2) #/logbook: click t1's checkbox (untick). (3) #/upcoming: click t1's checkbox (tick again). Same with keyboard: in the Logbook click t1's label to select it and press Cmd/Ctrl+K twice. EXPECTED: untick+retick is a no-op: 3 to-dos, 0 open. Contract: 'ends.after is the total number of occurrences in the series, counting the first'; the Logbook reopen must not fork the series (on a live series the engine does this right: the reopened one comes back as a one-off and re-ticking spawns nothing). ACTUAL (localStorage): 4 to-dos in series t1: t1 [x] nextId->new, a NEW open 'Physio exercises' occurrence:2 dated 2026-03-11, plus the old occ2 [x] and occ3 [x]. So two occurrence-2 to-dos, the series has come back to life, and ends.after is exceeded (it can reach 5). Same with the 'ends on' seed (Take antibiotics, schedule daily from 2026-03-10, ends.on 2026-03-12): after completing Mar 10/11/12, untick Mar 10 in the Logbook and re-tick it in Today. That gives a second 2026-03-11 occurrence (open) next to the completed Mar 11 one. The same revival also happens after the open occurrence is deleted, which the contract says ends the series. CAUSE: store.js reopen() strips the rule only when another OPEN repeating occurrence exists (line 336). An ended series has none, so t1 keeps its repeat with occurrence 1, and complete() spawns occ 2 again without seeing that t1's successor (nextId) already exists as a completed to-do. Reproduced 2 of 2 from clean start. Not caught by recur-check, whose invariant only counts open repeating to-dos.  ·  critic 3: Seed (clock Tue 2026-03-10 09:00 America/New_York): one to-do t1 'Pay rent' {when:'2026-03-10', project:'p_house', repeat:{mode:'schedule',every:1,unit:'month'}}. Two tabs (same context, same localStorage) both on #/project/p_house. Steps: (1) tab A ticks the 'Pay rent' row checkbox, creating the next occurrence N (when 2026-04-10). (2) Tab A double-clicks N to open its card and types nothing. (3) Tab B double-clicks N, presses End, types ' to landlord', presses Enter. Storage now has N 'Pay rent to landlord'. (4) Tab A clicks empty space; pressing Escape does the same. (5) Tab A unticks t1 with its row checkbox. Expected: tab A typed nothing, so the rename stays. CONTRACT: 'a typed title makes a next occurrence edited', and unticking takes back the occurrence only 'as long as that one is still open and unedited', so N should stay and t1 should reopen as a one-off. That is exactly what the control run (the same steps without tab A's card open) gives: t1 [ ] 'Pay rent' with no rule, and N [ ] 'Pay rent to landlord' repeating. Actual (2/2 clean runs, both close paths): at step 4, tab A's close() writes back the title it has held in its field since the card mounted (detail.js close: edit.value !== t.title -> updateTodo), so N becomes 'Pay rent' again. N's fingerprint then matches its spawnKey, so at step 5 reopen() drops N. Final storage is [t1 [ ] 'Pay rent', repeating] only, the tab B rows after reload are ['Pay rent'], and ' to landlord' is nowhere. The rename typed in tab B is lost, and the occurrence it was typed into is then deleted. No page errors. The storage listener reloads state, but sync() never refreshes the card's title field, so any close of a stale card silently overwrites the other tab. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r2-c3/repro-twotab-card-reverts-rename.mjs (Escape variant: variant-escape.mjs). Also tried, not breaks by contract: Delete Heading marks N as edited, so an untick leaves two open 'Sweep' to-dos. The project/heading menu's Complete All used twice completes the next occurrence too (occ 2, then 3). The When picker on a completed occurrence still edits its rule. Cmd+K with focus in the card title does nothing. bfcache restore is not stale (the page fully reloads).",
+      "why": "Re-ticking an old occurrence of an ended series spawns a duplicate occurrence and exceeds ends.after, by row checkbox or by Cmd/Ctrl+K twice in the Logbook  /  claim did not hold up  /  Across two tabs, closing an untouched card writes its stale title over the rename typed in the other tab, and unticking then deletes the renamed occurrence as unedited: typed text and an occurrence are lost.",
+      "judgedAt": "2026-09-26T10:05:07.729Z"
+    },
+    {
+      "round": 3,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": false,
+          "why": "With any row selected, Complete All runs backwards: it reopens completed occurrences and deletes their next occurrences instead of completing (toolbar and phone menu; Cmd+K leaves a selection, so it hits right after)"
+        },
+        {
+          "critic": 2,
+          "behaviour": true,
+          "why": "claim did not hold up"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "A When picker left open in one tab writes its stale repeat rule over the other tab's edit: the Ends count typed there is silently lost"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 19,
+        "total": 19
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 1: Complete All is inverted whenever a row is selected (desktop toolbar and phone list menu): it reopens completed occurrences and takes back their next occurrences instead of completing. SEED (clock Tue 2026-03-10 09:00 America/New_York, lists as recur-check): t1 'Water plants' {when:'2026-03-10', project:'p_house', repeat:{mode:'completion',every:3,unit:'day'}} and t2 'Buy milk' {project:'p_house'}; route #/project/p_house. STEPS: (1) tick 'Water plants' with its row checkbox -> t1 [x], next occurrence N (2026-03-13) open in House. (2) Click the 'Buy milk' row once (it becomes selected, li.selected). (3) Click the toolbar Complete All (label.tool[for=toggle-all]); it read unchecked before the click. EXPECTED: Complete All completes every to-do in the list (CONTRACT: the engine works 'through every completion path: the row checkbox, the card checkbox, Complete All, Cmd/Ctrl+K and the phone menu'; Complete All 'spawns one next occurrence per repeating to-do'), so Buy milk [x], N [x] plus one new occurrence, and Complete All reads checked. That is exactly what the control run without step 2 gives (4 to-dos). ACTUAL (localStorage, 2/2 clean runs): 2 to-dos only: t1 'Water plants' [ ] reopened with its rule, N deleted (taken back), 'Buy milk' [ ] still open; nothing completed, and the person's own earlier completion was undone by a click on Complete All. No page errors. CAUSE: the label's synthetic click on the hidden #toggle-all bubbles to the scroller's deselect-on-empty-click listener (view.js ~437); its setUI re-render writes store.allCompleted() back into #toggle-all (view.js:247) before the change event, so setCompleted() receives the old state inverted. VARIANTS (all reproduced): recur-check's own Complete All seed (Inbox: Buy milk, Water plants every 3 days, Clean room every day) with one row clicked first -> Complete All completes nothing and spawns no occurrence; after Complete All, selecting a row and clicking it again takes nothing back; Cmd/Ctrl+K leaves its row selected, so the next Complete All reopens that to-do and deletes its next occurrence; phone: open and close a card (the row stays selected), then list menu > Complete All does the same. recur-check misses it because it checks #toggle-all directly with nothing selected. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r3-c1/repro-complete-all-with-selection.mjs (variants: variants-complete-all-selection.mjs in the same folder).  ·  critic 3: Two tabs: a When picker left open in one tab keeps its own copy of the repeat rule and writes all of it back on its next click. This wipes a rule change typed in the other tab. SEED (clock frozen Tue 2026-03-10 09:00 America/New_York): things-todos=[{id:'t1',title:'Take out bins',when:'2026-03-12',project:'p_house',repeat:{mode:'schedule',every:1,unit:'week',weekdays:[1,4]}}]. Two tabs in one context, both on #/project/p_house. STEPS: (1) Tab A: double-click the row, click the card's repeat chip (li.editing .chip-repeat). The When picker opens at Repeats: Weekly Mon+Thu, Ends Never. Leave it open. (2) Tab B: same to-do, same chip, Ends > 'After a Number of Times', type 12 in the count field, Enter, Escape, Escape. Storage now has repeat.ends={after:12}. (3) Tab A (its storage event arrived long ago): the picker still shows 'Ends: Never'. Click the Fri weekday toggle, then Escape twice. EXPECTED: tab A changed only the weekdays, so the rule becomes weekdays [1,4,5] with ends {after:12}. CONTRACT, 'Several tabs share one storage': 'a tab ... never writes its stale copy over the other tab's work', and the card writes back 'only ... what was typed in that card'. A break also counts 'something the user typed lost'. ACTUAL (2/2 clean runs): storage repeat={mode:'schedule',every:1,unit:'week',weekdays:[1,4,5]}. The 12 typed in tab B is gone, and after a reload tab B's picker reads 'Ends: Never', so the series now never ends. No page errors. CONTROL: the same steps, but tab A closes and reopens its picker before clicking. The picker then reads 'After' and ends:{after:12} is kept, so the stale copy is the cause. CAUSE: repeat.js controller() reads the rule once into a local variable. Every save() does updateTodo(id,{repeat:{...rule,...}}) from that copy, and nothing refreshes it on a storage event. The same stale copy also revives a series that tab B stopped with Stop Repeating, starting a new series. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r3-c3/repro-twotab-stale-picker-wipes-ends.mjs. ALSO TRIED, no break: 8 seeded random two-tab UI walks of 90 steps each (tick, untick, Cmd+K, card title/notes/checkbox with Escape, delete, Clear completed, Complete All via the toolbar, move, stop repeating, reload, next day), checking open-repeating per series, duplicate occurrence numbers and ends.after. Also heading delete then untick, and Clear completed then Logbook. The project-menu Complete All used twice completes the next occurrence too, and a toggle-all uncheck turns old occurrences into one-offs; both are by contract.",
+      "why": "With any row selected, Complete All runs backwards: it reopens completed occurrences and deletes their next occurrences instead of completing (toolbar and phone menu; Cmd+K leaves a selection, so it hits right after)  /  claim did not hold up  /  A When picker left open in one tab writes its stale repeat rule over the other tab's edit: the Ends count typed there is silently lost",
+      "judgedAt": "2026-09-26T10:49:42.064Z"
+    },
+    {
+      "round": 4,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": true,
+          "why": "claim did not hold up"
+        },
+        {
+          "critic": 2,
+          "behaviour": true,
+          "why": "No date break: engine, store and picker agree with an independent reference across DST, leap, month-end, year-end, every mode/unit/N, ends, when kinds, deadlines and reminders"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "Phone More > When... opens the picker on a stale date and writes it back over another tab's edit, reverting the date and the weekly phase (contract: an open When picker shows another tab's date and applies only what was changed there)"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 25,
+        "total": 25
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 3: Stale When picker from the phone card's More menu writes an old date (and an old weekday) over another tab's edit. SEED (clock Tue 2026-03-10 09:00 America/New_York, phone viewport 390x844 with touch): things-todos=[{id:'t1',title:'Take out bins',when:'2026-03-10',project:'p_house',repeat:{mode:'schedule',every:1,unit:'week'}}]. Two tabs in one context, both on #/project/p_house. STEPS: (1) Tab A: tap the row (opens its card), tap More in the card bar (#detail-bar [data-bar=more]); leave the menu open. (2) Tab B: tap the row, tap the card's When chip, pick Fri 13 Mar. Storage now has when 2026-03-13. (3) Tab A (its storage event has arrived): tap More > When..., then tap Add Reminder, then Done. EXPECTED (CONTRACT, Repeating to-dos, Several tabs): 'An open When picker follows its to-do the same way: another tab's date, reminder and rule show in it, each change made in it applies only what was changed there to the to-do as stored now', and a tab 'never writes its stale copy over the other tab's work'. So the picker shows Fri 13 Mar, and adding a reminder leaves when=2026-03-13. ACTUAL (2/2 clean runs): tab A's picker marks Today as current, its Repeats note says 'Next: Tue, Mar 17' and Weekly shows Tuesday on. After Add Reminder the storage is when='2026-03-10', reminder '10:00': tab B's Friday is silently reverted, and the weekly series moves back to Tuesdays. VARIANT (2/2): at step 3 tap Thu in the Repeats section instead. Storage gets weekdays [2,4] (Tue from the stale date, plus Thu) instead of [4,5]. Completing it on Fri 13 Mar then spawns the next one on Tue 17 Mar. The same stale reminder is written when a date is picked, which drops a reminder set in tab B. No page errors. CAUSE: detail.js renderPhoneBar captures t=getTodo(id) when More is tapped, and 'When...' calls when.open({value:t.when, reminder:t.reminder}). when.js follow() only runs on the next emit, and commitReminder's refresh() finds nothing new (the event already loaded), so onPick writes the stale value. Desktop paths read the to-do fresh at click and are fine. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r4-c3/repro-phone-more-when-stale-date.mjs (prints REPRODUCED 4/4). ALSO TRIED, no break: 7 seeded random UI walks (1 and 2 tabs, 60 to 90 steps: row toggles, Cmd+K, toolbar Complete All with and without a selection, Clear completed, delete, card title and notes with Escape/Enter/click/card checkbox, picker rule edits, move, heading delete, reload, next day) checking one open repeating per series, no duplicate occurrence numbers, no unexplained removals and no page errors; picker keyboard and click fuzz with another tab rewriting the rule (desktop and phone); untick after reload and after Delete Heading; phone More > Complete / Mark as Open with a typed title. Design issues noted, not claimed: Stop Repeating or rule edits in a completed occurrence's picker do not reach the live next occurrence; Complete All reads checked (invisibly) when the only open to-do is a next occurrence, so a click reopens yesterday's occurrence and takes today's back (this is store.allCompleted by contract).",
+      "why": "claim did not hold up  /  No date break: engine, store and picker agree with an independent reference across DST, leap, month-end, year-end, every mode/unit/N, ends, when kinds, deadlines and reminders  /  Phone More > When... opens the picker on a stale date and writes it back over another tab's edit, reverting the date and the weekly phase (contract: an open When picker shows another tab's date and applies only what was changed there)",
+      "judgedAt": "2026-09-26T12:21:14.241Z"
+    },
+    {
+      "round": 5,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": false,
+          "why": "Cmd/Ctrl+K from the open card, a completion path the contract lists, completes nothing, so no next occurrence is made and the Escape that follows discards the typed title"
+        },
+        {
+          "critic": 2,
+          "behaviour": true,
+          "why": "No date break: engine, store and Repeats picker match an independent calendar reference across DST, leap years, month and year ends, every mode/unit/N, ends, when kinds, deadlines and reminders, on every completion path and view"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "Phone When sheet: Cancel doesn't undo a repeat change, so Stop Repeating then Cancel silently ends the series and loses the rule (the next occurrence is never created)"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 25,
+        "total": 25
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 1: Cmd/Ctrl+K, a completion path the contract names for the open card, does nothing there, and the Escape that follows throws away the typed title. SEED (clock Tue 2026-03-10 09:00 America/New_York, lists as recur-check, desktop 1200x800): things-todos=[{id:'t1',title:'Clean room',when:'today',repeat:{mode:'completion',every:1,unit:'day'}}], route #/today. STEPS: (1) double-click the row label; the card opens with the caret at the end of the title. (2) type ' and desk'. (3) press Cmd+K (Meta+K; Control+K behaves the same). (4) press Escape. EXPECTED: CONTRACT Repeating to-dos says 'every completion path from the card (its checkbox, More > Complete, Cmd/Ctrl+K) copies the title on screen into the next occurrence', and 'Completing an open repeating to-do creates exactly one next occurrence' through every completion path including Cmd/Ctrl+K. So after step 3 storage should be t1 [x] 'Clean room and desk' plus a next [ ] 'Clean room and desk' on 2026-03-11. The contract also says 'Escape in the title still restores the old one, unless completing or reopening from the card has already committed it', so step 4 should keep the typed title. ACTUAL (4/4 clean runs, 2 with Meta+K and 2 with Control+K, no page errors): after step 3 storage still holds 1 to-do, [ ] 'Clean room and desk' (saved as typed), not completed, with no next occurrence. After step 4 it is [ ] 'Clean room': the typed ' and desk' is gone and the to-do is still open. With the caret in the notes, Cmd+K also does nothing. CAUSE: view.js onKeydown returns early whenever a text field has focus (isText), detail.js has no Cmd/Ctrl+K handler, and the card always keeps focus in one of its text fields, because its mousedown handler stops focus from leaving them. So Cmd/Ctrl+K never completes from the open card. CONTROLS in the same script: after the same typing, the card's checkbox gives t1 [x] plus a next [ ], both 'Clean room and desk'. Cmd+K on a selected, closed row completes and spawns the next one. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r5-c1/repro-cmdk-in-card.mjs  ·  critic 3: Phone When sheet: Cancel keeps a repeat-rule change, so Stop Repeating then Cancel silently ends the series. SEED (clock Tue 2026-03-10 09:00 America/New_York, phone 390x844 with touch, lists as recur-check): things-todos=[{id:'t1',title:'Take out bins',when:'2026-03-10',project:'p_house',repeat:{mode:'schedule',every:1,unit:'week',weekdays:[2,5],ends:{after:10}}}], route #/project/p_house. STEPS: tap the row (its card opens), tap the card's repeat chip (the 'When?' sheet opens with a Cancel button), tap Stop Repeating, tap Cancel, close the card, tick the row. EXPECTED: Cancel discards what was done in the sheet. The sheet's own rule is that a committed change turns Cancel into Done (when.js: 'Reminders commit as they change, so the sheet's Cancel becomes Done'; Add Reminder does flip it), so a sheet that still says Cancel promises nothing has changed. The person's Tue/Fri rule with 'ends after 10' should survive, and ticking should create the next one on Fri 13 Mar. ACTUAL (2/2 clean runs): after Stop Repeating the button still reads 'Cancel'. After Cancel, storage has repeat:null and the card's repeat chip is gone. Ticking the row leaves only t1 [x] with no next occurrence, so the series has ended, the Fri 13 occurrence is never created, and the rule the person set up (weekdays and the count) is gone. Turning repeat back on gives a default Weekly and restarts the count at 1. VARIANT (2/2): an accidental tap on Thu, then Cancel, keeps weekdays [2,4,5], so ticking on Tue 10 creates the next one on Thu 12 instead of Fri 13. A kind change (Weekly to Monthly) also survives Cancel. No page errors. CAUSE: repeat.js saves every change through updateTodo, but when.js only relabels Cancel as Done in commitReminder. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r5-c3/repro-phone-sheet-cancel-keeps-stop-repeating.mjs (prints REPRODUCED 2/2). ALSO TRIED, no break: 9 seeded random UI walks (1 and 2 tabs, 60 to 90 steps: row, card, Cmd+K, toolbar and heading Complete All, card title, notes and checklist with Escape, Enter or the card checkbox (tick and untick), picker rule edits including Ends, Move to Inbox, area or project, Backspace delete, Clear completed, Delete Heading, reload, next day). After every step they checked for one open repeating occurrence per series, no duplicate occurrence numbers, no new to-do except a next occurrence, no take-back of an edited or completed occurrence, typed titles and notes kept, and no page errors. Not claimed: after the card completes or reopens a to-do that the filter then hides, the card vanishes but that to-do stays selected, so Backspace or Cmd+K acts on it invisibly.",
+      "why": "Cmd/Ctrl+K from the open card, a completion path the contract lists, completes nothing, so no next occurrence is made and the Escape that follows discards the typed title  /  No date break: engine, store and Repeats picker match an independent calendar reference across DST, leap years, month and year ends, every mode/unit/N, ends, when kinds, deadlines and reminders, on every completion path and view  /  Phone When sheet: Cancel doesn't undo a repeat change, so Stop Repeating then Cancel silently ends the series and loses the rule (the next occurrence is never created)",
+      "judgedAt": "2026-09-26T13:17:30.654Z"
+    },
+    {
+      "round": 6,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": true,
+          "why": "claim did not hold up"
+        },
+        {
+          "critic": 2,
+          "behaviour": false,
+          "why": "The project and heading Complete All menus complete the next occurrences on a second click: a weekly series loses its Mar 17 occurrence, and an ends-after-4 series is used up in one day (contract: a second click doesn't complete them too)"
+        },
+        {
+          "critic": 3,
+          "behaviour": true,
+          "why": "No data-integrity break: reloads, second tabs, mid-series edits, moves, deletes and Clear completed all keep one open occurrence per series and keep what was typed; the remaining oddities are rules the contract makes on purpose"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 25,
+        "total": 25
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 2: The project's own Complete All (header 'List actions' menu, and a heading's '...' menu) completes the next occurrences on a second click, so occurrences are lost. SEED (clock Tue 2026-03-10 09:00 America/New_York, desktop 1200x800, lists as recur-check): things-todos=[{id:'t1',title:'Water plants',project:'p_house',when:'2026-03-10',repeat:{mode:'schedule',every:1,unit:'week',ends:{after:4}}},{id:'t2',title:'Fix door',project:'p_house'}], route #/project/p_house. STEPS: click the header's List actions (...) button > Complete All; then List actions > Complete All again. EXPECTED: CONTRACT Repeating to-dos: 'after Complete All in a list that keeps the next occurrences (a project, an area, Upcoming) un-checking it takes them back, and a second click doesn't complete them too.' After click 1 storage is right (t1 [x] Mar 10, t2 [x], a new [ ] Water plants Mar 17 occ 2) and the toolbar Complete All box reads checked. Click 2 must not complete the Mar 17 occurrence. ACTUAL (4/4: 2 clean runs x header menu and heading menu; no page errors): click 2 marks the Mar 17 occurrence [x] with completedAt 2026-03-10 and creates [ ] Water plants Mar 24 occ 3. The person never did the Mar 17 one, and it disappears from Upcoming. Clicks 3 and 4 complete Mar 24 and Mar 31 too, so the 'ends after 4' series is used up on Mar 10 with 0 open occurrences, and the Logbook lists 4 'Water plants' completions. The heading 'Weekly' > Complete All does the same (t1/t2 under h_weekly). CONTROL in the same script: the toolbar Complete All clicked twice follows the contract (the second click reopens t1 and takes Mar 17 back). CAUSE: project.js list and heading menus call setCompleted(ids, true) unconditionally instead of flipping store.allCompleted like view.js does. DATES LENS, no break found: Ends On a Date via the picker (date input -> stored ends.on, Next note, completion at and past the end), plus a review of recur.js and store.js date math (DST, month ends, anchorDay, leap years, deadline lead, floating when) against the contract. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r6-c2/repro-project-menu-complete-all-twice.mjs (prints REPRODUCED 4/4)",
+      "why": "claim did not hold up  /  The project and heading Complete All menus complete the next occurrences on a second click: a weekly series loses its Mar 17 occurrence, and an ends-after-4 series is used up in one day (contract: a second click doesn't complete them too)  /  No data-integrity break: reloads, second tabs, mid-series edits, moves, deletes and Clear completed all keep one open occurrence per series and keep what was typed; the remaining oddities are rules the contract makes on purpose",
+      "judgedAt": "2026-09-26T14:18:10.338Z"
+    },
+    {
+      "round": 7,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": false,
+          "why": "After midnight on an open page the Complete All box still reads checked, and un-checking it completes today's occurrence and spawns tomorrow's instead of reopening (contract: a click flips the state the person saw)"
+        },
+        {
+          "critic": 2,
+          "behaviour": false,
+          "why": "Switching a clamped monthly occurrence to Yearly keeps its anchorDay 31, so a series labelled 'Every year on February 28' is stored on 2028-02-29 (contract: Yearly keeps the month and day)"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "On a page left open overnight, Complete All still reads checked; clicking it completes today's undone occurrence and creates tomorrow's instead of unchecking (contract: once its day comes the box reads unchecked; a click flips the state the person saw)"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 29,
+        "total": 29
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 1: Complete All box that READS CHECKED, clicked to un-check it, completes an occurrence nobody did (page left open across midnight, as a PWA or desktop tab is). SEED (lists as recur-check, tz America/New_York, clock frozen Tue 2026-03-10 22:00): things-todos=[{id:'t1',title:'Water plants',project:'p_house',when:'2026-03-10',repeat:{mode:'completion',every:1,unit:'day'}},{id:'t2',title:'Fix door',project:'p_house'}], route #/project/p_house. STEPS: (1) click the toolbar Complete All (label.tool[for=toggle-all]): t1 [x], t2 [x], new 'Water plants' Wed 2026-03-11 [ ]; box checked. (2) page stays open; set the clock to Wed 2026-03-11 08:00 (page.clock.setFixedTime, no reload). DOM now: #toggle-all checked=true, footer '1 item left'. (3) click Complete All to un-check it. EXPECTED: CONTRACT Repeating to-dos: 'A click on any Complete All (the toolbar, the phone list menu, the box itself, ...) flips the state the person saw (store.toggleAll)': the box read checked, so the click reopens t1 and t2 and takes Wed's occurrence back (exactly what the same un-check does before midnight: 2 open to-dos). Or, per 'Once its day comes ... the box reads unchecked', the box should have read unchecked; it did not. Either way a contract line fails. ACTUAL (localStorage, 4/4 clean runs: desktop toolbar x2, phone 390px list menu > Complete All x2, no page errors): nothing reopens; Wed's 'Water plants' is marked [x] with completedAt Wed 08:00 (the person never did it, and it lands in the Logbook) and a new Thu 2026-03-12 occurrence is created; t2 stays done. The box then reads checked again; a second click to recover reopens t1 as a one-off (Mar 10) plus Wed as the repeating head, so the person ends with two open 'Water plants' instead of one. CONTROLS: reloading at Wed 08:00 makes the box read unchecked; un-checking on Tue evening reopens both and takes Wed back. CAUSE: nothing re-renders at a day change, and view.js's change handler recomputes store.allCompleted(model.items) with today's date (spawnedAhead uses whenIsFuture) instead of flipping the state rendered in the box. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r7-c1/repro-complete-all-after-midnight.mjs (prints REPRODUCED 4/4). Also seen, not claimed: in an Active-filtered project the next occurrence is inserted exactly where the ticked row was, so a fast double-click on the checkbox completes the next occurrence too; toolbar Complete All in the Logbook reopens every finished to-do in the app and cannot be clicked back.  ·  critic 2: A to-do the app labels Yearly on Feb 28 lands on Feb 29, 2028: the monthly rule's anchorDay 31 carries over when the rule is switched to Yearly. SEED (clock Sun 2027-01-31 09:00 America/New_York, desktop 1200x800, lists as recur-check): things-todos=[{id:'t1',title:'Renew parking permit',when:'2027-01-31',repeat:{mode:'schedule',every:1,unit:'month'}}], route #/today. STEPS: (1) tick the row checkbox. This creates the next occurrence N with when 2027-02-28 and anchorDay 31, which is correct. (2) Set the clock to 2027-02-28 09:00 and reload. Double-click N's row, then click the card's repeat chip (li.editing .chip-repeat). The When picker opens on Repeats: Monthly. Click [data-action=repeat-type]. The kinds list reads 'Yearly  Feb 28'. Click Yearly. (3) Press Escape twice, then tick N's row checkbox. EXPECTED: CONTRACT Repeating to-dos says 'Yearly keeps the month and day, and Feb 29 clamps', so the next occurrence is 2028-02-28. The contract sets anchorDay only on a date 'clamped by a monthly rule without monthly or by a yearly rule', and Feb 28 to Feb 28 is not clamped. The app itself promises Feb 28 three times: the kinds list says 'Yearly Feb 28', the row marker says 'Repeats: Every year on February 28', and so does the card chip. ACTUAL: right after Yearly is chosen, the Repeats section already reads 'Next: Tue, Feb 29, 2028'. Storage after the tick: N is completed with when 2027-02-28, repeat {schedule,1,year} and anchorDay 31, and the new open occurrence has when '2028-02-29', anchorDay 31 and occurrence 3. The row marker still says 'Every year on February 28'. From here the yearly series means 'last day of February'. Cause: store.setRepeat resets anchorDay only when repeat is turned on, not when the rule changes, and recur.js intendedDay applies it to yearly rules. Reproduced 2/2 from clean contexts, no page errors. Script: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r7-c2/repro-yearly-feb28.mjs (node it). Also tried, no other break: row, card and picker flows for when today/evening/someday/empty with deadline and reminder; a completed occurrence's When picker still offers its old rule for editing, which edits nothing in the series (seen, not claimed).  ·  critic 3: Complete All flips the wrong way on a page left open overnight: it completes an occurrence nobody did. SEED (desktop 1200x800, America/New_York, clock Tue 2026-03-10 21:00; lists: project p_house 'House'): things-todos=[{id:'t1',title:'Water plants',project:'p_house',when:'2026-03-10',repeat:{mode:'schedule',every:1,unit:'day'}},{id:'t2',title:'Fix door',project:'p_house'}], route #/project/p_house. STEPS: (1) Tue 21:00, click the toolbar Complete All (label[for=toggle-all]). Storage is right: t1 [x], Fix door [x], and a new open 'Water plants' on 2026-03-11. The box reads checked. (2) Leave the page open. The clock passes midnight to Wed 2026-03-11 08:00, with no reload and no other input (page.clock.setFixedTime). (3) The box still reads checked, and the rows still show the Mar 11 one with its future-date badge. Click the box. EXPECTED (CONTRACT, Repeating to-dos): once the next occurrence's 'day comes it is open work like any other: the box reads unchecked', and 'A click on any Complete All ... flips the state the person saw (store.toggleAll)'. The person saw checked, so the click must uncheck: reopen t1 and Fix door and take back the Mar 11 one, exactly as the same click does on Tuesday evening (control A). ACTUAL (2/2 clean runs, no page errors): the box read checked at Wed 08:00. The click marks the Wed 2026-03-11 occurrence [x] (completedAt Wed 08:00) and creates a new open 'Water plants' on 2026-03-12. Nothing is reopened, and the box still reads checked afterwards, so the person gets no sign that it did the opposite. A day's watering is logged as done that nobody did. CONTROL B: after a reload on Wed the box reads unchecked, which is what the contract says it should read. So the page shows a state the store no longer holds. CAUSE: view.js writes store.allCompleted into the box only on render, and nothing re-renders when the date changes. The change handler and store.toggleAll then recompute allCompleted with today's date (spawnedAhead uses whenIsFuture), so the click acts on a state the person never saw. The project header menu and the heading menu Complete All (toggleAll at run time) behave the same way. Repro: scratchpad/recur-r7-c3/repro-midnight-complete-all.mjs. Also seen, not claimed: a When picker left open in tab A while its Every field is blank; tab B changes the date; A redraws the field as '2' with the caret at 0; typing 5 stores every:52 (scratchpad/recur-r7-c3/e4.mjs). This needs another tab to write while this one is being typed in.",
+      "why": "After midnight on an open page the Complete All box still reads checked, and un-checking it completes today's occurrence and spawns tomorrow's instead of reopening (contract: a click flips the state the person saw)  /  Switching a clamped monthly occurrence to Yearly keeps its anchorDay 31, so a series labelled 'Every year on February 28' is stored on 2028-02-29 (contract: Yearly keeps the month and day)  /  On a page left open overnight, Complete All still reads checked; clicking it completes today's undone occurrence and creates tomorrow's instead of unchecking (contract: once its day comes the box reads unchecked; a click flips the state the person saw)",
+      "judgedAt": "2026-09-26T15:10:17.913Z"
+    },
+    {
+      "round": 8,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": false,
+          "why": "On an overnight page whose Complete All box reads unchecked, the click also completes the next occurrence the screen shows as tomorrow's and creates the one after (contract: 'its date is still to come' is judged on the day on screen, and completing all leaves such an occurrence alone)"
+        },
+        {
+          "critic": 2,
+          "behaviour": false,
+          "why": "The calendar preview and the rule labels ignore anchorDay, so a Monthly-on-the-31st series is shown on the 30th/28th while the engine creates the 31st."
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "Overnight, Complete All with its box reading unchecked also completes the next occurrence the screen still shows as tomorrow's, logging it as done and creating the one after (contract: completing all leaves such an occurrence alone; still-to-come is judged on the day on screen)"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 32,
+        "total": 32
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 1: Complete All on a page left open overnight whose box reads UNCHECKED completes the next occurrence that the screen still shows as tomorrow's. SEED (desktop 1200x800, America/New_York, clock Tue 2026-03-10 21:00; lists: project p_house 'House', no headings): things-todos=[{id:'t1',title:'Water plants',project:'p_house',when:'2026-03-10',repeat:{mode:'completion',every:1,unit:'day'}},{id:'t2',title:'Fix door',project:'p_house'}], route #/project/p_house. STEPS: (1) Tue 21:00: tick t1's row checkbox. t1 is [x] and a new 'Water plants' W is created for 2026-03-11. The box reads unchecked because Fix door is open. (2) Leave the page open. Set the clock to Wed 2026-03-11 08:00 with page.clock.setFixedTime, no reload and no input. The screen still shows '[x] Water plants', '[ ] Mar 11 Water plants', '[ ] Fix door', and the box is still unchecked. (3) Click the toolbar Complete All (label.tool[for=toggle-all]). The project header's List actions > Complete All and the phone (390px, touch) list menu > Complete All give the same result. EXPECTED (CONTRACT, Repeating to-dos): 'Completing all leaves such an occurrence alone, since it already counts as done with the one before it', and ''Its date is still to come' is judged on the day on screen ... a press remembers the day that was on screen when it began'. On the day on screen (Tue), W's date is still to come. So the click should complete Fix door and leave W open. That is exactly what the same click does on Tuesday evening (control: Fix door [x], W [ ]). ACTUAL (localStorage, 4/4 clean runs: toolbar twice, project menu, phone list menu; no page errors): W 2026-03-11 is marked [x] with completedAt Wed 08:00, so a watering nobody did goes into the Logbook, and a new 'Water plants' 2026-03-12 is created. Fix door is [x]. Clicking the box again to undo does not restore the earlier state: Tue's t1 comes back as a one-off next to Wed's head, and Fix door reopens, so there are two open 'Water plants'. CAUSE: store.toggleAll judges the box on seenDay(), but setCompleted computes spawnedAhead with todayISO(). The toggleAll comment says 'Completing judges still to come on today'. So the completing direction of the r7 fix still uses the clock instead of the day on screen. The harness's overnight test only covers a stale box that reads checked. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r8-c1/repro-overnight-unchecked-complete-all.mjs (prints REPRODUCED 4/4 plus the Tuesday control). Also tried, no break: completion/undo fuzzers (row box, dblclick, card box, card Cmd+K, selected-row Cmd+K, phone More > Complete, toolbar/project/heading/phone Complete All, Logbook, day changes, deletes, Clear completed, typed titles and notes, two tabs), about 1,500 steps checking one open repeating occurrence per series, no duplicate occurrence, ends.after, typed text kept, and no page errors. Double-click and double-tap guards held. Seen but not claimed: the Logbook's Complete All reads checked and reopens every finished to-do in the app, and it cannot be clicked back.  ·  critic 2: The When picker's calendar preview (and, on a clamped occurrence, the card chip, row and picker fields) put a Monthly series on the 29th-31st on the wrong day. The engine is right; what the app tells the person is wrong. SEED: clock Tue 2026-03-10 09:00 America/New_York, desktop 1200x800, lists as in recur-check. things-todos=[{id:'t1',title:'Pay rent',when:'2026-03-31',project:'p_house'}] (no repeat). Route #/project/p_house. STEPS (real clicks): (1) double-click the row, click the card's When chip, click [data-action=repeat], then [data-action=repeat-type] > Monthly. Storage gets {mode:'schedule',every:1,unit:'month'}, the section reads 'On day: Last day' and 'Next: Thu, Apr 30'. (2) Click the calendar's Later arrow page by page and read the .cal-day.rp-next rings. (3) Close the picker, then tick each occurrence on its own day (clock set to Mar 31, Apr 30, and so on). EXPECTED: the rings show the dates the rule falls on. CONTRACT: monthly keeps the anchor ('31 gives Jan 31, Feb 28, Mar 31'), and anchorDay makes 'the one after' the 31st again. Asana (NOTES, Preview): 'the calendar lightly highlights upcoming occurrence dates'. Also: 'When the to-do already repeats, the picker opens with this section showing its rule.' ACTUAL (3/3 clean runs, no page errors): the rings fall on Apr 30, May 30, Jun 30, Jul 30, Aug 30, Sep 30, Oct 30. The engine creates Apr 30, May 31, Jun 30, Jul 31, Aug 31, Sep 30, Oct 31. So 4 rings are on days the series never falls on, and May 31, Jul 31 and Aug 31 are never ringed. The same page contradicts itself ('On day: Last day' next to rings on the 30th). On the clamped Apr 30 occurrence (anchorDay 31), the card chip reads 'Repeats: Every month on the 30th' and the picker's On day field reads '30th', but its own note says 'Next: Sun, May 31'. The same happens for any Monthly or Custom-months rule on the 29th-31st (Jan 31 rings Mar 28), and for Yearly on Feb 29. CAUSE: repeat.js upcoming() passes the current to-do's anchorDay to every later nextDate call. It never carries forward the day each clamped step aims for (anchorDayFor, which complete() uses). repeatLabel, monthlyVals and kindDetail take the day from the date and ignore anchorDay. Script: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r8-c2/repro-monthly-31st-preview.mjs. ALSO TRIED, no break: I fuzzed nextDate against an independent oracle (200k cases x 7 time zones, including DST-at-midnight zones). I simulated store completion series (month ends, Feb 29, every 2 months from Dec 31, last Friday, completion-mode clamps, deadline lead, the Mar 8 and Nov 1 DST changes, year boundary every 2 weeks Mon/Thu, finishing late and early, ends after N or on a date). I compared the picker's Next note and first ring with the created date in 60 random UI runs (when null, today, evening, someday, past, future, Jan 31, Feb 28, Dec 31, Feb 29; clocks on the DST nights, New Year's Eve and a leap day; with and without deadline and reminder). I also did a random click walk over the Repeats controls on desktop and phone. All matched, with no page errors.  ·  critic 3: On a page left open overnight, Complete All with its box reading UNCHECKED also completes the next occurrence that the screen still shows as tomorrow's, then creates the one after it. SEED (desktop 1200x800, America/New_York, clock Tue 2026-03-10 21:00, lists as in recur-check): things-todos=[{id:'t1',title:'Water plants',project:'p_house',when:'2026-03-10',repeat:{mode:'schedule',every:1,unit:'day'}},{id:'t2',title:'Fix door',project:'p_house'}], route #/project/p_house. STEPS: (1) Tue 21:00: click t1's row checkbox. Storage is correct: t1 [x] and a new open 'Water plants' for 2026-03-11 (W). (2) Leave the page open until Wed 2026-03-11 08:00, with no reload and no other input (page.clock.setFixedTime). The screen is still Tuesday's: '[x] Water plants', '[ ] Mar 11 Water plants', '[ ] Fix door'. The box reads unchecked because Fix door is open. (3) Click Complete All to finish Fix door. EXPECTED (CONTRACT, Repeating to-dos): an open occurrence that completing one of the list's to-dos created counts with that one 'while its date is still to come', and 'Completing all leaves such an occurrence alone, since it already counts as done with the one before it'. The contract adds: ''Its date is still to come' is judged on the day on screen ... a press remembers the day that was on screen when it began', and such a click 'never completes the new day's occurrence'. On the day on screen (Tue), W is still to come, so the click should complete only Fix door. The same click on Tuesday evening does exactly that (CONTROL: W stays open and no Mar 12 occurrence is created). ACTUAL (6/6 across two clean runs, each run testing the toolbar box, the project header's List actions > Complete All and the phone 390px list menu > Complete All; heading menu also seen; no page errors): W is marked [x] with completedAt Wed 08:00. Nobody watered on Wednesday, yet the occurrence is logged as done and Wednesday's open to-do is gone. A new open 'Water plants' for 2026-03-12 (occurrence 3) is created. Final storage: [x] Mar 10, [x] Mar 11, [ ] Mar 12, [x] Fix door. CAUSE: store.toggleAll judges the direction on seenDay() (Tue), but setCompleted(ids,true) computes spawnedAhead(items) with todayISO() (Wed), so W no longer counts as ahead. The toggleAll comment even says 'Completing judges still to come on today'. r7's fix covered only the checked-box case, and recur-check's overnightCompleteAll wrongly assumes an unchecked box means the page followed the new day. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r8-c3/repro-overnight-complete-all-unchecked.mjs (prints REPRODUCED 6/6 plus the control). Also tried, no break found: 24 two-tab random UI fuzz runs of 60 steps each (ticks, double-clicks, deletes, Clear completed, Complete All, project and heading menus, Delete Heading, Move, stop repeating, card typing ending with Escape, click outside, card box or Cmd+K, reloads, day changes), checked after every step for one open repeating occurrence per series, unique occurrence numbers, nextId consistency, ends.after and page errors: all clean. Double-click and double-tap on a box in Active are guarded. Seen, not claimed: a double-click on the x of a completed occurrence also deletes the next occurrence inserted right under it, which ends the series; the contract's double-click rule covers only boxes.",
+      "why": "On an overnight page whose Complete All box reads unchecked, the click also completes the next occurrence the screen shows as tomorrow's and creates the one after (contract: 'its date is still to come' is judged on the day on screen, and completing all leaves such an occurrence alone)  /  The calendar preview and the rule labels ignore anchorDay, so a Monthly-on-the-31st series is shown on the 30th/28th while the engine creates the 31st.  /  Overnight, Complete All with its box reading unchecked also completes the next occurrence the screen still shows as tomorrow's, logging it as done and creating the one after (contract: completing all leaves such an occurrence alone; still-to-come is judged on the day on screen)",
+      "judgedAt": "2026-09-26T16:16:14.072Z"
+    },
+    {
+      "round": 9,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": true,
+          "why": "No break in completion/undo: every path (row, card, Cmd/Ctrl+K, Complete All and its un-check, phone More, Logbook, double-clicks/taps) kept one open occurrence per series, exact take-backs and typed titles"
+        },
+        {
+          "critic": 2,
+          "behaviour": false,
+          "why": "Turning Repeat on from the card's When chip grows the picker off the bottom of the window and it never re-places itself: After Completion, Monthly, Yearly, Custom, Ends and Stop Repeating can't be clicked (contract: every kind reachable, a way to stop)"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "Repeats picker: a cleared Every/Ends number is redrawn with the old value in front of the caret, so typing 3 saves every 32 weeks (next one Oct 20, not Mar 31) or ends after 310, not 3"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 35,
+        "total": 35
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 2: Seed (clock Tue 2026-03-10 09:00 America/New_York, window 1200x800, recur-check's own size): Today holds t1 'Call mom', t2 'Buy milk', t3 'Book dentist' (when 'today') and t4 'Water plants' (when 'evening', no repeat). Steps: #/today, double-click 'Water plants' to open its card, click its When chip ('This Evening'), click Repeat in the picker, then click the kind button (Weekly). Expected: CONTRACT UI says the repeat controls live in the When picker, 'Every kind the data model can express must be reachable. There must be a way to stop repeating.' The picker otherwise keeps itself on screen: opened with Cmd+S on the same row it moves to y 292-796 and After Completion sits at 753-775. (Asana's repeat menu scrolls inside the window.) Actual (2/2 clean runs at 1200x800, and at 1440x900 with 3 more rows above): the picker opens at y 437-753. Turning Repeat on saves Weekly at once and grows the picker to 437-920 without moving it. The weekday toggles are cut by the bottom edge, and Ends (819-839), the Next note (849-865) and Stop Repeating (877-899) are below the window. With the kinds list open only Daily (777-799) is on screen, and Weekly, Monthly, Yearly, Custom and After Completion sit at 800-920. The popover is position:fixed with no scrolling, a mouse wheel moves nothing, and a pointer click on After Completion fails (element is outside the viewport), so storage keeps {mode:'schedule',every:1,unit:'week'}. A mouse user who turns Repeat on from the card gets Weekly and, in that picker, cannot choose After Completion (the option the contract singles out), Monthly, Yearly or Custom, cannot set an end and cannot stop it. Only arrow keys get around it, or closing and reopening the picker (it then lands at -52..424 with its search field above the window). Cause: when.js position() returns early once its anchor is disconnected, and detail.js renderFoot rebuilds the card's chips (innerHTML) as soon as the rule is saved (the repeat chip appears), so the When chip the picker was anchored to is gone. Any later change that alters a chip label does the same (a reminder, or a rule change made from the repeat chip). No page errors. On the dates lens I found no engine break. recur.js matched an independent reference in 1.2M fuzz cases across 6 time zones, including midnight-DST ones. Also clean: a 100-case UI completion matrix (every mode and unit, weekdays, last Friday, month ends, Feb 29 2028, Mar 8 and Nov 1 DST instants, Dec 31, ends after and on, when today/evening/someday/empty/past/future, with deadlines, reminders and projects); 234 rules set through the picker whose Next note and calendar rings matched the occurrence created; and 52 random UI walks (tick, untick, days passing, reschedule, Complete All, Clear completed, edits, Cmd+K) with no duplicated or lost occurrence and no ends overrun. Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r9-c2/repro-picker-offscreen.mjs (control inside it: Cmd+S on the row re-places the picker).  ·  critic 3: In the Repeats section, a number field the person has cleared comes back with the OLD stored value, caret in front, as soon as they use another control in the section. The next digit they type is put in front of the old value, and that is what gets saved. SEED (desktop 1200x800, America/New_York, clock Tue 2026-03-10 09:00, lists as in recur-check): things-todos=[{id:'t1',title:'Water plants',project:'p_house',when:'2026-03-10',repeat:{mode:'completion',every:2,unit:'day'}}], route #/project/p_house. STEPS (one tab): (1) double-click the row, then click the card's repeat chip; the When picker opens on 'After Completion, Every [2] [days]'. (2) Click in the Every field, End, Backspace; the field is empty. (3) Click the unit button and pick 'weeks'. (4) Type 3. (5) Escape twice, then tick the row. EXPECTED: the rule the person entered, {mode:'completion',every:3,unit:'week'}, with the next occurrence on 2026-03-31. CONTRACT: 'Rule and reminder changes commit as they're made'; a break includes 'something the user typed lost'. CONTROL: typing 3 before picking weeks gives exactly that (control-type-then-unit.mjs). ACTUAL (2/2 clean runs, no page errors): picking 'weeks' redraws the section and puts '2' back in the emptied field, focused, caret at 0. The typed 3 lands in front, so the field reads '32' and the note says 'Next: Tue, Oct 20'. Storage has repeat {mode:'completion',every:32,unit:'week'}, and ticking creates the next occurrence on 2026-10-20 instead of 2026-03-31, so the to-do vanishes for 7 months. SAME WITH THE ENDS COUNT (2/2): Weekly on Tue with ends.after 10. Clear the 10, tick Fri, type 3, and storage gets ends {after:310}: a series meant to run 3 times now runs 310. CAUSE: repeat.js's input handler never saves a blank or 0 field. Any non-quiet save (unit menu, weekday, monthly radio or menus) calls render(), which rebuilds the fields from the stored rule and restores the blank field's caret [0,0]. Another tab changing the same to-do's date or reminder does the same (the r7 note). Repro: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r9-c3/repro-repeats-cleared-number-comes-back.mjs. ALSO TRIED, no break: store.js complete/reopen/contentKey/removeHeading/clearCompleted read line by line; spawnKey stays stable through reload, Delete Heading, Move and Clear completed; two-tab card, picker and Complete All paths. SEEN, NOT CLAIMED: (a) Backspace with a card open and focus on a card button (Tab to 'Clear deadline' x), or with nothing focused on a touch device with a keyboard, deletes that to-do, so the open next occurrence goes and the series ends (b2.mjs, t1.mjs). (b) The When picker on a just-completed occurrence still offers the rule, 'Next: ...' and Stop Repeating, but edits there only reach the dead copy, not the live next occurrence.",
+      "why": "No break in completion/undo: every path (row, card, Cmd/Ctrl+K, Complete All and its un-check, phone More, Logbook, double-clicks/taps) kept one open occurrence per series, exact take-backs and typed titles  /  Turning Repeat on from the card's When chip grows the picker off the bottom of the window and it never re-places itself: After Completion, Monthly, Yearly, Custom, Ends and Stop Repeating can't be clicked (contract: every kind reachable, a way to stop)  /  Repeats picker: a cleared Every/Ends number is redrawn with the old value in front of the caret, so typing 3 saves every 32 weeks (next one Oct 20, not Mar 31) or ends after 310, not 3",
+      "judgedAt": "2026-09-26T17:33:06.396Z"
+    },
+    {
+      "round": 10,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": true,
+          "why": "claim did not hold up"
+        },
+        {
+          "critic": 2,
+          "behaviour": true,
+          "why": "No date break: engine, picker, labels and rings match an independent reference across US and midnight DST, leap days, month and year ends, every mode, unit and N, ends, all when kinds with deadlines and reminders, on desktop and phone"
+        },
+        {
+          "critic": 3,
+          "behaviour": false,
+          "why": "In Upcoming an occurrence's open card closes by itself when its row moves (Cmd+K undo in the card, or a reschedule), so typed text goes to Quick Find or the composer, and a cleared title deletes the occurrence and its series"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 37,
+        "total": 37
+      },
+      "won": {
+        "behaviour": false
+      },
+      "gap": "critic 3: In Upcoming, where every next occurrence lands, the open card of an occurrence closes by itself when its row moves, even though the to-do never leaves the list. What the person types next is lost, and if the title field is empty at that moment the occurrence is deleted.\n\nSEED: desktop 1200x800, America/New_York, clock Tue 2026-03-10 09:00, lists as in recur-check (project p_house). Todos: t0 'Dentist' {when:'2026-03-13', project:'p_house'} and t1 'Change water filter' {when:'2026-03-20', project:'p_house', repeat:{mode:'completion',every:1,unit:'week'}}.\n\nSTEPS (#/upcoming, one tab, repeat-engine path):\n1. Double-click the t1 row to open its card.\n2. Click the notes and type 'Used the spare cartridge'.\n3. Press Cmd+K. It is done early, and the next occurrence lands on Tue Mar 17, in a section above it. The card stays open with focus in the notes.\n4. Press Cmd+K again to undo. The next occurrence is taken back.\n5. Keep typing 'Next-time-buy-two'.\n\nEXPECTED: t1 is still in Upcoming, so its card stays open with focus in the notes and the text goes there, as it does with the same steps in #/project/p_house. CONTRACT: 'Cmd/Ctrl+K in the open card works wherever its focus is ... and acts on the card's to-do, like its checkbox. A card or selection whose to-do leaves the list on screen ... closes or is dropped with it'. Also 'Escape in the title still restores the old one, unless completing or reopening from the card has already committed it', which means the card is still open after reopening from it. This counts as a break because something the user typed is lost.\n\nACTUAL (2/2 clean runs, no page errors): after the second Cmd+K the card is closed and focus is on BODY. The typed text goes into Quick Find (qf-input = 'Next-time-buy-two'). Stored t1.notes = 'Used the spare cartridge', so the typed text is lost. Control in #/project/p_house: the card stays open and notes = 'Used the spare cartridgeNext-time-buy-two'.\n\nSAME CAUSE, MORE COMMON TRIGGER: rescheduling an occurrence from its open card in Upcoming. Seed t1 'Water plants' {when:'2026-03-12', weekly schedule}. Double-click it, type ' and ferns', click the When chip, type 'mon' and press Enter. The picker hands focus back to the title. Then type ' on the balcony'. The card has already closed. The space opens the composer, so new-todo = 'on the balcony' (Enter would add it as a stray to-do), and the title stays 'Water plants and ferns'. Moving an occurrence to This Evening from its card in Today does the same.\n\nWORST CASE: clear the title to retype it (Cmd+A, Backspace), then reschedule from the When chip. The card closes by itself, close() finds an empty title, and t1 is deleted with its notes, checklist and rule. The series is gone. In the project-view control the card stays open and t1 is kept.\n\nCAUSE: rows.js reconcile() re-inserts the editing li with insertBefore when a section before it goes away or the row changes date section. A MutationObserver trace shows the li removed and re-added. The detached field loses focus, and detail.js's focusout handler then calls close(), which removes a to-do whose title field is empty.\n\nREPRO: /private/tmp/claude-501/-Users-pr-Desktop-dev-Todo/7de92c54-84d7-47b2-acf0-63c627b2ff05/scratchpad/recur-r10-c3/repro-upcoming-card-closes-typing-lost.mjs (3 cases, each in Upcoming plus a project control; prints REPRODUCED 3/3 in Upcoming). Trace: rootcause.mjs in the same folder.",
+      "why": "claim did not hold up  /  No date break: engine, picker, labels and rings match an independent reference across US and midnight DST, leap days, month and year ends, every mode, unit and N, ends, all when kinds with deadlines and reminders, on desktop and phone  /  In Upcoming an occurrence's open card closes by itself when its row moves (Cmd+K undo in the card, or a reschedule), so typed text goes to Quick Find or the composer, and a cleared title deletes the occurrence and its series",
+      "judgedAt": "2026-09-26T19:19:35.990Z"
+    },
+    {
+      "round": 11,
+      "votes": [
+        {
+          "critic": 1,
+          "behaviour": true,
+          "why": "No break in completion/undo: row, card, Cmd/Ctrl+K, Complete All and its un-check, phone More, Logbook and fast clicks all kept one open occurrence per series, exact take-backs and typed titles"
+        },
+        {
+          "critic": 2,
+          "behaviour": true,
+          "why": "No date break: engine, picker, live-midnight UI and two-tab re-dating match the contract and an independent reference across DST, leap years, month/year ends, every mode/unit/N, ends, and all when kinds with deadlines and reminders"
+        },
+        {
+          "critic": 3,
+          "behaviour": true,
+          "why": "claim did not hold up"
+        }
+      ],
+      "panel": 3,
+      "check": {
+        "green": true,
+        "passing": 38,
+        "total": 38
+      },
+      "won": {
+        "behaviour": true
+      },
+      "gap": "",
+      "why": "No break in completion/undo: row, card, Cmd/Ctrl+K, Complete All and its un-check, phone More, Logbook and fast clicks all kept one open occurrence per series, exact take-backs and typed titles  /  No date break: engine, picker, live-midnight UI and two-tab re-dating match the contract and an independent reference across DST, leap years, month/year ends, every mode/unit/N, ends, and all when kinds with deadlines and reminders  /  claim did not hold up",
+      "judgedAt": "2026-09-26T20:38:20.130Z"
+    }
+  ],
+  "working": "RECUR GREEN 38/38, SUITE GREEN: rows keep focus/card through moves",
+  "updatedAt": "2026-09-26T20:38:20.130Z"
+}

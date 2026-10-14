@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser pins a ~80px footer under the list that mixes web-style text labels with the icon row: a bold-count '9 items left' at far left and a 'Clear completed' text button at far right (~17px, light gray ~#999) flanking seven icons, two of them disabled at ~#ccc. Its divider sits only ~35px below the last row, so the list reads as clipped. The winner ends cleanly on the project content, with no competing chrome. Fix: drop both text labels and keep an icon-only toolbar with at least ~48px of clearance under the last row.",
+    "phone": "The loser leaves out the filter-pill row entirely. The notes paragraph runs into a ~90px blank band before 'Things to buy', so the header has no controls and the space above the first section looks accidental. The winner puts All / Active / Completed ~35px under the notes (~15px semibold gray, with the selected one in a ~28px-tall gray capsule with white text), then ~60px to the first blue heading. Fix: restore the pill row at that position and tighten the notes-to-heading gap around it."
+  },
+  "why": "The core rows, headings and pie match closely in both pairs, so the deciding factor is structural: the desktop loser adds non-native text-label toolbar chrome, and the phone loser drops the filter pills.",
+  "at": "2026-09-26T04:23:08.665Z"
+}

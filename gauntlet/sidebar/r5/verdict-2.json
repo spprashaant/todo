@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's smart-list icons are less refined, and Someday is the worst of them. Its archive box is a washed-out sage (~#BCC58A) that sits low-contrast on the ~#F4F5F7 sidebar and reads as a third green, stacked between the teal Anytime and green Logbook. The Inbox tray is also a blocky T-cutout with square bottom corners. The winner draws Someday in a warm tan (~#C8B271) with a crisp lid line, and uses a rounded-corner tray for Inbox, so every icon in the 18px column has its own hue and shape.",
+    "phone": "The loser paints a persistent gray selection pill (~#E3E4E8, about 345x46px, inset only 9px from the screen edges against 20px content margins) behind the Today row on the phone lists home. That is a desktop-sidebar idiom: it says Today is open when nothing is. It is also the heaviest element on the screen, pulling the eye away from the badge. The winner leaves every row unfilled and puts its emphasis on a 52px blue floating + at bottom-right, which is the screen's real primary action."
+  },
+  "why": "Near-identical layouts. Desktop goes to the more polished, better-differentiated icon set. Phone goes to the screen without a stale desktop-style selection fill that has a clear add affordance.",
+  "at": "2026-09-26T20:45:54.298Z"
+}

@@ -1,0 +1,7 @@
+{
+  "critic": 2,
+  "broken": false,
+  "gap": "discarded on verification: reproduces, but it is the contract's deliberate rule (schedule mode 'takes its phase from the occurrence's own date (when, or the completion day when when isn't a date)'; weekly/monthly without weekdays/monthly use that date's weekday/day), so a floating when:'today' to-do phases on the day it is ticked; the picker and row honestly show today's derived value, and the day can be pinned in the UI (Monthly: pick the day in the On day menu stores monthly.day and gives Apr 1; Weekly: toggling another day on/off stores weekdays:[0] and gives Mar 8). Asana has no floating Today, and its early/late behaviour is documented as unknown. The minor Jan 30 ring preview (Mar 28 vs series Mar 30) is a cosmetic preview nit, not a contract rule, lost occurrence or input.",
+  "why": "claim did not hold up",
+  "at": "2026-09-26T10:05:07.728Z"
+}

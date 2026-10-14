@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Text caret collides with the query: in the loser the 2px blue caret sits on top of the right edge of the 'o' in 'to', so the typed query reads 'tc' in the one place the eye lands first. The winner puts the caret about 2px clear of the last glyph. Secondary: the loser draws 'Build a Treehouse' with a dashed ring that looks like a loading spinner. The winner keeps the solid 1.5px ring and pie glyph used by the other list icons.",
+    "phone": "Every piece of text is washed out. The loser renders the empty-state hint ('Quickly switch lists, find to-dos, search for tags...') at about #9c9c9e on #f9f9fb, roughly 2.6:1 and below legibility. Its placeholder, magnifier and Cancel are also each about 10-15 levels lighter (Cancel about #38383a). The winner uses a secondary-label grey of about #8a8e8e-#8d8d8f for the hint and placeholder, about 3.3:1, with Cancel near #242426, so the field, hint and action read with clear hierarchy."
+  },
+  "why": "Geometry is identical in both pairs. Desktop is decided by the loser's caret overlapping the query glyph, plus an off-system dashed list icon. Phone is decided by the loser's too-faint hint and placeholder greys.",
+  "at": "2026-09-26T05:36:05.129Z"
+}

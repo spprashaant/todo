@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The deadline label on the 'Finish expense report' row (right edge, ~17px pink #FF2D55-ish 'today') is set in regular weight with ~1.5px strokes, so it looks spindly and detached beside the solid-filled ~20px flag glyph; the winner sets 'today' in medium (~500) weight at the same size and colour so the flag and label read as one badge with matched stroke weight. Rows, checkboxes (24px, #C0C3C6 stroke), subtitles and the This Evening heading are otherwise pixel-for-pixel equivalent.",
+    "phone": "The 'today' deadline label at the right of the 'Finish expense report' row (x~430, ~15px) is regular weight and carries ~9% less ink than the winner's, so it looks thin against the solid flag at x~408; the winner uses medium (~500) weight so flag and label balance. The loser's titles are also a hair lighter/smaller (22px vs 23px ascender-to-descender), compounding the slightly washed-out read."
+  },
+  "why": "Near-identical rows; the winner's medium-weight red 'today' deadline label balances the filled flag, while the loser's regular-weight label looks spindly.",
+  "at": "2026-09-26T03:59:31.342Z"
+}

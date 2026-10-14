@@ -1,0 +1,324 @@
+{
+  "piece": "today",
+  "state": "won",
+  "round": 9,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Redrew row glyphs on Things' 1pt grid (split-pole flag, notes/checklist, outlined crescent), moved hover delete out of flow so deadline sits at row edge, matched title tracking, phone ink/checkbox/gaps and This Evening spacing/rule to the pixel",
+      "pairedAt": "2026-09-26T03:35:16.834Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": false,
+        "phone": false
+      },
+      "gap": "desktop: The loser ends the This Evening list with an extra, focused 'New To-Do' row: a dashed 24px placeholder checkbox and a 4px-wide, ~36px-tall #659DE9 caret at x~119 that nearly touches the placeholder text (about 1px gap) and runs about 10px taller than the 26px title line. It is heavy and not native, and it pulls the eye away from the real rows. The winner ends cleanly after 'Buy party decorations'. Fix: do not auto-open an editing row in the resting Today state, and if one is shown, use a 2px caret the height of the text line with about 2px of clearance.  ·  phone: The loser's checkboxes are drawn half a pixel off the grid. The left and top strokes blur into a pale 2px (~#D2D2D2), while the right and bottom are a crisp, darker 1px (~#BDBDBD), so all eight boxes look lopsided and bleed to 23px wide. The winner draws an even ~1.5px #BFC1C4 stroke on all four sides of a 21x21 box. Fix: snap the checkbox rect to whole or half pixels so every side renders the same weight. A secondary fix is to darken the subtitles from ~#A1A5AA to ~#96989B to match the winner's contrast.",
+      "why": "The rows are almost pixel-identical in type, rhythm and glyphs. Desktop is decided by the loser's stray focused New To-Do row with its oversized caret. Phone is decided by the loser's off-grid, lopsided checkbox strokes repeated on every row.",
+      "judgedAt": "2026-09-26T03:38:18.649Z"
+    },
+    {
+      "round": 2,
+      "note": "Today ends cleanly after its last row (resting New To-Do line now Inbox-only, so nothing is auto-focused); phone checkboxes drawn as an even 1.65px inset ring on a 16px box with Things' corner; darker phone subtitles; iOS-specific crisp flag; title/subtitle and This Evening spacing matched to the device pixel",
+      "pairedAt": "2026-09-26T03:56:34.348Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": false,
+        "phone": false
+      },
+      "gap": "desktop: The deadline label on the 'Finish expense report' row (right edge, ~17px pink #FF2D55-ish 'today') is set in regular weight with ~1.5px strokes, so it looks spindly and detached beside the solid-filled ~20px flag glyph; the winner sets 'today' in medium (~500) weight at the same size and colour so the flag and label read as one badge with matched stroke weight. Rows, checkboxes (24px, #C0C3C6 stroke), subtitles and the This Evening heading are otherwise pixel-for-pixel equivalent.  ·  phone: The 'today' deadline label at the right of the 'Finish expense report' row (x~430, ~15px) is regular weight and carries ~9% less ink than the winner's, so it looks thin against the solid flag at x~408; the winner uses medium (~500) weight so flag and label balance. The loser's titles are also a hair lighter/smaller (22px vs 23px ascender-to-descender), compounding the slightly washed-out read.",
+      "why": "Near-identical rows; the winner's medium-weight red 'today' deadline label balances the filled flag, while the loser's regular-weight label looks spindly.",
+      "judgedAt": "2026-09-26T03:59:31.343Z"
+    },
+    {
+      "round": 3,
+      "note": "Deadline label now medium weight at Things' size (12px desktop / 14px -0.15 tracking phone) with flag aligned; iOS flag redrawn wider with a crisp pole; phone titles 17.8px to match Things' glyph size and ink",
+      "pairedAt": "2026-09-26T04:12:58.255Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Geometry, colours and rhythm are pixel-identical at both sizes. The winner is decided on details: a fuller moon that matches the bold heading, a crisp 1px section rule on phone, and matched note and checklist glyph heights.",
+      "judgedAt": "2026-09-26T04:17:12.470Z"
+    },
+    {
+      "round": 4,
+      "note": "re-judge current build under the equalized pipeline + 3-critic panel",
+      "pairedAt": "2026-09-26T04:20:10.033Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical rows; the winner has fewer small flaws: a better-aligned section header on desktop, and darker, more legible subtitles plus aligned trailing glyphs on phone."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "The two are near pixel-identical in rhythm and alignment. Desktop is decided by the flag's distance from its title in the stretched row; phone by the loser's fainter subtitles and cramped trailing glyphs."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical at both sizes, so it came down to a few pixels. The winner's section rule aligns more tightly with the checkbox column, its tracking is tighter, and its phone subtitle grey and checklist glyph are firmer and more even."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Near-identical rows; the winner has fewer small flaws: a better-aligned section header on desktop, and darker, more legible subtitles plus aligned trailing glyphs on phone.  /  The two are near pixel-identical in rhythm and alignment. Desktop is decided by the flag's distance from its title in the stretched row; phone by the loser's fainter subtitles and cramped trailing glyphs.  /  Near-identical at both sizes, so it came down to a few pixels. The winner's section rule aligns more tightly with the checkbox column, its tracking is tighter, and its phone subtitle grey and checklist glyph are firmer and more even.",
+      "judgedAt": "2026-09-26T04:25:03.793Z"
+    },
+    {
+      "round": 5,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:28.009Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": true,
+          "why": "Near-identical row systems; the winner edges it on finishing details: an elevated FAB, a matched notes/checklist glyph pair, slightly firmer subtitle contrast and a cleaner This Evening moon and heading."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Row craft is effectively identical at both sizes (same checkbox, type, spacing, glyphs, heading), so each call comes down to layout context: the winner keeps the deadline flag close to its title on desktop and keeps the FAB off the list rows on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": false,
+          "phone": true,
+          "why": "Near pixel-identical rows. Desktop goes to the tighter column that keeps the deadline flag next to its task. Phone goes to consistently stronger title and subtitle contrast."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: The loser's This Evening heading block is a hair weaker: the moon is a chunkier crescent (~28x29px, fat body, blunt tips, ~4% more ink) that reads as a blob beside the bold label, and the label itself sets ~1.7% narrower and lighter (172px vs 175px wide). The winner uses a slimmer crescent with finer tips and a marginally heavier, more assertive heading, so the section break reads cleaner. Everything else (24px checkbox, 20px checkbox-to-title gap, 76px row pitch, #808082 subtitles, flag/today pill) is pixel-identical.  /  Rows are otherwise pixel-identical (24px checkbox, 20px checkbox-to-title gap, 76px row pitch, same greys), but the loser lets the list column run about 1066px wide, so the red 'today' deadline flag lands about 635px right of 'Finish expense report' and floats detached from its row. The winner holds the column to about 635px, putting the flag about 200px from the title so it reads as part of the row. Cap the list at a readable max-width of about 640px.  /  The loser stretches each row across a ~1066px-wide column, so the red flag+'today' deadline is pinned at the far right edge (x~1040-1135), about 635px of empty space away from the end of 'Finish expense report'. The eye cannot tie the deadline to its task. The winner caps the list at ~635px (divider ~93-726), so the flag sits ~200px after the title and reads as part of the row. Cap the list content width at ~640px, or bring the flag in next to the title.",
+      "why": "Near-identical row systems; the winner edges it on finishing details: an elevated FAB, a matched notes/checklist glyph pair, slightly firmer subtitle contrast and a cleaner This Evening moon and heading.  /  Row craft is effectively identical at both sizes (same checkbox, type, spacing, glyphs, heading), so each call comes down to layout context: the winner keeps the deadline flag close to its title on desktop and keeps the FAB off the list rows on phone.  /  Near pixel-identical rows. Desktop goes to the tighter column that keeps the deadline flag next to its task. Phone goes to consistently stronger title and subtitle contrast.",
+      "judgedAt": "2026-09-26T05:36:05.035Z"
+    },
+    {
+      "round": 6,
+      "note": "Today keeps a compact 312px row measure on desktop (left edge unchanged) so the deadline flag sits ~100px after its title; slimmer Mac moon crescent fitted to Things; This Evening label tracked to Things' width",
+      "pairedAt": "2026-09-26T05:49:18.367Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": false,
+          "why": "Row geometry, type, colours, checkbox, flag and This Evening header match to within 1px. The only real difference is the attachment glyph: the winner's checklist bullets are uniform and its bars even, while the loser's bullets are inconsistent and its dashes uneven."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Near-identical geometry at both sizes (same 24px checkboxes, row pitch, heading and divider). Desktop is decided by the winner's cleaner, weight-matched notes and checklist glyphs; phone by the winner's stronger subtitle contrast and a FAB that stays clear of the rows."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "The two are almost pixel-identical, so the tie-break is optical alignment of small glyphs. The winner centres the moon on the heading caps, sets its notes and checklist glyphs on one line and draws a clean hairline; the loser drifts 1-2px on each."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": false,
+        "phone": true
+      },
+      "gap": "desktop: Checklist glyph after 'Buy party decorations': the loser draws its three bullets inconsistently, with two hollow ~5px rings and a solid filled third. Its dashes are uneven ~1px strokes, darker at the start and fading toward the middle, and its note glyph's dog-ear is a filled blob. It reads as noise next to the 17px title. The winner draws three matching bullets with even ~8px x 1.5px bars (~#B8B8B8) and a note glyph with an outlined fold. Fix: make all three bullets identical and the bars uniform in weight.  /  Checklist glyph on the 'Buy party decorations' row (about 19x22px, right of the notes glyph): the loser draws heavy filled bullets about 7px wide next to faint hairline dashes about 10px long, so at 1x it reads as a column of dots, and its notes glyph has a blobby filled dog-ear. The winner uses outlined ring bullets and dashes at the same ~1.5px stroke and ~#A8A8A8 tone, with a thin-line fold on the notes glyph, so both clearly read as checklist and notes. Redraw the loser's glyph with equal stroke weight for bullets and lines.",
+      "why": "Row geometry, type, colours, checkbox, flag and This Evening header match to within 1px. The only real difference is the attachment glyph: the winner's checklist bullets are uniform and its bars even, while the loser's bullets are inconsistent and its dashes uneven.  /  Near-identical geometry at both sizes (same 24px checkboxes, row pitch, heading and divider). Desktop is decided by the winner's cleaner, weight-matched notes and checklist glyphs; phone by the winner's stronger subtitle contrast and a FAB that stays clear of the rows.  /  The two are almost pixel-identical, so the tie-break is optical alignment of small glyphs. The winner centres the moon on the heading caps, sets its notes and checklist glyphs on one line and draws a clean hairline; the loser drifts 1-2px on each.",
+      "judgedAt": "2026-09-26T05:53:17.395Z"
+    },
+    {
+      "round": 7,
+      "note": "Redrew notes/checklist glyphs: Things' short corner cut with a light outlined fold (open dog-ear), three identical open-eye ring bullets with even 1.2pt rules; separate iOS-sized glyphs on phone matched to Things' size, pitch and position",
+      "pairedAt": "2026-09-26T06:14:06.978Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Rows are near-identical at both sizes; desktop goes to the tighter section-rule alignment, phone to the properly elevated add button that stays clear of the last row."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Rows are pixel-for-pixel equivalent in rhythm and alignment, so the decision rests on small details: a crisper deadline flag on desktop, and on phone a FAB that clears the last row instead of covering it (plus slightly stronger grey on the project subtitle)."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Layout, spacing and rhythm are pixel-identical in both pairs, so the small-detail finish decides it: on desktop the winner's checklist glyph is crisp while the loser's is smudged; on phone the winner's subtitle grey is more legible."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Rows are near-identical at both sizes; desktop goes to the tighter section-rule alignment, phone to the properly elevated add button that stays clear of the last row.  /  Rows are pixel-for-pixel equivalent in rhythm and alignment, so the decision rests on small details: a crisper deadline flag on desktop, and on phone a FAB that clears the last row instead of covering it (plus slightly stronger grey on the project subtitle).  /  Layout, spacing and rhythm are pixel-identical in both pairs, so the small-detail finish decides it: on desktop the winner's checklist glyph is crisp while the loser's is smudged; on phone the winner's subtitle grey is more legible.",
+      "judgedAt": "2026-09-26T06:17:34.545Z"
+    },
+    {
+      "round": 8,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.535Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical clones. The winner has fewer micro-flaws: crisp hollow-ring checklist bullets and tighter tracking on desktop, and more legible subtitle/heading contrast on phone."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Rows are pixel-identical in rhythm (76px desktop / 59px phone pitch), checkbox size (24px), colours and heading. The winner has the cleaner details: a checklist glyph that reads as a checklist on desktop, and a FAB that does not collide with rows on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Rows, typography, colour and spacing are near-identical at both sizes. The winner wins on small-detail finish: crisp hollow checklist bullets on desktop, and an elevated, properly inset add button on phone."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Near-identical clones. The winner has fewer micro-flaws: crisp hollow-ring checklist bullets and tighter tracking on desktop, and more legible subtitle/heading contrast on phone.  /  Rows are pixel-identical in rhythm (76px desktop / 59px phone pitch), checkbox size (24px), colours and heading. The winner has the cleaner details: a checklist glyph that reads as a checklist on desktop, and a FAB that does not collide with rows on phone.  /  Rows, typography, colour and spacing are near-identical at both sizes. The winner wins on small-detail finish: crisp hollow checklist bullets on desktop, and an elevated, properly inset add button on phone.",
+      "judgedAt": "2026-09-26T06:22:29.734Z"
+    },
+    {
+      "round": 9,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:33.593Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Row systems are pixel-for-pixel alike (same 76px pitch, checkbox, type, flag, heading); desktop is decided by the cleaner open-ring checklist glyph, phone by the FAB colliding with the last row."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Both pairs are near pixel-identical in type, spacing, colours and glyphs; the pick came down to the loser's muddier checklist glyph on desktop and its add button overlapping the last row on phone."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Rows, type, colours and metrics match to within 1px in both pairs. Desktop goes to the crisper hollow-ring checklist glyph; phone goes to the layout where the FAB does not sit on the last row."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Row systems are pixel-for-pixel alike (same 76px pitch, checkbox, type, flag, heading); desktop is decided by the cleaner open-ring checklist glyph, phone by the FAB colliding with the last row.  /  Both pairs are near pixel-identical in type, spacing, colours and glyphs; the pick came down to the loser's muddier checklist glyph on desktop and its add button overlapping the last row on phone.  /  Rows, type, colours and metrics match to within 1px in both pairs. Desktop goes to the crisper hollow-ring checklist glyph; phone goes to the layout where the FAB does not sit on the last row.",
+      "judgedAt": "2026-09-26T20:47:53.003Z"
+    }
+  ],
+  "working": "Redraw notes/checklist glyphs: identical ring bullets, even 1.5px bars, outlined note fold",
+  "updatedAt": "2026-09-26T20:47:53.003Z"
+}

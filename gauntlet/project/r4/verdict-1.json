@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The project title 'Prepare Presentation' at top left is semibold: same ~40px size, but stems only ~5px thick, so it barely outweighs the ~20px semibold blue section headings and the header lacks an anchor. The winner sets it in true bold (~7px stems, ~15% more ink), which gives the title clear dominance. Its gold today-star is also more saturated, where the loser's is washed out.",
+    "phone": "The loser has no filter pill row at all. Between the notes (ending y~205) and 'Things to buy' (y~298) there is ~90px of empty whitespace and no All/Active/Completed control. The winner puts a ~17px semibold grey pill row ~40px under the notes, with the selected filter in a ~32px-tall grey capsule, then ~60px down to the first blue heading. It also uses a bolder title."
+  },
+  "why": "Both are nearly identical in layout and colour; the winner's bold title gives a stronger hierarchy, and on phone the loser omits the filter pills entirely.",
+  "at": "2026-09-26T06:21:43.897Z"
+}

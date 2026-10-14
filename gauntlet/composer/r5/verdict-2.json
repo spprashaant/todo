@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Bottom-right toolbar icons (calendar, tag, checklist, flag) and the Notes placeholder are drawn a shade paler in the loser (icon strokes about #AEAEAE, placeholder about #A5A5A5) than in the winner (about #A9A9A9 and #A3A3A3), so the add-detail affordances recede more. Layout is otherwise identical to within 1px: 26px checkbox to title inset, 55px title to Notes, 37px under the icons. Darken the loser's icon strokes to about #A8A8A8.",
+    "phone": "The loser's toolbar icons (right-aligned at y 177-200) and Notes placeholder fade to about #B5B5B5 on white, roughly 1.9:1 contrast. The winner holds both at about #ABABAB (roughly 2.2:1), so its date, tag, checklist and flag affordances read as tappable. The loser also puts a heavier, longer drop shadow under the card (still about 225 luminance 10px below the edge, against 232 in the winner). Raise the icons and placeholder to about #ABABAB and shorten the shadow blur."
+  },
+  "why": "Near-identical builds (geometry within 1-2px); decided on the contrast of the secondary affordances: the winner in each size keeps the toolbar icons and Notes placeholder a few levels darker and more legible without competing with the black title.",
+  "at": "2026-09-26T05:28:59.140Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' (about 30x22px at x~455) is where the loser falls behind. Its three bullets are drawn as filled, squarish grey blobs about 6px across, so the icon reads as a smudge. The winner draws hollow 6px rings with a ~1.5px stroke and clear white centres, followed by ~12px rules. Redraw the loser's bullets as stroked circles so the icon matches the outlined note glyph beside it. Rows, type, colours and the This Evening header are otherwise pixel-equivalent.",
+    "phone": "The rows are pixel-identical, so the add button decides it. The loser's blue '+' button is a flat 66px disc with almost no elevation: its halo fades to white within ~3px. It is pinned only 16px from the right and bottom edges, beside the last row. The winner uses a 63px disc with a soft drop shadow (about 10-12px blur, 2-3px downward offset, ~8% black) and 19px right / 29px bottom insets, so it floats clear of the list. Add that shadow and those insets."
+  },
+  "why": "Rows, typography, colour and spacing are near-identical at both sizes. The winner wins on small-detail finish: crisp hollow checklist bullets on desktop, and an elevated, properly inset add button on phone.",
+  "at": "2026-09-26T06:22:29.733Z"
+}

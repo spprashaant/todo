@@ -1,0 +1,80 @@
+{
+ "things-todos": [
+  {
+   "id": "t_1",
+   "title": "Content marketing campaign",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "2019-08-18",
+   "deadline": null,
+   "tags": [],
+   "project": "p_cs",
+   "area": null,
+   "heading": "h_rec",
+   "createdAt": "2019-08-01T09:00:00.000Z"
+  },
+  {
+   "id": "t_2",
+   "title": "Press release on acquisition",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "2019-08-26",
+   "deadline": null,
+   "tags": [],
+   "project": "p_cs",
+   "area": null,
+   "heading": "h_rec",
+   "createdAt": "2019-08-02T09:00:00.000Z",
+   "repeat": {
+    "mode": "schedule",
+    "every": 1,
+    "unit": "week",
+    "weekdays": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "t_3",
+   "title": "Create new infographic",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "2019-08-21",
+   "deadline": null,
+   "tags": [],
+   "project": "p_cs",
+   "area": null,
+   "heading": "h_rec",
+   "createdAt": "2019-08-03T09:00:00.000Z"
+  }
+ ],
+ "things-lists": {
+  "areas": [
+   {
+    "id": "a_mkt",
+    "title": "Marketing"
+   }
+  ],
+  "projects": [
+   {
+    "id": "p_cs",
+    "title": "Customer Stories - Q4",
+    "area": "a_mkt",
+    "notes": "",
+    "headings": [
+     {
+      "id": "h_rec",
+      "title": "Recurrent pieces"
+     }
+    ]
+   }
+  ],
+  "tags": []
+ }
+}

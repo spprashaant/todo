@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The card is about 2px taller at the bottom. The icon row sits about 39px above the card's bottom edge but only 36px from its right edge, and the drop shadow is 3-5 grey levels darker in the 5-25px band below the card (about #D0D0D0 against #D3D3D3). The winner keeps the icon row about 37px from the bottom, so it sits nearly square with the 36px right inset, and uses a lighter shadow.",
+    "phone": "The title is squeezed against the checkbox. The checkbox's right edge is at x=38 and the text starts at x=52, a gap of about 13px. The title also starts 2px left of the Notes placeholder (x=52 against x=54), so the two lines do not share a left edge. The winner starts the title about 16px from the checkbox (x=54), within about 1px of the Notes line (x=55)."
+  },
+  "why": "The pairs are almost the same; spacing decided it. On desktop the winner's bottom inset matches its right inset more closely and its shadow is lighter. On phone the winner gives the title more room from the checkbox, lines it up with Notes, and draws the toolbar icons darker (about #A2A2A2 against #B0B0B0) so they read better.",
+  "at": "2026-09-26T04:37:19.574Z"
+}

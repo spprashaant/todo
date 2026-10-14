@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's project title is set in semibold: about 5px stems on roughly 40px text, and it sits beside a greyed slate-navy pie and section headings (darkest pixels around #2A4564). The winner sets the same 40px title in true bold with 6-7px stems and uses a clearer blue (around #1B4178 at its darkest, about #1F5FBF as it reads) for the pie and headings. The loser's title therefore dominates less over the 20px notes, and its blue accents look washed out. Fix: make the title bold (700) and give the pie and headings the saturated system blue.",
+    "phone": "The loser has no filter pills at all. Between the notes and the 'Things to buy' heading there is an empty band of about 85px, with no All/Active/Completed control. The winner puts an ~34px-tall grey capsule pill row there, with about 25px above it and 50px below, so that space works as a control. The loser's title is also semibold where the winner's is bold. Fix: add the pill row under the notes and set the title to bold."
+  },
+  "why": "The layouts are almost the same. The winner's bold title and clearer blue give a stronger hierarchy on both sizes, and on phone the loser also leaves out the filter pills.",
+  "at": "2026-09-26T05:32:42.307Z"
+}

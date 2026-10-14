@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Text caret collides with the last glyph: in the loser the ~2px blue caret is centred at x~255 while the final 's' of 'Book hotels' ends at x~254, so the bar overlaps the letter; the winner parks the caret at x~258 with ~2-3px clear air after the glyph, like a native NSTextView insertion point.",
+    "phone": "Bottom toolbar icons are unevenly spaced: in the loser the checklist icon sits ~1.5px left of its slot, giving centre-to-centre gaps of ~55/53.5/58px between calendar, tag, checklist and flag; the winner holds them to ~55/54/56.5px, so the four glyphs read as an even, deliberate row."
+  },
+  "why": "Pairs are near-identical in type, padding, shadow and radius; desktop decided by caret clearance after the last glyph, phone by more even spacing of the bottom toolbar icons.",
+  "at": "2026-09-26T06:08:52.603Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's This Evening heading block is a hair weaker: the moon is a chunkier crescent (~28x29px, fat body, blunt tips, ~4% more ink) that reads as a blob beside the bold label, and the label itself sets ~1.7% narrower and lighter (172px vs 175px wide). The winner uses a slimmer crescent with finer tips and a marginally heavier, more assertive heading, so the section break reads cleaner. Everything else (24px checkbox, 20px checkbox-to-title gap, 76px row pitch, #808082 subtitles, flag/today pill) is pixel-identical.",
+    "phone": "The loser's floating add button is flat: a 66px #5D9AF9 disc with no elevation (the edge drops straight to white within 1-2px) and a tight ~16px inset from the bottom and right edges, so it sits in the list area beside the last two evening rows like a sticker. The winner gives the same disc a soft drop shadow (~8-10px blur, ~3px y-offset, ~10% black) and ~18px right / ~28px bottom inset, so it reads as a lifted control above the rows. Secondary: the loser's subtitles are a touch paler (#9E9FA0 vs #98989A) and its notes and checklist glyphs are mismatched (17px vs 15px tall)."
+  },
+  "why": "Near-identical row systems; the winner edges it on finishing details: an elevated FAB, a matched notes/checklist glyph pair, slightly firmer subtitle contrast and a cleaner This Evening moon and heading.",
+  "at": "2026-09-26T05:36:05.034Z"
+}

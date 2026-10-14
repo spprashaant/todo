@@ -1,0 +1,129 @@
+{
+  "piece": "repeat-picker",
+  "state": "won",
+  "round": 2,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Repeats section in the When picker (Things dark style): Repeat [kind] row, per-kind fields (interval after completion, weekday chips, monthly nth weekday or day), Ends, a Next-date line, Stop Repeating; inline kinds list with per-kind previews; footer Repeat button turns it on; calendar rings preview coming dates",
+      "pairedAt": "2026-09-26T09:23:29.087Z",
+      "pageErrors": [],
+      "key": {
+        "after": "B",
+        "weekly": "A",
+        "monthly": "A",
+        "kinds": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "after": true,
+          "weekly": true,
+          "monthly": true,
+          "kinds": true,
+          "phone": true,
+          "why": "The winner always spells out the result (a Next-date preview, a summary for each kind, a labelled Stop Repeating) with native-feeling segmented controls; the loser uses vague labels, checkbox forms, an overflowing OS menu, an unlabelled footer icon and a truncated label on the phone."
+        },
+        {
+          "critic": 2,
+          "after": true,
+          "weekly": true,
+          "monthly": true,
+          "kinds": true,
+          "phone": true,
+          "why": "The winners always spell out the result (a next-date preview, clear per-kind summaries, unambiguous day labels). The losers leave the user guessing, with vague labels, single-letter checkboxes and a truncated phone row."
+        },
+        {
+          "critic": 3,
+          "after": true,
+          "weekly": true,
+          "monthly": true,
+          "kinds": true,
+          "phone": true,
+          "why": "The winners consistently state the outcome (Next: date, per-kind previews) and avoid the loser's clipping, truncation and ambiguous single-letter checkboxes"
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "after": "B",
+        "weekly": "A",
+        "monthly": "A",
+        "kinds": "B",
+        "phone": "B"
+      },
+      "won": {
+        "after": true,
+        "weekly": true,
+        "monthly": true,
+        "kinds": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The winner always spells out the result (a Next-date preview, a summary for each kind, a labelled Stop Repeating) with native-feeling segmented controls; the loser uses vague labels, checkbox forms, an overflowing OS menu, an unlabelled footer icon and a truncated label on the phone.  /  The winners always spell out the result (a next-date preview, clear per-kind summaries, unambiguous day labels). The losers leave the user guessing, with vague labels, single-letter checkboxes and a truncated phone row.  /  The winners consistently state the outcome (Next: date, per-kind previews) and avoid the loser's clipping, truncation and ambiguous single-letter checkboxes",
+      "judgedAt": "2026-09-26T09:24:21.450Z"
+    },
+    {
+      "round": 2,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:43:04.855Z",
+      "pageErrors": [],
+      "key": {
+        "after": "A",
+        "weekly": "A",
+        "monthly": "A",
+        "kinds": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "after": true,
+          "weekly": true,
+          "monthly": true,
+          "kinds": true,
+          "phone": true,
+          "why": "Deciding factor: whether each state spells out the outcome. Next-date lines, full weekday names and per-kind previews beat the vague 'Periodically', single-letter checkboxes and a label truncated to 'R...'."
+        },
+        {
+          "critic": 2,
+          "after": true,
+          "weekly": true,
+          "monthly": true,
+          "kinds": true,
+          "phone": true,
+          "why": "Across states, the winner says what will happen: every state has Ends and Next-date rows, and the inline kinds list previews each kind. The loser relies on bare dropdowns, one-letter checkboxes, a nonsense 'On day Last' option and a truncated 'R...' label."
+        },
+        {
+          "critic": 3,
+          "after": true,
+          "weekly": true,
+          "monthly": true,
+          "kinds": true,
+          "phone": true,
+          "why": "A spells out every state as a plain-language rule with a next-date preview and an explicit Stop Repeating control. B relies on vague labels ('Periodically'), web-style checkboxes, unlabeled footer icon toggles and a truncated phone row, but its inline kind list with per-kind previews beats A's."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "after": "A",
+        "weekly": "A",
+        "monthly": "A",
+        "kinds": "B",
+        "phone": "B"
+      },
+      "won": {
+        "after": true,
+        "weekly": true,
+        "monthly": true,
+        "kinds": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Deciding factor: whether each state spells out the outcome. Next-date lines, full weekday names and per-kind previews beat the vague 'Periodically', single-letter checkboxes and a label truncated to 'R...'.  /  Across states, the winner says what will happen: every state has Ends and Next-date rows, and the inline kinds list previews each kind. The loser relies on bare dropdowns, one-letter checkboxes, a nonsense 'On day Last' option and a truncated 'R...' label.  /  A spells out every state as a plain-language rule with a next-date preview and an explicit Stop Repeating control. B relies on vague labels ('Periodically'), web-style checkboxes, unlabeled footer icon toggles and a truncated phone row, but its inline kind list with per-kind previews beats A's.",
+      "judgedAt": "2026-09-26T20:49:48.317Z"
+    }
+  ],
+  "working": "Final checks: suite, recur-check, when/detail regression",
+  "updatedAt": "2026-09-26T20:49:48.317Z"
+}

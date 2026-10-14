@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The text caret in the loser's search field is drawn on top of the last typed glyph. The ~2px blue caret covers the right bowl of the 'o' in the 20px query, so 'to' reads as 'tc'. The winner puts the caret about 1-2px after the glyph's advance width, so the query reads cleanly. Offset the caret by the full glyph advance. (Secondary: the loser draws the Build a Treehouse ring as a lighter dashed outline that breaks the row of solid ~16px pies.)",
+    "phone": "The loser's centred empty-state hint ('Quickly switch lists, find to-dos, search for tags...') is too light and thin: its strokes are about #ABABAB on the #F9F9F9 sheet, roughly 2.2:1 contrast, with about 20% less ink. It nearly disappears. The winner draws the same ~17px hint at about #999999 (~2.7:1), and its 'Quick Find' placeholder and 'Cancel' are a step darker too. Darken the hint to at least a secondary-label grey (~#8E8E93)."
+  },
+  "why": "Nearly identical pairs. Desktop is decided by the winner's clean caret, where the loser's caret collides with the query text. Phone is decided by the winner's more legible hint and placeholder contrast.",
+  "at": "2026-09-26T20:48:38.174Z"
+}

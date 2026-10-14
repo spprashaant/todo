@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's project title is set a weight too light: semibold (~600) at the same ~36px size, so it carries about 15% less ink than the winner's bold (~700) title. Next to the bold blue section headings, the page's anchor looks timid and the title-to-heading hierarchy flattens. Its section headings are also a greyer slate blue (~#31517A core) where the winner uses ~#2660C0. Set the title to bold and saturate the heading blue to match.",
+    "phone": "The loser has no filter-pill row at all. Between the notes (ending ~y205) and 'Things to buy' (~y290) it leaves about 85px of dead space. The winner fills that slot with an All / Active / Completed row: a ~30px-tall grey capsule with a white semibold label for the selected filter and grey semibold labels for the rest, about 30px below the notes and 55px above the first heading. Add that row and tighten the gap to match."
+  },
+  "why": "Desktop is near-identical in layout, so the winner's bolder title and truer blue headings decide it; on phone the loser leaves out the required filter pills and leaves a dead gap in their place.",
+  "at": "2026-09-26T05:33:16.187Z"
+}

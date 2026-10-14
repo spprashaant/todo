@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The smart-list icons in the loser's top group look dithered and have muddy colours. Anytime is a stippled mix of blue (#1368C4) and green (#47B378) instead of one flat teal (#2F9C90). Someday is an olive-green box (#B9CA83) instead of tan (#C9B36A). The Inbox tray has speckled edges. As a result Anytime, Someday and Logbook all read as the same green blob at 22px. The winner draws each glyph as a crisp, flat, anti-aliased vector in its own distinct hue.",
+    "phone": "The loser's lists home has no way to create anything: there is no + button and no New List control on the screen. It also leaves a stuck grey selection (#E8E9EB, 344x47, 9px inset) on Today, which looks like a desktop habit carried over to the phone. The winner has no persistent selection and puts a 52px blue (#5499F7) circular + button with a soft drop shadow about 16px in from the bottom-right corner."
+  },
+  "why": "Layout, type and spacing are nearly identical, so the winner is decided on execution: it has clean, distinct icon colours on both sizes and a real add button on phone, while the loser has dithered, colour-muddled icons and no create affordance on phone.",
+  "at": "2026-09-26T03:41:18.862Z"
+}

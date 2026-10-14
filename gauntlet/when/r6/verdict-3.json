@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The right-aligned resolved dates (Thu, Jun 8 / Fri, Aug 18) are a muddier, dimmer grey in the loser, about #91959F on the #2D313D panel (~4.4:1), so the most useful information in each row fades. The winner sets them at about #A0A6B0 (~5.4:1), close to native secondaryLabel. Raise the date colour by about 10-12 luminance steps, or use white at 60% opacity.",
+    "phone": "The weekday header row (Sun-Sat, ~13px) and the grey 'today' star in the Wed cell are too dim in the loser, about #696D78 on #282C37 (~2.7:1), so the header row drops out and today is hard to find. The winner uses about #767A85 (~3.3:1) with slightly fuller glyphs and a lighter star (~#696C75 vs ~#5E626A). Lift both to white at about 40% opacity."
+  },
+  "why": "The layouts are pixel-identical, so the deciding factor was legibility of the secondary grey text: resolved dates on desktop and weekday labels plus the today marker on phone.",
+  "at": "2026-09-26T06:25:08.964Z"
+}

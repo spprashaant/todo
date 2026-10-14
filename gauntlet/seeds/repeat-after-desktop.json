@@ -1,0 +1,72 @@
+{
+ "things-todos": [
+  {
+   "id": "t_1",
+   "title": "Vacuum the living room",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": null,
+   "deadline": null,
+   "tags": [],
+   "project": "p_home",
+   "area": null,
+   "heading": null,
+   "createdAt": "2022-10-01T09:00:00.000Z"
+  },
+  {
+   "id": "t_2",
+   "title": "Water the plants",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": "2022-10-17",
+   "deadline": null,
+   "tags": [],
+   "project": "p_home",
+   "area": null,
+   "heading": null,
+   "createdAt": "2022-10-02T09:00:00.000Z",
+   "repeat": {
+    "mode": "completion",
+    "every": 7,
+    "unit": "day"
+   }
+  },
+  {
+   "id": "t_3",
+   "title": "Replace the air filter",
+   "completed": false,
+   "completedAt": null,
+   "notes": "",
+   "checklist": [],
+   "when": null,
+   "deadline": null,
+   "tags": [],
+   "project": "p_home",
+   "area": null,
+   "heading": null,
+   "createdAt": "2022-10-03T09:00:00.000Z"
+  }
+ ],
+ "things-lists": {
+  "areas": [
+   {
+    "id": "a_home",
+    "title": "Home"
+   }
+  ],
+  "projects": [
+   {
+    "id": "p_home",
+    "title": "Home Chores",
+    "area": "a_home",
+    "notes": "",
+    "headings": []
+   }
+  ],
+  "tags": []
+ }
+}

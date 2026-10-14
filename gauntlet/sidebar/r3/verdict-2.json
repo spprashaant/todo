@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser adds a grey 'Todos' caption (about 13px semibold, #909193, y 23-35) above Inbox. It is a redundant, one-off section header: the areas get no matching header, it pushes the whole list down about 30px, and it sits in the traffic-light zone. The winner opens straight on Inbox with a clean top inset of about 44px and lets spacing alone group the smart lists.",
+    "phone": "The loser's lists home has no create affordance anywhere in view: no floating add button and no New List control. The winner floats a 52px blue (#4A90F0-ish) circular + with a soft shadow, about 16px from the right edge and 17px from the bottom, so the primary action is always one thumb-tap away."
+  },
+  "why": "Desktop is near-identical in rhythm (36px rows), type and pies, so the loser's redundant 'Todos' header decides it. On phone the loser has no add button and a sticky grey Today highlight, which is non-native on an iPhone navigation root.",
+  "at": "2026-09-26T05:33:16.805Z"
+}

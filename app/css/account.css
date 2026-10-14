@@ -1,0 +1,85 @@
+/* The Sync panel (piece: account). */
+
+.acct-scrim {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .18);
+  animation: acct-fade .12s ease-out;
+}
+@keyframes acct-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.acct {
+  width: 340px;
+  max-width: 100%;
+  padding: 18px 18px 16px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 10px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .2), 0 1px 4px rgba(0, 0, 0, .08);
+  color: var(--ink);
+  font-size: 13px;
+  animation: pop .14s ease-out;
+}
+.acct-title { margin: 0 0 6px; font-size: 15px; font-weight: 600; color: var(--ink-3); }
+.acct-lead { margin: 0 0 14px; line-height: 1.4; color: var(--ink-2); }
+.acct-lead b { font-weight: 600; }
+
+.acct-form { display: grid; gap: 8px; }
+.acct-field {
+  height: 30px;
+  padding: 0 9px;
+  border: 1px solid #d3d5d9;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+}
+.acct-field::placeholder { color: var(--grey-2); }
+.acct-field:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(93, 156, 245, .25); }
+.acct-error { min-height: 17px; margin: 0; color: var(--red); line-height: 1.3; }
+.acct-error:empty { min-height: 0; }
+
+.acct-status { display: flex; align-items: flex-start; gap: 8px; margin: 2px 0 10px; line-height: 1.4; color: var(--ink-2); }
+.acct-dot { flex: none; width: 8px; height: 8px; margin-top: 5px; border-radius: 50%; background: var(--grey-4); }
+.acct-status[data-phase="synced"] .acct-dot { background: #34c759; }
+.acct-status[data-phase="syncing"] .acct-dot { background: var(--accent); animation: acct-pulse 1s ease-in-out infinite alternate; }
+.acct-status[data-phase="offline"] .acct-dot { background: var(--yellow); }
+.acct-status[data-phase="error"] .acct-dot { background: var(--red); }
+@keyframes acct-pulse { from { opacity: .35; } to { opacity: 1; } }
+
+.acct-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.acct-btn {
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid #d3d5d9;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+}
+.acct-btn:hover { background: #f4f5f7; }
+.acct-btn.primary { border-color: var(--check); background: var(--check); color: #fff; }
+.acct-btn.primary:hover { background: #3f83e6; }
+.acct-btn:disabled { opacity: .5; cursor: default; }
+.acct-btn:focus-visible, .acct-field:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(93, 156, 245, .35); }
+
+@media (max-width: 699px) {
+  .acct-scrim { place-items: end center; padding: 0 0 var(--safe-b); }
+  .acct {
+    width: 100%;
+    padding: 22px calc(20px + var(--safe-r)) 20px calc(20px + var(--safe-l));
+    border-radius: 14px 14px 0 0;
+    font-size: 16px;
+  }
+  .acct-title { font-size: 20px; margin-bottom: 8px; }
+  .acct-form { gap: 10px; }
+  .acct-field { height: 44px; font-size: 16px; border-radius: 10px; }
+  .acct-status .acct-dot { margin-top: 7px; }
+  .acct-actions { gap: 10px; margin-top: 8px; }
+  .acct-btn { flex: 1; height: 44px; border-radius: 10px; }
+}

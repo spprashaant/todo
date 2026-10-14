@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The calendar glyphs at the left of each suggestion row (~18px, x≈20) are washed out in the loser: a muddy mauve header (~#A45277) over a greyish-pink body (~#965F7D) with a flat top bar and no binder rings, so they read as smudges next to crisp white labels. The winner draws the same 18px glyph with a saturated crimson header (~#CB537E), two ring holes on the header and a clearer 3x3 grid, so the icon holds its own beside the 17px text.",
+    "phone": "The loser's sheet stops at Someday. It has no 'Add Reminder' row, so there is no way to attach a time from the When sheet, and it closes with only ~27px of padding under Someday. The winner adds a muted secondary row below Someday: a thin ~23px plus at x≈29 and the label in ~#9296A1 grey, on the same ~59px pitch as Today, This Evening and Someday, then ~36px of bottom padding. That finishes the list with a clear quieter tier."
+  },
+  "why": "The desktop images are near-identical, and B wins on crisper, more saturated calendar glyphs. On phone, A wins because its sheet is complete, with a correctly muted Add Reminder row on the shared row pitch, which B lacks.",
+  "at": "2026-09-26T04:25:39.963Z"
+}

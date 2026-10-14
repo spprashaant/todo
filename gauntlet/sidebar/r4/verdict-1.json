@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's Someday icon (x~28-52, 4th row of the smart lists) is a flat, washed-out olive-green box (~#B8C488) with no lid. It reads as disabled and adds a third green to a column that already has teal Anytime and green Logbook. The winner draws a warm tan box (~#C4B070) with an overhanging lid and a handle slot, so each smart list keeps its own hue. The loser's Inbox and Logbook glyphs are also muddier than the winner's crisp versions.",
+    "phone": "The loser has no visible add control on the lists home. Instead it shows a sidebar-style persistent grey selection pill on Today (~344x46px, ~#E1E5E8, 8px inset), which is not how an iOS root list behaves. The winner leaves the root list unselected and puts a 52px blue (#5796FF) circular plus button bottom-right, about 17px from the edges, so the primary create action is always in reach."
+  },
+  "why": "Row metrics, type and spacing are practically identical, so it comes down to icon craft (the loser's olive Someday box and muddier glyphs) and, on phone, the winner's native no-selection root list with a visible add button.",
+  "at": "2026-09-26T06:21:51.428Z"
+}

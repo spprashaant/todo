@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The checklist glyph after 'Buy party decorations' (about 14x22px, 1px right of the note glyph) is drawn as three about 5px dots with nearly closed centres, packed so tightly they merge into one blurry column. The winner draws three about 6px open rings with a clear 2px gap between them and crisp 1px dashes beside them, so it reads at a glance as a checklist. Redraw the loser's bullets as 1px-stroke rings about 6px across, spaced about 8px apart.",
+    "phone": "The 64px blue add button sits directly on the last row ('Buy party decorations', y about 475-540) because the list has no bottom inset, so the button collides with the row's trailing edge and hides the row's tap area. The winner leaves about 95px of clear white between the last row and the button. Add a bottom content inset of at least button height plus 16px (about 80px) so the last row can scroll clear of the button."
+  },
+  "why": "Both pairs are near pixel-identical in type, spacing, colours and glyphs; the pick came down to the loser's muddier checklist glyph on desktop and its add button overlapping the last row on phone.",
+  "at": "2026-09-26T20:46:36.416Z"
+}

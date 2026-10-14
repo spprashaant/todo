@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Inside the lifted card, the loser's text and icons are drawn a step lighter than the winner's. Measured on the darkest pixels, the title is about #131313 against the winner's #090909. Notes and checklist items are about #2f2f2f to #333333 against #212121 to #252525, and the calendar, tag and flag icons are about #b3b3b3 against #a8a8a8. The result is an open card that reads slightly washed out next to the list rows around it. Fix: use the winner's near-black primary text, keep notes and items at about #222, and bump the action-icon stroke to about #a8a8a8.",
+    "phone": "The loser's checklist rhythm breaks on the last row. Its separators sit at 60, 60 and then 58px pitch, where the winner holds an even 60px. The loser's blue circles also sit 2 to 3px above the optical centre of their text, and the winner centres them within about 1px. On top of that, the loser's notes and item text is a touch greyer (about #232323 against #141414). Fix: give every checklist row the same 60px height including the last one, centre the 18px circle on the text's x-height, and use the winner's darker text colour."
+  },
+  "why": "Both pairs are near-identical clones. The deciding factor is small execution: text and icon contrast inside the card on desktop, and even checklist row pitch and circle centring on phone.",
+  "at": "2026-09-26T20:48:05.335Z"
+}

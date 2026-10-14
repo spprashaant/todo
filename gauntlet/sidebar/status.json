@@ -1,0 +1,198 @@
+{
+  "piece": "sidebar",
+  "state": "won",
+  "round": 5,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Logbook book icon, lighter Upcoming grid, larger Anytime/area glyphs, Things-sized footer/badge/selection, collapsible areas with chevron, phone rows/search/pies aligned to Things metrics",
+      "pairedAt": "2026-09-26T03:39:37.788Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Layout, type and spacing are nearly identical, so the winner is decided on execution: it has clean, distinct icon colours on both sizes and a real add button on phone, while the loser has dithered, colour-muddled icons and no create affordance on phone.",
+      "judgedAt": "2026-09-26T03:41:18.862Z"
+    },
+    {
+      "round": 2,
+      "note": "re-judge current build under the equalized pipeline + 3-critic panel",
+      "pairedAt": "2026-09-26T04:20:09.945Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "The layouts are nearly identical; desktop is decided by the Someday icon colour, phone by the stuck Today highlight and the missing add control."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Desktop is near-identical, and the winner's distinct tan Someday icon keeps the smart-list hues separate. On phone the winner has a native floating + for creating items, while the loser has no add control and a stuck-looking Today highlight."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts; desktop decided by the loser's off-hue olive Someday icon, phone by the loser's non-native persistent selection highlight (plus its missing add affordance)."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The layouts are nearly identical; desktop is decided by the Someday icon colour, phone by the stuck Today highlight and the missing add control.  /  Desktop is near-identical, and the winner's distinct tan Someday icon keeps the smart-list hues separate. On phone the winner has a native floating + for creating items, while the loser has no add control and a stuck-looking Today highlight.  /  Near-identical layouts; desktop decided by the loser's off-hue olive Someday icon, phone by the loser's non-native persistent selection highlight (plus its missing add affordance).",
+      "judgedAt": "2026-09-26T04:24:58.795Z"
+    },
+    {
+      "round": 3,
+      "note": "final regression: re-judge the finished build",
+      "pairedAt": "2026-09-26T05:30:27.885Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "The pairs are nearly identical in type and metrics. The deciding factor is icon colour discipline (Someday tan vs olive) plus, on phone, a non-native persistent selection pill on the lists home."
+        },
+        {
+          "critic": 2,
+          "desktop": false,
+          "phone": true,
+          "why": "Desktop is near-identical in rhythm (36px rows), type and pies, so the loser's redundant 'Todos' header decides it. On phone the loser has no add button and a sticky grey Today highlight, which is non-native on an iPhone navigation root."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts, so the icon finish decides it: the olive Someday box muddies the teal/green run in each loser, and the phone loser also adds a non-native persistent highlight on Today."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "The pairs are nearly identical in type and metrics. The deciding factor is icon colour discipline (Someday tan vs olive) plus, on phone, a non-native persistent selection pill on the lists home.  /  Desktop is near-identical in rhythm (36px rows), type and pies, so the loser's redundant 'Todos' header decides it. On phone the loser has no add button and a sticky grey Today highlight, which is non-native on an iPhone navigation root.  /  Near-identical layouts, so the icon finish decides it: the olive Someday box muddies the teal/green run in each loser, and the phone loser also adds a non-native persistent highlight on Today.",
+      "judgedAt": "2026-09-26T05:34:25.531Z"
+    },
+    {
+      "round": 4,
+      "note": "convergence check: re-judge the finished build",
+      "pairedAt": "2026-09-26T06:19:07.447Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "phone": true,
+          "why": "Row metrics, type and spacing are practically identical, so it comes down to icon craft (the loser's olive Someday box and muddier glyphs) and, on phone, the winner's native no-selection root list with a visible add button."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "The layouts, type and rhythm are nearly identical, so it came down to details. The winner's icon palette is more distinct (tan Someday), its footer icon uses a quieter grey, and on phone it has no stuck, misaligned selection pill on the root lists screen."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Same layout and type; the winner's icons are more finished (distinct tan Someday, clean Inbox tray), and on phone it avoids the misaligned stuck highlight while providing an add affordance."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "B",
+        "phone": "B"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Row metrics, type and spacing are practically identical, so it comes down to icon craft (the loser's olive Someday box and muddier glyphs) and, on phone, the winner's native no-selection root list with a visible add button.  /  The layouts, type and rhythm are nearly identical, so it came down to details. The winner's icon palette is more distinct (tan Someday), its footer icon uses a quieter grey, and on phone it has no stuck, misaligned selection pill on the root lists screen.  /  Same layout and type; the winner's icons are more finished (distinct tan Someday, clean Inbox tray), and on phone it avoids the misaligned stuck highlight while providing an add affordance.",
+      "judgedAt": "2026-09-26T06:22:38.012Z"
+    },
+    {
+      "round": 5,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:42:40.607Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "B",
+        "phone": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": false,
+          "phone": true,
+          "why": "Both pairs are close to pixel-identical. The winners drop needless chrome (redundant Todos header on desktop, stale Today highlight on phone) and keep the primary add affordance on phone."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts. Desktop goes to the more polished, better-differentiated icon set. Phone goes to the screen without a stale desktop-style selection fill that has a clear add affordance."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "phone": true,
+          "why": "Near-identical layouts, so it came down to icon colour finish on desktop (a muddy sage Someday box against a clear tan one) and, on phone, the missing floating add button plus a stuck Today highlight."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A",
+        "phone": "A"
+      },
+      "won": {
+        "desktop": true,
+        "phone": true
+      },
+      "gap": "",
+      "why": "Both pairs are close to pixel-identical. The winners drop needless chrome (redundant Todos header on desktop, stale Today highlight on phone) and keep the primary add affordance on phone.  /  Near-identical layouts. Desktop goes to the more polished, better-differentiated icon set. Phone goes to the screen without a stale desktop-style selection fill that has a clear add affordance.  /  Near-identical layouts, so it came down to icon colour finish on desktop (a muddy sage Someday box against a clear tan one) and, on phone, the missing floating add button plus a stuck Today highlight.",
+      "judgedAt": "2026-09-26T20:46:52.026Z"
+    }
+  ],
+  "working": "Match Things sidebar metrics: rows, icons, pies, badges, selection, footer at desktop and phone",
+  "updatedAt": "2026-09-26T20:46:52.026Z"
+}

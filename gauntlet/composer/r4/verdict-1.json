@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "Card elevation: the loser's shadow is short and hard, a dark rim (~#C4C2C8) about 3px under the card that is mostly gone within ~20px (~#E6E7EB at 15px below), so the open to-do looks pasted onto the #F2F3F7 background. The winner uses a softer, deeper drop (peak ~#C6C6C6, easing over ~35px, still ~#E1E1E1 at 15px below) that reads as a lifted editing card. Soften the loser's shadow to about y 4px / blur 24-30px / ~12% black.",
+    "phone": "Toolbar icon contrast and drawing: the loser's four attribute icons at the bottom right are washed out (darkest ~#AFAFAF-#B3B3B3 on white). Its calendar glyph also has a heavy double-rule header and a dash grid that don't match the tag, checklist and flag. The winner draws them a step darker (~#A2A2A2) with a thin single header rule and a dot grid, so all four read as one consistent ~1.5px-stroke set that sits just under the ~#9E9E9E Notes placeholder."
+  },
+  "why": "Near-identical layouts; the winner is ahead on elevation (softer, deeper card shadow on desktop) and has a crisper, more consistent attribute-icon row on phone.",
+  "at": "2026-09-26T04:49:46.148Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The right-aligned secondary dates (Thu, Jun 8 / Fri, Aug 18) are drawn in a dimmer grey, about #8B909B on the #2D313C panel, so the date column reads as washed out next to the white labels. The winner uses a lighter grey, about #9AA1AB (roughly 10% brighter), so the date is easy to read while staying secondary. The rest of the layout (36px rows, 16px insets, blue selection) is the same in both.",
+    "phone": "The loser's footer row, about 25px from the bottom, holds only '+ Add Reminder' on the left, and the right ~200px is empty. There is no Repeat control, so the sheet has no way to make the to-do recurring and the footer looks lopsided. The winner puts a right-aligned repeat-arrows icon with 'Repeat' in the same #90949F grey on the same baseline, 16px from the right edge. The loser's weekday headers are also dimmer (#62666F vs #6F737E)."
+  },
+  "why": "The layouts are pixel-identical. Desktop comes down to the contrast of the secondary date text. Phone comes down to the missing Repeat control and the lopsided footer.",
+  "at": "2026-09-26T20:48:19.931Z"
+}

@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The lifted card doesn't match the list column. Its left edge overhangs the header rule by about 19px, but its right edge stops about 183px short of where the rule and the ... menu end (card ends at x~760, rule runs to x~943). So the card looks narrower than the list it belongs to and sits lopsided under the header. The winner's card overhangs the column by about 20px on both sides, so it lines up with the header rule and the ... menu.",
+    "phone": "The completion checkbox next to the title is a thin ~1px hairline in a pale grey (#BBBBBE, 23x23px). Beside the large ~22pt title it fades out, and the most important control on the card reads as disabled. The winner draws the same box with a firmer ~1.5-2px stroke and a slight inner shade, and its when/tag/flag icons are a bit heavier too, so the controls hold their own against the text."
+  },
+  "why": "Desktop: the loser's card does not fill the list column and sits lopsided under the header; phone: nearly identical, but the loser's faint hairline checkbox weakens the main tap target.",
+  "at": "2026-09-26T04:18:29.568Z"
+}

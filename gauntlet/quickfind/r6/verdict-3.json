@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The text caret in the search field collides with the typed query: the loser draws its ~2px blue caret over the right half of the final 'o', so 'to' reads as 'tc' at the most-watched spot in the panel. The winner puts the caret about 2px past the glyph's advance width with clear space. A secondary issue: the loser's 'Build a Treehouse' icon is the only faint dashed ring in a column of solid 1.5px progress rings, so it reads as a rendering glitch rather than a state.",
+    "phone": "The loser's empty-state text is washed out. The hint 'Quickly switch lists, find to-dos, search for tags…' is about #B1B1B3 on a #F9F9FB sheet (about 2:1 contrast, barely legible), and 'Cancel' (about #565658) and the placeholder are lighter too. The winner uses about #9F9FA1 for the hint and about #454547 for Cancel, keeping the same light secondary hierarchy while staying readable."
+  },
+  "why": "Near-identical layouts; desktop decided by the loser's caret overlapping the typed glyph plus an odd dashed icon, phone by the winner's more legible hint and Cancel text contrast.",
+  "at": "2026-09-26T20:49:31.129Z"
+}

@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Body copy is washed out: the notes paragraph and checklist items (y~282-526) sit at ~#2e2e2e with ~8% less ink, and the title only reaches ~#141414. The winner uses ~#202020 for body and ~#090909 for the title. The checklist rings are also duller (~#2e4668 vs the winner's ~#284279), so the open card reads greyer and softer. Set checklist and notes to near-black primary (~#1f1f1f) and the title to ~#0a0a0a.",
+    "phone": "Notes and checklist text (y~93-333) are lighter and thinner, ~#232323 with ~8% less ink mass than the winner's ~#141414, while the title stays pure black. The actionable checklist rows look faded next to the winner's firmer body text. Raise notes and checklist to ~#141414, or use the platform primary label colour."
+  },
+  "why": "Layout, spacing, radii and icons are pixel-identical in both pairs; the only consistent drawn difference is that the loser renders notes and checklist text in a lighter grey, so the winner's body copy reads crisper and more confident.",
+  "at": "2026-09-26T04:35:55.069Z"
+}

@@ -1,0 +1,81 @@
+{
+  "piece": "repeat-marker",
+  "state": "won",
+  "round": 2,
+  "rounds": [
+    {
+      "round": 1,
+      "note": "Open card shows the rule beside the date (loop glyph + 'Every Monday', its own x to stop repeating); rows carry a loop glyph",
+      "pairedAt": "2026-09-26T08:59:39.858Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "why": "Winner shows date with weekday and the explicit repeat rule inline at readable size; loser hides repetition in a tiny corner badge with no rule."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "why": "The winner states date, weekday and rule in one aligned line; the loser hides the rule and jams a tiny repeat badge into the calendar icon's border."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "why": "The winner shows the due date with its weekday and the plain-language repeat rule side by side. The loser hides that the to-do repeats behind a clipped micro-badge and never states the rule."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A"
+      },
+      "won": {
+        "desktop": true
+      },
+      "gap": "",
+      "why": "Winner shows date with weekday and the explicit repeat rule inline at readable size; loser hides repetition in a tiny corner badge with no rule.  /  The winner states date, weekday and rule in one aligned line; the loser hides the rule and jams a tiny repeat badge into the calendar icon's border.  /  The winner shows the due date with its weekday and the plain-language repeat rule side by side. The loser hides that the to-do repeats behind a clipped micro-badge and never states the rule.",
+      "judgedAt": "2026-09-26T09:00:12.937Z"
+    },
+    {
+      "round": 2,
+      "note": "re-judge after the repeating to-dos feature (no builder)",
+      "pairedAt": "2026-09-26T20:43:06.669Z",
+      "pageErrors": [],
+      "key": {
+        "desktop": "A"
+      },
+      "votes": [
+        {
+          "critic": 1,
+          "desktop": true,
+          "why": "Only the winner states the repeat rule in text next to the date; the loser hides it behind a tiny badge on the calendar icon with no rule shown."
+        },
+        {
+          "critic": 2,
+          "desktop": true,
+          "why": "The winner shows date and rule as one readable line (Mon, Aug 26 + loop icon + Every Monday); the loser hides the repeat behind a tiny badge with no rule text."
+        },
+        {
+          "critic": 3,
+          "desktop": true,
+          "why": "The winner states both the due date (with weekday) and the repeat rule in plain text; the loser hides repetition in a tiny overlapping badge and never shows the rule."
+        }
+      ],
+      "panel": 3,
+      "pick": {
+        "desktop": "A"
+      },
+      "won": {
+        "desktop": true
+      },
+      "gap": "",
+      "why": "Only the winner states the repeat rule in text next to the date; the loser hides it behind a tiny badge on the calendar icon with no rule shown.  /  The winner shows date and rule as one readable line (Mon, Aug 26 + loop icon + Every Monday); the loser hides the repeat behind a tiny badge with no rule text.  /  The winner states both the due date (with weekday) and the repeat rule in plain text; the loser hides repetition in a tiny overlapping badge and never shows the rule.",
+      "judgedAt": "2026-09-26T20:49:59.225Z"
+    }
+  ],
+  "working": "Final checks: suite, recur-check, Things pieces unchanged",
+  "updatedAt": "2026-09-26T20:49:59.225Z"
+}

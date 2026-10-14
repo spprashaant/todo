@@ -1,0 +1,13 @@
+{
+  "critic": 1,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The project title 'Prepare Presentation' is set semibold (~600) at ~34px, so it anchors the page weakly; the winner sets the same ~34px title in a true bold (~700, ~25% more ink), giving a clear step above the 17px regular notes and the blue section headings. The loser's section headings are also a greyed steel blue (~#2D517F) against the winner's more saturated blue (~#27509A).",
+    "phone": "The filter pill row is missing entirely: the notes end at y~207 and 'Things to buy' starts at y~288, leaving ~80px of dead space. The winner puts an 'All / Active / Completed' row there, with a ~30px-tall grey (#B6B6BA) capsule on the selected pill and ~17px semibold grey labels. It sits ~38px below the notes and ~60px above the first heading."
+  },
+  "why": "Desktop: the winner's bolder title and more saturated heading and pie blues give a crisper hierarchy with nearly identical rows. Phone: the loser drops the filter pills, a required element, and leaves an empty gap in their place.",
+  "at": "2026-09-26T04:23:21.224Z"
+}

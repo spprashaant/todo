@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Every glyph, calendar icon and the blue highlight edge in the loser carries a 1px dark ringing halo (about 1,000 pixels darker than the #2B323B fill, down to ~RGB 20,20,24), and the 3x3 grid inside each calendar icon comes out muddy and unevenly spaced. The winner's anti-aliasing blends cleanly into the fill, with no pixel darker than the background and evenly spaced grid cells. Fix: render the icons and text at native scale with no sharpening or resample pass.",
+    "phone": "The loser's whole sheet looks resampled. Text edges are about 20% softer, dark ringing fringes surround the numerals, the Someday label and the archive-box icon (about 3,000 pixels darker than the #282D38 fill), and the flat background has a speckled noise texture. The winner renders crisp native glyphs on a clean, flat #282D38. Fix: capture and render at native device scale with no sharpening or lossy pass."
+  },
+  "why": "The layouts match almost pixel for pixel (same insets, row rhythm, colours and icons), so rendering quality decides it: the winner's anti-aliasing is clean, while the loser shows ringing halos and softness on every glyph and icon.",
+  "at": "2026-09-26T03:38:29.983Z"
+}

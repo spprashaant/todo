@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The loser's notes paragraph wraps early, at about 680px ('...send and / updated'), inside a card whose content column (checklist rules and focused row) runs about 835px wide. That leaves a ragged gap of about 155px to the right of the notes, so the notes look detached from the checklist below. The winner runs the notes to the same right edge as the checklist dividers, about 20px inside the card, so the paragraph and the checklist share one column.",
+    "phone": "The loser draws the notes and checklist text in a greyer ink, with glyph cores around #303030 and a washed-out look, while the title stays near-black. The checklist items, which are the actionable content, fade to secondary contrast. The winner renders the notes and checklist rows near-black (about #1e1e1e), so the items read firm and crisp under the 22px title. All geometry (rows 58px, dividers, icons, shadow) is otherwise identical."
+  },
+  "why": "Geometry, spacing, icons and shadows are pixel-identical in both pairs. The winner's notes share the checklist's column on desktop, and its body text has firmer contrast on phone.",
+  "at": "2026-09-26T06:24:20.365Z"
+}

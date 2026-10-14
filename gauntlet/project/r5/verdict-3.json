@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's project title is set too light: 'Prepare Presentation' at ~28px cap height has ~4-5px stems (semibold ~600), the same weight as the blue section headings, so it doesn't clearly anchor the page. The winner sets it bold (~700-800, ~6px stems at the same size), so the page reads title > headings > rows. Move the loser's title up to bold.",
+    "phone": "The loser has no filter-pill row at all. Under the notes there is just a dead ~90px gap before 'Things to buy', so there is no way to scope the list. The winner puts an All / Active / Completed pill row there, at ~15px semibold grey (#8e8e93), with the active pill filled grey (#b4b4ba, white text, ~24px tall), 16px below the notes and ~60px above the first heading."
+  },
+  "why": "Desktop: nearly identical, but the winner's bold title gives clearer hierarchy. Phone: the loser leaves out the filter pills entirely.",
+  "at": "2026-09-26T20:45:59.145Z"
+}

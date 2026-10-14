@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The This Evening moon glyph (left of the heading, ~27x28px) is a thin, wispy crescent only ~9px thick at its widest (blue area ~305px) with a visible darker inner outline, and it overhangs the checkbox column by 1px (x=97 vs checkbox x=98). Next to the bold ~20px heading it looks underweight. The winner draws a fuller crescent ~11px thick (area ~330px) with its left edge flush on the checkbox column, so icon and heading carry the same visual weight.",
+    "phone": "The rule under This Evening is a doubled 2px band (two full rows of ~#ECEDEF at y=360-361, ~40% more ink) that reads as heavy and slightly blurred. The winner draws a crisp ~1px hairline (#EAEBEE with one faint AA row), which is closer to a native iOS separator. The loser also has the same thin-crescent moon (~7px thick vs ~9px), and its checklist glyph is 2px shorter than the note glyph beside it (tops at y=505 vs 503), where the winner's two glyphs share a 16px box."
+  },
+  "why": "Geometry, colours and rhythm are pixel-identical at both sizes. The winner is decided on details: a fuller moon that matches the bold heading, a crisp 1px section rule on phone, and matched note and checklist glyph heights.",
+  "at": "2026-09-26T04:17:12.470Z"
+}

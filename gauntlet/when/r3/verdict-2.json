@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The selected 'in 3 days' label sits low inside its blue pill. The loser's highlight spans about y61-97 with the cap top at 74 and the baseline at 89, which leaves about 12px above the text and 7px below. Its first-row text also breaks the 38px row rhythm by 1px. The winner's pill spans about y63-99 around the same 16px cap block, leaving 9.5px above and below, and its 10px gap below the search field matches the 38px row pitch. Move the loser's pill down 2px, or centre it on the row's line box. Also stop fading the calendar icon to a washed-out lavender on the selected row: keep the pink header bar solid, as the winner does.",
+    "phone": "The 'This Evening' moon hangs about 3px low. In the loser it spans about y166-193 against a cap block of y168-186, with 2px above the cap top and 7px below the baseline, so it sags under the text. The winner's moon spans y163-190, with about 5px above and 4px below, centred on the cap height like the star next to 'Today'. The loser's calendar grid also steps 61/63/61px between rows where the winner holds an even 62/62/62, and the stacked 'Jun 1' sits 1.5px low in its row. Nudge the moon up 3px and snap the grid rows to one integer pitch."
+  },
+  "why": "The two are nearly identical. In both sizes the winner has exact optical centring and an even row rhythm: the text is centred in the selection pill, the moon is centred on the cap height, and the grid pitch is a constant 62px. The loser has 2-3px offsets and 61/63px jitter.",
+  "at": "2026-09-26T04:39:41.898Z"
+}

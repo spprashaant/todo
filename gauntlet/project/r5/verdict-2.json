@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The page title 'Prepare Presentation' (~40px) is set in semibold (~600) with default tracking and reads soft. The winner sets it bold (~700) with slightly tighter tracking, so the title clearly anchors the page above the 20px blue headings. The loser's unselected filter labels ('Important', 'Diane') repeat the problem: medium weight in light grey (~#8a8a8a), where the winner uses semibold ~#777 so the labels read as tappable pills.",
+    "phone": "The filter pill row is missing entirely. Under the notes the loser leaves an empty ~90px gap before 'Things to buy', so there is no visible way to switch between All, Active and Completed. The winner puts All / Active / Completed ~28px below the notes, with the selected 'Active' in a ~72x30 grey capsule with white semibold text, then ~55px down to the first heading. The loser also drops the header search glyph that sits beside the circled chevron in the winner."
+  },
+  "why": "Phone: the loser omits the required filter pills. Desktop is nearly identical, and the winner's bold title and firmer pill labels give a clearer hierarchy.",
+  "at": "2026-09-26T20:45:38.396Z"
+}

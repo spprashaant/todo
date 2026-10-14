@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "In the bottom-right toolbar (icons at ~x610-830, y230-258) the loser's calendar glyph has a heavy double-stroke header band (top edge plus a full-width divider ~2px below) and its checklist bullets run straight into their dashes with ~1px air, so the cluster reads dark and cramped; the winner draws a single thin inset header rule and leaves ~2-3px between each 6px bullet and its dash.",
+    "phone": "The loser's calendar icon (~26x24px at x282-308, y176-200) draws its date grid as smeared horizontal dashes and pairs it with a shallow flag notch, so the When/Deadline glyphs read as generic lines; the winner draws a crisp 3x3 grid of distinct ~2px dots and a deeper V-notch on the flag, so each affordance is legible at a glance."
+  },
+  "why": "Layout, type, spacing and card treatment are pixel-identical in both pairs; the winner's toolbar glyphs are drawn more cleanly (thin calendar header, distinct date dots, bullets with breathing room, deeper flag notch).",
+  "at": "2026-09-26T04:49:43.658Z"
+}

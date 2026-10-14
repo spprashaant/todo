@@ -1,0 +1,7 @@
+{
+  "critic": 3,
+  "broken": true,
+  "gap": "Seed: one to-do t1 'Clean room', when 'today', repeat {mode:'completion',every:1,unit:'day'}; clock Tue 2026-03-10 09:00 America/New_York. Steps: open #/today, double-click the row to open its card, type ' and desk' at the end of the title, click the card's checkbox (li.editing .card-toggle), click empty space to close the card, reload. Expected (CONTRACT, Repeating to-dos): completing creates a next occurrence with 'the same title, notes, tags, project, area, heading, reminder time and repeat'. Asana NOTES.md behaviour 1 and 3: all information is duplicated into the new task, every field except comments. Actual (storage after reload, 2/2 clean runs, twice): t1 {title:'Clean room and desk', completed:true}, next {title:'Clean room', when:'2026-03-11', repeat kept}; Upcoming lists 'Clean room'. The card saves its title only on close, and the card checkbox completes (store.complete copies t) before that save, so the rename lands on the finished occurrence and the series goes on under the old name. Phone More > Complete does the same. In #/today/active the typed text is lost from both occurrences, because the completed row leaves the view and the card is torn down unsaved. No page errors. Repro: scratchpad/recur-r1-c3/repro-rename-then-card-checkbox.mjs",
+  "why": "Completing from the open card copies the pre-edit title into the next occurrence: the typed rename never reaches the series (contract: same title; Asana copies all fields)",
+  "at": "2026-09-26T09:05:41.766Z"
+}

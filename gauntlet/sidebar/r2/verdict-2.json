@@ -1,0 +1,13 @@
+{
+  "critic": 2,
+  "pick": {
+    "desktop": "B",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "Someday icon colour: the loser draws the ~20px Someday archive box in a desaturated sage green (~#C1CA9D) with a flat lid, sitting between the teal Anytime stack and the green Logbook book, so three of the six smart-list icons read as one green family and Someday loses its identity at a glance; the winner uses a warm tan/khaki box (~#D5C898) with a distinct lid band and handle slot, giving every smart list its own hue.",
+    "phone": "No create affordance: the loser's lists home has nothing in the bottom-right, so there is no + or New List control anywhere in the viewport and no way to add a list or to-do from the home screen. The winner floats a ~52px blue (#5796FF) circular + button with a soft drop shadow ~17px in from the right and bottom edges. The loser also parks a grey (#E1E5E8) 345x46px selection slab on Today, which reads as a stuck tap on an iOS list screen."
+  },
+  "why": "Desktop is near-identical, and the winner's distinct tan Someday icon keeps the smart-list hues separate. On phone the winner has a native floating + for creating items, while the loser has no add control and a stuck-looking Today highlight.",
+  "at": "2026-09-26T04:24:50.417Z"
+}

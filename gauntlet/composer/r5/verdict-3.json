@@ -1,0 +1,13 @@
+{
+  "critic": 3,
+  "pick": {
+    "desktop": "A",
+    "phone": "A"
+  },
+  "gaps": {
+    "desktop": "The loser's title checkbox (about 24x24px at x59, y75) is not snapped to the pixel grid. Its top and bottom strokes smear across 2 rows of about #CACACA and look visibly heavier than its 1px sides, so the box reads lopsided next to the crisp text. The winner puts the same 24px box on whole pixels, so all four sides are an even 1px stroke of about #C5C5C5.",
+    "phone": "The loser draws the accessory icons (calendar, tag, checklist, flag) at the bottom right about 8% lighter, with the darkest pixels near #AFAFAF (175) and a mean of about #CACACA. The Notes placeholder is lighter too (about #A5A5A5). The row of affordances looks washed out and harder to find. The winner draws the same 24-26px icons at about #A1A1A1 (161). The loser's checkbox also has heavier top and bottom strokes than sides."
+  },
+  "why": "The pairs are almost identical in layout, type and spacing. The winner is ahead on small finish: its checkbox has an even pixel-snapped 1px stroke on both sizes, and its phone composer icons and placeholder are firmer and easier to read instead of washed out.",
+  "at": "2026-09-26T05:29:03.917Z"
+}

@@ -1,0 +1,284 @@
+/* Design tokens, reset, typography and the app shell (shared). */
+:root {
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* ink */
+  --ink: #141517;          /* to-do titles */
+  --ink-2: #2b2d30;        /* notes, body copy */
+  --ink-3: #25292e;        /* large titles, section headings */
+  --grey: #82878d;         /* subtitles */
+  --grey-2: #9a9ca0;       /* counts, quiet text */
+  --grey-3: #a7a9ac;       /* quiet icons */
+  --grey-4: #c0c3c6;       /* checkbox stroke */
+  --done: #8f9398;         /* completed titles */
+
+  /* lines and fills */
+  --line: #e4e5e8;         /* section rules */
+  --line-2: #ececee;       /* hairlines */
+  --fill: #e9eaec;         /* date badges */
+  --pill: #b0b3b6;         /* selected filter pill */
+
+  /* colour */
+  --blue: #1b5fbf;         /* headings, pies, checklist */
+  --blue-2: #4a80cc;       /* heading dots */
+  --accent: #5d9cf5;       /* floating +, highlights */
+  --check: #4b8ff0;        /* completed checkbox */
+  --sel: #d9e6fb;          /* selected row */
+  --red: #fa1955;          /* due today */
+  --badge: #fe4b75;        /* sidebar due badge */
+  --yellow: #f7c61c;       /* today star */
+  --moon: #7396c8;         /* this evening */
+
+  /* surfaces */
+  --bg: #ffffff;
+  --bg-dim: #fafafa;       /* content behind an open card */
+  --sidebar: #f6f6f8;
+  --sidebar-sel: #e3e4e7;
+  --dark: #2b323b;         /* when popover */
+
+  --sidebar-w: 222px;
+  --col-max: 600px;
+  --col-pad-l: 44px;
+  --col-pad-r: 36px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font: 14px/1.3 var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+button, input, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; padding: 0; margin: 0; cursor: default; }
+input, textarea { border: 0; outline: 0; background: transparent; padding: 0; margin: 0; }
+textarea { resize: none; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p { margin: 0; }
+svg { display: block; flex: none; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid rgba(93, 156, 245, .55); outline-offset: 1px; }
+input:focus-visible, textarea:focus-visible, [contenteditable]:focus-visible { outline: 0; }
+
+/* ---------- shell ---------- */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+}
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--bg);
+  transition: background-color .18s ease;
+}
+.content.dim { background: var(--bg-dim); }
+.scroller {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-padding: 60px 0 80px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--col-max);
+  min-height: 100%;
+  margin: 0 auto;
+}
+/* side margins live inside the header and list-body so each includes its gutter */
+.list-header { padding-left: var(--col-pad-l); padding-right: var(--col-pad-r); }
+.list-body { flex: 1 0 auto; padding: 0 var(--col-pad-r) 72px var(--col-pad-l); }
+.topbar { display: none; }
+
+/* TodoMVC's toggle-all stays in the DOM for the "Complete All" commands (label in menus/toolbar).
+   It is invisible but stays the topmost element at its own 1px spot (the list's top-left corner), so a
+   real pointer click on it toggles it, as the TodoMVC and repeat checks do. On touch screens it takes
+   no taps, so a finger near that corner can't be snapped onto it. */
+.toggle-all {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 5;
+  width: 1px; height: 1px;
+  opacity: 0;
+  margin: 0;
+}
+@media (hover: none) and (pointer: coarse) { .toggle-all { pointer-events: none; } }
+.main { position: relative; }
+
+/* empty list: a large quiet version of the list icon, like Things */
+.empty-state {
+  display: none;
+  justify-content: center;
+  padding: 90px 0 40px;
+  opacity: .16;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+.empty-state.show { display: flex; }
+.empty-state svg { width: 84px; height: 84px; }
+
+/* ---------- desktop toolbar ---------- */
+.toolbar {
+  flex: none;
+  position: relative;
+  height: 46px;
+  border-top: 1px solid var(--line-2);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0 16px;
+  z-index: 2;
+}
+.toolbar .tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
+  max-width: 520px;
+  margin: 0 104px 0 96px;
+}
+.tool {
+  width: 36px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 6px;
+  color: #6b7076;
+}
+.tool:hover { background: #f1f1f3; }
+.tool:active { background: #e8e8eb; }
+.tool[disabled], .tool.off { color: #c9cbcf; background: none; }
+.tool svg { width: 17px; height: 17px; }
+
+.footer {
+  position: absolute;
+  left: 18px; right: 18px; top: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  font-size: 12px;
+  color: var(--grey-2);
+}
+.footer > * { pointer-events: auto; }
+.footer .todo-count { font-variant-numeric: tabular-nums; }
+.footer .clear-completed {
+  font-size: 12px;
+  color: var(--grey-2);
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+.footer .clear-completed:hover { color: var(--ink-2); background: #f1f1f3; }
+
+/* ---------- popover layer + menus (shared) ---------- */
+.layer { position: fixed; inset: 0; pointer-events: none; z-index: 50; }
+.layer > * { pointer-events: auto; }
+.scrim { position: fixed; inset: 0; background: transparent; }
+.scrim.dark { background: rgba(0, 0, 0, .22); }
+
+.menu {
+  position: fixed;
+  min-width: 190px;
+  padding: 5px;
+  background: rgba(246, 246, 248, .98);
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .16), 0 1px 3px rgba(0, 0, 0, .08);
+  font-size: 13px;
+  color: var(--ink);
+  animation: pop .12s ease-out;
+}
+.menu-item {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: 5px;
+  text-align: left;
+  white-space: nowrap;
+}
+.menu-item:hover, .menu-item.active { background: var(--accent); color: #fff; }
+.menu-item svg { width: 14px; height: 14px; }
+.menu-sep { height: 1px; background: rgba(0, 0, 0, .09); margin: 5px 8px; }
+
+@keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- mid widths: keep the desktop shell, slimmer ---------- */
+@media (max-width: 1060px) {
+  :root { --sidebar-w: 212px; --col-pad-l: 40px; --col-pad-r: 32px; }
+}
+
+/* ---------- phone ---------- */
+@media (max-width: 699px) {
+  :root { --col-pad-l: 19px; --col-pad-r: 16px; }
+  body { font-size: 17px; }
+  .app { display: block; height: 100vh; height: 100dvh; position: relative; }
+  .content { position: absolute; inset: 0; }
+  .app.at-lists .content { display: none; }
+  .app:not(.at-lists) .sidebar { display: none; }
+  .list-header { padding-left: calc(var(--col-pad-l) + var(--safe-l)); padding-right: calc(var(--col-pad-r) + var(--safe-r)); }
+  .list-body { padding-bottom: calc(110px + var(--safe-b)); padding-left: calc(var(--col-pad-l) + var(--safe-l)); padding-right: calc(var(--col-pad-r) + var(--safe-r)); }
+  .toolbar { display: none; }
+  .topbar {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(44px + var(--safe-t));
+    padding: var(--safe-t) calc(10px + var(--safe-r)) 0 calc(8px + var(--safe-l));
+    background: var(--bg);
+    position: relative;
+    z-index: 3;
+  }
+  .topbar .tb-btn {
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    color: #8e95a0;
+    border-radius: 20px;
+  }
+  .topbar .tb-btn:active { background: #f0f1f3; }
+  .topbar .tb-right { display: flex; align-items: center; gap: 2px; }
+  .topbar .tb-search svg { width: 19px; height: 19px; }
+  .topbar .tb-more { width: 44px; }
+  .topbar .tb-title {
+    position: absolute; left: 60px; right: 60px; top: var(--safe-t); height: 44px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 16px; font-weight: 600; color: var(--ink-3);
+    opacity: 0; transition: opacity .15s;
+    pointer-events: none;
+  }
+  .topbar.scrolled .tb-title { opacity: 1; }
+  .topbar.scrolled { box-shadow: 0 1px 0 var(--line-2); }
+  .topbar .tb-title svg { width: 18px; height: 18px; }
+  .footer {
+    position: static;
+    justify-content: center;
+    gap: 14px;
+    margin: 26px 0 0;
+    font-size: 13px;
+    color: #b0b3b8;
+  }
+  .footer .todo-count { display: none; }
+  .footer .clear-completed { font-size: 13px; color: #9a9ea4; }
+  .empty-state { padding-top: 120px; }
+  .menu { font-size: 16px; min-width: 220px; border-radius: 12px; }
+  .menu-item { height: 40px; padding: 0 12px; }
+}

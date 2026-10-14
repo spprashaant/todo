@@ -1,0 +1,12 @@
+{
+  "pick": {
+    "desktop": "A",
+    "phone": "B"
+  },
+  "gaps": {
+    "desktop": "The canvas behind the card is a cool slate blue-grey (about #F1F3F7). It clashes with the neutral #AAAAAA toolbar icons and the pure-white card, so the composer looks like a web dashboard rather than a native sheet. The card's top edge also lands on a half pixel, leaving a soft 1px #F1F1F1 line. The winner puts the same card on a neutral near-white canvas (about #FAFAFA), with a pixel-snapped edge and only the soft shadow to lift it. Fix: use a neutral canvas and snap the card to whole pixels.",
+    "phone": "Everything renders soft, as if upscaled. The checkbox ring is a fuzzy 2.5px grey band (about #C8C8C8) instead of a crisp 1.5px stroke, and the title 'Buy suitcase' has about 56% mid-tone edge pixels against the winner's 45%, so it looks smeared and heavier. The bottom-right card corner also breaks into blocky artifacts at the screen edge. The winner draws a crisp 1.5px checkbox ring, sharp text and icons, and a clean rounded corner. Fix: render at native device scale and use hairline strokes of 1 to 1.5pt."
+  },
+  "why": "Desktop cards are nearly pixel-identical, so the neutral canvas and crisp edge win it. On phone the winner's crisp checkbox, text and corner beat the loser's soft, upscaled-looking rendering.",
+  "at": "2026-09-26T03:40:14.633Z"
+}

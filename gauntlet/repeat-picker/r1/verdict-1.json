@@ -1,0 +1,19 @@
+{
+  "critic": 1,
+  "pick": {
+    "after": "B",
+    "weekly": "A",
+    "monthly": "A",
+    "kinds": "B",
+    "phone": "B"
+  },
+  "gaps": {
+    "after": "The loser never says what will happen: the kind reads a vague 'Periodically' and the field is 'Days after completion' with a bare '7 v' floating at the far right, with no next date, no Ends row, and turning repeat off is an unlabelled ~70px lavender icon tile in the footer. The winner splits it into 'Every [7] days' (number in a ~32x28px filled field plus a unit menu), adds an Ends row, a muted ~13px 'Done today? Next: Sun, Oct 23' preview line, and a labelled 'x Stop Repeating' row.",
+    "weekly": "The loser's weekday picker is seven bare ~16px checkboxes over single-letter labels S M T W T F S, so the two T's and two S's are ambiguous and it reads like a web form. The winner uses one 7-segment toggle bar of ~40x34px rounded chips with 3-letter labels (Sun...Sat), the selected Fri filled solid blue with white text, followed by a 'Next: Fri, Oct 6' line confirming the result.",
+    "monthly": "The loser shows no outcome: there is no next-occurrence line and no Ends row under the two radio options, and the disabled 'On day' option reads 'Last v' instead of a concrete day, so you cannot tell what date it lands on. The winner keeps the same two radios but shows the inactive option as '29th' and adds a muted ~13px 'Next: Fri, Oct 27' line plus 'Ends: Never' below them.",
+    "kinds": "The loser's kind list is a generic OS dropdown of ~20px items on ~58px rows that spills outside the popover, covers the weekday row and gets clipped at the bottom ('Periodically' is cut in half), and gives no hint of what each kind means. The winner expands the list inline inside the popover on ~34px rows, each kind with a right-aligned muted preview ('Every day', 'Fridays', 'The 29th', 'Sep 29', '1 week'), the current one checked in blue, and After Completion set apart below a hairline.",
+    "phone": "On the phone the loser's row label truncates to 'R...' next to the repeat glyph while the value '4 days after completion' takes the full width, so the row loses its label and looks broken. The winner keeps a full ~22px 'Repeat' label with a short value ('After Completion') and moves the details onto their own rows below ('Every [4] days', 'Ends Never', 'Done today? Next: Mon, Apr 1')."
+  },
+  "why": "The winner always spells out the result (a Next-date preview, a summary for each kind, a labelled Stop Repeating) with native-feeling segmented controls; the loser uses vague labels, checkbox forms, an overflowing OS menu, an unlabelled footer icon and a truncated label on the phone.",
+  "at": "2026-09-26T09:24:21.449Z"
+}
