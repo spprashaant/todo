@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher shortcut "Today": a star, as in the app's Today list. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:fillColor="#FFFFFFFF" android:pathData="M24,24 m-24,0 a24,24 0 1,0 48,0 a24,24 0 1,0 -48,0" />
+    <path
+        android:fillColor="#FFFDD116"
+        android:pathData="M24,10.5 L28.1,19 L37.5,20.3 L30.7,26.8 L32.4,36.1 L24,31.6 L15.6,36.1 L17.3,26.8 L10.5,20.3 L19.9,19 Z" />
+</vector>

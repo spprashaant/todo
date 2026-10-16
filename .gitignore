@@ -33,3 +33,10 @@ desktop.ini
 .dev.vars*
 !.dev.vars.example
 !.env.example
+
+# Android release signing (scripts/generate-keystore.sh). The key and its passwords never go in git.
+*.keystore
+*.jks
+keystore.properties
+release.keystore.base64.txt
+android/app/release/

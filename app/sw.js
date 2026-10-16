@@ -1,6 +1,6 @@
 // Service worker (shared): network-first for everything same-origin, with the app shell
 // cached so the app opens offline. Paths are relative to this file, so any base path works.
-const VERSION = 'todos-v4';
+const VERSION = 'todos-v5';
 const SHELL = [
   './',
   './index.html',
@@ -10,7 +10,7 @@ const SHELL = [
   './css/repeat.css', './css/account.css',
   './js/app.js', './js/store.js', './js/router.js', './js/dates.js', './js/view.js', './js/icons.js',
   './js/rows.js', './js/project.js', './js/sidebar.js', './js/detail.js', './js/when.js', './js/quickfind.js', './js/composer.js',
-  './js/recur.js', './js/repeat.js', './js/config.js', './js/sync.js', './js/account.js', './vendor/supabase.mjs',
+  './js/recur.js', './js/repeat.js', './js/config.js', './js/sync.js', './js/account.js', './js/native.js', './vendor/supabase.mjs',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png',
 ];
 

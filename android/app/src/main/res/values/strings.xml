@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Todos</string>
+    <string name="title_activity_main">Todos</string>
+    <string name="package_name">dev.coderlog.todos</string>
+    <string name="custom_url_scheme">dev.coderlog.todos</string>
+    <string name="shortcut_new_short">New To-Do</string>
+    <string name="shortcut_new_long">New To-Do</string>
+    <string name="shortcut_today_short">Today</string>
+    <string name="shortcut_today_long">Open Today</string>
+    <string name="shortcut_search_short">Quick Find</string>
+    <string name="shortcut_search_long">Quick Find</string>
+</resources>
