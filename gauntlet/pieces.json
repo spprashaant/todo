@@ -17,7 +17,7 @@
           "ref": "bar/crops/today-desktop.png",
           "seed": "gauntlet/seeds/today-desktop.json",
           "now": "2017-05-18T09:41:00-04:00",
-          "route": "#/today",
+          "route": "#/today/all",
           "viewport": {
             "width": 900,
             "height": 720
@@ -34,7 +34,7 @@
           "ref": "bar/crops/today-phone.png",
           "seed": "gauntlet/seeds/today-phone.json",
           "now": "2017-05-18T09:41:00-04:00",
-          "route": "#/today",
+          "route": "#/today/all",
           "viewport": {
             "width": 375,
             "height": 646
@@ -115,7 +115,7 @@
           "ref": "bar/crops/sidebar-desktop.png",
           "seed": "gauntlet/seeds/sidebar-desktop.json",
           "now": "2022-10-04T09:41:00-04:00",
-          "route": "#/project/p_pres",
+          "route": "#/project/p_pres/all",
           "viewport": {
             "width": 900,
             "height": 730
@@ -357,7 +357,7 @@
           "ref": "bar/crops/composer-desktop.png",
           "seed": "gauntlet/seeds/composer-desktop.json",
           "now": "2017-05-18T09:41:00-04:00",
-          "route": "#/",
+          "route": "#/all",
           "viewport": {
             "width": 900,
             "height": 640

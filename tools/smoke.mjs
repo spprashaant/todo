@@ -16,13 +16,19 @@ await check('empty start, h1 Todos visible, composer focused', async () => {
   const f = await page.evaluate(() => document.activeElement?.className);
   if (!String(f).includes('new-todo')) throw new Error('focused: ' + f);
 });
-await check('add 3 to Inbox, complete one, persists on reload', async () => {
+await check('add 3 to Inbox, complete one, persists on reload; Active by default, All on #/all', async () => {
   for (const t of ['Buy milk', 'Call mom', 'Pay rent']) { await page.locator('.new-todo').fill(t); await page.keyboard.press('Enter'); }
-  await page.locator('.todo-list li').nth(1).locator('.toggle').check();
+  await page.locator('.todo-list li').nth(1).locator('.toggle').click(); // under Active the row leaves the list at once
   await page.reload(); await page.waitForLoadState('networkidle');
+  const sel = await page.locator('.filters a.selected').textContent();
+  if (sel !== 'Active') throw new Error('selected pill: ' + sel);
+  const a = await page.locator('.todo-list li').count();
+  if (a !== 2) throw new Error(`active shows ${a}`);
+  await page.goto(BASE + '#/all'); await page.waitForTimeout(200);
   const n = await page.locator('.todo-list li').count(), c = await page.locator('.todo-list li.completed').count();
   if (n !== 3 || c !== 1) throw new Error(`n=${n} completed=${c}`);
-  return `3 items, 1 completed`;
+  await page.goto(BASE + '#/'); await page.waitForTimeout(200);
+  return `3 items, 1 completed; Active shows 2`;
 });
 await check('Today view: composer adds with when=today; sidebar count', async () => {
   await page.goto(BASE + '#/today'); await page.waitForTimeout(300);

@@ -136,8 +136,26 @@ check('notification shape: channel, exact-while-idle, extra.todoId', () => {
   const n = toNotification(d);
   assert.equal(n.channelId, 'todos_reminders');
   assert.equal(n.schedule.allowWhileIdle, true);
+  assert.equal(n.isExactNotification, true);
   assert.ok(n.schedule.at instanceof Date);
-  assert.deepEqual(n.extra, { todoId: 'a', at: d.at.getTime() });
+  assert.deepEqual(n.extra, { todoId: 'a', at: d.at.getTime(), exact: true });
+  // exact alarms off: scheduled inexact (the plugin must never be left to ask for the setting itself)
+  const i = toNotification(d, false);
+  assert.equal(i.isExactNotification, false);
+  assert.equal(i.extra.exact, false);
+});
+
+check('a reminder scheduled inexact is re-scheduled once exact alarms are allowed, and the reverse', () => {
+  const want = desiredReminders([todo('a', { when: 'today', reminder: '18:00' })], NOW);
+  const inexact = want.map(d => toNotification(d, false)), exact = want.map(d => toNotification(d, true));
+  assert.deepEqual(diffReminders(inexact, want, true), { cancel: [reminderId('a')], schedule: want });
+  assert.deepEqual(diffReminders(exact, want, false), { cancel: [reminderId('a')], schedule: want });
+  assert.deepEqual(diffReminders(exact, want, true), { cancel: [], schedule: [] });
+  assert.deepEqual(diffReminders(inexact, want, false), { cancel: [], schedule: [] });
+  // without the flag (older pending entries, or a caller that doesn't care) the way it was scheduled is not compared
+  assert.deepEqual(diffReminders(inexact, want), { cancel: [], schedule: [] });
+  const old = exact.map(n => ({ ...n, extra: { todoId: n.extra.todoId, at: n.extra.at } }));
+  assert.deepEqual(diffReminders(old, want, false), { cancel: [], schedule: [] });
 });
 
 check('launcher shortcut URLs', () => {

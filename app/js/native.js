@@ -70,30 +70,39 @@ function pendingAt(p) {
  * Compares the phone's pending notifications with what is wanted. Pending ones of ours (they carry
  * `extra.todoId`) that are no longer wanted, or whose time, title or body changed, are cancelled; wanted
  * ones that are missing or changed are scheduled. Other apps' notifications don't exist here, and
- * anything pending without `extra.todoId` is left alone. Returns { cancel: [id], schedule: [desired] }.
+ * anything pending without `extra.todoId` is left alone. With `exact` given, a pending reminder that was
+ * scheduled the other way (inexact while exact alarms were off, or the reverse) is re-scheduled too.
+ * Returns { cancel: [id], schedule: [desired] }.
  */
-export function diffReminders(pending, desired) {
+export function diffReminders(pending, desired, exact) {
   const want = new Map(desired.map(d => [d.id, d]));
   const cancel = [], keep = new Set();
   for (const p of pending || []) {
     if (!p || p.extra?.todoId == null) continue;
     const d = want.get(p.id);
-    const same = d && pendingAt(p) === d.at.getTime() && p.title === d.title && p.body === d.body && p.extra.todoId === d.todoId;
+    const sameExact = exact === undefined || p.extra.exact === undefined || p.extra.exact === !!exact;
+    const same = d && sameExact && pendingAt(p) === d.at.getTime() && p.title === d.title && p.body === d.body && p.extra.todoId === d.todoId;
     if (same) keep.add(p.id);
     else cancel.push(p.id);
   }
   return { cancel, schedule: desired.filter(d => !keep.has(d.id)) };
 }
 
-/** The plugin's shape of one wanted reminder. */
-export function toNotification(d) {
+/**
+ * The plugin's shape of one wanted reminder. `exact` says whether the phone lets this app set exact alarms
+ * (Android 12+): with it the alarm fires at the minute; without it Android may deliver it minutes late.
+ * It is passed explicitly because the plugin, left to its default (exact), opens the "Alarms & reminders"
+ * settings screen from inside every schedule() call it can't honour, and reconcile() runs on every change.
+ */
+export function toNotification(d, exact = true) {
   return {
     id: d.id,
     title: d.title,
     body: d.body,
     schedule: { at: d.at, allowWhileIdle: true },
     channelId: CHANNEL_ID,
-    extra: { todoId: d.todoId, at: d.at.getTime() },
+    isExactNotification: !!exact,
+    extra: { todoId: d.todoId, at: d.at.getTime(), exact: !!exact },
   };
 }
 
@@ -136,9 +145,9 @@ function afterRoute(hash, fn) {
 /** What a shortcut does, in the running app. */
 export function runLaunchAction(action) {
   if (action === 'new') {
-    afterRoute('#/today/active', () => { if (ui.editingId) detail.close(); composer.open(); });
+    afterRoute('#/today', () => { if (ui.editingId) detail.close(); composer.open(); });
   } else if (action === 'today') {
-    router.go('#/today/active');
+    router.go('#/today');
   } else if (action === 'search') {
     quickfind.open({ route: router.parse() });
   }
@@ -146,7 +155,7 @@ export function runLaunchAction(action) {
 
 /** A tapped reminder: Today, with the to-do's card open if it is still there and still open. */
 export function openReminder(todoId) {
-  afterRoute('#/today/active', () => {
+  afterRoute('#/today', () => {
     const t = todoId != null ? getTodo(String(todoId)) : null;
     if (t && !t.completed) detail.open(t.id);
   });
@@ -207,7 +216,7 @@ function handleUrl(url) {
 /**
  * Notification permission (Android 13+), asked for once, the first time there is something to remind
  * about; a refusal is respected and never asked about again (the system settings can turn it on later).
- * Exact timing (Android 12+) is a settings screen the user is sent to once. Returns whether we may schedule.
+ * Returns whether we may schedule.
  */
 async function ensurePermission() {
   let { display } = await LN.checkPermissions();
@@ -215,15 +224,27 @@ async function ensurePermission() {
     localStorage.setItem(ASKED_NOTIFY_KEY, '1');
     ({ display } = await LN.requestPermissions());
   }
-  if (display !== 'granted') return false;
+  return display === 'granted';
+}
+
+/**
+ * Whether the app may set exact alarms (Android 12+; always on older phones). The manifest asks for
+ * USE_EXACT_ALARM, which Android 13+ grants outright, so this is normally true; on Android 12 the user can
+ * switch it off under "Alarms & reminders", and the one time that is seen the settings screen is offered.
+ * Reminders are still scheduled either way (inexact when it is off), so nothing here ever loops.
+ */
+async function exactAllowed() {
   try {
-    const { exact_alarm } = await LN.checkExactNotificationSetting();
+    let { exact_alarm } = await LN.checkExactNotificationSetting();
     if (exact_alarm !== 'granted' && !localStorage.getItem(ASKED_EXACT_KEY)) {
       localStorage.setItem(ASKED_EXACT_KEY, '1');
-      await LN.changeExactNotificationSetting();
+      ({ exact_alarm } = await LN.changeExactNotificationSetting());
     }
-  } catch (err) { console.warn('native: exact alarm setting', err); }
-  return true;
+    return exact_alarm === 'granted';
+  } catch (err) {
+    console.warn('native: exact alarm setting', err);
+    return false;
+  }
 }
 
 /**
@@ -238,9 +259,13 @@ export function reconcile() {
       const desired = desiredReminders(state.todos, new Date());
       const pending = (await LN.getPending()).notifications || [];
       if (desired.length && !(await ensurePermission())) return;
-      const { cancel, schedule } = diffReminders(pending, desired);
+      const exact = desired.length ? await exactAllowed() : true;
+      const { cancel, schedule } = diffReminders(pending, desired, exact);
       if (cancel.length) await LN.cancel({ notifications: cancel.map(id => ({ id })) });
-      if (schedule.length) await LN.schedule({ notifications: schedule.map(toNotification) });
+      if (schedule.length) {
+        const r = await LN.schedule({ notifications: schedule.map(d => toNotification(d, exact)) });
+        if (r?.warning) console.warn('native: schedule', r.warning);
+      }
     } catch (err) {
       console.warn('native: reconcile', err);
     } finally {

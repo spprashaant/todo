@@ -42,4 +42,13 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Reminders (local notifications). POST_NOTIFICATIONS is asked for at run time on Android 13+.
+         Exact timing: on Android 12 (API 31-32) SCHEDULE_EXACT_ALARM is granted on install and the user can
+         switch it off under "Alarms & reminders"; on Android 13+ USE_EXACT_ALARM is granted outright, so a
+         reminder fires at its minute without a settings trip. The plugin also declares SCHEDULE_EXACT_ALARM
+         (merged in); the maxSdkVersion here keeps the pair as Android documents it. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 </manifest>

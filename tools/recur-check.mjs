@@ -42,8 +42,13 @@ async function ensureServer() {
 // ---------- harness ----------
 let browser;
 const PHONE = { width: 390, height: 844 };
+// The scenarios below were written when a bare route showed All (a ticked occurrence stays in its list, checked,
+// until cleared). A bare route is Active now, so the harness opens the All view of every bare route it is
+// given; a route that names its filter (`/active`, `/all`, `/completed`) and the Logbook are opened as written.
+const allRoute = r => /^#\/(?:(?:today|upcoming|anytime|someday|project\/[^/]+|area\/[^/]+)\/?)?$/.test(r) ? r.replace(/\/?$/, '/all').replace('#//all', '#/all') : r;
 // touch: a phone-like context (touch screen, mobile viewport handling); rows are then ticked with a tap
 async function openApp({ todos, route = '#/', now = NOW, lists = LISTS, viewport = { width: 1200, height: 800 }, touch = false }) {
+  route = allRoute(route);
   const context = await browser.newContext({ viewport, locale: 'en-US', timezoneId: 'America/New_York', serviceWorkers: 'block', ...(touch ? { hasTouch: true, isMobile: true } : {}) });
   const page = await context.newPage();
   const errors = [];
@@ -61,7 +66,7 @@ async function openApp({ todos, route = '#/', now = NOW, lists = LISTS, viewport
   await page.waitForTimeout(150);
   const app = {
     page, context, errors,
-    async go(r) { await page.goto(BASE + r, { waitUntil: 'networkidle' }); await page.waitForTimeout(150); },
+    async go(r) { await page.goto(BASE + allRoute(r), { waitUntil: 'networkidle' }); await page.waitForTimeout(150); },
     async setDay(day) { await page.clock.setFixedTime(new Date(at(day))); await page.reload({ waitUntil: 'networkidle' }); await page.waitForTimeout(150); },
     async reload() { await page.reload({ waitUntil: 'networkidle' }); await page.waitForTimeout(150); },
     all: () => page.evaluate(() => JSON.parse(localStorage.getItem('things-todos') || '[]')),
@@ -91,7 +96,7 @@ async function openApp({ todos, route = '#/', now = NOW, lists = LISTS, viewport
     async newTab(r = route) {
       const p2 = await context.newPage();
       p2.on('pageerror', e => errors.push('tab 2: ' + String(e)));
-      await p2.goto(BASE + r, { waitUntil: 'networkidle' });
+      await p2.goto(BASE + allRoute(r), { waitUntil: 'networkidle' });
       await p2.waitForTimeout(150);
       return p2;
     },
