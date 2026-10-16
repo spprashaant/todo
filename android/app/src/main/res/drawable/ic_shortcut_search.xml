@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher shortcut "Quick Find": a magnifying glass. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:fillColor="#FFFFFFFF" android:pathData="M24,24 m-24,0 a24,24 0 1,0 48,0 a24,24 0 1,0 -48,0" />
+    <path
+        android:fillColor="#FF3783ED"
+        android:pathData="M21.5,11 C27.3,11 32,15.7 32,21.5 C32,23.8 31.3,25.9 30,27.6 L37.2,34.8 L34.8,37.2 L27.6,30 C25.9,31.3 23.8,32 21.5,32 C15.7,32 11,27.3 11,21.5 C11,15.7 15.7,11 21.5,11 Z M21.5,14.5 C17.6,14.5 14.5,17.6 14.5,21.5 C14.5,25.4 17.6,28.5 21.5,28.5 C25.4,28.5 28.5,25.4 28.5,21.5 C28.5,17.6 25.4,14.5 21.5,14.5 Z" />
+</vector>

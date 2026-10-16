@@ -6,6 +6,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
 
 let scrim = null, panel = null, unwatch = null, shown = '', returnFocus = null;
 
+export function isOpen() { return !!scrim; }
+
 export function open() {
   if (scrim) return;
   returnFocus = document.activeElement;

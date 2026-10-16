@@ -276,6 +276,14 @@ function setOpen(v) {
   setUI({ composing: v, ...(v ? { editingId: null } : {}) });
 }
 
+/** Closes the card the way clicking away does: a titled draft is added, an empty one is kept for next time. */
+export function close() {
+  if (!ui.composing) return;
+  commit();
+  setOpen(false);
+  if (getCtx().layout === 'phone') input.blur();
+}
+
 /** The + buttons: open the card and focus the title. */
 export function open() {
   const ctx = getCtx();

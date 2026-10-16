@@ -64,7 +64,7 @@ const OPT_ICON = { today: WI.star, evening: WI.moon, someday: WI.box, date: WI.c
 // A reminder is a time of day ("HH:MM") on a to-do that is scheduled for a day: Today, This
 // Evening or a date. Someday and "no date" can't carry one, as in Things.
 export const canRemind = v => v === 'today' || v === 'evening' || isDate(v);
-const isTime = s => typeof s === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(s);
+export const isTime = s => typeof s === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(s);
 /** "18:05" -> "6:05 PM". */
 export function fmtTime(hm) {
   const [h, m] = hm.split(':').map(Number);
