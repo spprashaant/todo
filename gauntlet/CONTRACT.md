@@ -56,7 +56,7 @@ The suite runs at a viewport of 890×660 and starts every test with empty localS
 - Editing: Enter saves the trimmed title, and an empty title deletes the to-do. Blur saves. Escape cancels and restores the old title. While a `li` is editing, its `.toggle` and `label` are not visible.
 - `input.toggle-all[type=checkbox]`: checking it completes all, and unchecking it un-completes all. Its checked state tracks "every to-do completed". The spec uses `force`, so it may be visually hidden, but it must work and be reachable from the UI, for example via a `<label for>` in a menu.
 - `.footer` is not visible when there are no to-dos, and visible otherwise. It contains `span.todo-count` with the number of active to-dos (for example "2 items left").
-- `.filters li a` with the texts `Active`, `All` and `Completed`, in that order, linking to `#/active`, `#/` and `#/completed` in the Inbox (other lists use their own prefix, see Routes). The current one has `a.selected`. The back button must work.
+- `.filters li a` with the texts `Active`, `All` and `Completed`, in that order, linking to `#/`, `#/all` and `#/completed` in the Inbox (other lists use their own prefix, see Routes). The current one has `a.selected`. The back button must work.
 - `button.clear-completed` contains the text `Clear completed` and is visible only when at least one to-do is completed.
 - Persistence: localStorage key `things-todos` holds a JSON array of to-dos with at least `title` and `completed`. Write it synchronously on every change, with no debounce. Store nothing else as a JSON array.
 - With empty storage the app starts with nothing. No sample data, ever.
@@ -173,9 +173,9 @@ Signed in (Settings menu → Sync… on desktop, the list menu → Sync… on ph
 
 ## Views and routes
 
-- Inbox is the default view. It holds to-dos with no `when`, no `project` and no `area`. Its routes are `#/`, `#/active` and `#/completed`. New to-dos typed in the Inbox go to the Inbox.
-- The other views are `#/today`, `#/upcoming`, `#/anytime`, `#/someday`, `#/logbook`, `#/project/<id>` and `#/area/<id>`. Each takes an optional filter suffix, `/active` or `/completed`. Their filter links point at the same list, for example `#/today/active`.
-- A bare route (`#/`, `#/today`, …) shows All, as TodoMVC expects. The sidebar, Quick Find's list results, an area's project list and the list headings in Anytime and Someday open a list under Active (`#/active`, `#/today/active`, `#/project/<id>/active`), and the installed app starts at `#/active`. The Logbook holds only finished to-dos, so it opens under All.
+- Inbox is the default view. It holds to-dos with no `when`, no `project` and no `area`. Its routes are `#/` (Active), `#/all` and `#/completed`; `#/active` is accepted as a synonym of `#/`. New to-dos typed in the Inbox go to the Inbox.
+- The other views are `#/today`, `#/upcoming`, `#/anytime`, `#/someday`, `#/logbook`, `#/project/<id>` and `#/area/<id>`. Each takes an optional filter suffix, `/active`, `/all` or `/completed`. Their filter links point at the same list, for example `#/today/all`.
+- A bare route (`#/`, `#/today`, …) shows Active: every list opens under Active, wherever it is opened from (the sidebar, Quick Find, an area's project list, the list headings in Anytime and Someday, the keyboard shortcuts, the app's start). All is an explicit `/all` segment (`#/all`, `#/today/all`, `#/project/<id>/all`). The Logbook holds only finished to-dos, so it is the one list whose bare route is All (`#/logbook`; `#/logbook/active` and `#/logbook/completed` exist). This departs from TodoMVC, whose spec expects `#/` to show All: its tests that complete an item and expect to still see it, and the one expecting All to be highlighted at start, fail by design since the switch to Active by default.
 - `#/lists` is the phone home screen, the sidebar shown full-screen. On desktop it shows the sidebar selection-free next to Inbox content.
 - Today shows today's to-dos, overdue dated ones and today-deadline ones, then a "This Evening" section. Each row carries its project or area name as a subtitle.
 - A project view shows a header (pie, title, more button, notes), then the filter pills, to-dos without a heading, then one section per heading.

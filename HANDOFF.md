@@ -6,7 +6,7 @@ Updated 2026-09-27. Project root is `/Users/pr/Desktop/dev/Todo`. It is a git re
 
 Every list now opens under **Active**, and the pills read Active, All, Completed. Under All, open to-dos come first in each section and finished ones sink to its bottom.
 
-- `router.listHref(view, id)` is the hash that opens a list (its `/active` route; the Logbook stays All). The sidebar, Quick Find's list results, an area's project list and the list headings in Anytime and Someday use it. The installed app's `start_url` is `./#/active`.
+- `router.listHref(view, id)` is the hash that opens a list: its bare route, which is Active (the Logbook's is All). The sidebar, Quick Find's list results, an area's project list and the list headings in Anytime and Someday use it. All is the explicit `/all` segment (`#/all`, `#/today/all`). The installed app's `start_url` is `./#/active`, a synonym of `#/`. Active by default departs from TodoMVC's spec (it expects `#/` to show All and the All pill highlighted at start), so `tools/suite.sh` has failures by design since this change: the tests that complete an item and expect to still see it, and the highlighted-filter one.
 - The bare routes (`#/`, `#/today`, …) still mean All, because the TodoMVC spec visits `#/` and expects All selected with finished to-dos visible. A plain browser visit to the root URL therefore still lands on Inbox under All.
 - The sort lives at the end of `buildModel()` in `app/js/view.js`. Rows are cached by id and moved, not rebuilt, so a ticked row slides down without losing its card or focus.
 - `tools/patch-spec.sh` now re-aliases the persistence test's rows by text after reload (the official spec's aliases pointed at specific to-dos), since by index the finished one is no longer first.
@@ -134,7 +134,7 @@ Plain HTML, CSS and ES modules, with no build step and no network dependencies. 
 - file layout and per-piece ownership (`app/css/<piece>.css`, `app/js/<piece>.js`), plus the shared files (`store.js`, `router.js`, `view.js`, `icons.js`, `base.css`, `index.html`)
 - the TodoMVC DOM contract
 - the data model (`localStorage["things-todos"]` array, `["things-lists"]` object)
-- the routes (`#/` Inbox, `#/today`, `#/upcoming`, `#/anytime`, `#/someday`, `#/logbook`, `#/project/<id>`, `#/area/<id>`, `#/lists` phone home, each with an optional `/active` or `/completed` suffix)
+- the routes (`#/` Inbox, `#/today`, `#/upcoming`, `#/anytime`, `#/someday`, `#/logbook`, `#/project/<id>`, `#/area/<id>`, `#/lists` phone home, each with an optional `/active`, `/all` or `/completed` suffix; a bare route is Active, except the Logbook's, which is All)
 - the `data-shot` screenshot hooks and PWA requirements
 
 Features: sidebar and phone lists home, Today with This Evening, projects with headings, tags, date badges and progress pies, the open to-do card (notes, checklist, when, tags, deadline), the When picker (calendar, natural-language "in 3", Someday, Add Reminder), Quick Find (`/` or Cmd/Ctrl+F), a composer card (toolbar + on desktop, floating + on phone), the Logbook, and a network-first service worker with offline shell.
@@ -204,6 +204,7 @@ The web app in `app/` is also an Android app: Capacitor 8 wraps it in a WebView 
 **Known limits**
 - Email/password sign-in only, as on the web; no OAuth or deep-link sign-in.
 - Reminders depend on the exact-alarm setting and on the maker's battery settings; a phone that kills background alarms will miss them. The browser copy still fires nothing.
+- **Exact timing.** The manifest asks for `USE_EXACT_ALARM` (granted outright on Android 13+, no settings trip; Google Play reserves it for apps whose core is alarms, reminders or calendar events, which reminders are here) and `SCHEDULE_EXACT_ALARM` with `maxSdkVersion 32` (Android 12, granted on install, revocable under "Alarms & reminders"). `reconcile()` reads `checkExactNotificationSetting()` and passes the answer as `isExactNotification` on every notification it schedules: exact when allowed, inexact (Android may be minutes late) when not. That flag matters: the plugin (8.3) defaults it to exact and, when exact alarms are off, opens the settings screen from inside every `schedule()` call, and `reconcile()` runs on every store change and resume, which looped the screen. The settings screen is offered once, the first time exact alarms are seen off. A reminder scheduled the other way is re-scheduled when the setting changes (`extra.exact`, compared by `diffReminders` when it is given the current setting).
 - Today and This Evening reminders are scheduled one day at a time: tomorrow's is created by the next reconcile after midnight (a resume or a store change). An app not opened for days reminds only for the last day it was opened on; dated to-dos are scheduled ahead regardless.
 - The WebView is the system one (Chromium); very old WebViews (< v140) handle `viewport-fit=cover` through Capacitor's `insetsHandling` default (`css`), which also fills `--safe-area-inset-*`.
 - Gradle needs Google's Maven, so a sandbox without it can't build; CI can.
