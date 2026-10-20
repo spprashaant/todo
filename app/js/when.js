@@ -4,6 +4,7 @@
 import { parseWhen, calendarWeeks, startOfToday, iso, addDays, DAYS_SHORT, MONTHS_SHORT, todayISO, isDate } from './dates.js';
 import * as repeat from './repeat.js';
 import { getTodo, subscribe, refresh } from './store.js';
+import { mirrorFontSize } from './caret.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 let cur = null;
@@ -403,6 +404,8 @@ export function open({ anchor, reanchor, value = null, mode = 'when', onPick, re
     if (!input || !input.isConnected) return;
     const collapsed = input.selectionStart === input.selectionEnd;
     if (document.activeElement !== input || !collapsed) { caret.hidden = true; return; }
+    // Android scales page text but not a field's: the measure takes the size that matches the field's text
+    measure.style.fontSize = mirrorFontSize(input) + 'px';
     measure.textContent = input.value.slice(0, input.selectionStart ?? input.value.length);
     const x = measure.getBoundingClientRect().width - input.scrollLeft;
     caret.hidden = x < -1 || x > input.clientWidth + 1;
