@@ -12,7 +12,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
 let root, input, notes, getCtx;
 let draft = freshDraft();
 
-function freshDraft() { return { notes: '', when: undefined, repeat: null, tags: [], deadline: null, checklist: [] }; }
+function freshDraft() { return { notes: '', when: undefined, reminder: null, repeat: null, tags: [], deadline: null, checklist: [] }; }
 
 export function mount(el, ctxGetter) {
   root = el;
@@ -84,7 +84,7 @@ export function mount(el, ctxGetter) {
         update(ctx);
         focusChecklist(draft.checklist[draft.checklist.length - 1].id);
         break;
-      case 'clear-when': draft.when = null; update(ctx); input.focus(); break;
+      case 'clear-when': draft.when = null; draft.reminder = null; update(ctx); input.focus(); break;
       case 'clear-deadline': draft.deadline = null; update(ctx); input.focus(); break;
       case 'clear-repeat': draft.repeat = null; update(ctx); input.focus(); break;
     }
@@ -218,13 +218,16 @@ function focusChecklist(cid) {
 
 function autosize(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
 
-// The When picker for the draft, with its Repeats section: the rule stays in the draft until the to-do
-// is added. Chips redrawn as the rule changes are found again, so the picker keeps to its anchor.
+// The When picker for the draft, with its Repeats section and Add Reminder: the rule and the reminder
+// stay in the draft until the to-do is added. Chips redrawn as either changes are found again, so the
+// picker keeps to its anchor (a reminder added from the When button puts the draft in Today, and the
+// When chip takes the button's place).
 function openWhen(anchor) {
   const same = anchor.classList.contains('chip-repeat') ? '.chip-repeat' : anchor.classList.contains('chip-when') ? '.chip-when' : '.card-act[data-act="when"]';
   when.open({
-    anchor, reanchor: () => root.querySelector(same), value: effectiveWhen(getCtx()),
-    onPick: v => { draft.when = v; update(getCtx()); },
+    anchor, reanchor: () => root.querySelector(same) || root.querySelector('.chip-when'), value: effectiveWhen(getCtx()),
+    reminder: draft.reminder,
+    onPick: (v, r) => { draft.when = v; draft.reminder = r; update(getCtx()); },
     repeatDraft: { get: () => draft.repeat, set: r => { draft.repeat = r; update(getCtx()); } },
     returnFocus: input,
   });
@@ -245,6 +248,7 @@ function commit() {
     ...fields,
     title,
     notes: draft.notes.trim(),
+    reminder: when.canRemind(fields.when) && when.isTime(draft.reminder) ? draft.reminder : null,
     repeat: draft.repeat,
     tags: draft.tags.slice(),
     deadline: draft.deadline,
@@ -326,7 +330,7 @@ export function update(ctx) {
   // chips
   const w = effectiveWhen(ctx);
   let chips = '';
-  if (w) chips += `<span class="chip-wrap">${whenChipHTML(w).replace('data-action="when"', 'data-act="when-chip"')}</span>`;
+  if (w) chips += `<span class="chip-wrap">${whenChipHTML(w, draft.reminder).replace('data-action="when"', 'data-act="when-chip"')}</span>`;
   if (draft.repeat) chips += `<span class="chip-wrap chip-wrap-repeat">${repeatChipHTML(draft.repeat, w)}</span>`;
   if (draft.deadline) chips += `<span class="chip-wrap">${deadlineChipHTML(draft.deadline)}</span>`;
   const chipBox = body.querySelector('.card-chips');
