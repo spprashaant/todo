@@ -8,6 +8,7 @@ import {
 import { isDate, fmtRelative, fmtWeekdayDate, daysFromToday, todayISO } from './dates.js';
 import { describe as describeRepeat } from './recur.js';
 import * as when from './when.js';
+import { mirrorFontSize } from './caret.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const mounted = new WeakMap(); // li -> { id, original }
@@ -219,6 +220,7 @@ function placeCaret() {
   const mirror = document.createElement('div');
   mirror.className = 'card-caret-mirror';
   for (const p of MIRRORED) mirror.style[p] = cs[p];
+  mirror.style.fontSize = mirrorFontSize(f, cs) + 'px'; // as wide as the field draws it (Android scales only page text)
   mirror.style.whiteSpace = multiline ? 'pre-wrap' : 'pre';
   mirror.style.width = multiline ? f.clientWidth + 'px' : 'auto';
   mirror.textContent = f.value.slice(0, f.selectionStart);

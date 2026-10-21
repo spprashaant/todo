@@ -6,6 +6,7 @@ import { icon } from './icons.js';
 import { ui, addTodo, setUI, uid } from './store.js';
 import * as when from './when.js';
 import { whenChipHTML, deadlineChipHTML, repeatChipHTML, openTagMenu, menuOpen } from './detail.js';
+import { mirrorFontSize } from './caret.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -162,6 +163,7 @@ function caretBar(field) {
     if (!on) return;
     const cs = getComputedStyle(field);
     for (const p of MIRRORED) mirror.style[p] = cs[p];
+    mirror.style.fontSize = mirrorFontSize(field, cs) + 'px'; // as wide as the field draws it (Android scales only page text)
     mirror.style.whiteSpace = multiline ? 'pre-wrap' : 'pre';
     mirror.style.width = multiline ? field.clientWidth + 'px' : 'auto';
     mirror.textContent = field.value.slice(0, field.selectionStart);
