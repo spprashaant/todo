@@ -12,6 +12,8 @@ import * as composer from './composer.js';
 import * as quickfind from './quickfind.js';
 import * as when from './when.js';
 import * as account from './account.js';
+import * as sounds from './sounds.js';
+import { isNative } from './native.js';
 
 const $ = id => document.getElementById(id);
 const phoneMQ = matchMedia('(max-width: 699px)');
@@ -405,6 +407,7 @@ export function init() {
     openMenu: (a, items, o) => detail.openMenu(a, items, o),
     quickfind: () => quickfind.open({ route }),
     sync: () => account.open(),
+    sounds: isNative() ? () => sounds.open() : null, // reminders ring in the Android app alone
     // Callers usually navigate first; the header is re-rendered on the (async) hashchange, so focus after it.
     focusTitle: () => {
       const focus = () => requestAnimationFrame(() => { const t = els.header.querySelector('.lh-title'); if (t) { t.focus(); document.getSelection().selectAllChildren(t); } });
@@ -454,6 +457,7 @@ export function init() {
         { sep: true },
         { label: 'Sync…', icon: icon('cloud'), run: () => account.open() },
       ];
+      if (isNative()) items.push({ label: 'Reminder Sound…', icon: icon('bell'), run: () => sounds.open() });
       if (route.view === 'project') items.splice(2, 0, { label: 'Add Heading', icon: icon('heading-plus'), run: () => store.addHeading(route.id) });
       detail.openMenu(a, items, { align: 'end' });
     }

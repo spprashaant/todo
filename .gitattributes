@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# The bundled reminder tones (app/sounds, android/app/src/main/res/raw) are binary.
+*.wav binary
