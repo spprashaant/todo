@@ -1,17 +1,24 @@
 // Plain Node check of the Android app's reminder maths (app/js/native.js): desiredReminders,
-// diffReminders and reminderId. No browser, no phone. Prints NATIVE GREEN / NATIVE RED.
+// diffReminders, reminderId, the channel per reminder sound (channelFor, channelSpec) and the sound choice
+// itself (app/js/sounds.js) with its bundled files. No browser, no phone. Prints NATIVE GREEN / NATIVE RED.
 //   node scripts/native-check.mjs
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // The app's modules expect a window (store.js listens for other tabs' changes at load). A stub is enough.
 globalThis.window = globalThis;
 globalThis.addEventListener = () => {};
 globalThis.removeEventListener = () => {};
-globalThis.localStorage = { getItem: () => null, setItem() {}, removeItem() {} };
+const mem = new Map(); // a localStorage that remembers, for the sound choice
+globalThis.localStorage = { getItem: k => (mem.has(k) ? mem.get(k) : null), setItem: (k, v) => mem.set(k, String(v)), removeItem: k => mem.delete(k) };
 
 const native = await import('../app/js/native.js');
 const store = await import('../app/js/store.js');
-const { desiredReminders, diffReminders, reminderId, reminderAt, toNotification, launchAction, MAX_REMINDERS } = native;
+const sounds = await import('../app/js/sounds.js');
+const { desiredReminders, diffReminders, reminderId, reminderAt, toNotification, launchAction, channelFor, channelSpec, MAX_REMINDERS, CHANNEL_ID } = native;
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const NOW = new Date(2026, 9, 16, 9, 0, 0); // Fri 16 Oct 2026 09:00 local
 const todo = (id, extra = {}) => ({
@@ -138,7 +145,7 @@ check('notification shape: channel, exact-while-idle, extra.todoId', () => {
   assert.equal(n.schedule.allowWhileIdle, true);
   assert.equal(n.isExactNotification, true);
   assert.ok(n.schedule.at instanceof Date);
-  assert.deepEqual(n.extra, { todoId: 'a', at: d.at.getTime(), exact: true });
+  assert.deepEqual(n.extra, { todoId: 'a', at: d.at.getTime(), exact: true, sound: 'default' });
   // exact alarms off: scheduled inexact (the plugin must never be left to ask for the setting itself)
   const i = toNotification(d, false);
   assert.equal(i.isExactNotification, false);
@@ -156,6 +163,109 @@ check('a reminder scheduled inexact is re-scheduled once exact alarms are allowe
   assert.deepEqual(diffReminders(inexact, want), { cancel: [], schedule: [] });
   const old = exact.map(n => ({ ...n, extra: { todoId: n.extra.todoId, at: n.extra.at } }));
   assert.deepEqual(diffReminders(old, want, false), { cancel: [], schedule: [] });
+});
+
+check('each sound has a channel of its own; Default keeps the original one; an unknown sound is Default', () => {
+  assert.equal(channelFor('default'), 'todos_reminders');
+  assert.equal(channelFor(undefined), 'todos_reminders');
+  assert.equal(channelFor('nope'), 'todos_reminders');
+  assert.equal(channelFor('chime'), 'todos_reminders_chime');
+  assert.equal(channelFor('silent'), 'todos_reminders_silent');
+  const ids = sounds.SOUNDS.map(s => channelFor(s.key));
+  assert.equal(new Set(ids).size, ids.length, 'distinct');
+  for (const id of ids) assert.ok(id.startsWith(CHANNEL_ID), id);
+});
+
+check('channel specs: a tone alerts with its file, Default with the phone\'s own sound, Silent is Android\'s silent', () => {
+  const d = channelSpec('default');
+  assert.deepEqual(d, { id: 'todos_reminders', name: 'Reminders', description: 'Reminders you set on to-dos', importance: 4, visibility: 1, vibration: true });
+  assert.deepEqual(channelSpec('chime'), { ...d, id: 'todos_reminders_chime', sound: 'chime.wav' });
+  assert.deepEqual(channelSpec('silent'), { ...d, id: 'todos_reminders_silent', importance: 2, vibration: false });
+  assert.deepEqual(channelSpec('bogus'), d);
+});
+
+check('notification shape with a sound: its channel, the file for Android 7, extra.sound', () => {
+  const [d] = desiredReminders([todo('a', { when: 'today', reminder: '18:00' })], NOW);
+  const n = toNotification(d, true, 'chime');
+  assert.equal(n.channelId, 'todos_reminders_chime');
+  assert.equal(n.sound, 'chime.wav');
+  assert.deepEqual(n.extra, { todoId: 'a', at: d.at.getTime(), exact: true, sound: 'chime' });
+  const s = toNotification(d, false, 'silent');
+  assert.equal(s.channelId, 'todos_reminders_silent');
+  assert.equal(s.sound, 'silent.wav');
+  assert.equal(s.isExactNotification, false);
+  const def = toNotification(d, true, 'default');
+  assert.equal(def.channelId, 'todos_reminders');
+  assert.equal('sound' in def, false);
+  assert.equal(def.extra.sound, 'default');
+  assert.deepEqual(toNotification(d, true, 'bogus'), def);
+});
+
+check('changing the sound re-schedules every pending reminder onto the new channel; the same sound leaves them alone', () => {
+  const want = desiredReminders([todo('a', { when: 'today', reminder: '18:00' }), todo('b', { when: 'today', reminder: '19:00' })], NOW);
+  const both = [reminderId('a'), reminderId('b')];
+  const onDefault = want.map(d => toNotification(d, true, 'default'));
+  assert.deepEqual(diffReminders(onDefault, want, true, 'chime'), { cancel: both, schedule: want });
+  assert.deepEqual(diffReminders(onDefault, want, true, 'default'), { cancel: [], schedule: [] });
+  const onChime = want.map(d => toNotification(d, true, 'chime'));
+  assert.deepEqual(diffReminders(onChime, want, true, 'chime'), { cancel: [], schedule: [] });
+  assert.deepEqual(diffReminders(onChime, want, true, 'default'), { cancel: both, schedule: want });
+  assert.deepEqual(diffReminders(onChime, want, true, 'silent'), { cancel: both, schedule: want });
+  // a reminder from before there was a choice (no extra.sound) is on the default channel
+  const old = onDefault.map(n => ({ ...n, extra: { todoId: n.extra.todoId, at: n.extra.at, exact: true } }));
+  assert.deepEqual(diffReminders(old, want, true, 'default'), { cancel: [], schedule: [] });
+  assert.deepEqual(diffReminders(old, want, true, 'pulse'), { cancel: both, schedule: want });
+  // without a sound given the channel is not compared; an unknown sound counts as Default
+  assert.deepEqual(diffReminders(onChime, want, true), { cancel: [], schedule: [] });
+  assert.deepEqual(diffReminders(onDefault, want, true, 'bogus'), { cancel: [], schedule: [] });
+  // the sound and the exact flag are compared together
+  assert.deepEqual(diffReminders(onChime, want, false, 'chime'), { cancel: both, schedule: want });
+});
+
+check('the choice: Default when unset or unknown, saved per device, listeners told once per change', () => {
+  const { SOUNDS, soundInfo, reminderSound, setReminderSound, onSoundChange } = sounds;
+  assert.equal(reminderSound(), 'default');
+  assert.equal(soundInfo('nope').key, 'default');
+  assert.equal(soundInfo(null).key, 'default');
+  assert.equal(soundInfo('glass').file, 'glass.wav');
+  const seen = [];
+  const off = onSoundChange(k => seen.push(k));
+  setReminderSound('marimba');
+  assert.equal(reminderSound(), 'marimba');
+  assert.equal(localStorage.getItem('todos-reminder-sound'), 'marimba');
+  setReminderSound('marimba'); // no change: nobody told
+  setReminderSound('bogus'); // unknown: Default, stored as nothing
+  assert.equal(reminderSound(), 'default');
+  assert.equal(localStorage.getItem('todos-reminder-sound'), null);
+  assert.deepEqual(seen, ['marimba', 'default']);
+  off();
+  setReminderSound('pulse');
+  assert.deepEqual(seen, ['marimba', 'default']);
+  setReminderSound('default');
+  assert.equal(SOUNDS[0].key, 'default');
+  assert.equal(SOUNDS[SOUNDS.length - 1].key, 'silent');
+  assert.equal(new Set(SOUNDS.map(s => s.key)).size, SOUNDS.length, 'distinct keys');
+  for (const s of SOUNDS) assert.ok(s.label && (s.file || s.note), s.key);
+});
+
+check('every bundled sound is in app/sounds and in res/raw, the same bytes, 16-bit mono PCM, with a raw-safe name', () => {
+  const files = sounds.SOUNDS.filter(s => s.file).map(s => s.file);
+  assert.ok(files.length >= 3, 'tones to choose from');
+  for (const f of [...files, 'silent.wav']) {
+    assert.match(f, /^[a-z][a-z0-9_]*\.wav$/, `${f}: an Android raw resource name (lowercase letters, digits, underscores)`);
+    const raw = readFileSync(path.join(ROOT, 'android/app/src/main/res/raw', f));
+    assert.equal(raw.toString('latin1', 0, 4), 'RIFF', f);
+    assert.equal(raw.toString('latin1', 8, 12), 'WAVE', f);
+    assert.equal(raw.readUInt16LE(20), 1, `${f}: PCM`);
+    assert.equal(raw.readUInt16LE(22), 1, `${f}: mono`);
+    assert.equal(raw.readUInt16LE(34), 16, `${f}: 16-bit`);
+    assert.equal(raw.readUInt32LE(40), raw.length - 44, `${f}: data length`);
+    if (f === 'silent.wav') continue; // res/raw only: nothing to preview
+    const web = readFileSync(path.join(ROOT, 'app/sounds', f));
+    assert.ok(web.equals(raw), `${f}: the two copies differ (run npm run android:sounds)`);
+    assert.ok(raw.length < 200_000, `${f}: small`);
+  }
+  for (const s of sounds.SOUNDS) if (s.file) assert.equal(s.file, `${s.key}.wav`, 'the file is named after the key');
 });
 
 check('launcher shortcut URLs', () => {

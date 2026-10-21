@@ -81,7 +81,7 @@ export function render(els, route, ctx) {
   if (els.search.__html !== search) { els.search.innerHTML = search; els.search.__html = search; }
 }
 
-/** api: { openMenu(anchor, items, opts), quickfind(), focusTitle(), sync() } */
+/** api: { openMenu(anchor, items, opts), quickfind(), focusTitle(), sync(), sounds() (null in a browser: the Android app's Reminder Sound panel) } */
 export function bind(els, api) {
   els.nav.addEventListener('click', e => {
     const b = e.target.closest('[data-sb-toggle]');
@@ -108,12 +108,14 @@ export function bind(els, api) {
         { label: 'New Area', icon: icon('area'), run: () => { const a = addArea({ title: 'New Area' }); go(`#/area/${encodeURIComponent(a.id)}`); api.focusTitle(); } },
       ], { above: true });
     } else if (b.dataset.sb === 'settings') {
-      api.openMenu(b, [
+      const items = [
         { label: 'Quick Find', icon: icon('search'), run: () => api.quickfind() },
         { label: 'Logbook', icon: icon('logbook'), run: () => go('#/logbook') },
         { sep: true },
         { label: 'Sync…', icon: icon('cloud'), run: () => api.sync() },
-      ], { align: 'end' });
+      ];
+      if (api.sounds) items.push({ label: 'Reminder Sound…', icon: icon('bell'), run: () => api.sounds() });
+      api.openMenu(b, items, { align: 'end' });
     }
   });
 }

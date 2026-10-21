@@ -26,6 +26,9 @@ app/js/<piece>.js         one module per piece: rows, project, sidebar, detail, 
 app/js/config.js          Supabase project URL and publishable key (shared)
 app/js/sync.js            cloud sync engine, no UI (shared)
 app/js/account.js         the Sync panel; its styles are app/css/account.css
+app/js/native.js          the Android app's glue (reminders as notifications, back button, shortcuts); nothing runs in a browser
+app/js/sounds.js          the Reminder Sound panel and the choice behind it (Android app); its styles are app/css/sounds.css
+app/sounds/               the bundled reminder tones the panel previews (android/app/src/main/res/raw/ holds the copies the channels play)
 app/vendor/supabase.mjs   @supabase/supabase-js UMD build plus one export line (do not edit)
 supabase/migrations/      the database schema, as applied to the Supabase project
 ```

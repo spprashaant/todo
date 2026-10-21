@@ -1,7 +1,8 @@
-// The Android app (Capacitor): reminders as local notifications, the back button and the launcher
-// shortcuts. In a browser `isNative()` is false, `initNative()` returns at once and nothing here runs,
-// so the web app is exactly as before. The pure parts (desiredReminders, diffReminders, reminderId,
-// handleBack) are plain functions so they can be checked outside the phone.
+// The Android app (Capacitor): reminders as local notifications (each on a notification channel made for
+// the sound chosen in the Reminder Sound panel, sounds.js), the back button and the launcher shortcuts.
+// In a browser `isNative()` is false, `initNative()` returns at once and nothing here runs, so the web app
+// is exactly as before. The pure parts (desiredReminders, diffReminders, reminderId, channelFor,
+// channelSpec, handleBack) are plain functions so they can be checked outside the phone.
 import { state, ui, subscribe, getTodo, contextTitle } from './store.js';
 import * as router from './router.js';
 import * as composer from './composer.js';
@@ -9,6 +10,8 @@ import * as quickfind from './quickfind.js';
 import * as detail from './detail.js';
 import * as when from './when.js';
 import * as account from './account.js';
+import * as sounds from './sounds.js';
+import { reminderSound, soundInfo, onSoundChange } from './sounds.js';
 import { canRemind, isTime } from './when.js';
 import { isDate, iso } from './dates.js';
 
@@ -36,6 +39,27 @@ export function reminderAt(day, hm) {
   const [y, m, d] = day.split('-').map(Number);
   const [hh, mm] = hm.split(':').map(Number);
   return new Date(y, m - 1, d, hh, mm, 0, 0);
+}
+
+/**
+ * The notification channel a sound's reminders go on. Android fixes a channel's sound when the channel is
+ * created, so each choice has a channel of its own: the original `todos_reminders` for the phone's default
+ * sound, `todos_reminders_<key>` for the others. An unknown sound is Default.
+ */
+export const channelFor = sound => { const k = soundInfo(sound).key; return k === 'default' ? CHANNEL_ID : `${CHANNEL_ID}_${k}`; };
+
+/**
+ * What createChannel() is given for a sound. Silent is Android's own silent notification (importance 2:
+ * shown, no sound, no vibration). The others alert (importance 4), with the bundled file from res/raw as
+ * the channel's sound or, for Default, none named, which leaves the phone's notification sound.
+ */
+export function channelSpec(sound) {
+  const s = soundInfo(sound), silent = s.key === 'silent';
+  return {
+    id: channelFor(s.key), name: 'Reminders', description: 'Reminders you set on to-dos',
+    importance: silent ? 2 : 4, visibility: 1, vibration: !silent,
+    ...(s.file ? { sound: s.file } : {}),
+  };
 }
 
 /**
@@ -71,17 +95,21 @@ function pendingAt(p) {
  * `extra.todoId`) that are no longer wanted, or whose time, title or body changed, are cancelled; wanted
  * ones that are missing or changed are scheduled. Other apps' notifications don't exist here, and
  * anything pending without `extra.todoId` is left alone. With `exact` given, a pending reminder that was
- * scheduled the other way (inexact while exact alarms were off, or the reverse) is re-scheduled too.
+ * scheduled the other way (inexact while exact alarms were off, or the reverse) is re-scheduled too. With
+ * `sound` given, one scheduled for another sound (so on another channel: `extra.sound`; a reminder from
+ * before there was a choice is on the default channel) is re-scheduled as well.
  * Returns { cancel: [id], schedule: [desired] }.
  */
-export function diffReminders(pending, desired, exact) {
+export function diffReminders(pending, desired, exact, sound) {
   const want = new Map(desired.map(d => [d.id, d]));
+  const wantSound = sound === undefined ? undefined : soundInfo(sound).key;
   const cancel = [], keep = new Set();
   for (const p of pending || []) {
     if (!p || p.extra?.todoId == null) continue;
     const d = want.get(p.id);
     const sameExact = exact === undefined || p.extra.exact === undefined || p.extra.exact === !!exact;
-    const same = d && sameExact && pendingAt(p) === d.at.getTime() && p.title === d.title && p.body === d.body && p.extra.todoId === d.todoId;
+    const sameSound = wantSound === undefined || (p.extra.sound ?? 'default') === wantSound;
+    const same = d && sameExact && sameSound && pendingAt(p) === d.at.getTime() && p.title === d.title && p.body === d.body && p.extra.todoId === d.todoId;
     if (same) keep.add(p.id);
     else cancel.push(p.id);
   }
@@ -93,16 +121,20 @@ export function diffReminders(pending, desired, exact) {
  * (Android 12+): with it the alarm fires at the minute; without it Android may deliver it minutes late.
  * It is passed explicitly because the plugin, left to its default (exact), opens the "Alarms & reminders"
  * settings screen from inside every schedule() call it can't honour, and reconcile() runs on every change.
+ * `sound` is the chosen reminder sound: on Android 8+ the channel's (channelFor) is what plays, and the
+ * file named in `sound` is what Android 7 plays (it has no channels; silent.wav keeps Silent silent there).
  */
-export function toNotification(d, exact = true) {
+export function toNotification(d, exact = true, sound = 'default') {
+  const s = soundInfo(sound);
   return {
     id: d.id,
     title: d.title,
     body: d.body,
     schedule: { at: d.at, allowWhileIdle: true },
-    channelId: CHANNEL_ID,
+    channelId: channelFor(s.key),
+    ...(s.key === 'default' ? {} : { sound: s.file || 'silent.wav' }),
     isExactNotification: !!exact,
-    extra: { todoId: d.todoId, at: d.at.getTime(), exact: !!exact },
+    extra: { todoId: d.todoId, at: d.at.getTime(), exact: !!exact, sound: s.key },
   };
 }
 
@@ -111,13 +143,15 @@ export function toNotification(d, exact = true) {
 /**
  * One press of the Android back button: closes the topmost thing and says what it did. The caller
  * minimises the app on 'minimize'. Order: Quick Find, the When picker, a card menu, the Sync panel, the
- * open to-do card, the composer, then (phone layout) back to the lists home, then out of the app.
+ * Reminder Sound panel, the open to-do card, the composer, then (phone layout) back to the lists home,
+ * then out of the app.
  */
 export function handleBack() {
   if (quickfind.isOpen()) { quickfind.close(); return 'quickfind'; }
   if (when.isOpen()) { when.close(); return 'when'; }
   if (detail.menuOpen()) { detail.closeMenu(); return 'menu'; }
   if (account.isOpen()) { account.close(); return 'sync'; }
+  if (sounds.isOpen()) { sounds.close(); return 'sounds'; }
   if (detail.isOpen()) { detail.close(); return 'detail'; }
   if (ui.composing) { composer.close(); return 'composer'; }
   if (ui.layout === 'phone' && router.parse().view !== 'lists') { router.go('#/lists'); return 'lists'; }
@@ -164,13 +198,15 @@ export function openReminder(todoId) {
 // ---------- native only ----------
 let LN = null, App = null;
 let reconcileTimer = 0, reconciling = null, reconcileAgain = false;
+let channelReady = null; // the sound whose channel this run of the app has created (see ensureChannel)
 let lastUrl = '', lastUrlAt = 0;
 
 /**
  * Starts the native glue. Returns immediately in a browser. On the phone it loads the vendored Capacitor
- * runtime, registers the two plugins, creates the notification channel, reconciles the reminders now,
- * on every store change (debounced) and on resume, and wires the back button, notification taps and
- * the launcher shortcuts. Nothing here throws into the app: every failure is logged and swallowed.
+ * runtime, registers the two plugins, reconciles the reminders now (which makes the chosen sound's
+ * notification channel), on every store change (debounced), on a change of sound and on resume, and wires
+ * the back button, notification taps and the launcher shortcuts. Nothing here throws into the app: every
+ * failure is logged and swallowed.
  */
 export async function initNative() {
   if (!isNative()) return;
@@ -183,12 +219,6 @@ export async function initNative() {
     LN = App = null;
     return;
   }
-  try {
-    await LN.createChannel({
-      id: CHANNEL_ID, name: 'Reminders', description: 'Reminders you set on to-dos', importance: 4, visibility: 1, vibration: true,
-    });
-  } catch (err) { console.warn('native: createChannel', err); }
-
   App.addListener('backButton', () => { if (handleBack() === 'minimize') App.minimizeApp().catch(() => {}); }).catch(() => {});
   App.addListener('resume', () => reconcile()).catch(() => {});
   App.addListener('appUrlOpen', ({ url }) => handleUrl(url)).catch(() => {});
@@ -201,6 +231,7 @@ export async function initNative() {
     clearTimeout(reconcileTimer);
     reconcileTimer = setTimeout(() => reconcile(), RECONCILE_DELAY);
   });
+  onSoundChange(() => reconcile()); // the pending reminders move to the new sound's channel
   reconcile();
 }
 
@@ -248,24 +279,62 @@ async function exactAllowed() {
 }
 
 /**
- * Makes the phone's pending notifications match desiredReminders(). Runs one at a time; a call during a
- * run queues one more run after it, so the last store change always wins.
+ * Makes sure the channel for `sound` exists, once per run of the app and per sound (channelSpec; Android
+ * ignores a second creation with the same id, apart from an importance it may lower). True when it was
+ * created now: the caller then prunes the other channels once the reminders are on this one. A phone
+ * without channels (Android 7) has nothing to create.
+ */
+async function ensureChannel(sound) {
+  if (channelReady === sound) return false;
+  try {
+    await LN.createChannel(channelSpec(sound));
+  } catch (err) {
+    if (err?.code !== 'UNAVAILABLE') { console.warn('native: createChannel', err); return false; }
+  }
+  channelReady = sound;
+  return true;
+}
+
+/**
+ * Deletes our channels other than `keep`, so the phone's notification settings list one "Reminders" and
+ * not one per sound ever chosen. Android keeps a deleted channel's settings and restores them if the
+ * channel comes back (that sound chosen again), so nothing set there is lost. Deleting a channel also
+ * clears a reminder of its that is still showing; the pending ones were moved first, so none is left on it.
+ */
+async function pruneChannels(keep) {
+  try {
+    const { channels } = await LN.listChannels();
+    for (const c of channels || []) {
+      if (c?.id && c.id !== keep && c.id.startsWith(CHANNEL_ID)) await LN.deleteChannel({ id: c.id });
+    }
+  } catch (err) {
+    if (err?.code !== 'UNAVAILABLE') console.warn('native: channels', err);
+  }
+}
+
+/**
+ * Makes the phone's pending notifications match desiredReminders(), on the channel of the chosen sound.
+ * Runs one at a time; a call during a run queues one more run after it, so the last change always wins.
  */
 export function reconcile() {
   if (!LN) return Promise.resolve();
   if (reconciling) { reconcileAgain = true; return reconciling; }
   reconciling = (async () => {
     try {
+      const sound = reminderSound();
       const desired = desiredReminders(state.todos, new Date());
       const pending = (await LN.getPending()).notifications || [];
-      if (desired.length && !(await ensurePermission())) return;
-      const exact = desired.length ? await exactAllowed() : true;
-      const { cancel, schedule } = diffReminders(pending, desired, exact);
-      if (cancel.length) await LN.cancel({ notifications: cancel.map(id => ({ id })) });
-      if (schedule.length) {
-        const r = await LN.schedule({ notifications: schedule.map(d => toNotification(d, exact)) });
-        if (r?.warning) console.warn('native: schedule', r.warning);
+      const fresh = await ensureChannel(sound);
+      if (!desired.length || await ensurePermission()) {
+        const exact = desired.length ? await exactAllowed() : true;
+        const { cancel, schedule } = diffReminders(pending, desired, exact, sound);
+        if (cancel.length) await LN.cancel({ notifications: cancel.map(id => ({ id })) });
+        if (schedule.length) {
+          const r = await LN.schedule({ notifications: schedule.map(d => toNotification(d, exact, sound)) });
+          if (r?.warning) console.warn('native: schedule', r.warning);
+        }
       }
+      if (fresh) await pruneChannels(channelFor(sound));
     } catch (err) {
       console.warn('native: reconcile', err);
     } finally {

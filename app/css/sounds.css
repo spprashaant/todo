@@ -1,0 +1,82 @@
+/* The Reminder Sound panel (module: sounds.js; the Android app's menus open it). Drawn like the Sync panel. */
+
+.snd-scrim {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .18);
+  animation: fade .12s ease-out;
+}
+
+.snd {
+  width: 340px;
+  max-width: 100%;
+  padding: 18px 18px 16px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 10px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .2), 0 1px 4px rgba(0, 0, 0, .08);
+  color: var(--ink);
+  font-size: 13px;
+  animation: pop .14s ease-out;
+}
+.snd-title { margin: 0 0 6px; font-size: 15px; font-weight: 600; color: var(--ink-3); }
+.snd-lead { margin: 0 0 8px; line-height: 1.4; color: var(--ink-2); }
+
+.snd-list { display: grid; margin: 0 -8px 8px; }
+.snd-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  text-align: left;
+  color: var(--ink);
+}
+.snd-opt:hover { background: #f4f5f7; }
+.snd-opt:focus-visible { outline: none; box-shadow: inset 0 0 0 2px rgba(93, 156, 245, .45); }
+.snd-text { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.snd-name { font-weight: 500; }
+.snd-note { color: var(--grey); font-size: 12px; line-height: 1.3; }
+.snd-mark { flex: none; width: 16px; height: 16px; color: var(--check); visibility: hidden; }
+.snd-mark svg { width: 16px; height: 16px; }
+.snd-opt[aria-checked="true"] .snd-mark { visibility: visible; }
+
+.snd-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.snd-btn {
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid #d3d5d9;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+}
+.snd-btn:hover { background: #f4f5f7; }
+.snd-btn.primary { border-color: var(--check); background: var(--check); color: #fff; }
+.snd-btn.primary:hover { background: #3f83e6; }
+.snd-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(93, 156, 245, .35); }
+
+@media (max-width: 699px) {
+  .snd-scrim { place-items: end center; padding: 0 0 var(--safe-b); }
+  .snd {
+    width: 100%;
+    padding: 22px calc(20px + var(--safe-r)) 20px calc(20px + var(--safe-l));
+    border-radius: 14px 14px 0 0;
+    font-size: 16px;
+  }
+  .snd-title { font-size: 20px; margin-bottom: 8px; }
+  .snd-lead { margin-bottom: 10px; }
+  .snd-list { max-height: 60vh; overflow: auto; margin: 0 -10px 10px; }
+  .snd-opt { min-height: 48px; padding: 8px 10px; border-radius: 10px; gap: 12px; }
+  .snd-note { font-size: 14px; }
+  .snd-mark, .snd-mark svg { width: 20px; height: 20px; }
+  .snd-actions { gap: 10px; margin-top: 8px; }
+  .snd-btn { flex: 1; height: 44px; border-radius: 10px; }
+}

@@ -12,6 +12,7 @@
     "cap:open": "cap open android",
     "android:debug": "npx cap sync android && cd android && ./gradlew assembleDebug",
     "android:assets": "node scripts/generate-assets.mjs",
+    "android:sounds": "node scripts/generate-sounds.mjs",
     "vendor:capacitor": "cp node_modules/@capacitor/core/dist/index.js app/vendor/capacitor-core.mjs && cp node_modules/@capacitor/core/LICENSE app/vendor/capacitor-core-LICENSE",
     "native:check": "node scripts/native-check.mjs && node scripts/native-back-check.mjs"
   },
